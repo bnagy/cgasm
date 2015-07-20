@@ -13,6 +13,7 @@ import (
 var (
 	verbose = flag.Bool("v", false, "Full documentation ( default is a truncated summary )")
 	fuzzy   = flag.Bool("f", false, "Fuzzy search (search with go regexp syntax)")
+	full    = flag.Bool("s", false, "Full text search (search with go regexp syntax)")
 )
 
 func lookup(item string) (s string, ok bool) {
@@ -77,7 +78,7 @@ func getHeader(item string) string {
 	return header
 }
 
-func fuzzySearch(item string) []string {
+func search(item string, matchDoc bool) []string {
 
 	results := []string{}
 	if !strings.HasPrefix(item, "(?") {
@@ -89,7 +90,11 @@ func fuzzySearch(item string) []string {
 		return results
 	}
 	for k, v := range data {
-		if r.MatchString(k) {
+		matched := r.MatchString(k)
+		if !matched && matchDoc {
+			matched = r.MatchString(v)
+		}
+		if matched {
 			if strings.HasPrefix(v, "-R:") {
 				results = append(results, fmt.Sprintf("%s -> %s", k, getHeader(k)))
 				continue
@@ -98,6 +103,26 @@ func fuzzySearch(item string) []string {
 		}
 	}
 	return results
+}
+
+func fullSearch(item string) []string {
+	return search(item, true)
+}
+
+func fuzzySearch(item string) []string {
+	return search(item, false)
+}
+
+func printMatches(query string, matches []string) {
+
+	if len(matches) == 0 {
+		fmt.Printf("%s - no documentation found.\n", query)
+		return
+	}
+	fmt.Printf("Matches for \"%s\" (%d):\n", query, len(matches))
+	for _, match := range matches {
+		fmt.Println(match)
+	}
 }
 
 func main() {
@@ -109,19 +134,18 @@ func main() {
 	}
 	query := flag.Arg(0)
 
+	if *full {
+		matches := fullSearch(query)
+		printMatches(query, matches)
+		os.Exit(0)
+	}
+
 	out, ok := lookup(strings.ToUpper(query))
 	if !ok {
 		// No exact match, try a fuzzy search
 		if *fuzzy {
 			matches := fuzzySearch(query)
-			if len(matches) == 0 {
-				fmt.Printf("%s - no documentation found.\n", query)
-				os.Exit(0)
-			}
-			fmt.Printf("Fuzzy matches for \"%s\" (%d):\n", query, len(matches))
-			for _, match := range matches {
-				fmt.Println(match)
-			}
+			printMatches(query, matches)
 			os.Exit(0)
 		}
 
