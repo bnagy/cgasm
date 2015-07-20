@@ -1857,6 +1857,7 @@ Same exceptions as in protected mode.
 Not applicable.
 
 `,
+"VBLENDPD":`-R:BLENDPD`,
 "BLENDPD":`
 BLENDPD  -  Blend Packed Double Precision Floating-Point Values:
 | Opcode/Instruction                        | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                                  
