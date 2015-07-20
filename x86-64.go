@@ -37757,7 +37757,7 @@ See Exceptions Type 4; additionally
 `,
 "PSUBUSW":`-R:PSUBUSB`,
 "PTEST":`
-PTEST- Logical Compare:
+PTEST - Logical Compare:
 | Opcode/Instruction                    | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                           
 | 66 0F 38 17 /r PTEST xmm1, xmm2/m128  | RM   | V/V                   | SSE4_1            | Set ZF if xmm2/m128 AND xmm1 result   
 |                                       |      |                       |                   | is all 0s. Set CF if xmm2/m128 AND NOT
