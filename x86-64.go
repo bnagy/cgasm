@@ -4552,6 +4552,36 @@ and PF flags are unaffected.
 Exceptions (All Operating Modes):
 | #UD| If the LOCK prefix is used.
 `,
+"CMOVA":`-R:CMOVcc`,
+"CMOVAE":`-R:CMOVcc`,
+"CMOVB":`-R:CMOVcc`,
+"CMOVBE":`-R:CMOVcc`,
+"CMOVC":`-R:CMOVcc`,
+"CMOVE":`-R:CMOVcc`,
+"CMOVG":`-R:CMOVcc`,
+"CMOVGE":`-R:CMOVcc`,
+"CMOVL":`-R:CMOVcc`,
+"CMOVLE":`-R:CMOVcc`,
+"CMOVNA":`-R:CMOVcc`,
+"CMOVNAE":`-R:CMOVcc`,
+"CMOVNB":`-R:CMOVcc`,
+"CMOVNBE":`-R:CMOVcc`,
+"CMOVNC":`-R:CMOVcc`,
+"CMOVNE":`-R:CMOVcc`,
+"CMOVNG":`-R:CMOVcc`,
+"CMOVNGE":`-R:CMOVcc`,
+"CMOVNL":`-R:CMOVcc`,
+"CMOVNLE":`-R:CMOVcc`,
+"CMOVNO":`-R:CMOVcc`,
+"CMOVNP":`-R:CMOVcc`,
+"CMOVNS":`-R:CMOVcc`,
+"CMOVNZ":`-R:CMOVcc`,
+"CMOVO":`-R:CMOVcc`,
+"CMOVP":`-R:CMOVcc`,
+"CMOVPE":`-R:CMOVcc`,
+"CMOVPO":`-R:CMOVcc`,
+"CMOVS":`-R:CMOVcc`,
+"CMOVZ":`-R:CMOVcc`,
 "CMOVcc":`
 CMOVcc - Conditional Move:
 | Opcode          | Instruction       | Op/En| 64-Bit Mode| Compat/Leg Mode| Description                            
@@ -11455,6 +11485,14 @@ Same exceptions as in protected mode.
 
 `,
 "FNCLEX":`-R:FCLEX`,
+"FCMOVB":`-R:FCMOVcc`,
+"FCMOVE":`-R:FCMOVcc`,
+"FCMOVBE":`-R:FCMOVcc`,
+"FCMOVU":`-R:FCMOVcc`,
+"FCMOVNB":`-R:FCMOVcc`,
+"FCMOVNE":`-R:FCMOVcc`,
+"FCMOVNBE":`-R:FCMOVcc`,
+"FCMOVNU":`-R:FCMOVcc`,
 "FCMOVcc":`
 FCMOVcc - Floating-Point Conditional Move:
 | Opcode*| Instruction          | 64-Bit Mode| Compat/Leg Mode*| Description                           
@@ -18385,6 +18423,7 @@ Same exceptions as in protected mode.
 `,
 "INTO":`-R:INT n`,
 "INT 3":`-R:INT n`,
+"INT":`-R:INT n`,
 "INVD":`
 INVD - Invalidate Internal Caches:
 | Opcode| Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                             
@@ -19152,6 +19191,39 @@ Compatibility Mode Exceptions:
 | #UD            | If the LOCK prefix is used.                
 `,
 "IRETD":`-R:IRET`,
+"JA":`-R:Jcc`,
+"JAE":`-R:Jcc`,
+"JB":`-R:Jcc`,
+"JBE":`-R:Jcc`,
+"JC":`-R:Jcc`,
+"JCXZ":`-R:Jcc`,
+"JECX":`-R:Jcc`,
+"JRCX":`-R:Jcc`,
+"JE":`-R:Jcc`,
+"JG":`-R:Jcc`,
+"JGE":`-R:Jcc`,
+"JL":`-R:Jcc`,
+"JLE":`-R:Jcc`,
+"JNA":`-R:Jcc`,
+"JNAE":`-R:Jcc`,
+"JNB":`-R:Jcc`,
+"JNBE":`-R:Jcc`,
+"JNC":`-R:Jcc`,
+"JNE":`-R:Jcc`,
+"JNG":`-R:Jcc`,
+"JNGE":`-R:Jcc`,
+"JNL":`-R:Jcc`,
+"JNLE":`-R:Jcc`,
+"JNO":`-R:Jcc`,
+"JNP":`-R:Jcc`,
+"JNS":`-R:Jcc`,
+"JNZ":`-R:Jcc`,
+"JO":`-R:Jcc`,
+"JP":`-R:Jcc`,
+"JPE":`-R:Jcc`,
+"JPO":`-R:Jcc`,
+"JS":`-R:Jcc`,
+"JZ":`-R:Jcc`,
 "Jcc":`
 Jcc - Jump if Condition Is Met:
 | Opcode  | Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                                 
@@ -21272,6 +21344,10 @@ Same exceptions as in protected mode.
 "LODSW":`-R:LODS`,
 "LODSD":`-R:LODS`,
 "LODSQ":`-R:LODS`,
+"LOOPE":`-R:LOOP`,
+"LOOPNE":`-R:LOOP`,
+"LOOPNZ":`-R:LOOP`,
+"LOOPZ":`-R:LOOP`,
 "LOOP":`
 LOOP/LOOPcc - Loop According to ECX Counter:
 | Opcode| Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                         
@@ -21390,7 +21466,6 @@ Same exceptions as in protected mode.
 |       | a non-canonical form.              
 | #UD   | If the LOCK prefix is used.        
 `,
-"LOOPcc":`-R:LOOP`,
 "LSL":`
 LSL - Load Segment Limit:
 | Opcode          | Instruction      | Op/En| 64-Bit Mode| Compat/Leg Mode| Description                        
@@ -42069,6 +42144,36 @@ Same exceptions as in protected mode.
 "SCASB":`-R:SCAS`,
 "SCASW":`-R:SCAS`,
 "SCASD":`-R:SCAS`,
+"SETA":`-R:SETcc`,
+"SETAE":`-R:SETcc`,
+"SETB":`-R:SETcc`,
+"SETBE":`-R:SETcc`,
+"SETC":`-R:SETcc`,
+"SETE":`-R:SETcc`,
+"SETG":`-R:SETcc`,
+"SETGE":`-R:SETcc`,
+"SETL":`-R:SETcc`,
+"SETLE":`-R:SETcc`,
+"SETNA":`-R:SETcc`,
+"SETNAE":`-R:SETcc`,
+"SETNB":`-R:SETcc`,
+"SETNBE":`-R:SETcc`,
+"SETNC":`-R:SETcc`,
+"SETNE":`-R:SETcc`,
+"SETNG":`-R:SETcc`,
+"SETNGE":`-R:SETcc`,
+"SETNL":`-R:SETcc`,
+"SETNLE":`-R:SETcc`,
+"SETNO":`-R:SETcc`,
+"SETNP":`-R:SETcc`,
+"SETNS":`-R:SETcc`,
+"SETNZ":`-R:SETcc`,
+"SETO":`-R:SETcc`,
+"SETP":`-R:SETcc`,
+"SETPE":`-R:SETcc`,
+"SETPO":`-R:SETcc`,
+"SETS":`-R:SETcc`,
+"SETZ":`-R:SETcc`,
 "SETcc":`
 SETcc - Set Byte on Condition:
 | Opcode     | Instruction | Op/En| 64-Bit Mode| Compat/Leg Mode| Description                           

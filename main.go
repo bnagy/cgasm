@@ -64,31 +64,37 @@ func summary(item string) string {
 	return output.String()
 }
 
+func getHeader(item string) string {
+	s, _ := lookup(item)
+	scanner := bufio.NewScanner(strings.NewReader(s))
+	scanner.Scan()
+	scanner.Scan()
+	header := strings.TrimSuffix(scanner.Text(), ":")
+	if !strings.Contains(header, " - ") {
+		fmt.Fprintf(os.Stderr, "[BUG] unexpected entry data for %s\n", header)
+		os.Exit(1)
+	}
+	return header
+}
+
 func fuzzySearch(item string) []string {
+
 	results := []string{}
 	if !strings.HasPrefix(item, "(?") {
 		item = "(?i)" + item
 	}
+
 	r, err := regexp.Compile(item)
 	if err != nil {
 		return results
 	}
 	for k, v := range data {
-		// Don't show redirect entries as matches
-		if strings.HasPrefix(v, "-R:") {
-			continue
-		}
 		if r.MatchString(k) {
-			// Grab the title line
-			scanner := bufio.NewScanner(strings.NewReader(v))
-			scanner.Scan()
-			scanner.Scan()
-			header := strings.TrimSuffix(scanner.Text(), ":")
-			if !strings.Contains(header, " - ") {
-				fmt.Fprintf(os.Stderr, "[BUG] unexpected entry data for %s\n", k)
-				os.Exit(1)
+			if strings.HasPrefix(v, "-R:") {
+				results = append(results, fmt.Sprintf("%s -> %s", k, getHeader(k)))
+				continue
 			}
-			results = append(results, header)
+			results = append(results, getHeader(k))
 		}
 	}
 	return results
