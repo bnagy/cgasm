@@ -1,0 +1,181 @@
+#! /usr/bin/env ruby
+
+f = File.new(File.join("#{File.dirname(__FILE__)}", "x86-64.orig.sql"))
+
+def parse_table f, opcode_col
+
+	redirects = []
+	all = []
+
+	# collect redirects while we're in the table that starts the entry
+	loop do
+		row = f.readline
+		all << row
+		break unless row[0] == "|"
+		cols = row.split("|")
+		if cols.size < opcode_col
+			fail "Unrecognised column format in #{__method__}: #{row}"
+		end
+		insn_col = cols[opcode_col] << '|'
+		# EITHER:
+		# - Two or more uppercase letters
+		# - Three or more uppercase letters plus numbers
+		# then followed by space or | (end of column)
+		insns = insn_col.scan(/ ([A-Z]{2,}|[A-Z0-9]{3,})[ |]/)
+		# The regex above leaves hex coded bytes (AE FF) in there.
+		# Strip those. The only two letter redirects should be Jx
+		# (otherwise this is broken)
+		insns = insns.flatten.reject {|i| i =~ /^[A-F]{2}$/}
+		insns -= ["REX"]
+		redirects << insns.first if insns.first
+	end
+
+	# now collect the rest of the entry
+	loop do
+		row = f.readline
+		break if row == "');\n"
+		all << row
+	end
+
+	return [redirects.flatten.uniq, all]
+
+end
+
+master = {}
+used_redirects = {}
+
+case ARGV[0]
+when "go"
+	@format = :go
+when "sql"
+	@format = :sql
+else
+	fail "Usage: #{$0} [go|sql]"
+end
+
+loop do
+
+	line = f.readline rescue break
+
+	# Skip existing redirects. We will recreate them.
+	next if line =~ /-R:/
+
+	if line =~ /INSERT INTO/
+		# INSERT INTO `instructions` VALUES ('x86','PTEST','
+		line.slice!("INSERT INTO `instructions` VALUES ('x86',") 
+		# this will be the map / sql key
+		key = line.split(',').first.tr("'","")
+		# this is the first line of the DB value for this instruction
+		body_header = f.readline
+		
+		# First line of the value looks like:
+		# INT n/INTO/INT 3 - Call to Interrupt Procedure:
+
+		# This regex caters for two types of errors in the .sql - a
+		# stray space around the hypen (ANDN), and a missing space
+		# between the instruction name and the hypen (PTEST)
+		body_key = body_header.split(/\W*-\W+/).first.split('/').first
+		if body_key != key
+			fail "Text didn't match key? #{body_key} || #{body_key.bytes} - #{key.bytes}"
+		end
+		# Correct the bad body headers
+		body_header = body_header.split(/\W*-\W+/).join(' - ')
+		# OK, so far we're sane.
+
+		# Now we need to start parsing the text table that contains
+		# all the instruction summaries. There are two variants, a
+		# combined Opcode/Instruction layout and another where Opcode
+		# and Instruction have their own columns.
+
+		# | Opcode| Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                         
+		# | CC    | INT 3      | NP   | Valid      | Valid          | Interrupt 3 - trap to debugger.       
+		# | CD ib | INT imm8   | I    | Valid      | Valid          | Interrupt vector number specified by
+		# |       |            |      |            |                | immediate byte.                     
+		# | CE    | INTO       | NP   | Invalid    | Valid          | Interrupt 4 - if overflow flag is 1. 
+
+		# ( this one is truncated before the Description column )
+		# | Opcode/Instruction                 | Op/En| 64/32-bit Mode| CPUID Feature Flag| 
+		# | F2 0F 7D /r HSUBPS xmm1, xmm2/m128 | RM   | V/V           | SSE3              | 
+		# |                                    |      |               |                   | 
+		# |                                    |      |               |                   | 
+		# | VEX.NDS.128.F2.0F.WIG 7D /r VHSUBPS| RVM  | V/V           | AVX               | 
+		# | xmm1, xmm2, xmm3/m128              |      |               |                   | 
+		# |                                    |      |               |                   | 
+		# | VEX.NDS.256.F2.0F.WIG 7D /r VHSUBPS| RVM  | V/V           | AVX               | 
+		# | ymm1, ymm2, ymm3/m256              |      |               |                   | 
+		# |                                    |      |               |                   |  
+
+		table_header = f.readline
+		# Faulty table data in MOVS - skip up to three lines
+		# MOVS/MOVSB/MOVSW/MOVSD/MOVSQ - Move Data from String to String:
+		# \
+		#
+		# | Opcode    | Instruction  | Op/En| 64-Bit Mode| Compat/Leg Mode| Description   
+		3.times do
+			break if table_header =~ /Opcode/
+			table_header = f.readline
+		end
+
+		redirects = []
+		all = []
+		case table_header
+		# SQRTSD has a broken header like: Opcode*/Instruction
+		# so our match just says "no | between Opcode and Instruction"
+		when /Opcode[^|]+Instruction/
+			redirects, all  = parse_table f, 1
+		when /Opcode/
+			redirects, all = parse_table f, 2
+		else
+			fail "Unrecognised table_header"
+		end
+		# No redirects to self
+		redirects -= [key]
+		# put the table header and first line back into the entry
+		all.unshift table_header
+		all.unshift body_header
+		master[key] = [all.join, redirects]	
+
+	end # entry parser
+
+end # parse loop
+
+# OK. Now we have everything we need. Here's why we didn't
+# just write out as we went - there are a few mnemonics that
+# collide, like MOVSD (doubleword MOVS abut also Move Scalar
+# Double Precision). I don't know the best way to handle this,
+# but what I am going to do is ignore that ONE redirect for
+# MOVS. In other words, you can't have redirects that are
+# existing top-level keys. Sadly, to do that, I need to know
+# all the toplevel keys first.
+
+case @format
+when :go
+	puts("package main\n\nvar data = map[string]string {")
+	master.each {|k,(all,redirs)|
+		print "\"#{k}\":`\n#{all}`,\n"
+		redirs.each {|r|
+			# There are a couple of redirects that are used twice
+			# (VPCMPEQQ and VMOVQ). Don't know what to do here.
+			# Just keep the first one.
+			next if master[r] || used_redirects[r]
+			print "\"#{r}\":`-R:#{k}`,\n"
+			used_redirects[r] = true
+		}
+	}
+	puts "}"
+when :sql
+	puts "BEGIN TRANSACTION;"
+	puts "CREATE TABLE instructions (platform TEXT, mnem TEXT, description TEXT);"
+		master.each {|k,(all,redirs)|
+		print "INSERT INTO `instructions` VALUES ('x86','#{k}','\n#{all}');\n"
+		redirs.each {|r|
+			# There are a couple of redirects that are used twice
+			# (VPCMPEQQ and VMOVQ). Don't know what to do here.
+			# Just keep the first one.
+			next if master[r] || used_redirects[r]
+			print "INSERT INTO `instructions` VALUES ('x86','#{r}','-R:#{k}');\n"
+			used_redirects[r] = true
+		}
+	}
+	puts "COMMIT;"
+end

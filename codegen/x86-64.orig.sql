@@ -1,7 +1,6 @@
-package main
-
-var data = map[string]string {
-"AAA":`
+BEGIN TRANSACTION;
+CREATE TABLE instructions (platform TEXT, mnem TEXT, description TEXT);
+INSERT INTO `instructions` VALUES ('x86','AAA','
 AAA - ASCII Adjust After Addition:
 | Opcode| Instruction| Op/En| 64-bit Mode| Compat/Leg Mode| Description                    
 | 37    | AAA        | NP   | Invalid    | Valid          | ASCII adjust AL after addition.
@@ -68,8 +67,8 @@ Same exceptions as protected mode.
 
 64-Bit Mode Exceptions:
 | #UD| If in 64-bit mode.
-`,
-"AAD":`
+');
+INSERT INTO `instructions` VALUES ('x86','AAD','
 AAD - ASCII Adjust AX Before Division:
 | Opcode| Instruction| Op/En| 64-bit Mode| Compat/Leg Mode| Description                        
 | D5 0A | AAD        | NP   | Invalid    | Valid          | ASCII adjust AX before division.   
@@ -138,8 +137,8 @@ Same exceptions as protected mode.
 
 64-Bit Mode Exceptions:
 | #UD| If in 64-bit mode.
-`,
-"AAM":`
+');
+INSERT INTO `instructions` VALUES ('x86','AAM','
 AAM - ASCII Adjust AX After Multiply:
 | Opcode| Instruction| Op/En| 64-bit Mode| Compat/Leg Mode| Description                            
 | D4 0A | AAM        | NP   | Invalid    | Valid          | ASCII adjust AX after multiply.        
@@ -205,8 +204,8 @@ Same exceptions as protected mode.
 
 64-Bit Mode Exceptions:
 | #UD| If in 64-bit mode.
-`,
-"AAS":`
+');
+INSERT INTO `instructions` VALUES ('x86','AAS','
 AAS - ASCII Adjust AL After Subtraction:
 | Opcode| Instruction| Op/En| 64-bit Mode| Compat/Leg Mode| Description                       
 | 3F    | AAS        | NP   | Invalid    | Valid          | ASCII adjust AL after subtraction.
@@ -274,8 +273,8 @@ Same exceptions as protected mode.
 
 64-Bit Mode Exceptions:
 | #UD| If in 64-bit mode.
-`,
-"ADC":`
+');
+INSERT INTO `instructions` VALUES ('x86','ADC','
 ADC - Add with Carry:
 | Opcode          | Instruction     | Op/En| 64-bit Mode| Compat/Leg Mode| Description                               
 | 14 ib           | ADC AL, imm8    | I    | Valid      | Valid          | Add with carry imm8 to AL.                
@@ -417,8 +416,8 @@ Same exceptions as in protected mode.
 |                | 3.                                            
 | #UD            | If the LOCK prefix is used but the destination
 |                | is not a memory operand.                      
-`,
-"ADD":`
+');
+INSERT INTO `instructions` VALUES ('x86','ADD','
 ADD - Add:
 | Opcode          | Instruction     | Op/En| 64-bit Mode| Compat/Leg Mode| Description                          
 | 04 ib           | ADD AL, imm8    | I    | Valid      | Valid          | Add imm8 to AL.                      
@@ -541,8 +540,8 @@ Same exceptions as in protected mode.
 |                | 3.                                            
 | #UD            | If the LOCK prefix is used but the destination
 |                | is not a memory operand.                      
-`,
-"ADDPD":`
+');
+INSERT INTO `instructions` VALUES ('x86','ADDPD','
 ADDPD - Add Packed Double-Precision Floating-Point Values:
 | Opcode/Instruction                           | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                               
 | 66 0F 58 /r ADDPD xmm1, xmm2/m128            | RM   | V/V           | SSE2              | Add packed double-precision floating-point
@@ -612,9 +611,8 @@ Overflow, Underflow, Invalid, Precision, Denormal.
 Other Exceptions:
 See Exceptions Type 2.
 
-`,
-"VADDPD":`-R:ADDPD`,
-"ADDPS":`
+');
+INSERT INTO `instructions` VALUES ('x86','ADDPS','
 ADDPS - Add Packed Single-Precision Floating-Point Values:
 | Opcode/Instruction                        | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                               
 | 0F 58 /r ADDPS xmm1, xmm2/m128            | RM   | V/V           | SSE               | Add packed single-precision floating-point
@@ -689,9 +687,8 @@ Overflow, Underflow, Invalid, Precision, Denormal.
 Other Exceptions:
 See Exceptions Type 2.
 
-`,
-"VADDPS":`-R:ADDPS`,
-"ADDSD":`
+');
+INSERT INTO `instructions` VALUES ('x86','ADDSD','
 ADDSD - Add Scalar Double-Precision Floating-Point Values:
 | Opcode/Instruction                      | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                                
 | F2 0F 58 /r ADDSD xmm1, xmm2/m64        | RM   | V/V           | SSE2              | Add the low double-precision floating-point
@@ -742,9 +739,8 @@ Overflow, Underflow, Invalid, Precision, Denormal.
 Other Exceptions:
 See Exceptions Type 3.
 
-`,
-"VADDSD":`-R:ADDSD`,
-"ADDSS":`
+');
+INSERT INTO `instructions` VALUES ('x86','ADDSS','
 ADDSS - Add Scalar Single-Precision Floating-Point Values:
 | Opcode/Instruction                           | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                                
 | F3 0F 58 /r ADDSS xmm1, xmm2/m32             | RM   | V/V           | SSE               | Add the low single-precision floating-point
@@ -795,9 +791,8 @@ Overflow, Underflow, Invalid, Precision, Denormal.
 Other Exceptions:
 See Exceptions Type 3.
 
-`,
-"VADDSS":`-R:ADDSS`,
-"ADDSUBPD":`
+');
+INSERT INTO `instructions` VALUES ('x86','ADDSUBPD','
 ADDSUBPD - Packed Double-FP Add/Subtract:
 | Opcode/Instruction                   | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                                 
 | 66 0F D0 /r ADDSUBPD xmm1, xmm2/m128 | RM   | V/V           | SSE3              | Add/subtract double-precision floating-point
@@ -878,9 +873,8 @@ Overflow, Underflow, Invalid, Precision, Denormal.
 Other Exceptions:
 See Exceptions Type 2.
 
-`,
-"VADDSUBPD":`-R:ADDSUBPD`,
-"ADDSUBPS":`
+');
+INSERT INTO `instructions` VALUES ('x86','ADDSUBPS','
 ADDSUBPS - Packed Single-FP Add/Subtract:
 | Opcode/Instruction                   | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                                   
 | F2 0F D0 /r ADDSUBPS xmm1, xmm2/m128 | RM   | V/V           | SSE3              | Add/subtract single-precision floating-point  
@@ -970,9 +964,8 @@ Overflow, Underflow, Invalid, Precision, Denormal.
 Other Exceptions:
 See Exceptions Type 2.
 
-`,
-"VADDSUBPS":`-R:ADDSUBPS`,
-"AESDEC":`
+');
+INSERT INTO `instructions` VALUES ('x86','AESDEC','
 AESDEC - Perform One Round of an AES Decryption Flow:
 | Opcode/Instruction                   | Op/En| 64/32-bit Mode| CPUID Feature Flag    | Description                               
 | 66 0F 38 DE /r AESDEC xmm1, xmm2/m128| RM   | V/V           | AES                   | Perform one round of an AES decryption    
@@ -1034,9 +1027,8 @@ None
 Other Exceptions:
 See Exceptions Type 4.
 
-`,
-"VAESDEC":`-R:AESDEC`,
-"AESDECLAST":`
+');
+INSERT INTO `instructions` VALUES ('x86','AESDECLAST','
 AESDECLAST - Perform Last Round of an AES Decryption Flow:
 | Opcode/Instruction                       | Op/En| 64/32-bit Mode| CPUID Feature Flag    | Description                                
 | 66 0F 38 DF /r AESDECLAST xmm1, xmm2/m128| RM   | V/V           | AES                   | Perform the last round of an AES decryption
@@ -1094,9 +1086,8 @@ None
 Other Exceptions:
 See Exceptions Type 4.
 
-`,
-"VAESDECLAST":`-R:AESDECLAST`,
-"AESENC":`
+');
+INSERT INTO `instructions` VALUES ('x86','AESENC','
 AESENC - Perform One Round of an AES Encryption Flow:
 | Opcode/Instruction                   | Op/En| 64/32-bit Mode| CPUID Feature Flag    | Description                              
 | 66 0F 38 DC /r AESENC xmm1, xmm2/m128| RM   | V/V           | AES                   | Perform one round of an AES encryption   
@@ -1155,9 +1146,8 @@ None
 Other Exceptions:
 See Exceptions Type 4.
 
-`,
-"VAESENC":`-R:AESENC`,
-"AESENCLAST":`
+');
+INSERT INTO `instructions` VALUES ('x86','AESENCLAST','
 AESENCLAST - Perform Last Round of an AES Encryption Flow:
 | Opcode/Instruction                       | Op/En| 64/32-bit Mode| CPUID Feature Flag    | Description                                
 | 66 0F 38 DD /r AESENCLAST xmm1, xmm2/m128| RM   | V/V           | AES                   | Perform the last round of an AES encryption
@@ -1213,9 +1203,8 @@ None
 Other Exceptions:
 See Exceptions Type 4.
 
-`,
-"VAESENCLAST":`-R:AESENCLAST`,
-"AESIMC":`
+');
+INSERT INTO `instructions` VALUES ('x86','AESIMC','
 AESIMC - Perform the AES InvMixColumn Transformation:
 | Opcode/Instruction                     | Op/En| 64/32-bit Mode| CPUID Feature Flag    | Description                            
 | 66 0F 38 DB /r AESIMC xmm1, xmm2/m128  | RM   | V/V           | AES                   | Perform the InvMixColumn transformation
@@ -1264,9 +1253,8 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.vvvv != 1111B.
-`,
-"VAESIMC":`-R:AESIMC`,
-"AESKEYGENASSIST":`
+');
+INSERT INTO `instructions` VALUES ('x86','AESKEYGENASSIST','
 AESKEYGENASSIST - AES Round Key Generation Assist:
 | Opcode/Instruction                           | Op/En| 64/32-bit Mode| CPUID Feature Flag    | Description                              
 | 66 0F 3A DF /r ib AESKEYGENASSIST xmm1,      | RMI  | V/V           | AES                   | Assist in AES round key generation using 
@@ -1334,9 +1322,8 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.vvvv != 1111B.
-`,
-"VAESKEYGENASSIST":`-R:AESKEYGENASSIST`,
-"AND":`
+');
+INSERT INTO `instructions` VALUES ('x86','AND','
 AND - Logical AND:
 | Opcode          | Instruction     | Op/En| 64-bit Mode| Compat/Leg Mode| Description                              
 | 24 ib           | AND AL, imm8    | I    | Valid      | Valid          | AL AND imm8.                             
@@ -1452,9 +1439,9 @@ Same exceptions as in protected mode.
 |                | 3.                                            
 | #UD            | If the LOCK prefix is used but the destination
 |                | is not a memory operand.                      
-`,
-"ANDN":`
-ANDN - Logical AND NOT:
+');
+INSERT INTO `instructions` VALUES ('x86','ANDN','
+ANDN  -  Logical AND NOT:
 | Opcode/Instruction                  | Op/En| 64/32 -bit Mode| CPUID Feature Flag| Description                             
 | VEX.NDS.LZ.0F38.W0 F2 /r ANDN r32a, | RVM  | V/V            | BMI1              | Bitwise AND of inverted r32b with r/m32,
 | r32b, r/m32                         |      |                |                   | store result in r32a.                   
@@ -1498,8 +1485,8 @@ See Section 2.5.1, “Exception Conditions for VEX-Encoded GPR Instructions”,
 Table 2-29; additionally
 
 | #UD| If VEX.W = 1.
-`,
-"ANDPD":`
+');
+INSERT INTO `instructions` VALUES ('x86','ANDPD','
 ANDPD - Bitwise Logical AND of Packed Double-Precision Floating-Point Values:
 | Opcode/Instruction                      | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                             
 | 66 0F 54 /r ANDPD xmm1, xmm2/m128       | RM   | V/V           | SSE2              | Return the bitwise logical AND of packed
@@ -1563,9 +1550,8 @@ None.
 Other Exceptions:
 See Exceptions Type 4.
 
-`,
-"VANDPD":`-R:ANDPD`,
-"ANDPS":`
+');
+INSERT INTO `instructions` VALUES ('x86','ANDPS','
 ANDPS - Bitwise Logical AND of Packed Single-Precision Floating-Point Values:
 | Opcode/Instruction                        | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                             
 | 0F 54 /r ANDPS xmm1, xmm2/m128            | RM   | V/V           | SSE               | Bitwise logical AND of xmm2/m128 and    
@@ -1635,9 +1621,8 @@ None.
 Other Exceptions:
 See Exceptions Type 4.
 
-`,
-"VANDPS":`-R:ANDPS`,
-"ANDNPD":`
+');
+INSERT INTO `instructions` VALUES ('x86','ANDNPD','
 ANDNPD - Bitwise Logical AND NOT of Packed Double-Precision Floating-Point Values:
 | Opcode/Instruction                      | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                           
 | 66 0F 55 /r ANDNPD xmm1, xmm2/m128      | RM   | V/V           | SSE2              | Bitwise logical AND NOT of xmm2/m128  
@@ -1700,9 +1685,8 @@ None.
 Other Exceptions:
 See Exceptions Type 4.
 
-`,
-"VANDNPD":`-R:ANDNPD`,
-"ANDNPS":`
+');
+INSERT INTO `instructions` VALUES ('x86','ANDNPS','
 ANDNPS - Bitwise Logical AND NOT of Packed Single-Precision Floating-Point Values:
 | Opcode/Instruction                    | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                           
 | 0F 55 /r ANDNPS xmm1, xmm2/m128       | RM   | V/V           | SSE               | Bitwise logical AND NOT of xmm2/m128  
@@ -1775,9 +1759,8 @@ None.
 Other Exceptions:
 See Exceptions Type 4.
 
-`,
-"VANDNPS":`-R:ANDNPS`,
-"ARPL":`
+');
+INSERT INTO `instructions` VALUES ('x86','ARPL','
 ARPL - Adjust RPL Field of Segment Selector:
 | Opcode| Instruction    | Op/En| 64-bit Mode| Compat/Leg Mode| Description                         
 | 63 /r | ARPL r/m16, r16| NP   | N. E.      | Valid          | Adjust RPL of r/m16 to not less than
@@ -1872,9 +1855,9 @@ Same exceptions as in protected mode.
 64-Bit Mode Exceptions:
 Not applicable.
 
-`,
-"BLENDPD":`
-BLENDPD - Blend Packed Double Precision Floating-Point Values:
+');
+INSERT INTO `instructions` VALUES ('x86','BLENDPD','
+BLENDPD  -  Blend Packed Double Precision Floating-Point Values:
 | Opcode/Instruction                        | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                                  
 | 66 0F 3A 0D /r ib BLENDPD xmm1, xmm2/m128,| RMI  | V/V           | SSE4_1            | Select packed DP-FP values from xmm1         
 | imm8                                      |      |               |                   | and xmm2/m128 from mask specified in         
@@ -1949,10 +1932,9 @@ None
 Other Exceptions:
 See Exceptions Type 4.
 
-`,
-"VBLENDPD":`-R:BLENDPD`,
-"BEXTR":`
-BEXTR - Bit Field Extract:
+');
+INSERT INTO `instructions` VALUES ('x86','BEXTR','
+BEXTR  -  Bit Field Extract:
 | Opcode/Instruction                   | Op/En| 64/32 -bit Mode| CPUID Feature Flag| Description                          
 | VEX.NDS1.LZ.0F38.W0 F7 /r BEXTR r32a,| RMV  | V/V            | BMI1              | Contiguous bitwise extract from r/m32
 | r/m32, r32b                          |      |                |                   | using r32b as control; store result  
@@ -2015,9 +1997,9 @@ See Section 2.5.1, “Exception Conditions for VEX-Encoded GPR Instructions”,
 Table 2-29; additionally
 
 | #UD| If VEX.W = 1.
-`,
-"BLENDPS":`
-BLENDPS - Blend Packed Single Precision Floating-Point Values:
+');
+INSERT INTO `instructions` VALUES ('x86','BLENDPS','
+BLENDPS  -  Blend Packed Single Precision Floating-Point Values:
 | Opcode/Instruction                        | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                                  
 | 66 0F 3A 0C /r ib BLENDPS xmm1, xmm2/m128,| RMI  | V/V           | SSE4_1            | Select packed single precision floating-point
 | imm8                                      |      |               |                   | values from xmm1 and xmm2/m128 from          
@@ -2109,10 +2091,9 @@ None
 Other Exceptions:
 See Exceptions Type 4.
 
-`,
-"VBLENDPS":`-R:BLENDPS`,
-"BLENDVPD":`
-BLENDVPD - Variable Blend Packed Double Precision Floating-Point Values:
+');
+INSERT INTO `instructions` VALUES ('x86','BLENDVPD','
+BLENDVPD  -  Variable Blend Packed Double Precision Floating-Point Values:
 | Opcode/Instruction                         | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                                
 | 66 0F 38 15 /r BLENDVPD xmm1, xmm2/m128    | RM0  | V/V           | SSE4_1            | Select packed DP FP values from xmm1       
 | , <XMM0>                                   |      |               |                   | and xmm2 from mask specified in XMM0       
@@ -2207,10 +2188,9 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.W = 1.
-`,
-"VBLENDVPD":`-R:BLENDVPD`,
-"BLENDVPS":`
-BLENDVPS - Variable Blend Packed Single Precision Floating-Point Values:
+');
+INSERT INTO `instructions` VALUES ('x86','BLENDVPS','
+BLENDVPS  -  Variable Blend Packed Single Precision Floating-Point Values:
 | Opcode/Instruction                         | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                                  
 | 66 0F 38 14 /r BLENDVPS xmm1, xmm2/m128,   | RM0  | V/V           | SSE4_1            | Select packed single precision floating-point
 | <XMM0>                                     |      |               |                   | values from xmm1 and xmm2/m128 from          
@@ -2322,10 +2302,9 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.W = 1.
-`,
-"VBLENDVPS":`-R:BLENDVPS`,
-"BLSI":`
-BLSI - Extract Lowest Set Isolated Bit:
+');
+INSERT INTO `instructions` VALUES ('x86','BLSI','
+BLSI  -  Extract Lowest Set Isolated Bit:
 | Opcode/Instruction                      | Op/En| 64/32 -bit Mode| CPUID Feature Flag| Description                           
 | VEX.NDD.LZ.0F38.W0 F3 /3 BLSI r32, r/m32| VM   | V/V            | BMI1              | Extract lowest set bit from r/m32 and 
 |                                         |      |                |                   | set that bit in r32.                  
@@ -2378,9 +2357,9 @@ See Section 2.5.1, “Exception Conditions for VEX-Encoded GPR Instructions”,
 Table 2-29; additionally
 
 | #UD| If VEX.W = 1.
-`,
-"BLSMSK":`
-BLSMSK - Get Mask Up to Lowest Set Bit:
+');
+INSERT INTO `instructions` VALUES ('x86','BLSMSK','
+BLSMSK  -  Get Mask Up to Lowest Set Bit:
 | Opcode/Instruction                  | Op/En| 64/32 -bit Mode| CPUID Feature Flag| Description                              
 | VEX.NDD.LZ.0F38.W0 F3 /2 BLSMSK r32,| VM   | V/V            | BMI1              | Set all lower bits in r32 to “1” starting
 | r/m32                               |      |                |                   | from bit 0 to lowest set bit in r/m32.   
@@ -2432,9 +2411,9 @@ See Section 2.5.1, “Exception Conditions for VEX-Encoded GPR Instructions”,
 Table 2-29; additionally
 
 | #UD| If VEX.W = 1.
-`,
-"BLSR":`
-BLSR - Reset Lowest Set Bit:
+');
+INSERT INTO `instructions` VALUES ('x86','BLSR','
+BLSR  -  Reset Lowest Set Bit:
 | Opcode/Instruction                      | Op/En| 64/32 -bit Mode| CPUID Feature Flag| Description                             
 | VEX.NDD.LZ.0F38.W0 F3 /1 BLSR r32, r/m32| VM   | V/V            | BMI1              | Reset lowest set bit of r/m32, keep     
 |                                         |      |                |                   | all other bits of r/m32 and write result
@@ -2488,8 +2467,8 @@ See Section 2.5.1, “Exception Conditions for VEX-Encoded GPR Instructions”,
 Table 2-29; additionally
 
 | #UD| If VEX.W = 1.
-`,
-"BOUND":`
+');
+INSERT INTO `instructions` VALUES ('x86','BOUND','
 BOUND - Check Array Index Against Bounds:
 | Opcode| Instruction      | Op/En| 64-bit Mode| Compat/Leg Mode| Description                         
 | 62 /r | BOUND r16, m16&16| RM   | Invalid    | Valid          | Check if r16 (array index) is within
@@ -2585,8 +2564,8 @@ Same exceptions as in protected mode.
 
 64-Bit Mode Exceptions:
 | #UD| If in 64-bit mode.
-`,
-"BSF":`
+');
+INSERT INTO `instructions` VALUES ('x86','BSF','
 BSF - Bit Scan Forward:
 | Opcode          | Instruction   | Op/En| 64-bit Mode| Compat/Leg Mode| Description               
 | 0F BC /r        | BSF r16, r/m16| RM   | Valid      | Valid          | Bit scan forward on r/m16.
@@ -2680,8 +2659,8 @@ Same exceptions as in protected mode.
 |                | while the current privilege level is       
 |                | 3.                                         
 | #UD            | If the LOCK prefix is used.                
-`,
-"BSR":`
+');
+INSERT INTO `instructions` VALUES ('x86','BSR','
 BSR - Bit Scan Reverse:
 | Opcode          | Instruction   | Op/En| 64-bit Mode| Compat/Leg Mode| Description               
 | 0F BD /r        | BSR r16, r/m16| RM   | Valid      | Valid          | Bit scan reverse on r/m16.
@@ -2775,8 +2754,8 @@ Same exceptions as in protected mode.
 |                | while the current privilege level is       
 |                | 3.                                         
 | #UD            | If the LOCK prefix is used.                
-`,
-"BSWAP":`
+');
+INSERT INTO `instructions` VALUES ('x86','BSWAP','
 BSWAP - Byte Swap:
 | Opcode          | Instruction| Op/En| 64-bit Mode| Compat/Leg Mode| Description                        
 | 0F C8+rd        | BSWAP r32  | O    | Valid*     | Valid          | Reverses the byte order of a 32-bit
@@ -2834,8 +2813,8 @@ None.
 
 Exceptions (All Operating Modes):
 | #UD| If the LOCK prefix is used.
-`,
-"BT":`
+');
+INSERT INTO `instructions` VALUES ('x86','BT','
 BT - Bit Test:
 | Opcode             | Instruction   | Op/En| 64-bit Mode| Compat/Leg Mode| Description                   
 | 0F A3 /r           | BT r/m16, r16 | MR   | Valid      | Valid          | Store selected bit in CF flag.
@@ -2956,8 +2935,8 @@ Same exceptions as in protected mode.
 |                | while the current privilege level is       
 |                | 3.                                         
 | #UD            | If the LOCK prefix is used.                
-`,
-"BTC":`
+');
+INSERT INTO `instructions` VALUES ('x86','BTC','
 BTC - Bit Test and Complement:
 | Opcode             | Instruction    | Op/En| 64-bit Mode| Compat/Leg Mode| Description                                  
 | 0F BB /r           | BTC r/m16, r16 | MR   | Valid      | Valid          | Store selected bit in CF flag and complement.
@@ -3066,8 +3045,8 @@ Same exceptions as in protected mode.
 |                | 3.                                            
 | #UD            | If the LOCK prefix is used but the destination
 |                | is not a memory operand.                      
-`,
-"BTR":`
+');
+INSERT INTO `instructions` VALUES ('x86','BTR','
 BTR - Bit Test and Reset:
 | Opcode             | Instruction    | Op/En| 64-bit Mode| Compat/Leg Mode| Description                             
 | 0F B3 /r           | BTR r/m16, r16 | MR   | Valid      | Valid          | Store selected bit in CF flag and clear.
@@ -3176,8 +3155,8 @@ Same exceptions as in protected mode.
 |                | 3.                                            
 | #UD            | If the LOCK prefix is used but the destination
 |                | is not a memory operand.                      
-`,
-"BTS":`
+');
+INSERT INTO `instructions` VALUES ('x86','BTS','
 BTS - Bit Test and Set:
 | Opcode             | Instruction    | Op/En| 64-bit Mode| Compat/Leg Mode| Description                           
 | 0F AB /r           | BTS r/m16, r16 | MR   | Valid      | Valid          | Store selected bit in CF flag and set.
@@ -3286,9 +3265,9 @@ Same exceptions as in protected mode.
 |                | 3.                                            
 | #UD            | If the LOCK prefix is used but the destination
 |                | is not a memory operand.                      
-`,
-"BZHI":`
-BZHI - Zero High Bits Starting with Specified Bit Position:
+');
+INSERT INTO `instructions` VALUES ('x86','BZHI','
+BZHI  -  Zero High Bits Starting with Specified Bit Position:
 | Opcode/Instruction                  | Op/En| 64/32 -bit Mode| CPUID Feature Flag| Description                            
 | VEX.NDS1.LZ.0F38.W0 F5 /r BZHI r32a,| RMV  | V/V            | BMI2              | Zero bits in r/m32 starting with the   
 | r/m32, r32b                         |      |                |                   | position in r32b, write result to r32a.
@@ -3347,8 +3326,8 @@ See Section 2.5.1, “Exception Conditions for VEX-Encoded GPR Instructions”,
 Table 2-29; additionally
 
 | #UD| If VEX.W = 1.
-`,
-"CALL":`
+');
+INSERT INTO `instructions` VALUES ('x86','CALL','
 CALL - Call Procedure:
 | Opcode       | Instruction  | Op/En| 64-bit Mode| Compat/Leg Mode| Description                                    
 | E8 cw        | CALL rel16   | M    | N.S.       | Valid          | Call near, relative, displacement relative     
@@ -4191,8 +4170,8 @@ Same exceptions as in protected mode.
 |                | an unaligned memory reference is made      
 |                | while the current privilege level is       
 |                | 3.                                         
-`,
-"CBW":`
+');
+INSERT INTO `instructions` VALUES ('x86','CBW','
 CBW/CWDE/CDQE - Convert Byte to Word/Convert Word to Doubleword/Convert Doubleword to Quadword:
 | Opcode    | Instruction| Op/En| 64-bit Mode| Compat/Leg Mode| Description              
 | 98        | CBW        | NP   | Valid      | Valid          | AX ← sign-extend of AL.  
@@ -4238,10 +4217,10 @@ None.
 
 Exceptions (All Operating Modes):
 | #UD| If the LOCK prefix is used.
-`,
-"CWDE":`-R:CBW`,
-"CDQE":`-R:CBW`,
-"CLC":`
+');
+INSERT INTO `instructions` VALUES ('x86','CWDE','-R:CBW');
+INSERT INTO `instructions` VALUES ('x86','CDQE','-R:CBW');
+INSERT INTO `instructions` VALUES ('x86','CLC','
 CLC - Clear Carry Flag:
 | Opcode| Instruction| Op/En| 64-bit Mode| Compat/Leg Mode| Description   
 | F8    | CLC        | NP   | Valid      | Valid          | Clear CF flag.
@@ -4264,8 +4243,8 @@ The CF flag is set to 0. The OF, ZF, SF, AF, and PF flags are unaffected.
 
 Exceptions (All Operating Modes):
 | #UD| If the LOCK prefix is used.
-`,
-"CLD":`
+');
+INSERT INTO `instructions` VALUES ('x86','CLD','
 CLD - Clear Direction Flag:
 | Opcode| Instruction| Op/En| 64-bit Mode| Compat/Leg Mode| Description   
 | FC    | CLD        | NP   | Valid      | Valid          | Clear DF flag.
@@ -4289,8 +4268,8 @@ The DF flag is set to 0. The CF, OF, ZF, SF, AF, and PF flags are unaffected.
 
 Exceptions (All Operating Modes):
 | #UD| If the LOCK prefix is used.
-`,
-"CLFLUSH":`
+');
+INSERT INTO `instructions` VALUES ('x86','CLFLUSH','
 CLFLUSH - Flush Cache Line:
 | Opcode  | Instruction| Op/En| 64-bit Mode| Compat/Leg Mode| Description                      
 | 0F AE /7| CLFLUSH m8 | M    | Valid      | Valid          | Flushes cache line containing m8.
@@ -4386,9 +4365,9 @@ Same exceptions as in protected mode.
 | #UD            | If CPUID.01H:EDX.CLFSH[bit 19] = 0.        
 |                | If the LOCK prefix is used. If instruction 
 |                | prefix is 66H, F2H or F3H.                 
-`,
-"CLI":`
-CLI - Clear Interrupt Flag:
+');
+INSERT INTO `instructions` VALUES ('x86','CLI','
+CLI  -  Clear Interrupt Flag:
 | Opcode| Instruction| Op/En| 64-bit Mode| Compat/Leg Mode| Description                              
 | FA    | CLI        | NP   | Valid      | Valid          | Clear interrupt flag; interrupts disabled
 |       |            |      |            |                | when interrupt flag cleared.             
@@ -4490,8 +4469,8 @@ Same exceptions as in protected mode.
 |       | than the IOPL of the current program      
 |       | or procedure.                             
 | #UD   | If the LOCK prefix is used.               
-`,
-"CLTS":`
+');
+INSERT INTO `instructions` VALUES ('x86','CLTS','
 CLTS - Clear Task-Switched Flag in CR0:
 | Opcode| Instruction| Op/En| 64-bit Mode| Compat/Leg Mode| Description           
 | 0F 06 | CLTS       | NP   | Valid      | Valid          | Clears TS flag in CR0.
@@ -4546,8 +4525,8 @@ Same exceptions as in protected mode.
 64-Bit Mode Exceptions:
 | #GP(0)| If the CPL is greater than 0.
 | #UD   | If the LOCK prefix is used.  
-`,
-"CMC":`
+');
+INSERT INTO `instructions` VALUES ('x86','CMC','
 CMC - Complement Carry Flag:
 | Opcode| Instruction| Op/En| 64-bit Mode| Compat/Leg Mode| Description        
 | F5    | CMC        | NP   | Valid      | Valid          | Complement CF flag.
@@ -4571,8 +4550,8 @@ and PF flags are unaffected.
 
 Exceptions (All Operating Modes):
 | #UD| If the LOCK prefix is used.
-`,
-"CMOVcc":`
+');
+INSERT INTO `instructions` VALUES ('x86','CMOVcc','
 CMOVcc - Conditional Move:
 | Opcode          | Instruction       | Op/En| 64-Bit Mode| Compat/Leg Mode| Description                            
 | 0F 47 /r        | CMOVA r16, r/m16  | RM   | Valid      | Valid          | Move if above (CF=0 and ZF=0).         
@@ -4777,38 +4756,8 @@ Same exceptions as in protected mode.
 |                | while the current privilege level is       
 |                | 3.                                         
 | #UD            | If the LOCK prefix is used.                
-`,
-"CMOVA":`-R:CMOVcc`,
-"CMOVAE":`-R:CMOVcc`,
-"CMOVB":`-R:CMOVcc`,
-"CMOVBE":`-R:CMOVcc`,
-"CMOVC":`-R:CMOVcc`,
-"CMOVE":`-R:CMOVcc`,
-"CMOVG":`-R:CMOVcc`,
-"CMOVGE":`-R:CMOVcc`,
-"CMOVL":`-R:CMOVcc`,
-"CMOVLE":`-R:CMOVcc`,
-"CMOVNA":`-R:CMOVcc`,
-"CMOVNAE":`-R:CMOVcc`,
-"CMOVNB":`-R:CMOVcc`,
-"CMOVNBE":`-R:CMOVcc`,
-"CMOVNC":`-R:CMOVcc`,
-"CMOVNE":`-R:CMOVcc`,
-"CMOVNG":`-R:CMOVcc`,
-"CMOVNGE":`-R:CMOVcc`,
-"CMOVNL":`-R:CMOVcc`,
-"CMOVNLE":`-R:CMOVcc`,
-"CMOVNO":`-R:CMOVcc`,
-"CMOVNP":`-R:CMOVcc`,
-"CMOVNS":`-R:CMOVcc`,
-"CMOVNZ":`-R:CMOVcc`,
-"CMOVO":`-R:CMOVcc`,
-"CMOVP":`-R:CMOVcc`,
-"CMOVPE":`-R:CMOVcc`,
-"CMOVPO":`-R:CMOVcc`,
-"CMOVS":`-R:CMOVcc`,
-"CMOVZ":`-R:CMOVcc`,
-"CMP":`
+');
+INSERT INTO `instructions` VALUES ('x86','CMP','
 CMP - Compare Two Operands:
 | Opcode          | Instruction     | Op/En| 64-Bit Mode| Compat/Leg Mode| Description                           
 | 3C ib           | CMP AL, imm8    | I    | Valid      | Valid          | Compare imm8 with AL.                 
@@ -4921,8 +4870,8 @@ Same exceptions as in protected mode.
 |                | while the current privilege level is       
 |                | 3.                                         
 | #UD            | If the LOCK prefix is used.                
-`,
-"CMPPD":`
+');
+INSERT INTO `instructions` VALUES ('x86','CMPPD','
 CMPPD - Compare Packed Double-Precision Floating-Point Values:
 | Opcode/Instruction                   | Op/En| 64/32bit Mode| CPUID Feature Flag| Description                                  
 | 66 0F C2 /r ib CMPPD xmm1, xmm2/m128,| RMI  | V/V          | SSE2              | Compare packed double-precision floatingpoint
@@ -5207,9 +5156,8 @@ table, Denormal.
 Other Exceptions:
 See Exceptions Type 2.
 
-`,
-"VCMPPD":`-R:CMPPD`,
-"CMPPS":`
+');
+INSERT INTO `instructions` VALUES ('x86','CMPPS','
 CMPPS - Compare Packed Single-Precision Floating-Point Values:
 | Opcode/Instruction                      | Op/En| 64/32bit Mode| CPUID Feature Flag| Description                                  
 | 0F C2 /r ib CMPPS xmm1, xmm2/m128, imm8 | RMI  | V/V          | SSE               | Compare packed single-precision floatingpoint
@@ -5477,9 +5425,8 @@ table, Denormal.
 Other Exceptions:
 See Exceptions Type 2.
 
-`,
-"VCMPPS":`-R:CMPPS`,
-"CMPS":`
+');
+INSERT INTO `instructions` VALUES ('x86','CMPS','
 CMPS/CMPSB/CMPSW/CMPSD/CMPSQ - Compare String Operands:
 | Opcode    | Instruction  | Op/En| 64-Bit Mode| Compat/Leg Mode| Description                              
 | A6        | CMPS m8, m8  | NP   | Valid      | Valid          | For legacy mode, compare byte at address 
@@ -5701,11 +5648,12 @@ Same exceptions as in protected mode.
 |                | while the current privilege level is       
 |                | 3.                                         
 | #UD            | If the LOCK prefix is used.                
-`,
-"CMPSB":`-R:CMPS`,
-"CMPSW":`-R:CMPS`,
-"CMPSQ":`-R:CMPS`,
-"CMPSD":`
+');
+INSERT INTO `instructions` VALUES ('x86','CMPSB','-R:CMPS');
+INSERT INTO `instructions` VALUES ('x86','CMPSW','-R:CMPS');
+INSERT INTO `instructions` VALUES ('x86','CMPSD','-R:CMPS');
+INSERT INTO `instructions` VALUES ('x86','CMPSQ','-R:CMPS');
+INSERT INTO `instructions` VALUES ('x86','CMPSD','
 CMPSD - Compare Scalar Double-Precision Floating-Point Values:
 | Opcode/Instruction                   | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                                
 | F2 0F C2 /r ib CMPSD xmm1, xmm2/m64, | RMI  | V/V           | SSE2              | Compare low double-precision floating-point
@@ -5908,9 +5856,8 @@ Denormal.
 Other Exceptions:
 See Exceptions Type 3.
 
-`,
-"VCMPSD":`-R:CMPSD`,
-"CMPSS":`
+');
+INSERT INTO `instructions` VALUES ('x86','CMPSS','
 CMPSS - Compare Scalar Single-Precision Floating-Point Values:
 | Opcode/Instruction                   | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                                
 | F3 0F C2 /r ib CMPSS xmm1, xmm2/m32, | RMI  | V/V           | SSE               | Compare low single-precision floating-point
@@ -6113,9 +6060,8 @@ Denormal.
 Other Exceptions:
 See Exceptions Type 3.
 
-`,
-"VCMPSS":`-R:CMPSS`,
-"CMPXCHG":`
+');
+INSERT INTO `instructions` VALUES ('x86','CMPXCHG','
 CMPXCHG - Compare and Exchange:
 | Opcode/Instruction                | Op/En| 64-Bit Mode| Compat/Leg Mode| Description                            
 | 0F B0/r CMPXCHG r/m8, r8          | MR   | Valid      | Valid*         | Compare AL with r/m8. If equal, ZF is  
@@ -6240,8 +6186,8 @@ Same exceptions as in protected mode.
 |                | 3.                                            
 | #UD            | If the LOCK prefix is used but the destination
 |                | is not a memory operand.                      
-`,
-"CMPXCHG8B":`
+');
+INSERT INTO `instructions` VALUES ('x86','CMPXCHG8B','
 CMPXCHG8B/CMPXCHG16B - Compare and Exchange Bytes:
 | Opcode/Instruction                   | Op/En| 64-Bit Mode| Compat/Leg Mode| Description                             
 | 0F C7 /1 m64 CMPXCHG8B m64           | M    | Valid      | Valid*         | Compare EDX:EAX with m64. If equal,     
@@ -6377,9 +6323,9 @@ Same exceptions as in protected mode.
 |                | an unaligned memory reference is made      
 |                | while the current privilege level is       
 |                | 3.                                         
-`,
-"CMPXCHG16B":`-R:CMPXCHG8B`,
-"COMISD":`
+');
+INSERT INTO `instructions` VALUES ('x86','CMPXCHG16B','-R:CMPXCHG8B');
+INSERT INTO `instructions` VALUES ('x86','COMISD','
 COMISD - Compare Scalar Ordered Double-Precision Floating-Point Values and Set EFLAGS:
 | Opcode/Instruction                   | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                                
 | 66 0F 2F /r COMISD xmm1, xmm2/m64    | RM   | V/V           | SSE2              | Compare low double-precision floating-point
@@ -6443,9 +6389,8 @@ Other Exceptions:
 See Exceptions Type 3; additionally
 
 | #UD| If VEX.vvvv != 1111B.
-`,
-"VCOMISD":`-R:COMISD`,
-"COMISS":`
+');
+INSERT INTO `instructions` VALUES ('x86','COMISS','
 COMISS - Compare Scalar Ordered Single-Precision Floating-Point Values and Set EFLAGS:
 | Opcode/Instruction                         | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                                
 | 0F 2F /r COMISS xmm1, xmm2/m32             | RM   | V/V           | SSE               | Compare low single-precision floating-point
@@ -6509,9 +6454,8 @@ Other Exceptions:
 See Exceptions Type 3; additionally
 
 | #UD| If VEX.vvvv != 1111B.
-`,
-"VCOMISS":`-R:COMISS`,
-"CPUID":`
+');
+INSERT INTO `instructions` VALUES ('x86','CPUID','
 CPUID - CPU Identification:
 | Opcode| Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                            
 | 0F A2 | CPUID      | NP   | Valid      | Valid          | Returns processor identification and   
@@ -8087,9 +8031,9 @@ Exceptions (All Operating Modes):
 |    | the CPUID instruction, execution of    
 |    | the instruction results in an invalid  
 |    | opcode (#UD) exception being generated.
-`,
-"CRC32":`
-CRC32 - Accumulate CRC32 Value:
+');
+INSERT INTO `instructions` VALUES ('x86','CRC32','
+CRC32  -  Accumulate CRC32 Value:
 | Opcode/Instruction                   | Op/En| 64-Bit Mode| Compat/Leg Mode| Description               
 | F2 0F 38 F0 /r CRC32 r32, r/m8       | RM   | Valid      | Valid          | Accumulate CRC32 on r/m8. 
 | F2 REX 0F 38 F0 /r CRC32 r32, r/m8*  | RM   | Valid      | N.E.           | Accumulate CRC32 on r/m8. 
@@ -8237,8 +8181,8 @@ Same exceptions as in Protected Mode.
 |                 | 3.                                         
 | #UD             | If CPUID.01H:ECX.SSE4_2 [Bit 20] = 0.      
 |                 | If LOCK prefix is used.                    
-`,
-"CVTDQ2PD":`
+');
+INSERT INTO `instructions` VALUES ('x86','CVTDQ2PD','
 CVTDQ2PD - Convert Packed Dword Integers to Packed Double-Precision FP Values:
 | Opcode/Instruction                     | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                           
 | F3 0F E6 CVTDQ2PD xmm1, xmm2/m64       | RM   | V/V           | SSE2              | Convert two packed signed doubleword  
@@ -8308,9 +8252,8 @@ Other Exceptions:
 See Exceptions Type 5; additionally
 
 | #UD| If VEX.vvvv != 1111B.
-`,
-"VCVTDQ2PD":`-R:CVTDQ2PD`,
-"CVTDQ2PS":`
+');
+INSERT INTO `instructions` VALUES ('x86','CVTDQ2PS','
 CVTDQ2PS - Convert Packed Dword Integers to Packed Single-Precision FP Values:
 | Opcode/Instruction                  | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                           
 | 0F 5B /r CVTDQ2PS xmm1, xmm2/m128   | RM   | V/V           | SSE2              | Convert four packed signed doubleword 
@@ -8383,9 +8326,8 @@ Other Exceptions:
 See Exceptions Type 2; additionally
 
 | #UD| If VEX.vvvv != 1111B.
-`,
-"VCVTDQ2PS":`-R:CVTDQ2PS`,
-"CVTPD2DQ":`
+');
+INSERT INTO `instructions` VALUES ('x86','CVTPD2DQ','
 CVTPD2DQ - Convert Packed Double-Precision FP Values to Packed Dword Integers:
 | Opcode/Instruction                     | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                             
 | F2 0F E6 /r CVTPD2DQ xmm1, xmm2/m128   | RM   | V/V           | SSE2              | Convert two packed double-precision     
@@ -8464,9 +8406,8 @@ Other Exceptions:
 See Exceptions Type 2; additionally
 
 | #UD| If VEX.vvvv != 1111B.
-`,
-"VCVTPD2DQ":`-R:CVTPD2DQ`,
-"CVTPD2PI":`
+');
+INSERT INTO `instructions` VALUES ('x86','CVTPD2PI','
 CVTPD2PI - Convert Packed Double-Precision FP Values to Packed Dword Integers:
 | Opcode/Instruction               | Op/En| 64-Bit Mode| Compat/Leg Mode| Description                          
 | 66 0F 2D /r CVTPD2PI mm, xmm/m128| RM   | Valid      | Valid          | Convert two packed double-precision  
@@ -8518,8 +8459,8 @@ See Table 22-4, “Exception Conditions for Legacy SIMD/MMX Instructions with
 FP Exception and 16-Byte Alignment,” in the Intel® 64 and IA-32 Architectures
 Software Developer''s Manual, Volume 3B.
 
-`,
-"CVTPD2PS":`
+');
+INSERT INTO `instructions` VALUES ('x86','CVTPD2PS','
 CVTPD2PS - Convert Packed Double-Precision FP Values to Packed Single-Precision FP Values:
 | Opcode/Instruction                     | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                               
 | 66 0F 5A /r CVTPD2PS xmm1, xmm2/m128   | RM   | V/V           | SSE2              | Convert two packed double-precision       
@@ -8590,9 +8531,8 @@ Other Exceptions:
 See Exceptions Type 2; additionally
 
 | #UD| If VEX.vvvv != 1111B.
-`,
-"VCVTPD2PS":`-R:CVTPD2PS`,
-"CVTPI2PD":`
+');
+INSERT INTO `instructions` VALUES ('x86','CVTPI2PD','
 CVTPI2PD - Convert Packed Dword Integers to Packed Double-Precision FP Values:
 | Opcode/Instruction               | Op/En| 64-Bit Mode| Compat/Leg Mode| Description                           
 | 66 0F 2A /r CVTPI2PD xmm, mm/m64*| RM   | Valid      | Valid          | Convert two packed signed doubleword  
@@ -8644,8 +8584,8 @@ See Table 22-6, “Exception Conditions for Legacy SIMD/MMX Instructions with
 XMM and without FP Exception,” in the Intel® 64 and IA-32 Architectures Software
 Developer''s Manual, Volume 3B.
 
-`,
-"CVTPI2PS":`
+');
+INSERT INTO `instructions` VALUES ('x86','CVTPI2PS','
 CVTPI2PS - Convert Packed Dword Integers to Packed Single-Precision FP Values:
 | Opcode/Instruction           | Op/En| 64-Bit Mode| Compat/Leg Mode| Description                           
 | 0F 2A /r CVTPI2PS xmm, mm/m64| RM   | Valid      | Valid          | Convert two signed doubleword integers
@@ -8695,8 +8635,8 @@ See Table 22-5, “Exception Conditions for Legacy SIMD/MMX Instructions with
 XMM and FP Exception,” in the Intel® 64 and IA-32 Architectures Software Developer''s
 Manual, Volume 3B.
 
-`,
-"CVTPS2DQ":`
+');
+INSERT INTO `instructions` VALUES ('x86','CVTPS2DQ','
 CVTPS2DQ - Convert Packed Single-Precision FP Values to Packed Dword Integers:
 | Opcode/Instruction                     | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                              
 | 66 0F 5B /r CVTPS2DQ xmm1, xmm2/m128   | RM   | V/V           | SSE2              | Convert four packed single-precision     
@@ -8776,9 +8716,8 @@ Other Exceptions:
 See Exceptions Type 2; additionally
 
 | #UD| If VEX.vvvv != 1111B.
-`,
-"VCVTPS2DQ":`-R:CVTPS2DQ`,
-"CVTPS2PD":`
+');
+INSERT INTO `instructions` VALUES ('x86','CVTPS2PD','
 CVTPS2PD - Convert Packed Single-Precision FP Values to Packed Double-Precision FP Values:
 | Opcode/Instruction                  | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                                
 | 0F 5A /r CVTPS2PD xmm1, xmm2/m64    | RM   | V/V           | SSE2              | Convert two packed single-precision        
@@ -8848,9 +8787,8 @@ See Exceptions Type 3; additionally
 
 #UDIf VEX.vvvv != 1111B.
 
-`,
-"VCVTPS2PD":`-R:CVTPS2PD`,
-"CVTPS2PI":`
+');
+INSERT INTO `instructions` VALUES ('x86','CVTPS2PI','
 CVTPS2PI - Convert Packed Single-Precision FP Values to Packed Dword Integers:
 | Opcode/Instruction           | Op/En| 64-Bit Mode| Compat/Leg Mode| Description                          
 | 0F 2D /r CVTPS2PI mm, xmm/m64| RM   | Valid      | Valid          | Convert two packed single-precision  
@@ -8902,8 +8840,8 @@ See Table 22-5, “Exception Conditions for Legacy SIMD/MMX Instructions with
 XMM and FP Exception,” in the Intel® 64 and IA-32 Architectures Software Developer''s
 Manual, Volume 3B.
 
-`,
-"CVTSD2SI":`
+');
+INSERT INTO `instructions` VALUES ('x86','CVTSD2SI','
 CVTSD2SI - Convert Scalar Double-Precision FP Value to Integer:
 | Opcode/Instruction                     | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                                 
 | F2 0F 2D /r CVTSD2SI r32, xmm/m64      | RM   | V/V           | SSE2              | Convert one double-precision floating-point 
@@ -8969,9 +8907,8 @@ Other Exceptions:
 See Exceptions Type 3; additionally
 
 | #UD| If VEX.vvvv != 1111B.
-`,
-"VCVTSD2SI":`-R:CVTSD2SI`,
-"CVTSD2SS":`
+');
+INSERT INTO `instructions` VALUES ('x86','CVTSD2SS','
 CVTSD2SS - Convert Scalar Double-Precision FP Value to Scalar Single-Precision FP Value:
 | Opcode/Instruction                   | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                                
 | F2 0F 5A /r CVTSD2SS xmm1, xmm2/m64  | RM   | V/V           | SSE2              | Convert one double-precision floating-point
@@ -9028,9 +8965,8 @@ Overflow, Underflow, Invalid, Precision, Denormal.
 Other Exceptions:
 See Exceptions Type 3.
 
-`,
-"VCVTSD2SS":`-R:CVTSD2SS`,
-"CVTSI2SD":`
+');
+INSERT INTO `instructions` VALUES ('x86','CVTSI2SD','
 CVTSI2SD - Convert Dword Integer to Scalar Double-Precision FP Value:
 | Opcode/Instruction                   | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                                      
 | F2 0F 2A /r CVTSI2SD xmm, r/m32      | RM   | V/V           | SSE2              | Convert one signed doubleword integer            
@@ -9103,9 +9039,8 @@ Precision.
 Other Exceptions:
 See Exceptions Type 3.
 
-`,
-"VCVTSI2SD":`-R:CVTSI2SD`,
-"CVTSI2SS":`
+');
+INSERT INTO `instructions` VALUES ('x86','CVTSI2SS','
 CVTSI2SS - Convert Dword Integer to Scalar Single-Precision FP Value:
 | Opcode/Instruction                   | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                                      
 | F3 0F 2A /r CVTSI2SS xmm, r/m32      | RM   | V/V           | SSE               | Convert one signed doubleword integer            
@@ -9180,9 +9115,8 @@ Precision.
 Other Exceptions:
 See Exceptions Type 3.
 
-`,
-"VCVTSI2SS":`-R:CVTSI2SS`,
-"CVTSS2SD":`
+');
+INSERT INTO `instructions` VALUES ('x86','CVTSS2SD','
 CVTSS2SD - Convert Scalar Single-Precision FP Value to Scalar Double-Precision FP Value:
 | Opcode/Instruction                   | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                                
 | F3 0F 5A /r CVTSS2SD xmm1, xmm2/m32  | RM   | V/V           | SSE2              | Convert one single-precision floating-point
@@ -9235,9 +9169,8 @@ Invalid, Denormal.
 Other Exceptions:
 See Exceptions Type 3.
 
-`,
-"VCVTSS2SD":`-R:CVTSS2SD`,
-"CVTSS2SI":`
+');
+INSERT INTO `instructions` VALUES ('x86','CVTSS2SI','
 CVTSS2SI - Convert Scalar Single-Precision FP Value to Dword Integer:
 | Opcode/Instruction                     | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                                 
 | F3 0F 2D /r CVTSS2SI r32, xmm/m32      | RM   | V/V           | SSE               | Convert one single-precision floating-point 
@@ -9303,9 +9236,8 @@ Other Exceptions:
 See Exceptions Type 3; additionally
 
 | #UD| If VEX.vvvv != 1111B.
-`,
-"VCVTSS2SI":`-R:CVTSS2SI`,
-"CVTTPD2DQ":`
+');
+INSERT INTO `instructions` VALUES ('x86','CVTTPD2DQ','
 CVTTPD2DQ - Convert with Truncation Packed Double-Precision FP Values to Packed Dword Integers:
 | Opcode/Instruction                      | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                             
 | 66 0F E6 /r CVTTPD2DQ xmm1, xmm2/m128   | RM   | V/V           | SSE2              | Convert two packed double-precision     
@@ -9379,9 +9311,8 @@ Other Exceptions:
 See Exceptions Type 2; additionally
 
 | #UD| If VEX.vvvv != 1111B.
-`,
-"VCVTTPD2DQ":`-R:CVTTPD2DQ`,
-"CVTTPD2PI":`
+');
+INSERT INTO `instructions` VALUES ('x86','CVTTPD2PI','
 CVTTPD2PI - Convert with Truncation Packed Double-Precision FP Values to Packed Dword Integers:
 | Opcode/Instruction                | Op/En| 64-Bit Mode| Compat/Leg Mode| Description                          
 | 66 0F 2C /r CVTTPD2PI mm, xmm/m128| RM   | Valid      | Valid          | Convert two packer double-precision  
@@ -9431,8 +9362,8 @@ See Table 22-4, “Exception Conditions for Legacy SIMD/MMX Instructions with
 FP Exception and 16-Byte Alignment,” in the Intel® 64 and IA-32 Architectures
 Software Developer''s Manual, Volume 3B.
 
-`,
-"CVTTPS2DQ":`
+');
+INSERT INTO `instructions` VALUES ('x86','CVTTPS2DQ','
 CVTTPS2DQ - Convert with Truncation Packed Single-Precision FP Values to Packed Dword Integers:
 | Opcode/Instruction                      | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                                  
 | F3 0F 5B /r CVTTPS2DQ xmm1, xmm2/m128   | RM   | V/V           | SSE2              | Convert four single-precision floating-point 
@@ -9508,9 +9439,8 @@ Other Exceptions:
 See Exceptions Type 2; additionally
 
 | #UD| If VEX.vvvv != 1111B.
-`,
-"VCVTTPS2DQ":`-R:CVTTPS2DQ`,
-"CVTTPS2PI":`
+');
+INSERT INTO `instructions` VALUES ('x86','CVTTPS2PI','
 CVTTPS2PI - Convert with Truncation Packed Single-Precision FP Values to Packed Dword Integers:
 | Opcode/Instruction            | Op/En| 64-Bit Mode| Compat/Leg Mode| Description                                 
 | 0F 2C /r CVTTPS2PI mm, xmm/m64| RM   | Valid      | Valid          | Convert two single-precision floating-point 
@@ -9560,8 +9490,8 @@ See Table 22-5, “Exception Conditions for Legacy SIMD/MMX Instructions with
 XMM and FP Exception,” in the Intel® 64 and IA-32 Architectures Software Developer''s
 Manual, Volume 3B.
 
-`,
-"CVTTSD2SI":`
+');
+INSERT INTO `instructions` VALUES ('x86','CVTTSD2SI','
 CVTTSD2SI - Convert with Truncation Scalar Double-Precision FP Value to Signed Integer:
 | Opcode/Instruction                      | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                                 
 | F2 0F 2C /r CVTTSD2SI r32, xmm/m64      | RM   | V/V           | SSE2              | Convert one double-precision floating-point 
@@ -9622,9 +9552,8 @@ Other Exceptions:
 See Exceptions Type 3; additionally
 
 | #UD| If VEX.vvvv != 1111B.
-`,
-"VCVTTSD2SI":`-R:CVTTSD2SI`,
-"CVTTSS2SI":`
+');
+INSERT INTO `instructions` VALUES ('x86','CVTTSS2SI','
 CVTTSS2SI - Convert with Truncation Scalar Single-Precision FP Value to Dword Integer:
 | Opcode/Instruction                      | Op/ En| 64/32-bit Mode| CPUID Feature Flag| Description                                 
 | F3 0F 2C /r CVTTSS2SI r32, xmm/m32      | RM    | V/V           | SSE               | Convert one single-precision floating-point 
@@ -9690,9 +9619,8 @@ Other Exceptions:
 See Exceptions Type 3; additionally
 
 | #UD| If VEX.vvvv != 1111B.
-`,
-"VCVTTSS2SI":`-R:CVTTSS2SI`,
-"CWD":`
+');
+INSERT INTO `instructions` VALUES ('x86','CWD','
 CWD/CDQ/CQO - Convert Word to Doubleword/Convert Doubleword to Quadword:
 | Opcode    | Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                  
 | 99        | CWD        | NP   | Valid      | Valid          | DX:AX ← sign-extend of AX.   
@@ -9748,10 +9676,10 @@ None.
 
 Exceptions (All Operating Modes):
 | #UD| If the LOCK prefix is used.
-`,
-"CDQ":`-R:CWD`,
-"CQO":`-R:CWD`,
-"DAA":`
+');
+INSERT INTO `instructions` VALUES ('x86','CDQ','-R:CWD');
+INSERT INTO `instructions` VALUES ('x86','CQO','-R:CWD');
+INSERT INTO `instructions` VALUES ('x86','DAA','
 DAA - Decimal Adjust AL after Addition:
 | Opcode| Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                      
 | 27    | DAA        | NP   | Invalid    | Valid          | Decimal adjust AL after addition.
@@ -9826,8 +9754,8 @@ Compatibility Mode Exceptions:
 
 64-Bit Mode Exceptions:
 | #UD| If in 64-bit mode.
-`,
-"DAS":`
+');
+INSERT INTO `instructions` VALUES ('x86','DAS','
 DAS - Decimal Adjust AL after Subtraction:
 | Opcode| Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                         
 | 2F    | DAS        | NP   | Invalid    | Valid          | Decimal adjust AL after subtraction.
@@ -9900,8 +9828,8 @@ Compatibility Mode Exceptions:
 
 64-Bit Mode Exceptions:
 | #UD| If in 64-bit mode.
-`,
-"DEC":`
+');
+INSERT INTO `instructions` VALUES ('x86','DEC','
 DEC - Decrement by 1:
 | Opcode           | Instruction       | Op/En| 64-Bit Mode| Compat/Leg Mode| Description                        
 | FE /1 REX + FE /1| DEC r/m8 DEC r/m8*| M M  | Valid Valid| Valid N.E.     | Decrement r/m8 by 1. Decrement r/m8
@@ -10001,8 +9929,8 @@ Same exceptions as in protected mode.
 |                | 3.                                            
 | #UD            | If the LOCK prefix is used but the destination
 |                | is not a memory operand.                      
-`,
-"DIV":`
+');
+INSERT INTO `instructions` VALUES ('x86','DIV','
 DIV - Unsigned Divide:
 | Opcode       | Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                             
 | F6 /6        | DIV r/m8   | M    | Valid      | Valid          | Unsigned divide AX by r/m8, with result 
@@ -10168,8 +10096,8 @@ Same exceptions as in protected mode.
 |                | while the current privilege level is       
 |                | 3.                                         
 | #UD            | If the LOCK prefix is used.                
-`,
-"DIVPD":`
+');
+INSERT INTO `instructions` VALUES ('x86','DIVPD','
 DIVPD - Divide Packed Double-Precision Floating-Point Values:
 | Opcode/Instruction                      | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                                  
 | 66 0F 5E /r DIVPD xmm1, xmm2/m128       | RM   | V/V           | SSE2              | Divide packed double-precision floating-point
@@ -10234,9 +10162,8 @@ Overflow, Underflow, Invalid, Divide-by-Zero, Precision, Denormal.
 Other Exceptions:
 See Exceptions Type 2.
 
-`,
-"VDIVPD":`-R:DIVPD`,
-"DIVPS":`
+');
+INSERT INTO `instructions` VALUES ('x86','DIVPS','
 DIVPS - Divide Packed Single-Precision Floating-Point Values:
 | Opcode/Instruction                   | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                                  
 | 0F 5E /r DIVPS xmm1, xmm2/m128       | RM   | V/V           | SSE               | Divide packed single-precision floating-point
@@ -10308,9 +10235,8 @@ Overflow, Underflow, Invalid, Divide-by-Zero, Precision, Denormal.
 Other Exceptions:
 See Exceptions Type 2.
 
-`,
-"VDIVPS":`-R:DIVPS`,
-"DIVSD":`
+');
+INSERT INTO `instructions` VALUES ('x86','DIVSD','
 DIVSD - Divide Scalar Double-Precision Floating-Point Values:
 | Opcode/Instruction                      | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                                 
 | F2 0F 5E /r DIVSD xmm1, xmm2/m64        | RM   | V/V           | SSE2              | Divide low double-precision floating-point  
@@ -10362,9 +10288,8 @@ Overflow, Underflow, Invalid, Divide-by-Zero, Precision, Denormal.
 Other Exceptions:
 See Exceptions Type 3.
 
-`,
-"VDIVSD":`-R:DIVSD`,
-"DIVSS":`
+');
+INSERT INTO `instructions` VALUES ('x86','DIVSS','
 DIVSS - Divide Scalar Single-Precision Floating-Point Values:
 | Opcode/Instruction                      | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                                
 | F3 0F 5E /r DIVSS xmm1, xmm2/m32        | RM   | V/V           | SSE               | Divide low single-precision floating-point 
@@ -10416,10 +10341,9 @@ Overflow, Underflow, Invalid, Divide-by-Zero, Precision, Denormal.
 Other Exceptions:
 See Exceptions Type 3.
 
-`,
-"VDIVSS":`-R:DIVSS`,
-"DPPD":`
-DPPD - Dot Product of Packed Double Precision Floating-Point Values:
+');
+INSERT INTO `instructions` VALUES ('x86','DPPD','
+DPPD  -  Dot Product of Packed Double Precision Floating-Point Values:
 | Opcode/Instruction                     | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                                  
 | 66 0F 3A 41 /r ib DPPD xmm1, xmm2/m128,| RMI  | V/V           | SSE4_1            | Selectively multiply packed DP floating-point
 | imm8                                   |      |               |                   | values from xmm1 with packed DP floatingpoint
@@ -10510,10 +10434,9 @@ Other Exceptions:
 See Exceptions Type 2; additionally
 
 | #UD| If VEX.L= 1.
-`,
-"VDPPD":`-R:DPPD`,
-"DPPS":`
-DPPS - Dot Product of Packed Single Precision Floating-Point Values:
+');
+INSERT INTO `instructions` VALUES ('x86','DPPS','
+DPPS  -  Dot Product of Packed Single Precision Floating-Point Values:
 | Opcode/Instruction                     | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                                    
 | 66 0F 3A 40 /r ib DPPS xmm1, xmm2/m128,| RMI  | V/V           | SSE4_1            | Selectively multiply packed SP floating-point  
 | imm8                                   |      |               |                   | values from xmm1 with packed SP floatingpoint  
@@ -10628,9 +10551,8 @@ Unmasked exceptions will leave the destination operands unchanged.
 Other Exceptions:
 See Exceptions Type 2.
 
-`,
-"VDPPS":`-R:DPPS`,
-"EMMS":`
+');
+INSERT INTO `instructions` VALUES ('x86','EMMS','
 EMMS - Empty MMX Technology State:
 | Opcode| Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                       
 | 0F 77 | EMMS       | NP   | Valid      | Valid          | Set the x87 FPU tag word to empty.
@@ -10691,8 +10613,8 @@ Same exceptions as in protected mode.
 64-Bit Mode Exceptions:
 Same exceptions as in protected mode.
 
-`,
-"ENTER":`
+');
+INSERT INTO `instructions` VALUES ('x86','ENTER','
 ENTER - Make Stack Frame for Procedure Parameters:
 | Opcode  | Instruction      | Op/En| 64-Bit Mode| Compat/Leg Mode| Description                                 
 | C8 iw 00| ENTER imm16, 0   | II   | Valid      | Valid          | Create a stack frame for a procedure.       
@@ -10850,9 +10772,9 @@ Same exceptions as in protected mode.
 |                | (within the current stack segment) would  
 |                | cause a page fault.                       
 | #UD            | If the LOCK prefix is used.               
-`,
-"EXTRACTPS":`
-EXTRACTPS - Extract Packed Single Precision Floating-Point Value:
+');
+INSERT INTO `instructions` VALUES ('x86','EXTRACTPS','
+EXTRACTPS  -  Extract Packed Single Precision Floating-Point Value:
 | Opcode/Instruction                     | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                                
 | 66 0F 3A 17 /r ib EXTRACTPS reg/m32,   | MRI  | V/V           | SSE4_1            | Extract a single-precision floating-point  
 | xmm2, imm8                             |      |               |                   | value from xmm2 at the source offset       
@@ -10920,9 +10842,8 @@ Other Exceptions:
 See Exceptions Type 5; additionally
 
 | #UD| If VEX.L= 1.
-`,
-"VEXTRACTPS":`-R:EXTRACTPS`,
-"F2XM1":`
+');
+INSERT INTO `instructions` VALUES ('x86','F2XM1','
 F2XM1 - Compute 2x-1:
 | Opcode| Instruction| 64-Bit Mode| Compat/Leg Mode| Description                     
 | D9 F0 | F2XM1      | Valid      | Valid          | Replace ST(0) with (2ST(0) - 1).
@@ -10989,8 +10910,8 @@ Same exceptions as in protected mode.
 64-Bit Mode Exceptions:
 Same exceptions as in protected mode.
 
-`,
-"FABS":`
+');
+INSERT INTO `instructions` VALUES ('x86','FABS','
 FABS - Absolute Value:
 | Opcode| Instruction| 64-Bit Mode| Compat/Leg Mode| Description                        
 | D9 E1 | FABS       | Valid      | Valid          | Replace ST with its absolute value.
@@ -11044,8 +10965,8 @@ Same exceptions as in protected mode.
 64-Bit Mode Exceptions:
 Same exceptions as in protected mode.
 
-`,
-"FADD":`
+');
+INSERT INTO `instructions` VALUES ('x86','FADD','
 FADD/FADDP/FIADD - Add:
 | Opcode | Instruction       | 64-Bit Mode| Compat/Leg Mode| Description                         
 | D8 /0  | FADD m32fp        | Valid      | Valid          | Add m32fp to ST(0) and store result 
@@ -11203,10 +11124,10 @@ Same exceptions as in protected mode.
 |                | while the current privilege level is       
 |                | 3.                                         
 | #UD            | If the LOCK prefix is used.                
-`,
-"FADDP":`-R:FADD`,
-"FIADD":`-R:FADD`,
-"FBLD":`
+');
+INSERT INTO `instructions` VALUES ('x86','FADDP','-R:FADD');
+INSERT INTO `instructions` VALUES ('x86','FIADD','-R:FADD');
+INSERT INTO `instructions` VALUES ('x86','FBLD','
 FBLD - Load Binary Coded Decimal:
 | Opcode| Instruction| 64-Bit Mode| Compat/Leg Mode| Description                        
 | DF /4 | FBLD m80dec| Valid      | Valid          | Convert BCD value to floating-point
@@ -11291,8 +11212,8 @@ Same exceptions as in protected mode.
 |                | while the current privilege level is       
 |                | 3.                                         
 | #UD            | If the LOCK prefix is used.                
-`,
-"FBSTP":`
+');
+INSERT INTO `instructions` VALUES ('x86','FBSTP','
 FBSTP - Store BCD Integer and Pop:
 | Opcode| Instruction | 64-Bit Mode| Compat/Leg Mode| Description                         
 | DF /6 | FBSTP m80bcd| Valid      | Valid          | Store ST(0) in m80bcd and pop ST(0).
@@ -11410,8 +11331,8 @@ Same exceptions as in protected mode.
 |                | while the current privilege level is       
 |                | 3.                                         
 | #UD            | If the LOCK prefix is used.                
-`,
-"FCHS":`
+');
+INSERT INTO `instructions` VALUES ('x86','FCHS','
 FCHS - Change Sign:
 | Opcode| Instruction| 64-Bit Mode| Compat/Leg Mode| Description               
 | D9 E0 | FCHS       | Valid      | Valid          | Complements sign of ST(0).
@@ -11458,8 +11379,8 @@ Same exceptions as in protected mode.
 64-Bit Mode Exceptions:
 Same exceptions as in protected mode.
 
-`,
-"FCLEX":`
+');
+INSERT INTO `instructions` VALUES ('x86','FCLEX','
 FCLEX/FNCLEX - Clear Exceptions:
 | Opcode* | Instruction| 64-Bit Mode| Compat/Leg Mode| Description                          
 | 9B DB E2| FCLEX      | Valid      | Valid          | Clear floating-point exception flags 
@@ -11531,8 +11452,9 @@ Same exceptions as in protected mode.
 64-Bit Mode Exceptions:
 Same exceptions as in protected mode.
 
-`,
-"FCMOVcc":`
+');
+INSERT INTO `instructions` VALUES ('x86','FNCLEX','-R:FCLEX');
+INSERT INTO `instructions` VALUES ('x86','FCMOVcc','
 FCMOVcc - Floating-Point Conditional Move:
 | Opcode*| Instruction          | 64-Bit Mode| Compat/Leg Mode*| Description                           
 | DA C0+i| FCMOVB ST(0), ST(i)  | Valid      | Valid           | Move if below (CF=1).                 
@@ -11608,16 +11530,8 @@ Same exceptions as in protected mode.
 64-Bit Mode Exceptions:
 Same exceptions as in protected mode.
 
-`,
-"FCMOVB":`-R:FCMOVcc`,
-"FCMOVE":`-R:FCMOVcc`,
-"FCMOVBE":`-R:FCMOVcc`,
-"FCMOVU":`-R:FCMOVcc`,
-"FCMOVNB":`-R:FCMOVcc`,
-"FCMOVNE":`-R:FCMOVcc`,
-"FCMOVNBE":`-R:FCMOVcc`,
-"FCMOVNU":`-R:FCMOVcc`,
-"FCOM":`
+');
+INSERT INTO `instructions` VALUES ('x86','FCOM','
 FCOM/FCOMP/FCOMPP - Compare Floating Point Values:
 | Opcode | Instruction| 64-Bit Mode| Compat/Leg Mode| Description                              
 | D8 /2  | FCOM m32fp | Valid      | Valid          | Compare ST(0) with m32fp.                
@@ -11758,10 +11672,10 @@ Same exceptions as in protected mode.
 |                | while the current privilege level is       
 |                | 3.                                         
 | #UD            | If the LOCK prefix is used.                
-`,
-"FCOMP":`-R:FCOM`,
-"FCOMPP":`-R:FCOM`,
-"FCOMI":`
+');
+INSERT INTO `instructions` VALUES ('x86','FCOMP','-R:FCOM');
+INSERT INTO `instructions` VALUES ('x86','FCOMPP','-R:FCOM');
+INSERT INTO `instructions` VALUES ('x86','FCOMI','
 FCOMI/FCOMIP/FUCOMI/FUCOMIP - Compare Floating Point Values and Set EFLAGS:
 | Opcode | Instruction      | 64-Bit Mode| Compat/Leg Mode| Description                                  
 | DB F0+i| FCOMI ST, ST(i)  | Valid      | Valid          | Compare ST(0) with ST(i) and set status      
@@ -11891,11 +11805,11 @@ Same exceptions as in protected mode.
 64-Bit Mode Exceptions:
 Same exceptions as in protected mode.
 
-`,
-"FCOMIP":`-R:FCOMI`,
-"FUCOMI":`-R:FCOMI`,
-"FUCOMIP":`-R:FCOMI`,
-"FCOS":`
+');
+INSERT INTO `instructions` VALUES ('x86','FCOMIP','-R:FCOMI');
+INSERT INTO `instructions` VALUES ('x86','FUCOMI','-R:FCOMI');
+INSERT INTO `instructions` VALUES ('x86','FUCOMIP','-R:FCOMI');
+INSERT INTO `instructions` VALUES ('x86','FCOS','
 FCOS - Cosine:
 | Opcode| Instruction| 64-Bit Mode| Compat/Leg Mode| Description                   
 | D9 FF | FCOS       | Valid      | Valid          | Replace ST(0) with its cosine.
@@ -11976,8 +11890,8 @@ Same exceptions as in protected mode.
 64-Bit Mode Exceptions:
 Same exceptions as in protected mode.
 
-`,
-"FDECSTP":`
+');
+INSERT INTO `instructions` VALUES ('x86','FDECSTP','
 FDECSTP - Decrement Stack-Top Pointer:
 | Opcode| Instruction| 64-Bit Mode| Compat/Leg Mode| Description                            
 | D9 F6 | FDECSTP    | Valid      | Valid          | Decrement TOP field in FPU status word.
@@ -12025,8 +11939,8 @@ Same exceptions as in protected mode.
 64-Bit Mode Exceptions:
 Same exceptions as in protected mode.
 
-`,
-"FDIV":`
+');
+INSERT INTO `instructions` VALUES ('x86','FDIV','
 FDIV/FDIVP/FIDIV - Divide:
 | Opcode | Instruction       | 64-Bit Mode| Compat/Leg Mode| Description                            
 | D8 /6  | FDIV m32fp        | Valid      | Valid          | Divide ST(0) by m32fp and store result 
@@ -12187,10 +12101,10 @@ Same exceptions as in protected mode.
 |                | while the current privilege level is       
 |                | 3.                                         
 | #UD            | If the LOCK prefix is used.                
-`,
-"FDIVP":`-R:FDIV`,
-"FIDIV":`-R:FDIV`,
-"FDIVR":`
+');
+INSERT INTO `instructions` VALUES ('x86','FDIVP','-R:FDIV');
+INSERT INTO `instructions` VALUES ('x86','FIDIV','-R:FDIV');
+INSERT INTO `instructions` VALUES ('x86','FDIVR','
 FDIVR/FDIVRP/FIDIVR - Reverse Divide:
 | Opcode | Instruction        | 64-Bit Mode| Compat/Leg Mode| Description                            
 | D8 /7  | FDIVR m32fp        | Valid      | Valid          | Divide m32fp by ST(0) and store result 
@@ -12354,10 +12268,10 @@ Same exceptions as in protected mode.
 |                | while the current privilege level is       
 |                | 3.                                         
 | #UD            | If the LOCK prefix is used.                
-`,
-"FDIVRP":`-R:FDIVR`,
-"FIDIVR":`-R:FDIVR`,
-"FFREE":`
+');
+INSERT INTO `instructions` VALUES ('x86','FDIVRP','-R:FDIVR');
+INSERT INTO `instructions` VALUES ('x86','FIDIVR','-R:FDIVR');
+INSERT INTO `instructions` VALUES ('x86','FFREE','
 FFREE - Free Floating-Point Register:
 | Opcode | Instruction| 64-Bit Mode| Compat/Leg Mode| Description                 
 | DD C0+i| FFREE ST(i)| Valid      | Valid          | Sets tag for ST(i) to empty.
@@ -12400,8 +12314,8 @@ Same exceptions as in protected mode.
 64-Bit Mode Exceptions:
 Same exceptions as in protected mode.
 
-`,
-"FICOM":`
+');
+INSERT INTO `instructions` VALUES ('x86','FICOM','
 FICOM/FICOMP - Compare Integer:
 | Opcode| Instruction  | 64-Bit Mode| Compat/Leg Mode| Description                            
 | DE /2 | FICOM m16int | Valid      | Valid          | Compare ST(0) with m16int.             
@@ -12511,9 +12425,9 @@ Same exceptions as in protected mode.
 |                | while the current privilege level is       
 |                | 3.                                         
 | #UD            | If the LOCK prefix is used.                
-`,
-"FICOMP":`-R:FICOM`,
-"FILD":`
+');
+INSERT INTO `instructions` VALUES ('x86','FICOMP','-R:FICOM');
+INSERT INTO `instructions` VALUES ('x86','FILD','
 FILD - Load Integer:
 | Opcode| Instruction| 64-Bit Mode| Compat/Leg Mode| Description                             
 | DF /0 | FILD m16int| Valid      | Valid          | Push m16int onto the FPU register stack.
@@ -12595,8 +12509,8 @@ Same exceptions as in protected mode.
 |                | while the current privilege level is       
 |                | 3.                                         
 | #UD            | If the LOCK prefix is used.                
-`,
-"FINCSTP":`
+');
+INSERT INTO `instructions` VALUES ('x86','FINCSTP','
 FINCSTP - Increment Stack-Top Pointer:
 | Opcode| Instruction| 64-Bit Mode| Compat/Leg Mode| Description                              
 | D9 F7 | FINCSTP    | Valid      | Valid          | Increment the TOP field in the FPU status
@@ -12647,8 +12561,8 @@ Same exceptions as in protected mode.
 64-Bit Mode Exceptions:
 Same exceptions as in protected mode.
 
-`,
-"FINIT":`
+');
+INSERT INTO `instructions` VALUES ('x86','FINIT','
 FINIT/FNINIT - Initialize Floating-Point Unit:
 | Opcode  | Instruction| 64-Bit Mode| Compat/Leg Mode| Description                                
 | 9B DB E3| FINIT      | Valid      | Valid          | Initialize FPU after checking for pending  
@@ -12730,8 +12644,9 @@ Same exceptions as in protected mode.
 64-Bit Mode Exceptions:
 Same exceptions as in protected mode.
 
-`,
-"FIST":`
+');
+INSERT INTO `instructions` VALUES ('x86','FNINIT','-R:FINIT');
+INSERT INTO `instructions` VALUES ('x86','FIST','
 FIST/FISTP - Store Integer:
 | Opcode| Instruction | 64-Bit Mode| Compat/Leg Mode| Description                           
 | DF /2 | FIST m16int | Valid      | Valid          | Store ST(0) in m16int.                
@@ -12863,9 +12778,9 @@ Same exceptions as in protected mode.
 |                | while the current privilege level is       
 |                | 3.                                         
 | #UD            | If the LOCK prefix is used.                
-`,
-"FISTP":`-R:FIST`,
-"FISTTP":`
+');
+INSERT INTO `instructions` VALUES ('x86','FISTP','-R:FIST');
+INSERT INTO `instructions` VALUES ('x86','FISTTP','
 FISTTP - Store Integer with Truncation:
 | Opcode| Instruction  | 64-Bit Mode| Compat/Leg Mode| Description                           
 | DF /1 | FISTTP m16int| Valid      | Valid          | Store ST(0) in m16int with truncation.
@@ -12957,8 +12872,8 @@ Same exceptions as in protected mode.
 |                | an unaligned memory reference is made      
 |                | while the current privilege level is       
 |                | 3. If the LOCK prefix is used.             
-`,
-"FLD":`
+');
+INSERT INTO `instructions` VALUES ('x86','FLD','
 FLD - Load Floating Point Value:
 | Opcode | Instruction| 64-Bit Mode| Compat/Leg Mode| Description                            
 | D9 /0  | FLD m32fp  | Valid      | Valid          | Push m32fp onto the FPU register stack.
@@ -13064,8 +12979,8 @@ Same exceptions as in protected mode.
 |                | while the current privilege level is       
 |                | 3.                                         
 | #UD            | If the LOCK prefix is used.                
-`,
-"FLD1":`
+');
+INSERT INTO `instructions` VALUES ('x86','FLD1','
 FLD1/FLDL2T/FLDL2E/FLDPI/FLDLG2/FLDLN2/FLDZ - Load Constant:
 | Opcode*| Instruction| 64-Bit Mode| Compat/Leg Mode| Description                                
 | D9 E8  | FLD1       | Valid      | Valid          | Push +1.0 onto the FPU register stack.     
@@ -13139,14 +13054,14 @@ Same exceptions as in protected mode.
 64-Bit Mode Exceptions:
 Same exceptions as in protected mode.
 
-`,
-"FLDL2T":`-R:FLD1`,
-"FLDL2E":`-R:FLD1`,
-"FLDPI":`-R:FLD1`,
-"FLDLG2":`-R:FLD1`,
-"FLDLN2":`-R:FLD1`,
-"FLDZ":`-R:FLD1`,
-"FLDCW":`
+');
+INSERT INTO `instructions` VALUES ('x86','FLDL2T','-R:FLD1');
+INSERT INTO `instructions` VALUES ('x86','FLDL2E','-R:FLD1');
+INSERT INTO `instructions` VALUES ('x86','FLDPI','-R:FLD1');
+INSERT INTO `instructions` VALUES ('x86','FLDLG2','-R:FLD1');
+INSERT INTO `instructions` VALUES ('x86','FLDLN2','-R:FLD1');
+INSERT INTO `instructions` VALUES ('x86','FLDZ','-R:FLD1');
+INSERT INTO `instructions` VALUES ('x86','FLDCW','
 FLDCW - Load x87 FPU Control Word:
 | Opcode| Instruction | 64-Bit Mode| Compat/Leg Mode| Description                       
 | D9 /5 | FLDCW m2byte| Valid      | Valid          | Load FPU control word from m2byte.
@@ -13235,8 +13150,8 @@ Same exceptions as in protected mode.
 |                | while the current privilege level is       
 |                | 3.                                         
 | #UD            | If the LOCK prefix is used.                
-`,
-"FLDENV":`
+');
+INSERT INTO `instructions` VALUES ('x86','FLDENV','
 FLDENV - Load x87 FPU Environment:
 | Opcode| Instruction      | 64-Bit Mode| Compat/Leg Mode| Description                         
 | D9 /4 | FLDENV m14/28byte| Valid      | Valid          | Load FPU environment from m14byte or
@@ -13347,8 +13262,8 @@ Same exceptions as in protected mode.
 |                | while the current privilege level is       
 |                | 3.                                         
 | #UD            | If the LOCK prefix is used.                
-`,
-"FMUL":`
+');
+INSERT INTO `instructions` VALUES ('x86','FMUL','
 FMUL/FMULP/FIMUL - Multiply:
 | Opcode | Instruction       | 64-Bit Mode| Compat/Leg Mode| Description                              
 | D8 /1  | FMUL m32fp        | Valid      | Valid          | Multiply ST(0) by m32fp and store result 
@@ -13503,10 +13418,10 @@ Same exceptions as in protected mode.
 |                | while the current privilege level is       
 |                | 3.                                         
 | #UD            | If the LOCK prefix is used.                
-`,
-"FMULP":`-R:FMUL`,
-"FIMUL":`-R:FMUL`,
-"FNOP":`
+');
+INSERT INTO `instructions` VALUES ('x86','FMULP','-R:FMUL');
+INSERT INTO `instructions` VALUES ('x86','FIMUL','-R:FMUL');
+INSERT INTO `instructions` VALUES ('x86','FNOP','
 FNOP - No Operation:
 | Opcode| Instruction| 64-Bit Mode| Compat/Leg Mode| Description               
 | D9 D0 | FNOP       | Valid      | Valid          | No operation is performed.
@@ -13546,8 +13461,8 @@ Same exceptions as in protected mode.
 64-Bit Mode Exceptions:
 Same exceptions as in protected mode.
 
-`,
-"FPATAN":`
+');
+INSERT INTO `instructions` VALUES ('x86','FPATAN','
 FPATAN - Partial Arctangent:
 | Opcode*                              | Instruction| 64-Bit Mode| Compat/Leg Mode| Description                           
 | D9 F3 NOTES: * See IA-32 Architecture| FPATAN     | Valid      | Valid          | Replace ST(1) with arctan(ST(1)/ST(0))
@@ -13646,8 +13561,8 @@ Same exceptions as in protected mode.
 64-Bit Mode Exceptions:
 Same exceptions as in protected mode.
 
-`,
-"FPREM":`
+');
+INSERT INTO `instructions` VALUES ('x86','FPREM','
 FPREM - Partial Remainder:
 | Opcode| Instruction| 64-Bit Mode| Compat/Leg Mode| Description                              
 | D9 F8 | FPREM      | Valid      | Valid          | Replace ST(0) with the remainder obtained
@@ -13764,8 +13679,8 @@ Same exceptions as in protected mode.
 64-Bit Mode Exceptions:
 Same exceptions as in protected mode.
 
-`,
-"FPREM1":`
+');
+INSERT INTO `instructions` VALUES ('x86','FPREM1','
 FPREM1 - Partial Remainder:
 | Opcode| Instruction| 64-Bit Mode| Compat/Leg Mode| Description                           
 | D9 F5 | FPREM1     | Valid      | Valid          | Replace ST(0) with the IEEE remainder 
@@ -13881,8 +13796,8 @@ Same exceptions as in protected mode.
 64-Bit Mode Exceptions:
 Same exceptions as in protected mode.
 
-`,
-"FPTAN":`
+');
+INSERT INTO `instructions` VALUES ('x86','FPTAN','
 FPTAN - Partial Tangent:
 | Opcode| Instruction| 64-Bit Mode| Compat/Leg Mode| Description                            
 | D9 F2 | FPTAN      | Valid      | Valid          | Replace ST(0) with its tangent and push
@@ -13975,8 +13890,8 @@ Same exceptions as in protected mode.
 64-Bit Mode Exceptions:
 Same exceptions as in protected mode.
 
-`,
-"FRNDINT":`
+');
+INSERT INTO `instructions` VALUES ('x86','FRNDINT','
 FRNDINT - Round to Integer:
 | Opcode| Instruction| 64-Bit Mode| Compat/Leg Mode| Description               
 | D9 FC | FRNDINT    | Valid      | Valid          | Round ST(0) to an integer.
@@ -14028,8 +13943,8 @@ Same exceptions as in protected mode.
 64-Bit Mode Exceptions:
 Same exceptions as in protected mode.
 
-`,
-"FRSTOR":`
+');
+INSERT INTO `instructions` VALUES ('x86','FRSTOR','
 FRSTOR - Restore x87 FPU State:
 | Opcode| Instruction       | 64-Bit Mode| Compat/Leg Mode| Description                             
 | DD /4 | FRSTOR m94/108byte| Valid      | Valid          | Load FPU state from m94byte or m108byte.
@@ -14138,8 +14053,8 @@ Same exceptions as in protected mode.
 |                | while the current privilege level is       
 |                | 3.                                         
 | #UD            | If the LOCK prefix is used.                
-`,
-"FSAVE":`
+');
+INSERT INTO `instructions` VALUES ('x86','FSAVE','
 FSAVE/FNSAVE - Store x87 FPU State:
 | Opcode        | Instruction                          | 64-Bit Mode| Compat/Leg Mode| Description                                  
 | 9B DD /6 DD /6| FSAVE m94/108byte FNSAVE* m94/108byte| Valid Valid| Valid Valid    | Store FPU state to m94byte or m108byte       
@@ -14288,8 +14203,9 @@ Same exceptions as in protected mode.
 |                | an unaligned memory reference is made      
 |                | while the current privilege level is       
 |                | 3.                                         
-`,
-"FSCALE":`
+');
+INSERT INTO `instructions` VALUES ('x86','FNSAVE','-R:FSAVE');
+INSERT INTO `instructions` VALUES ('x86','FSCALE','
 FSCALE - Scale:
 | Opcode| Instruction| 64-Bit Mode| Compat/Leg Mode| Description          
 | D9 FD | FSCALE     | Valid      | Valid          | Scale ST(0) by ST(1).
@@ -14378,8 +14294,8 @@ Same exceptions as in protected mode.
 64-Bit Mode Exceptions:
 Same exceptions as in protected mode.
 
-`,
-"FSIN":`
+');
+INSERT INTO `instructions` VALUES ('x86','FSIN','
 FSIN - Sine:
 | Opcode| Instruction| 64-Bit Mode| Compat/Leg Mode| Description                 
 | D9 FE | FSIN       | Valid      | Valid          | Replace ST(0) with its sine.
@@ -14459,8 +14375,8 @@ Same exceptions as in protected mode.
 64-Bit Mode Exceptions:
 Same exceptions as in protected mode.
 
-`,
-"FSINCOS":`
+');
+INSERT INTO `instructions` VALUES ('x86','FSINCOS','
 FSINCOS - Sine and Cosine:
 | Opcode| Instruction| 64-Bit Mode| Compat/Leg Mode| Description                          
 | D9 FB | FSINCOS    | Valid      | Valid          | Compute the sine and cosine of ST(0);
@@ -14550,8 +14466,8 @@ Same exceptions as in protected mode.
 64-Bit Mode Exceptions:
 Same exceptions as in protected mode.
 
-`,
-"FSQRT":`
+');
+INSERT INTO `instructions` VALUES ('x86','FSQRT','
 FSQRT - Square Root:
 | Opcode| Instruction| 64-Bit Mode| Compat/Leg Mode| Description                             
 | D9 FA | FSQRT      | Valid      | Valid          | Computes square root of ST(0) and stores
@@ -14616,8 +14532,8 @@ Same exceptions as in protected mode.
 64-Bit Mode Exceptions:
 Same exceptions as in protected mode.
 
-`,
-"FST":`
+');
+INSERT INTO `instructions` VALUES ('x86','FST','
 FST/FSTP - Store Floating Point Value:
 | Opcode | Instruction| 64-Bit Mode| Compat/Leg Mode| Description                         
 | D9 /2  | FST m32fp  | Valid      | Valid          | Copy ST(0) to m32fp.                
@@ -14752,9 +14668,9 @@ Same exceptions as in protected mode.
 |                | while the current privilege level is       
 |                | 3.                                         
 | #UD            | If the LOCK prefix is used.                
-`,
-"FSTP":`-R:FST`,
-"FSTCW":`
+');
+INSERT INTO `instructions` VALUES ('x86','FSTP','-R:FST');
+INSERT INTO `instructions` VALUES ('x86','FSTCW','
 FSTCW/FNSTCW - Store x87 FPU Control Word:
 | Opcode  | Instruction   | 64-Bit Mode| Compat/Leg Mode| Description                                 
 | 9B D9 /7| FSTCW m2byte  | Valid      | Valid          | Store FPU control word to m2byte after      
@@ -14856,8 +14772,9 @@ Same exceptions as in protected mode.
 |                | while the current privilege level is       
 |                | 3.                                         
 | #UD            | If the LOCK prefix is used.                
-`,
-"FSTENV":`
+');
+INSERT INTO `instructions` VALUES ('x86','FNSTCW','-R:FSTCW');
+INSERT INTO `instructions` VALUES ('x86','FSTENV','
 FSTENV/FNSTENV - Store x87 FPU Environment:
 | Opcode        | Instruction                          | 64-Bit Mode| Compat/Leg Mode| Description                                
 | 9B D9 /6 D9 /6| FSTENV m14/28byte FNSTENV* m14/28byte| Valid Valid| Valid Valid    | Store FPU environment to m14byte or        
@@ -14982,8 +14899,9 @@ Same exceptions as in protected mode.
 |                | while the current privilege level is       
 |                | 3.                                         
 | #UD            | If the LOCK prefix is used.                
-`,
-"FSTSW":`
+');
+INSERT INTO `instructions` VALUES ('x86','FNSTENV','-R:FSTENV');
+INSERT INTO `instructions` VALUES ('x86','FSTSW','
 FSTSW/FNSTSW - Store x87 FPU Status Word:
 | Opcode              | Instruction                       | 64-Bit Mode      | Compat/Leg Mode  | Description                                 
 | 9B DD /7            | FSTSW m2byte                      | Valid            | Valid            | Store FPU status word at m2byte after       
@@ -15102,8 +15020,9 @@ Same exceptions as in protected mode.
 |                | while the current privilege level is       
 |                | 3.                                         
 | #UD            | If the LOCK prefix is used.                
-`,
-"FSUB":`
+');
+INSERT INTO `instructions` VALUES ('x86','FNSTSW','-R:FSTSW');
+INSERT INTO `instructions` VALUES ('x86','FSUB','
 FSUB/FSUBP/FISUB - Subtract:
 | Opcode | Instruction       | 64-Bit Mode| Compat/Leg Mode| Description                            
 | D8 /4  | FSUB m32fp        | Valid      | Valid          | Subtract m32fp from ST(0) and store    
@@ -15261,10 +15180,10 @@ Same exceptions as in protected mode.
 |                | while the current privilege level is       
 |                | 3.                                         
 | #UD            | If the LOCK prefix is used.                
-`,
-"FSUBP":`-R:FSUB`,
-"FISUB":`-R:FSUB`,
-"FSUBR":`
+');
+INSERT INTO `instructions` VALUES ('x86','FSUBP','-R:FSUB');
+INSERT INTO `instructions` VALUES ('x86','FISUB','-R:FSUB');
+INSERT INTO `instructions` VALUES ('x86','FSUBR','
 FSUBR/FSUBRP/FISUBR - Reverse Subtract:
 | Opcode | Instruction        | 64-Bit Mode| Compat/Leg Mode| Description                            
 | D8 /5  | FSUBR m32fp        | Valid      | Valid          | Subtract ST(0) from m32fp and store    
@@ -15423,10 +15342,10 @@ Same exceptions as in protected mode.
 |                | while the current privilege level is       
 |                | 3.                                         
 | #UD            | If the LOCK prefix is used.                
-`,
-"FSUBRP":`-R:FSUBR`,
-"FISUBR":`-R:FSUBR`,
-"FTST":`
+');
+INSERT INTO `instructions` VALUES ('x86','FSUBRP','-R:FSUBR');
+INSERT INTO `instructions` VALUES ('x86','FISUBR','-R:FSUBR');
+INSERT INTO `instructions` VALUES ('x86','FTST','
 FTST - TEST:
 | Opcode| Instruction| 64-Bit Mode| Compat/Leg Mode| Description            
 | D9 E4 | FTST       | Valid      | Valid          | Compare ST(0) with 0.0.
@@ -15488,8 +15407,8 @@ Same exceptions as in protected mode.
 64-Bit Mode Exceptions:
 Same exceptions as in protected mode.
 
-`,
-"FUCOM":`
+');
+INSERT INTO `instructions` VALUES ('x86','FUCOM','
 FUCOM/FUCOMP/FUCOMPP - Unordered Compare Floating Point Values:
 | Opcode | Instruction | 64-Bit Mode| Compat/Leg Mode| Description                              
 | DD E0+i| FUCOM ST(i) | Valid      | Valid          | Compare ST(0) with ST(i).                
@@ -15597,10 +15516,10 @@ Same exceptions as in protected mode.
 64-Bit Mode Exceptions:
 Same exceptions as in protected mode.
 
-`,
-"FUCOMP":`-R:FUCOM`,
-"FUCOMPP":`-R:FUCOM`,
-"FXAM":`
+');
+INSERT INTO `instructions` VALUES ('x86','FUCOMP','-R:FUCOM');
+INSERT INTO `instructions` VALUES ('x86','FUCOMPP','-R:FUCOM');
+INSERT INTO `instructions` VALUES ('x86','FXAM','
 FXAM - Examine ModR/M:
 | Opcode| Instruction| 64-Bit Mode| Compat/Leg Mode| Description                       
 | D9 E5 | FXAM       | Valid      | Valid          | Classify value or number in ST(0).
@@ -15659,8 +15578,8 @@ Same exceptions as in protected mode.
 64-Bit Mode Exceptions:
 Same exceptions as in protected mode.
 
-`,
-"FXCH":`
+');
+INSERT INTO `instructions` VALUES ('x86','FXCH','
 FXCH - Exchange Register Contents:
 | Opcode | Instruction| 64-Bit Mode| Compat/Leg Mode| Description                              
 | D9 C8+i| FXCH ST(i) | Valid      | Valid          | Exchange the contents of ST(0) and ST(i).
@@ -15719,8 +15638,8 @@ Same exceptions as in protected mode.
 64-Bit Mode Exceptions:
 Same exceptions as in protected mode.
 
-`,
-"FXRSTOR":`
+');
+INSERT INTO `instructions` VALUES ('x86','FXRSTOR','
 FXRSTOR - Restore x87 FPU, MMX , XMM, and MXCSR State:
 | Opcode/Instruction                | Op/En| 64-Bit Mode| Compat/Leg Mode| Description                             
 | 0F AE /1 FXRSTOR m512byte         | M    | Valid      | Valid          | Restore the x87 FPU, MMX, XMM, and MXCSR
@@ -15866,9 +15785,8 @@ a given implementation, an alignment check exception might be signaled for a
 2-byte misalignment, whereas a general protection exception might be signaled
 for all other misalignments (4-, 8-, or 16-byte misalignments).
 
-`,
-"FXRSTOR64":`-R:FXRSTOR`,
-"FXSAVE":`
+');
+INSERT INTO `instructions` VALUES ('x86','FXSAVE','
 FXSAVE - Save x87 FPU, MMX Technology, and SSE State:
 | Opcode/Instruction               | Op/En| 64-Bit Mode| Compat/Leg Mode| Description                          
 | 0F AE /0 FXSAVE m512byte         | M    | Valid      | Valid          | Save the x87 FPU, MMX, XMM, and MXCSR
@@ -16226,9 +16144,8 @@ The order in which the processor signals general-protection (#GP) and page-fault
 Table 5-2 in the Intel® 64 and IA-32 Architectures Software Developer''s Manual,
 Volume 3B. This order vary for FXSAVE for different processor implementations.
 
-`,
-"FXSAVE64":`-R:FXSAVE`,
-"FXTRACT":`
+');
+INSERT INTO `instructions` VALUES ('x86','FXTRACT','
 FXTRACT - Extract Exponent and Significand:
 | Opcode/Instruction| 64-Bit Mode| Compat/Leg Mode| Description                               
 | D9 F4 FXTRACT     | Valid      | Valid          | Separate value in ST(0) into exponent     
@@ -16297,8 +16214,8 @@ Same exceptions as in protected mode.
 64-Bit Mode Exceptions:
 Same exceptions as in protected mode.
 
-`,
-"FYL2X":`
+');
+INSERT INTO `instructions` VALUES ('x86','FYL2X','
 FYL2X - Compute y * log2x:
 | Opcode| Instruction| 64-Bit Mode| Compat/Leg Mode| Description                                      
 | D9 F1 | FYL2X      | Valid      | Valid          | Replace ST(1) with (ST(1) * log<sub>2</sub>ST(0))
@@ -16378,8 +16295,8 @@ Same exceptions as in protected mode.
 64-Bit Mode Exceptions:
 Same exceptions as in protected mode.
 
-`,
-"FYL2XP1":`
+');
+INSERT INTO `instructions` VALUES ('x86','FYL2XP1','
 FYL2XP1 - Compute y * log2(x +1):
 | Opcode| Instruction| 64-Bit Mode| Compat/Leg Mode| Description                                     
 | D9 F9 | FYL2XP1    | Valid      | Valid          | Replace ST(1) with ST(1) * log<sub>2</sub>(ST(0)
@@ -16465,8 +16382,8 @@ Same exceptions as in protected mode.
 64-Bit Mode Exceptions:
 Same exceptions as in protected mode.
 
-`,
-"HADDPD":`
+');
+INSERT INTO `instructions` VALUES ('x86','HADDPD','
 HADDPD - Packed Double-FP Horizontal Add:
 | Opcode/Instruction                 | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                           
 | 66 0F 7C /r HADDPD xmm1, xmm2/m128 | RM   | V/V           | SSE3              | Horizontal add packed double-precision
@@ -16555,9 +16472,8 @@ Overflow, Underflow, Invalid, Precision, Denormal.
 Other Exceptions:
 See Exceptions Type 2.
 
-`,
-"VHADDPD":`-R:HADDPD`,
-"HADDPS":`
+');
+INSERT INTO `instructions` VALUES ('x86','HADDPS','
 HADDPS - Packed Single-FP Horizontal Add:
 | Opcode/Instruction                 | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                           
 | F2 0F 7C /r HADDPS xmm1, xmm2/m128 | RM   | V/V           | SSE3              | Horizontal add packed single-precision
@@ -16665,9 +16581,8 @@ Overflow, Underflow, Invalid, Precision, Denormal.
 Other Exceptions:
 See Exceptions Type 2.
 
-`,
-"VHADDPS":`-R:HADDPS`,
-"HLT":`
+');
+INSERT INTO `instructions` VALUES ('x86','HLT','
 HLT - Halt:
 | Opcode| Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description
 | F4    | HLT        | NP   | Valid      | Valid          | Halt       
@@ -16722,8 +16637,8 @@ Same exceptions as in protected mode.
 64-Bit Mode Exceptions:
 Same exceptions as in protected mode.
 
-`,
-"HSUBPD":`
+');
+INSERT INTO `instructions` VALUES ('x86','HSUBPD','
 HSUBPD - Packed Double-FP Horizontal Subtract:
 | Opcode/Instruction                 | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                                
 | 66 0F 7D /r HSUBPD xmm1, xmm2/m128 | RM   | V/V           | SSE3              | Horizontal subtract packed double-precision
@@ -16815,9 +16730,8 @@ Overflow, Underflow, Invalid, Precision, Denormal.
 Other Exceptions:
 See Exceptions Type 2.
 
-`,
-"VHSUBPD":`-R:HSUBPD`,
-"HSUBPS":`
+');
+INSERT INTO `instructions` VALUES ('x86','HSUBPS','
 HSUBPS - Packed Single-FP Horizontal Subtract:
 | Opcode/Instruction                 | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                                
 | F2 0F 7D /r HSUBPS xmm1, xmm2/m128 | RM   | V/V           | SSE3              | Horizontal subtract packed single-precision
@@ -16923,9 +16837,8 @@ Overflow, Underflow, Invalid, Precision, Denormal.
 Other Exceptions:
 See Exceptions Type 2.
 
-`,
-"VHSUBPS":`-R:HSUBPS`,
-"IDIV":`
+');
+INSERT INTO `instructions` VALUES ('x86','IDIV','
 IDIV - Signed Divide:
 | Opcode       | Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                              
 | F6 /7        | IDIV r/m8  | M    | Valid      | Valid          | Signed divide AX by r/m8, with result    
@@ -17091,8 +17004,8 @@ Same exceptions as in protected mode.
 |                | while the current privilege level is       
 |                | 3.                                         
 | #UD            | If the LOCK prefix is used.                
-`,
-"IMUL":`
+');
+INSERT INTO `instructions` VALUES ('x86','IMUL','
 IMUL - Signed Multiply:
 | Opcode          | Instruction           | Op/En| 64-Bit Mode| Compat/Leg Mode| Description                               
 | F6 /5           | IMUL r/m8*            | M    | Valid      | Valid          | AX← AL * r/m byte.                        
@@ -17282,8 +17195,8 @@ Same exceptions as in protected mode.
 |                | while the current privilege level is       
 |                | 3.                                         
 | #UD            | If the LOCK prefix is used.                
-`,
-"IN":`
+');
+INSERT INTO `instructions` VALUES ('x86','IN','
 IN - Input from Port:
 | Opcode| Instruction | Op/En| 64-Bit Mode| Compat/Leg Mode| Description                           
 | E4 ib | IN AL, imm8 | I    | Valid      | Valid          | Input byte from imm8 I/O port address 
@@ -17372,8 +17285,8 @@ Same exceptions as in protected mode.
 |       | bits in TSS for the I/O port being accessed
 |       | is 1.                                      
 | #UD   | If the LOCK prefix is used.                
-`,
-"INC":`
+');
+INSERT INTO `instructions` VALUES ('x86','INC','
 INC - Increment by 1:
 | Opcode       | Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                        
 | FE /0        | INC r/m8   | M    | Valid      | Valid          | Increment r/m byte by 1.           
@@ -17472,8 +17385,8 @@ Same exceptions as in protected mode.
 |                | 3.                                            
 | #UD            | If the LOCK prefix is used but the destination
 |                | is not a memory operand.                      
-`,
-"INS":`
+');
+INSERT INTO `instructions` VALUES ('x86','INS','
 INS/INSB/INSW/INSD - Input from Port to String:
 | Opcode| Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                             
 | 6C    | INS m8, DX | NP   | Valid      | Valid          | Input byte from I/O port specified in   
@@ -17655,12 +17568,12 @@ Same exceptions as in protected mode.
 |                | while the current privilege level is       
 |                | 3.                                         
 | #UD            | If the LOCK prefix is used.                
-`,
-"INSB":`-R:INS`,
-"INSW":`-R:INS`,
-"INSD":`-R:INS`,
-"INSERTPS":`
-INSERTPS - Insert Packed Single Precision Floating-Point Value:
+');
+INSERT INTO `instructions` VALUES ('x86','INSB','-R:INS');
+INSERT INTO `instructions` VALUES ('x86','INSW','-R:INS');
+INSERT INTO `instructions` VALUES ('x86','INSD','-R:INS');
+INSERT INTO `instructions` VALUES ('x86','INSERTPS','
+INSERTPS  -  Insert Packed Single Precision Floating-Point Value:
 | Opcode/Instruction                        | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                              
 | 66 0F 3A 21 /r ib INSERTPS xmm1, xmm2/m32,| RMI  | V/V           | SSE4_1            | Insert a single precision floating-point 
 | imm8                                      |      |               |                   | value selected by imm8 from xmm2/m32     
@@ -17780,9 +17693,8 @@ None
 Other Exceptions:
 See Exceptions Type 5.
 
-`,
-"VINSERTPS":`-R:INSERTPS`,
-"INT n":`
+');
+INSERT INTO `instructions` VALUES ('x86','INT n','
 INT n/INTO/INT 3 - Call to Interrupt Procedure:
 | Opcode| Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                         
 | CC    | INT 3      | NP   | Valid      | Valid          | Interrupt 3 - trap to debugger.       
@@ -18469,10 +18381,10 @@ Same exceptions as in protected mode.
 | #UD            | If the LOCK prefix is used.                  
 | #AC(EXT)       | If alignment checking is enabled, the        
 |                | gate DPL is 3, and a stack push is unaligned.
-`,
-"INT":`-R:INT n`,
-"INTO":`-R:INT n`,
-"INVD":`
+');
+INSERT INTO `instructions` VALUES ('x86','INTO','-R:INT n');
+INSERT INTO `instructions` VALUES ('x86','INT 3','-R:INT n');
+INSERT INTO `instructions` VALUES ('x86','INVD','
 INVD - Invalidate Internal Caches:
 | Opcode| Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                             
 | 0F 08 | INVD       | NP   | Valid      | Valid          | Flush internal caches; initiate flushing
@@ -18549,8 +18461,8 @@ Same exceptions as in protected mode.
 64-Bit Mode Exceptions:
 Same exceptions as in protected mode.
 
-`,
-"INVLPG":`
+');
+INSERT INTO `instructions` VALUES ('x86','INVLPG','
 INVLPG - Invalidate TLB Entry:
 | Opcode | Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                                
 | 0F 01/7| INVLPG m   | M    | Valid      | Valid          | Invalidate TLB Entry for page that contains
@@ -18622,8 +18534,8 @@ Virtual-8086 Mode Exceptions:
 |       | 0.                                       
 | #UD   | Operand is a register. If the LOCK prefix
 |       | is used.                                 
-`,
-"INVPCID":`
+');
+INSERT INTO `instructions` VALUES ('x86','INVPCID','
 INVPCID - Invalidate Process-Context Identifier:
 | Opcode/Instruction              | Op/En| 64/32bit Mode| CPUID Feature Flag| Description                                  
 | 66 0F 38 82 /r INVPCID r32, m128| RM   | NE/V         | INVPCID           | Invalidates entries in the TLBs and          
@@ -18777,8 +18689,8 @@ Same exceptions as in protected mode.
 |                | is in a noncanonical form.                    
 | #UD            | If the LOCK prefix is used. If CPUID.(EAX=07H,
 |                | ECX=0H):EBX.INVPCID (bit 10) = 0.             
-`,
-"IRET":`
+');
+INSERT INTO `instructions` VALUES ('x86','IRET','
 IRET/IRETD - Interrupt Return:
 | Opcode    | Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                            
 | CF        | IRET       | NP   | Valid      | Valid          | Interrupt return (16-bit operand size).
@@ -19237,10 +19149,9 @@ Compatibility Mode Exceptions:
 |                | when the CPL is 3 and alignment checking   
 |                | is enabled.                                
 | #UD            | If the LOCK prefix is used.                
-`,
-"IRETD":`-R:IRET`,
-"IRETQ":`-R:IRET`,
-"Jcc":`
+');
+INSERT INTO `instructions` VALUES ('x86','IRETD','-R:IRET');
+INSERT INTO `instructions` VALUES ('x86','Jcc','
 Jcc - Jump if Condition Is Met:
 | Opcode  | Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                                 
 | 77 cb   | JA rel8    | D    | Valid      | Valid          | Jump short if above (CF=0 and ZF=0).        
@@ -19482,41 +19393,8 @@ Same exceptions as in protected mode.
 | #GP(0)| If the memory address is in a non-canonical
 |       | form.                                      
 | #UD   | If the LOCK prefix is used.                
-`,
-"JA":`-R:Jcc`,
-"JAE":`-R:Jcc`,
-"JB":`-R:Jcc`,
-"JBE":`-R:Jcc`,
-"JC":`-R:Jcc`,
-"JCXZ":`-R:Jcc`,
-"JECXZ":`-R:Jcc`,
-"JRCXZ":`-R:Jcc`,
-"JE":`-R:Jcc`,
-"JG":`-R:Jcc`,
-"JGE":`-R:Jcc`,
-"JL":`-R:Jcc`,
-"JLE":`-R:Jcc`,
-"JNA":`-R:Jcc`,
-"JNAE":`-R:Jcc`,
-"JNB":`-R:Jcc`,
-"JNBE":`-R:Jcc`,
-"JNC":`-R:Jcc`,
-"JNE":`-R:Jcc`,
-"JNG":`-R:Jcc`,
-"JNGE":`-R:Jcc`,
-"JNL":`-R:Jcc`,
-"JNLE":`-R:Jcc`,
-"JNO":`-R:Jcc`,
-"JNP":`-R:Jcc`,
-"JNS":`-R:Jcc`,
-"JNZ":`-R:Jcc`,
-"JO":`-R:Jcc`,
-"JP":`-R:Jcc`,
-"JPE":`-R:Jcc`,
-"JPO":`-R:Jcc`,
-"JS":`-R:Jcc`,
-"JZ":`-R:Jcc`,
-"JMP":`
+');
+INSERT INTO `instructions` VALUES ('x86','JMP','
 JMP - Jump:
 | Opcode       | Instruction | Op/En| 64-Bit Mode| Compat/Leg Mode| Description                               
 | EB cb        | JMP rel8    | D    | Valid      | Valid          | Jump short, RIP = RIP + 8-bit displacement
@@ -19992,8 +19870,8 @@ confirming and CPL < DPL.
 |                | an unaligned memory reference is made   
 |                | while the current privilege level is    
 |                | 3.                                      
-`,
-"LAHF":`
+');
+INSERT INTO `instructions` VALUES ('x86','LAHF','
 LAHF - Load Status Flags into AH Register:
 | Opcode| Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                             
 | 9F    | LAHF       | NP   | Invalid*   | Valid          | Load: AH ← EFLAGS(SF:ZF:0:AF:0:PF:1:CF).
@@ -20043,8 +19921,8 @@ Same exceptions as in protected mode.
 64-Bit Mode Exceptions:
 | #UD| If CPUID.80000001H:ECX.LAHF-SAHF[bit
 |    | 0] = 0. If the LOCK prefix is used. 
-`,
-"LAR":`
+');
+INSERT INTO `instructions` VALUES ('x86','LAR','
 LAR - Load Access Rights Byte:
 | Opcode  | Instruction      | Op/En| 64-Bit Mode| Compat/Leg Mode| Description                              
 | 0F 02 /r| LAR r16, r16/m16 | RM   | Valid      | Valid          | r16 ← access rights referenced by r16/m16
@@ -20182,8 +20060,8 @@ Same exceptions as in protected mode.
 |                | is unaligned while the current privilege        
 |                | level is 3.                                     
 | #UD            | If the LOCK prefix is used.                     
-`,
-"LDDQU":`
+');
+INSERT INTO `instructions` VALUES ('x86','LDDQU','
 LDDQU - Load Unaligned Integer 128 Bits:
 | Opcode/Instruction                  | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                            
 | F2 0F F0 /r LDDQU xmm1, mem         | RM   | V/V           | SSE3              | Load unaligned data from mem and return
@@ -20259,9 +20137,8 @@ None.
 Other Exceptions:
 See Exceptions Type 4; Note treatment of #AC varies.
 
-`,
-"VLDDQU":`-R:LDDQU`,
-"LDMXCSR":`
+');
+INSERT INTO `instructions` VALUES ('x86','LDMXCSR','
 LDMXCSR - Load MXCSR Register:
 | Opcode/Instruction              | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                  
 | 0F,AE,/2 LDMXCSR m32            | M    | V/V           | SSE               | Load MXCSR register from m32.
@@ -20315,9 +20192,8 @@ See Exceptions Type 5; additionally
 | #GP| For an attempt to set reserved bits
 |    | in MXCSR.                          
 | #UD| If VEX.vvvv != 1111B.              
-`,
-"VLDMXCSR":`-R:LDMXCSR`,
-"LDS":`
+');
+INSERT INTO `instructions` VALUES ('x86','LDS','
 LDS/LES/LFS/LGS/LSS - Load Far Pointer:
 | Opcode        | Instruction   | Op/En| 64-Bit Mode| Compat/Leg Mode| Description                              
 | C5 /r         | LDS r16,m16:16| RM   | Invalid    | Valid          | Load DS:r16 with far pointer from memory.
@@ -20556,12 +20432,12 @@ Same exceptions as in protected mode.
 |                | 3.                                         
 | #UD            | If source operand is not a memory location.
 |                | If the LOCK prefix is used.                
-`,
-"LSS":`-R:LDS`,
-"LES":`-R:LDS`,
-"LFS":`-R:LDS`,
-"LGS":`-R:LDS`,
-"LEA":`
+');
+INSERT INTO `instructions` VALUES ('x86','LES','-R:LDS');
+INSERT INTO `instructions` VALUES ('x86','LFS','-R:LDS');
+INSERT INTO `instructions` VALUES ('x86','LGS','-R:LDS');
+INSERT INTO `instructions` VALUES ('x86','LSS','-R:LDS');
+INSERT INTO `instructions` VALUES ('x86','LEA','
 LEA - Load Effective Address:
 | Opcode       | Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                              
 | 8D /r        | LEA r16,m  | RM   | Valid      | Valid          | Store effective address for m in register
@@ -20691,8 +20567,8 @@ Same exceptions as in protected mode.
 64-Bit Mode Exceptions:
 Same exceptions as in protected mode.
 
-`,
-"LEAVE":`
+');
+INSERT INTO `instructions` VALUES ('x86','LEAVE','
 LEAVE - High Level Procedure Exit:
 | Opcode| Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                  
 | C9    | LEAVE      | NP   | Valid      | Valid          | Set SP to BP, then pop BP.   
@@ -20782,8 +20658,8 @@ Same exceptions as in protected mode.
 |       | while the current privilege level is      
 |       | 3.                                        
 | #UD   | If the LOCK prefix is used.               
-`,
-"LFENCE":`
+');
+INSERT INTO `instructions` VALUES ('x86','LFENCE','
 LFENCE - Load Fence:
 | Opcode  | Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                
 | 0F AE /5| LFENCE     | NP   | Valid      | Valid          | Serializes load operations.
@@ -20831,8 +20707,8 @@ void _mm_lfence(void)
 Exceptions (All Modes of Operation):
 | #UD| If CPUID.01H:EDX.SSE2[bit 26] = 0. If
 |    | the LOCK prefix is used.             
-`,
-"LGDT":`
+');
+INSERT INTO `instructions` VALUES ('x86','LGDT','
 LGDT/LIDT - Load Global/Interrupt Descriptor Table Register:
 | Opcode  | Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description      
 | 0F 01 /2| LGDT m16&32| M    | N.E.       | Valid          | Load m into GDTR.
@@ -20955,9 +20831,9 @@ Same exceptions as in protected mode.
 | #UD            | If source operand is not a memory location.   
 |                | If the LOCK prefix is used.                   
 | #PF(fault-code)| If a page fault occurs.                       
-`,
-"LIDT":`-R:LGDT`,
-"LLDT":`
+');
+INSERT INTO `instructions` VALUES ('x86','LIDT','-R:LGDT');
+INSERT INTO `instructions` VALUES ('x86','LLDT','
 LLDT - Load Local Descriptor Table Register:
 | Opcode  | Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                           
 | 0F 00 /2| LLDT r/m16 | M    | Valid      | Valid          | Load segment selector r/m16 into LDTR.
@@ -21053,8 +20929,8 @@ Same exceptions as in protected mode.
 | #NP(selector)  | If the LDT descriptor is not present.         
 | #PF(fault-code)| If a page fault occurs.                       
 | #UD            | If the LOCK prefix is used.                   
-`,
-"LMSW":`
+');
+INSERT INTO `instructions` VALUES ('x86','LMSW','
 LMSW - Load Machine Status Word:
 | Opcode  | Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                          
 | 0F 01 /6| LMSW r/m16 | M    | Valid      | Valid          | Loads r/m16 in machine status word of
@@ -21145,8 +21021,8 @@ Same exceptions as in protected mode.
 |                | form.                                         
 | #PF(fault-code)| If a page fault occurs.                       
 | #UD            | If the LOCK prefix is used.                   
-`,
-"LOCK":`
+');
+INSERT INTO `instructions` VALUES ('x86','LOCK','
 LOCK - Assert LOCK# Signal Prefix:
 | Opcode| Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                         
 | F0    | LOCK       | NP   | Valid      | Valid          | Asserts LOCK# signal for duration of
@@ -21229,8 +21105,8 @@ Same exceptions as in protected mode.
 64-Bit Mode Exceptions:
 Same exceptions as in protected mode.
 
-`,
-"LODS":`
+');
+INSERT INTO `instructions` VALUES ('x86','LODS','
 LODS/LODSB/LODSW/LODSD/LODSQ - Load String:
 | Opcode    | Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                            
 | AC        | LODS m8    | NP   | Valid      | Valid          | For legacy mode, Load byte at address  
@@ -21390,12 +21266,12 @@ Same exceptions as in protected mode.
 |                | while the current privilege level is       
 |                | 3.                                         
 | #UD            | If the LOCK prefix is used.                
-`,
-"LODSB":`-R:LODS`,
-"LODSW":`-R:LODS`,
-"LODSD":`-R:LODS`,
-"LODSQ":`-R:LODS`,
-"LOOP":`
+');
+INSERT INTO `instructions` VALUES ('x86','LODSB','-R:LODS');
+INSERT INTO `instructions` VALUES ('x86','LODSW','-R:LODS');
+INSERT INTO `instructions` VALUES ('x86','LODSD','-R:LODS');
+INSERT INTO `instructions` VALUES ('x86','LODSQ','-R:LODS');
+INSERT INTO `instructions` VALUES ('x86','LOOP','
 LOOP/LOOPcc - Loop According to ECX Counter:
 | Opcode| Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                         
 | E2 cb | LOOP rel8  | D    | Valid      | Valid          | Decrement count; jump short if count
@@ -21512,10 +21388,9 @@ Same exceptions as in protected mode.
 | #GP(0)| If the offset being jumped to is in
 |       | a non-canonical form.              
 | #UD   | If the LOCK prefix is used.        
-`,
-"LOOPE":`-R:LOOP`,
-"LOOPNE":`-R:LOOP`,
-"LSL":`
+');
+INSERT INTO `instructions` VALUES ('x86','LOOPcc','-R:LOOP');
+INSERT INTO `instructions` VALUES ('x86','LSL','
 LSL - Load Segment Limit:
 | Opcode          | Instruction      | Op/En| 64-Bit Mode| Compat/Leg Mode| Description                        
 | 0F 03 /r        | LSL r16, r16/m16 | RM   | Valid      | Valid          | Load: r16 ← segment limit, selector
@@ -21661,8 +21536,8 @@ Same exceptions as in protected mode.
 |                | is unaligned while the current privilege        
 |                | level is 3.                                     
 | #UD            | If the LOCK prefix is used.                     
-`,
-"LTR":`
+');
+INSERT INTO `instructions` VALUES ('x86','LTR','
 LTR - Load Task Register:
 | Opcode  | Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                   
 | 0F 00 /3| LTR r/m16  | M    | Valid      | Valid          | Load r/m16 into task register.
@@ -21759,9 +21634,9 @@ Same exceptions as in protected mode.
 | #NP(selector)  | If the TSS is marked not present.             
 | #PF(fault-code)| If a page fault occurs.                       
 | #UD            | If the LOCK prefix is used.                   
-`,
-"LZCNT":`
-LZCNT - Count the Number of Leading Zero Bits:
+');
+INSERT INTO `instructions` VALUES ('x86','LZCNT','
+LZCNT -  Count the Number of Leading Zero Bits:
 | Opcode/Instruction                  | Op/En| 64/32 -bit Mode| CPUID Feature Flag| Description                          
 | F3 0F BD /r LZCNT r16, r/m16        | RM   | V/V            | LZCNT             | Count the number of leading zero bits
 |                                     |      |                |                   | in r/m16, return result in r16.      
@@ -21858,8 +21733,8 @@ Same exceptions as in Protected Mode.
 |                 | an unaligned memory reference is made      
 |                 | while the current privilege level is       
 |                 | 3.                                         
-`,
-"MASKMOVDQU":`
+');
+INSERT INTO `instructions` VALUES ('x86','MASKMOVDQU','
 MASKMOVDQU - Store Selected Bytes of Double Quadword:
 | Opcode/Instruction                 | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                         
 | 66 0F F7 /r MASKMOVDQU xmm1, xmm2  | RM   | V/V           | SSE2              | Selectively write bytes from xmm1 to
@@ -21941,9 +21816,8 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.L= 1 If VEX.vvvv != 1111B.
-`,
-"VMASKMOVDQU":`-R:MASKMOVDQU`,
-"MASKMOVQ":`
+');
+INSERT INTO `instructions` VALUES ('x86','MASKMOVQ','
 MASKMOVQ - Store Selected Bytes of Quadword:
 | Opcode/Instruction        | Op/En| 64-Bit Mode| Compat/Leg Mode| Description                        
 | 0F F7 /r MASKMOVQ mm1, mm2| RM   | Valid      | Valid          | Selectively write bytes from mm1 to
@@ -22018,8 +21892,8 @@ See Table 22-8, “Exception Conditions for Legacy SIMD/MMX Instructions without
 FP Exception,” in the Intel® 64 and IA-32 Architectures Software Developer''s
 Manual, Volume 3A.
 
-`,
-"MAXPD":`
+');
+INSERT INTO `instructions` VALUES ('x86','MAXPD','
 MAXPD - Return Maximum Packed Double-Precision Floating-Point Values:
 | Opcode/Instruction                           | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                               
 | 66 0F 5F /r MAXPD xmm1, xmm2/m128            | RM   | V/V           | SSE2              | Return the maximum double-precision       
@@ -22100,9 +21974,8 @@ Invalid (including QNaN source operand), Denormal.
 Other Exceptions:
 See Exceptions Type 2.
 
-`,
-"VMAXPD":`-R:MAXPD`,
-"MAXPS":`
+');
+INSERT INTO `instructions` VALUES ('x86','MAXPS','
 MAXPS - Return Maximum Packed Single-Precision Floating-Point Values:
 | Opcode/Instruction                        | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                               
 | 0F 5F /r MAXPS xmm1, xmm2/m128            | RM   | V/V           | SSE               | Return the maximum single-precision       
@@ -22191,9 +22064,8 @@ Invalid (including QNaN source operand), Denormal.
 Other Exceptions:
 See Exceptions Type 2.
 
-`,
-"VMAXPS":`-R:MAXPS`,
-"MAXSD":`
+');
+INSERT INTO `instructions` VALUES ('x86','MAXSD','
 MAXSD - Return Maximum Scalar Double-Precision Floating-Point Value:
 | Opcode/Instruction                      | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                               
 | F2 0F 5F /r MAXSD xmm1, xmm2/m64        | RM   | V/V           | SSE2              | Return the maximum scalar double-precision
@@ -22264,9 +22136,8 @@ Invalid (including QNaN source operand), Denormal.
 Other Exceptions:
 See Exceptions Type 3.
 
-`,
-"VMAXSD":`-R:MAXSD`,
-"MAXSS":`
+');
+INSERT INTO `instructions` VALUES ('x86','MAXSS','
 MAXSS - Return Maximum Scalar Single-Precision Floating-Point Value:
 | Opcode/Instruction                      | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                               
 | F3 0F 5F /r MAXSS xmm1, xmm2/m32        | RM   | V/V           | SSE               | Return the maximum scalar single-precision
@@ -22333,9 +22204,8 @@ Invalid (including QNaN source operand), Denormal.
 Other Exceptions:
 See Exceptions Type 3.
 
-`,
-"VMAXSS":`-R:MAXSS`,
-"MFENCE":`
+');
+INSERT INTO `instructions` VALUES ('x86','MFENCE','
 MFENCE - Memory Fence:
 | Opcode  | Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                          
 | 0F AE /6| MFENCE     | NP   | Valid      | Valid          | Serializes load and store operations.
@@ -22386,8 +22256,8 @@ Exceptions (All Modes of Operation):
 |    | become globally visible when the value    
 |    | to be loaded into its destination register
 |    | is determined.                            
-`,
-"MINPD":`
+');
+INSERT INTO `instructions` VALUES ('x86','MINPD','
 MINPD - Return Minimum Packed Double-Precision Floating-Point Values:
 | Opcode/Instruction                           | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                               
 | 66 0F 5D /r MINPD xmm1, xmm2/m128            | RM   | V/V           | SSE2              | Return the minimum double-precision       
@@ -22466,9 +22336,8 @@ Invalid (including QNaN source operand), Denormal.
 Other Exceptions:
 See Exceptions Type 2.
 
-`,
-"VMINPD":`-R:MINPD`,
-"MINPS":`
+');
+INSERT INTO `instructions` VALUES ('x86','MINPS','
 MINPS - Return Minimum Packed Single-Precision Floating-Point Values:
 | Opcode/Instruction                        | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                               
 | 0F 5D /r MINPS xmm1, xmm2/m128            | RM   | V/V           | SSE               | Return the minimum single-precision       
@@ -22557,9 +22426,8 @@ Invalid (including QNaN source operand), Denormal.
 Other Exceptions:
 See Exceptions Type 2.
 
-`,
-"VMINPS":`-R:MINPS`,
-"MINSD":`
+');
+INSERT INTO `instructions` VALUES ('x86','MINSD','
 MINSD - Return Minimum Scalar Double-Precision Floating-Point Value:
 | Opcode/Instruction                      | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                               
 | F2 0F 5D /r MINSD xmm1, xmm2/m64        | RM   | V/V           | SSE2              | Return the minimum scalar double-precision
@@ -22629,9 +22497,8 @@ Invalid (including QNaN source operand), Denormal.
 Other Exceptions:
 See Exceptions Type 3.
 
-`,
-"VMINSD":`-R:MINSD`,
-"MINSS":`
+');
+INSERT INTO `instructions` VALUES ('x86','MINSS','
 MINSS - Return Minimum Scalar Single-Precision Floating-Point Value:
 | Opcode/Instruction                           | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                               
 | F3 0F 5D /r MINSS xmm1, xmm2/m32             | RM   | V/V           | SSE               | Return the minimum scalar single-precision
@@ -22698,9 +22565,8 @@ Invalid (including QNaN source operand), Denormal.
 Other Exceptions:
 See Exceptions Type 3.
 
-`,
-"VMINSS":`-R:MINSS`,
-"MONITOR":`
+');
+INSERT INTO `instructions` VALUES ('x86','MONITOR','
 MONITOR - Set Up Monitor Address:
 | Opcode  | Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                            
 | 0F 01 C8| MONITOR    | NP   | Valid      | Valid          | Sets up a linear address range to be   
@@ -22811,8 +22677,437 @@ Same exceptions as in protected mode.
 | #UD            | If the current privilege level is not
 |                | 0. If CPUID.01H:ECX.MONITOR[bit 3] = 
 |                | 0.                                   
-`,
-"MOV":`
+');
+INSERT INTO `instructions` VALUES ('x86','MOV','
+MOV - Move:
+| Opcode                   | Instruction                   | Op/En| 64-Bit Mode| Compat/Leg Mode| Description                               
+| 88 /r REX + 88 /r        | MOV r/m8,r8 MOV r/m8***,r8*** | MR MR| Valid Valid| Valid N.E.     | Move r8 to r/m8. Move r8 to r/m8.         
+| 89 /r                    | MOV r/m16,r16                 | MR   | Valid      | Valid          | Move r16 to r/m16.                        
+| 89 /r                    | MOV r/m32,r32                 | MR   | Valid      | Valid          | Move r32 to r/m32.                        
+| REX.W + 89 /r            | MOV r/m64,r64                 | MR   | Valid      | N.E.           | Move r64 to r/m64.                        
+| 8A /r                    | MOV r8,r/m8                   | RM   | Valid      | Valid          | Move r/m8 to r8.                          
+| REX + 8A /r              | MOV r8***,r/m8***             | RM   | Valid      | N.E.           | Move r/m8 to r8.                          
+| 8B /r                    | MOV r16,r/m16                 | RM   | Valid      | Valid          | Move r/m16 to r16.                        
+| 8B /r                    | MOV r32,r/m32                 | RM   | Valid      | Valid          | Move r/m32 to r32.                        
+| REX.W + 8B /r            | MOV r64,r/m64                 | RM   | Valid      | N.E.           | Move r/m64 to r64.                        
+| 8C /r                    | MOV r/m16,Sreg**              | MR   | Valid      | Valid          | Move segment register to r/m16.           
+| REX.W + 8C /r            | MOV r/m64,Sreg**              | MR   | Valid      | Valid          | Move zero extended 16-bit segment register
+|                          |                               |      |            |                | to r/m64.                                 
+| 8E /r                    | MOV Sreg,r/m16**              | RM   | Valid      | Valid          | Move r/m16 to segment register.           
+| REX.W + 8E /r            | MOV Sreg,r/m64**              | RM   | Valid      | Valid          | Move lower 16 bits of r/m64 to segment    
+|                          |                               |      |            |                | register.                                 
+| A0                       | MOV AL,moffs8*                | FD   | Valid      | Valid          | Move byte at (seg:offset) to AL.          
+| REX.W + A0               | MOV AL,moffs8*                | FD   | Valid      | N.E.           | Move byte at (offset) to AL.              
+| A1                       | MOV AX,moffs16*               | FD   | Valid      | Valid          | Move word at (seg:offset) to AX.          
+| A1                       | MOV EAX,moffs32*              | FD   | Valid      | Valid          | Move doubleword at (seg:offset) to EAX.   
+| REX.W + A1               | MOV RAX,moffs64*              | FD   | Valid      | N.E.           | Move quadword at (offset) to RAX.         
+| A2 REX.W + A2            | MOV moffs8,AL MOV moffs8***,AL| TD TD| Valid Valid| Valid N.E.     | Move AL to (seg:offset). Move AL to       
+|                          |                               |      |            |                | (offset).                                 
+| A3                       | MOV moffs16*,AX               | TD   | Valid      | Valid          | Move AX to (seg:offset).                  
+| A3                       | MOV moffs32*,EAX              | TD   | Valid      | Valid          | Move EAX to (seg:offset).                 
+| REX.W + A3               | MOV moffs64*,RAX              | TD   | Valid      | N.E.           | Move RAX to (offset).                     
+| B0+ rb ib REX + B0+ rb ib| MOV r8, imm8 MOV r8***, imm8  | OI OI| Valid Valid| Valid N.E.     | Move imm8 to r8. Move imm8 to r8.         
+| B8+ rw iw                | MOV r16, imm16                | OI   | Valid      | Valid          | Move imm16 to r16.                        
+| B8+ rd id                | MOV r32, imm32                | OI   | Valid      | Valid          | Move imm32 to r32.                        
+| REX.W + B8+ rd io        | MOV r64, imm64                | OI   | Valid      | N.E.           | Move imm64 to r64.                        
+| C6 /0 ib                 | MOV r/m8, imm8                | MI   | Valid      | Valid          | Move imm8 to r/m8.                        
+| REX + C6 /0 ib           | MOV r/m8***, imm8             | MI   | Valid      | N.E.           | Move imm8 to r/m8.                        
+| C7 /0 iw                 | MOV r/m16, imm16              | MI   | Valid      | Valid          | Move imm16 to r/m16.                      
+| C7 /0 id                 | MOV r/m32, imm32              | MI   | Valid      | Valid          | Move imm32 to r/m32.                      
+| REX.W + C7 /0 io         | MOV r/m64, imm32              | MI   | Valid      | N.E.           | Move imm32 sign extended to 64-bits       
+|                          |                               |      |            |                | to r/m64.                                 
+Notes: * The moffs8, moffs16, moffs32 and moffs64 operands specify a simple
+offset relative to the segment base, where 8, 16, 32 and 64 refer to the size
+of the data. The address-size attribute of the instruction determines the size
+of the offset, either 16, 32 or 64 bits. ** In 32-bit mode, the assembler may
+insert the 16-bit operand-size prefix with this instruction (see the following
+“Description” section for further information). ***In 64-bit mode, r/m8 can
+not be encoded to access the following byte registers if a REX prefix is used:
+AH, BH, CH, DH.
+
+
+Instruction Operand Encoding:
+| Op/En| Operand 1      | Operand 2    | Operand 3| Operand 4
+| MR   | ModRM:r/m (w)  | ModRM:reg (r)| NA       | NA       
+| RM   | ModRM:reg (w)  | ModRM:r/m (r)| NA       | NA       
+| FD   | AL/AX/EAX/RAX  | Moffs        | NA       | NA       
+| TD   | Moffs (w)      | AL/AX/EAX/RAX| NA       | NA       
+| OI   | opcode + rd (w)| imm8/16/32/64| NA       | NA       
+| MI   | ModRM:r/m (w)  | imm8/16/32/64| NA       | NA       
+
+Description:
+Copies the second operand (source operand) to the first operand (destination
+operand). The source operand can be an immediate value, general-purpose register,
+segment register, or memory location; the destination register can be a general-purpose
+register, segment register, or memory location. Both operands must be the same
+size, which can be a byte, a word, a doubleword, or a quadword.
+
+The MOV instruction cannot be used to load the CS register. Attempting to do
+so results in an invalid opcode exception (#UD). To load the CS register, use
+the far JMP, CALL, or RET instruction.
+
+If the destination operand is a segment register (DS, ES, FS, GS, or SS), the
+source operand must be a valid segment selector. In protected mode, moving a
+segment selector into a segment register automatically causes the segment descriptor
+information associated with that segment selector to be loaded into the hidden
+(shadow) part of the segment register. While loading this information, the segment
+selector and segment descriptor information is validated (see the “Operation”
+algorithm below). The segment descriptor data is obtained from the GDT or LDT
+entry for the specified segment selector.
+
+A NULL segment selector (values 0000-0003) can be loaded into the DS, ES, FS,
+and GS registers without causing a protection exception. However, any subsequent
+attempt to reference a segment whose corresponding segment register is loaded
+with a NULL value causes a general protection exception (#GP) and no memory
+reference occurs.
+
+Loading the SS register with a MOV instruction inhibits all interrupts until
+after the execution of the next instruction. This operation allows a stack pointer
+to be loaded into the ESP register with the next instruction (MOV ESP, stack-pointer
+value) before an interrupt occurs1. Be aware that the LSS instruction offers
+a more efficient method of loading the SS and ESP registers.
+
+When operating in 32-bit mode and moving data between a segment register and
+a general-purpose register, the 32-bit IA-32 processors do not require the use
+of the 16-bit operand-size prefix (a byte with the value 66H) with
+
+| 1.| If a code instruction breakpoint (for      
+|   | debug) is placed on an instruction located 
+|   | immediately after a MOV SS instruction,    
+|   | the breakpoint may not be triggered.       
+|   | However, in a sequence of instructions     
+|   | that load the SS register, only the        
+|   | first instruction in the sequence is       
+|   | guaranteed to delay an interrupt. In       
+|   | the following sequence, interrupts may     
+|   | be recognized before MOV ESP, EBP executes:
+|   | MOV SS, EDX MOV SS, EAX MOV ESP, EBP       
+this instruction, but most assemblers will insert it if the standard form of
+the instruction is used (for example, MOV DS, AX). The processor will execute
+this instruction correctly, but it will usually require an extra clock. With
+most assemblers, using the instruction form MOV DS, EAX will avoid this unneeded
+66H prefix. When the processor executes the instruction with a 32-bit general-purpose
+register, it assumes that the 16 least-significant bits of the general-purpose
+register are the destination or source operand. If the register is a destination
+operand, the resulting value in the two high-order bytes of the register is
+implementation dependent. For the Pentium 4, Intel Xeon, and P6 family processors,
+the two high-order bytes are filled with zeros; for earlier 32-bit IA-32 processors,
+the two high order bytes are undefined.
+
+In 64-bit mode, the instruction''s default operation size is 32 bits. Use of
+the REX.R prefix permits access to additional registers (R8-R15). Use of the
+REX.W prefix promotes operation to 64 bits. See the summary chart at the beginning
+of this section for encoding data and limits.
+
+Operation:
+
+DEST <- SRC;
+Loading a segment register while in protected mode results in special checks and actions, as described in the
+following listing. These checks are performed on the segment selector and the segment descriptor to which it
+points.
+IF SS is loaded
+  THEN
+     IF segment selector is NULL
+       THEN #GP(0); FI;
+     IF segment selector index is outside descriptor table limits
+     or segment selector''s RPL != CPL
+     or segment is not a writable data segment
+     or DPL != CPL
+       THEN #GP(selector); FI;
+     IF segment not marked present
+       THEN #SS(selector);
+       ELSE
+          SS <- segment selector;
+          SS <- segment descriptor; FI;
+FI;
+IF DS, ES, FS, or GS is loaded with non-NULL selector
+THEN
+  IF segment selector index is outside descriptor table limits
+  or segment is not a data or readable code segment
+  or ((segment is a data or nonconforming code segment)
+  or ((RPL > DPL) and (CPL > DPL))
+     THEN #GP(selector); FI;
+  IF segment not marked present
+     THEN #NP(selector);
+     ELSE
+       SegmentRegister <- segment selector;
+       SegmentRegister <- segment descriptor; FI;
+FI;
+IF DS, ES, FS, or GS is loaded with NULL selector
+  THEN
+     SegmentRegister <- segment selector;
+     SegmentRegister <- segment descriptor;
+FI;
+
+Flags Affected:
+None.
+
+
+Protected Mode Exceptions:
+| #GP(0)         | If attempt is made to load SS register        
+|                | with NULL segment selector. If the destination
+|                | operand is in a non-writable segment.         
+|                | If a memory operand effective address         
+|                | is outside the CS, DS, ES, FS, or GS          
+|                | segment limit. If the DS, ES, FS, or          
+|                | GS register contains a NULL segment           
+|                | selector.                                     
+| #GP(selector)  | If segment selector index is outside          
+|                | descriptor table limits. If the SS register   
+|                | is being loaded and the segment selector''s    
+|                | RPL and the segment descriptor''s DPL          
+|                | are not equal to the CPL. If the SS           
+|                | register is being loaded and the segment      
+|                | pointed to is a non-writable data segment.    
+|                | If the DS, ES, FS, or GS register is          
+|                | being loaded and the segment pointed          
+|                | to is not a data or readable code segment.    
+|                | If the DS, ES, FS, or GS register is          
+|                | being loaded and the segment pointed          
+|                | to is a data or nonconforming code segment,   
+|                | but both the RPL and the CPL are greater      
+|                | than the DPL.                                 
+| #SS(0)         | If a memory operand effective address         
+|                | is outside the SS segment limit.              
+| #SS(selector)  | If the SS register is being loaded and        
+|                | the segment pointed to is marked not          
+|                | present.                                      
+| #NP            | If the DS, ES, FS, or GS register is          
+|                | being loaded and the segment pointed          
+|                | to is marked not present.                     
+| #PF(fault-code)| If a page fault occurs.                       
+| #AC(0)         | If alignment checking is enabled and          
+|                | an unaligned memory reference is made         
+|                | while the current privilege level is          
+|                | 3.                                            
+| #UD            | If attempt is made to load the CS register.   
+|                | If the LOCK prefix is used.                   
+
+Real-Address Mode Exceptions:
+| #GP| If a memory operand effective address      
+|    | is outside the CS, DS, ES, FS, or GS       
+|    | segment limit.                             
+| #SS| If a memory operand effective address      
+|    | is outside the SS segment limit.           
+| #UD| If attempt is made to load the CS register.
+|    | If the LOCK prefix is used.                
+
+Virtual-8086 Mode Exceptions:
+| #GP(0)         | If a memory operand effective address      
+|                | is outside the CS, DS, ES, FS, or GS       
+|                | segment limit.                             
+| #SS(0)         | If a memory operand effective address      
+|                | is outside the SS segment limit.           
+| #PF(fault-code)| If a page fault occurs.                    
+| #AC(0)         | If alignment checking is enabled and       
+|                | an unaligned memory reference is made.     
+| #UD            | If attempt is made to load the CS register.
+|                | If the LOCK prefix is used.                
+
+Compatibility Mode Exceptions:
+Same exceptions as in protected mode.
+
+
+64-Bit Mode Exceptions:
+| #GP(0)         | If the memory address is in a non-canonical     
+|                | form. If an attempt is made to load             
+|                | SS register with NULL segment selector          
+|                | when CPL = 3. If an attempt is made             
+|                | to load SS register with NULL segment           
+|                | selector when CPL < 3 and CPL != RPL.            
+| #GP(selector)  | If segment selector index is outside            
+|                | descriptor table limits. If the memory          
+|                | access to the descriptor table is non-canonical.
+|                | If the SS register is being loaded and          
+|                | the segment selector''s RPL and the segment      
+|                | descriptor''s DPL are not equal to the           
+|                | CPL. If the SS register is being loaded         
+|                | and the segment pointed to is a nonwritable     
+|                | data segment. If the DS, ES, FS, or             
+|                | GS register is being loaded and the             
+|                | segment pointed to is not a data or             
+|                | readable code segment. If the DS, ES,           
+|                | FS, or GS register is being loaded and          
+|                | the segment pointed to is a data or             
+|                | nonconforming code segment, but both            
+|                | the RPL and the CPL are greater than            
+|                | the DPL.                                        
+| #SS(0)         | If the stack address is in a non-canonical      
+|                | form.                                           
+| #SS(selector)  | If the SS register is being loaded and          
+|                | the segment pointed to is marked not            
+|                | present.                                        
+| #PF(fault-code)| If a page fault occurs.                         
+| #AC(0)         | If alignment checking is enabled and            
+|                | an unaligned memory reference is made           
+|                | while the current privilege level is            
+|                | 3.                                              
+| #UD            | If attempt is made to load the CS register.     
+|                | If the LOCK prefix is used.                     
+');
+INSERT INTO `instructions` VALUES ('x86','MOV','
+MOV - Move to/from Control Registers:
+| Opcode/Instruction                 | Op/En| 64-Bit Mode| Compat/Leg Mode| Description                           
+| 0F 20/r MOV r32, CR0-CR7           | MR   | N.E.       | Valid          | Move control register to r32.         
+| 0F 20/r MOV r64, CR0-CR7 REX.R + 0F| MR MR| Valid Valid| N.E. N.E.      | Move extended control register to r64.
+| 20 /0 MOV r64, CR8                 |      |            |                | Move extended CR8 to r64.1            
+| 0F 22 /r MOV CR0-CR7, r32          | RM   | N.E.       | Valid          | Move r32 to control register.         
+| 0F 22 /r MOV CR0-CR7, r64          | RM   | Valid      | N.E.           | Move r64 to extended control register.
+| REX.R + 0F 22 /0 MOV CR8, r64      | RM   | Valid      | N.E.           | Move r64 to extended CR8.1            
+
+NOTE::
+| 1.| MOV CR* instructions, except for MOV  
+|   | CR8, are serializing instructions. MOV
+|   | CR8 is not architecturally defined as 
+|   | a serializing instruction. For more   
+|   | information, see Chapter 8 in Intel®  
+|   | 64 and IA-32 Architectures Software   
+|   | Developer''s Manual, Volume 3A.        
+
+Instruction Operand Encoding:
+| Op/En| Operand 1    | Operand 2    | Operand 3| Operand 4
+| MR   | ModRM:r/m (w)| ModRM:reg (r)| NA       | NA       
+| RM   | ModRM:reg (w)| ModRM:r/m (r)| NA       | NA       
+
+Description:
+Moves the contents of a control register (CR0, CR2, CR3, CR4, or CR8) to a general-purpose
+register or the contents of a general purpose register to a control register.
+The operand size for these instructions is always 32 bits in non-64-bit modes,
+regardless of the operand-size attribute. (See “Control Registers” in Chapter
+2 of the Intel®64 and IA-32 Architectures Software Developer''s Manual, Volume
+3A, for a detailed description of the flags and fields in the control registers.)
+This instruction can be executed only when the current privilege level is 0.
+
+At the opcode level, the reg field within the ModR/M byte specifies which of
+the control registers is loaded or read. The 2 bits in the mod field are ignored.
+The r/m field specifies the general-purpose register loaded or read. Attempts
+to reference CR1, CR5, CR6, CR7, and CR9-CR15 result in undefined opcode (#UD)
+exceptions.
+
+When loading control registers, programs should not attempt to change the reserved
+bits; that is, always set reserved bits to the value previously read. An attempt
+to change CR4''s reserved bits will cause a general protection fault. Reserved
+bits in CR0 and CR3 remain clear after any load of those registers; attempts
+to set them have no impact. On Pentium 4, Intel Xeon and P6 family processors,
+CR0.ET remains set after any load of CR0; attempts to clear this bit have no
+impact.
+
+In certain cases, these instructions have the side effect of invalidating entries
+in the TLBs and the paging-structure caches. See Section 4.10.4.1, “Operations
+that Invalidate TLBs and Paging-Structure Caches,” in the Intel® 64 and IA-32
+Architectures Software Developer''s Manual, Volume 3A for details.
+
+The following side effects are implementation-specific for the Pentium 4, Intel
+Xeon, and P6 processor family: when modifying PE or PG in register CR0, or PSE
+or PAE in register CR4, all TLB entries are flushed, including global entries.
+Software should not depend on this functionality in all Intel 64 or IA-32 processors.
+
+In 64-bit mode, the instruction''s default operation size is 64 bits. The REX.R
+prefix must be used to access CR8. Use of REX.B permits access to additional
+registers (R8-R15). Use of the REX.W prefix or 66H prefix is ignored. Use of
+
+the REX.R prefix to specify a register other than CR8 causes an invalid-opcode
+exception. See the summary chart at the beginning of this section for encoding
+data and limits.
+
+If CR4.PCIDE = 1, bit 63 of the source operand to MOV to CR3 determines whether
+the instruction invalidates entries in the TLBs and the paging-structure caches
+(see Section 4.10.4.1, “Operations that Invalidate TLBs and Paging-Structure
+Caches,” in the Intel® 64 and IA-32 Architectures Software Developer''s Manual,
+Volume 3A). The instruction does not modify bit 63 of CR3, which is reserved
+and always 0.
+
+See “Changes to Instruction Behavior in VMX Non-Root Operation” in Chapter 25
+of the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume
+3C, for more information about the behavior of this instruction in VMX non-root
+operation.
+
+Operation:
+
+DEST <- SRC;
+
+Flags Affected:
+The OF, SF, ZF, AF, PF, and CF flags are undefined.
+
+
+Protected Mode Exceptions:
+| #GP(0)| If the current privilege level is not    
+|       | 0. If an attempt is made to write invalid
+|       | bit combinations in CR0 (such as setting 
+|       | the PG flag to 1 when the PE flag is     
+|       | set to 0, or setting the CD flag to      
+|       | 0 when the NW flag is set to 1). If      
+|       | an attempt is made to write a 1 to any   
+|       | reserved bit in CR4. If an attempt is    
+|       | made to write 1 to CR4.PCIDE. If any     
+|       | of the reserved bits are set in the      
+|       | page-directory pointers table (PDPT)     
+|       | and the loading of a control register    
+|       | causes the PDPT to be loaded into the    
+|       | processor.                               
+| #UD   | If the LOCK prefix is used. If an attempt
+|       | is made to access CR1, CR5, CR6, or      
+|       | CR7.                                     
+
+Real-Address Mode Exceptions:
+| #GP| If an attempt is made to write a 1 to    
+|    | any reserved bit in CR4. If an attempt   
+|    | is made to write 1 to CR4.PCIDE. If      
+|    | an attempt is made to write invalid      
+|    | bit combinations in CR0 (such as setting 
+|    | the PG flag to 1 when the PE flag is     
+|    | set to 0).                               
+| #UD| If the LOCK prefix is used. If an attempt
+|    | is made to access CR1, CR5, CR6, or      
+|    | CR7.                                     
+
+Virtual-8086 Mode Exceptions:
+| #GP(0)| These instructions cannot be executed
+|       | in virtual-8086 mode.                
+
+Compatibility Mode Exceptions:
+| #GP(0)| If the current privilege level is not    
+|       | 0. If an attempt is made to write invalid
+|       | bit combinations in CR0 (such as setting 
+|       | the PG flag to 1 when the PE flag is     
+|       | set to 0, or setting the CD flag to      
+|       | 0 when the NW flag is set to 1). If      
+|       | an attempt is made to change CR4.PCIDE   
+|       | from 0 to 1 while CR3[11:0] != 000H.      
+|       | If an attempt is made to clear CR0.PG[bit
+|       | 31] while CR4.PCIDE = 1. If an attempt   
+|       | is made to write a 1 to any reserved     
+|       | bit in CR3. If an attempt is made to     
+|       | leave IA-32e mode by clearing CR4.PAE[bit
+|       | 5].                                      
+| #UD   | If the LOCK prefix is used. If an attempt
+|       | is made to access CR1, CR5, CR6, or      
+|       | CR7.                                     
+
+64-Bit Mode Exceptions:
+| #GP(0)| If the current privilege level is not    
+|       | 0. If an attempt is made to write invalid
+|       | bit combinations in CR0 (such as setting 
+|       | the PG flag to 1 when the PE flag is     
+|       | set to 0, or setting the CD flag to      
+|       | 0 when the NW flag is set to 1). If      
+|       | an attempt is made to change CR4.PCIDE   
+|       | from 0 to 1 while CR3[11:0] != 000H.      
+|       | If an attempt is made to clear CR0.PG[bit
+|       | 31]. If an attempt is made to write      
+|       | a 1 to any reserved bit in CR4. If an    
+|       | attempt is made to write a 1 to any      
+|       | reserved bit in CR8. If an attempt is    
+|       | made to write a 1 to any reserved bit    
+|       | in CR3. If an attempt is made to leave   
+|       | IA-32e mode by clearing CR4.PAE[bit      
+|       | 5].                                      
+| #UD   | If the LOCK prefix is used. If an attempt
+|       | is made to access CR1, CR5, CR6, or      
+|       | CR7. If the REX.R prefix is used to      
+|       | specify a register other than CR8.       
+');
+INSERT INTO `instructions` VALUES ('x86','MOV','
 MOV - Move to/from Debug Registers:
 | Opcode/Instruction       | Op/En| 64-Bit Mode| Compat/Leg Mode| Description                         
 | 0F 21/r MOV r32, DR0-DR7 | MR   | N.E.       | Valid          | Move debug register to r32.         
@@ -22901,8 +23196,8 @@ Same exceptions as in protected mode.
 |       | If the REX.R prefix is used.               
 | #DB   | If any debug register is accessed while    
 |       | the DR7.GD[bit 13] = 1.                    
-`,
-"MOVAPD":`
+');
+INSERT INTO `instructions` VALUES ('x86','MOVAPD','
 MOVAPD - Move Aligned Packed Double-Precision Floating-Point Values:
 | Opcode/Instruction                        | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                                
 | 66 0F 28 /r MOVAPD xmm1, xmm2/m128        | RM   | V/V           | SSE2              | Move packed double-precision floating-point
@@ -22993,9 +23288,8 @@ Other Exceptions:
 See Exceptions Type 1.SSE2; additionally
 
 | #UD| If VEX.vvvv != 1111B.
-`,
-"VMOVAPD":`-R:MOVAPD`,
-"MOVAPS":`
+');
+INSERT INTO `instructions` VALUES ('x86','MOVAPS','
 MOVAPS - Move Aligned Packed Single-Precision Floating-Point Values:
 | Opcode/Instruction                          | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                                
 | 0F 28 /r MOVAPS xmm1, xmm2/m128             | RM   | V/V           | SSE               | Move packed single-precision floating-point
@@ -23079,9 +23373,8 @@ Other Exceptions:
 See Exceptions Type 1.SSE; additionally
 
 | #UD| If VEX.vvvv != 1111B.
-`,
-"VMOVAPS":`-R:MOVAPS`,
-"MOVBE":`
+');
+INSERT INTO `instructions` VALUES ('x86','MOVBE','
 MOVBE - Move Data After Swapping Bytes:
 | Opcode             | Instruction   | Op/En| 64-Bit Mode| Compat/Leg Mode| Description                          
 | 0F 38 F0 /r        | MOVBE r16, m16| RM   | Valid      | Valid          | Reverse byte order in m16 and move to
@@ -23208,8 +23501,8 @@ Same exceptions as in protected mode.
 | #UD            | If CPUID.01H:ECX.MOVBE[bit 22] = 0.        
 |                | If the LOCK prefix is used. If REP (F3H)   
 |                | prefix is used.                            
-`,
-"MOVD":`
+');
+INSERT INTO `instructions` VALUES ('x86','MOVD','
 MOVD/MOVQ - Move Doubleword/Move Quadword:
 | Opcode/Instruction                        | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                              
 | 0F 6E /r MOVD mm, r/m32                   | RM   | V/V           | MMX               | Move doubleword from r/m32 to mm.        
@@ -23301,10 +23594,9 @@ Other Exceptions:
 See Exceptions Type 5; additionally
 
 | #UD| If VEX.L = 1. If VEX.vvvv != 1111B.
-`,
-"VMOVQ":`-R:MOVD`,
-"VMOVD":`-R:MOVD`,
-"MOVDDUP":`
+');
+INSERT INTO `instructions` VALUES ('x86','MOVQ','-R:MOVD');
+INSERT INTO `instructions` VALUES ('x86','MOVDDUP','
 MOVDDUP - Move One Double-FP and Duplicate:
 | Opcode/Instruction                    | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                                   
 | F2 0F 12 /r MOVDDUP xmm1, xmm2/m64    | RM   | V/V           | SSE3              | Move one double-precision floating-point      
@@ -23379,9 +23671,8 @@ Other Exceptions:
 See Exceptions Type 5; additionally
 
 | #UD| If VEX.vvvv != 1111B.
-`,
-"VMOVDDUP":`-R:MOVDDUP`,
-"MOVDQA":`
+');
+INSERT INTO `instructions` VALUES ('x86','MOVDQA','
 MOVDQA - Move Aligned Double Quadword:
 | Opcode/Instruction                        | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                                
 | 66 0F 6F /r MOVDQA xmm1, xmm2/m128        | RM   | V/V           | SSE2              | Move aligned double quadword from xmm2/m128
@@ -23457,9 +23748,8 @@ Other Exceptions:
 See Exceptions Type 1.SSE2; additionally
 
 | #UD| If VEX.vvvv != 1111B.
-`,
-"VMOVDQA":`-R:MOVDQA`,
-"MOVDQU":`
+');
+INSERT INTO `instructions` VALUES ('x86','MOVDQU','
 MOVDQU - Move Unaligned Double Quadword:
 | Opcode/Instruction                        | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                         
 | F3 0F 6F /r MOVDQU xmm1, xmm2/m128        | RM   | V/V           | SSE2              | Move unaligned double quadword from 
@@ -23553,9 +23843,8 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.vvvv != 1111B.
-`,
-"VMOVDQU":`-R:MOVDQU`,
-"MOVDQ2Q":`
+');
+INSERT INTO `instructions` VALUES ('x86','MOVDQ2Q','
 MOVDQ2Q - Move Quadword from XMM to MMX Technology Register:
 | Opcode     | Instruction    | Op/En| 64-Bit Mode| Compat/Leg Mode| Description                                
 | F2 0F D6 /r| MOVDQ2Q mm, xmm| RM   | Valid      | Valid          | Move low quadword from xmm to mmx register.
@@ -23611,9 +23900,9 @@ Same exceptions as in protected mode.
 64-Bit Mode Exceptions:
 Same exceptions as in protected mode.
 
-`,
-"MOVHLPS":`
-MOVHLPS - Move Packed Single-Precision Floating-Point Values High to Low:
+');
+INSERT INTO `instructions` VALUES ('x86','MOVHLPS','
+MOVHLPS -  Move Packed Single-Precision Floating-Point Values High to Low:
 | Opcode/Instruction                     | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                                    
 | 0F 12 /r MOVHLPS xmm1, xmm2            | RM   | V/V           | SSE               | Move two packed single-precision floatingpoint 
 |                                        |      |               |                   | values from high quadword of xmm2 to           
@@ -23666,9 +23955,8 @@ Other Exceptions:
 See Exceptions Type 7; additionally
 
 | #UD| If VEX.L= 1.
-`,
-"VMOVHLPS":`-R:MOVHLPS`,
-"MOVHPD":`
+');
+INSERT INTO `instructions` VALUES ('x86','MOVHPD','
 MOVHPD - Move High Packed Double-Precision Floating-Point Value:
 | Opcode/Instruction                     | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                            
 | 66 0F 16 /r MOVHPD xmm, m64            | RM   | V/V           | SSE2              | Move double-precision floating-point   
@@ -23736,9 +24024,8 @@ Other Exceptions:
 See Exceptions Type 5; additionally
 
 | #UD| If VEX.L= 1.
-`,
-"VMOVHPD":`-R:MOVHPD`,
-"MOVHPS":`
+');
+INSERT INTO `instructions` VALUES ('x86','MOVHPS','
 MOVHPS - Move High Packed Single-Precision Floating-Point Values:
 | Opcode/Instruction                    | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                                    
 | 0F 16 /r MOVHPS xmm, m64              | RM   | V/V           | SSE               | Move two packed single-precision floatingpoint 
@@ -23808,9 +24095,8 @@ Other Exceptions:
 See Exceptions Type 5; additionally
 
 | #UD| If VEX.L= 1.
-`,
-"VMOVHPS":`-R:MOVHPS`,
-"MOVLHPS":`
+');
+INSERT INTO `instructions` VALUES ('x86','MOVLHPS','
 MOVLHPS - Move Packed Single-Precision Floating-Point Values Low to High:
 | Opcode/Instruction                     | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                                    
 | 0F 16 /r MOVLHPS xmm1, xmm2            | RM   | V/V           | SSE               | Move two packed single-precision floatingpoint 
@@ -23865,9 +24151,8 @@ Other Exceptions:
 See Exceptions Type 7; additionally
 
 | #UD| If VEX.L= 1.
-`,
-"VMOVLHPS":`-R:MOVLHPS`,
-"MOVLPD":`
+');
+INSERT INTO `instructions` VALUES ('x86','MOVLPD','
 MOVLPD - Move Low Packed Double-Precision Floating-Point Value:
 | Opcode/Instruction                 | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                             
 | 66 0F 12 /r MOVLPD xmm, m64        | RM   | V/V           | SSE2              | Move double-precision floating-point    
@@ -23936,9 +24221,8 @@ Other Exceptions:
 See Exceptions Type 5; additionally
 
 | #UD| If VEX.L= 1. If VEX.vvvv != 1111B.
-`,
-"VMOVLPD":`-R:MOVLPD`,
-"MOVLPS":`
+');
+INSERT INTO `instructions` VALUES ('x86','MOVLPS','
 MOVLPS - Move Low Packed Single-Precision Floating-Point Values:
 | Opcode/Instruction                    | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                                    
 | 0F 12 /r MOVLPS xmm, m64              | RM   | V/V           | SSE               | Move two packed single-precision floatingpoint 
@@ -24007,9 +24291,8 @@ Other Exceptions:
 See Exceptions Type 5; additionally
 
 | #UD| If VEX.L= 1. If VEX.vvvv != 1111B.
-`,
-"VMOVLPS":`-R:MOVLPS`,
-"MOVMSKPD":`
+');
+INSERT INTO `instructions` VALUES ('x86','MOVMSKPD','
 MOVMSKPD - Extract Packed Double-Precision Floating-Point Sign Mask:
 | Opcode/Instruction                    | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                          
 | 66 0F 50 /r MOVMSKPD reg, xmm         | RM   | V/V           | SSE2              | Extract 2-bit sign mask from xmm and 
@@ -24072,9 +24355,8 @@ Other Exceptions:
 See Exceptions Type 7; additionally
 
 | #UD| If VEX.vvvv != 1111B.
-`,
-"VMOVMSKPD":`-R:MOVMSKPD`,
-"MOVMSKPS":`
+');
+INSERT INTO `instructions` VALUES ('x86','MOVMSKPS','
 MOVMSKPS - Extract Packed Single-Precision Floating-Point Sign Mask:
 | Opcode/Instruction                 | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                          
 | 0F 50 /r MOVMSKPS reg, xmm         | RM   | V/V           | SSE               | Extract 4-bit sign mask from xmm and 
@@ -24156,10 +24438,9 @@ Other Exceptions:
 See Exceptions Type 7; additionally
 
 | #UD| If VEX.vvvv != 1111B.
-`,
-"VMOVMSKPS":`-R:MOVMSKPS`,
-"MOVNTDQA":`
-MOVNTDQA - Load Double Quadword Non-Temporal Aligned Hint:
+');
+INSERT INTO `instructions` VALUES ('x86','MOVNTDQA','
+MOVNTDQA  -  Load Double Quadword Non-Temporal Aligned Hint:
 | Opcode/Instruction                 | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                             
 | 66 0F 38 2A /r MOVNTDQA xmm1, m128 | RM   | V/V           | SSE4_1            | Move double quadword from m128 to xmm   
 |                                    |      |               |                   | using non-temporal hint if WC memory    
@@ -24254,9 +24535,8 @@ Other Exceptions:
 See Exceptions Type 1.SSE4.1; additionally
 
 | #UD| If VEX.L= 1. If VEX.vvvv != 1111B.
-`,
-"VMOVNTDQA":`-R:MOVNTDQA`,
-"MOVNTDQ":`
+');
+INSERT INTO `instructions` VALUES ('x86','MOVNTDQ','
 MOVNTDQ - Store Double Quadword Using Non-Temporal Hint:
 | Opcode/Instruction                    | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                          
 | 66 0F E7 /r MOVNTDQ m128, xmm         | MR   | V/V           | SSE2              | Move double quadword from xmm to m128
@@ -24318,9 +24598,8 @@ Other Exceptions:
 See Exceptions Type 1.SSE2; additionally
 
 | #UD| If VEX.vvvv != 1111B.
-`,
-"VMOVNTDQ":`-R:MOVNTDQ`,
-"MOVNTI":`
+');
+INSERT INTO `instructions` VALUES ('x86','MOVNTI','
 MOVNTI - Store Doubleword Using Non-Temporal Hint:
 | Opcode          | Instruction    | Op/En| 64-Bit Mode| Compat/Leg Mode| Description                          
 | 0F C3 /r        | MOVNTI m32, r32| MR   | Valid      | Valid          | Move doubleword from r32 to m32 using
@@ -24410,8 +24689,8 @@ Same exceptions as in protected mode.
 |                | an unaligned memory reference is made      
 |                | while the current privilege level is       
 |                | 3.                                         
-`,
-"MOVNTPD":`
+');
+INSERT INTO `instructions` VALUES ('x86','MOVNTPD','
 MOVNTPD - Store Packed Double-Precision Floating-Point Values Using Non-Temporal Hint:
 | Opcode/Instruction                    | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                                
 | 66 0F 2B /r MOVNTPD m128, xmm         | MR   | V/V           | SSE2              | Move packed double-precision floating-point
@@ -24474,9 +24753,8 @@ Other Exceptions:
 See Exceptions Type 1.SSE2; additionally
 
 | #UD| If VEX.vvvv != 1111B.
-`,
-"VMOVNTPD":`-R:MOVNTPD`,
-"MOVNTPS":`
+');
+INSERT INTO `instructions` VALUES ('x86','MOVNTPS','
 MOVNTPS - Store Packed Single-Precision Floating-Point Values Using Non-Temporal Hint:
 | Opcode/Instruction                 | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                                
 | 0F 2B /r MOVNTPS m128, xmm         | MR   | V/V           | SSE               | Move packed single-precision floating-point
@@ -24539,9 +24817,8 @@ Other Exceptions:
 See Exceptions Type 1.SSE; additionally
 
 | #UD| If VEX.vvvv != 1111B.
-`,
-"VMOVNTPS":`-R:MOVNTPS`,
-"MOVNTQ":`
+');
+INSERT INTO `instructions` VALUES ('x86','MOVNTQ','
 MOVNTQ - Store of Quadword Using Non-Temporal Hint:
 | Opcode  | Instruction   | Op/En| 64-Bit Mode| Compat/Leg Mode| Description                                   
 | 0F E7 /r| MOVNTQ m64, mm| MR   | Valid      | Valid          | Move quadword from mm to m64 using nontemporal
@@ -24592,8 +24869,8 @@ See Table 22-8, “Exception Conditions for Legacy SIMD/MMX Instructions without
 FP Exception,” in the Intel® 64 and IA-32 Architectures Software Developer''s
 Manual, Volume 3A.
 
-`,
-"MOVQ":`
+');
+INSERT INTO `instructions` VALUES ('x86','MOVQ','
 MOVQ - Move Quadword:
 | Opcode/Instruction                     | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                           
 | 0F 6F /r MOVQ mm, mm/m64               | RM   | V/V           | MMX               | Move quadword from mm/m64 to mm.      
@@ -24673,8 +24950,8 @@ See Table 22-8, “Exception Conditions for Legacy SIMD/MMX Instructions without
 FP Exception,” in the Intel® 64 and IA-32 Architectures Software Developer''s
 Manual, Volume 3B.
 
-`,
-"MOVQ2DQ":`
+');
+INSERT INTO `instructions` VALUES ('x86','MOVQ2DQ','
 MOVQ2DQ - Move Quadword from MMX Technology to XMM Register:
 | Opcode     | Instruction    | Op/En| 64-Bit Mode| Compat/Leg Mode| Description                           
 | F3 0F D6 /r| MOVQ2DQ xmm, mm| RM   | Valid      | Valid          | Move quadword from mmx to low quadword
@@ -24732,9 +25009,11 @@ Same exceptions as in protected mode.
 64-Bit Mode Exceptions:
 Same exceptions as in protected mode.
 
-`,
-"MOVS":`
+');
+INSERT INTO `instructions` VALUES ('x86','MOVS','
 MOVS/MOVSB/MOVSW/MOVSD/MOVSQ - Move Data from String to String:
+\
+
 | Opcode    | Instruction  | Op/En| 64-Bit Mode| Compat/Leg Mode| Description                                
 | A4        | MOVS m8, m8  | NP   | Valid      | Valid          | For legacy mode, Move byte from address    
 |           |              |      |            |                | DS:(E)SI to ES:(E)DI. For 64-bit mode      
@@ -24943,11 +25222,12 @@ Same exceptions as in protected mode.
 |                | while the current privilege level is       
 |                | 3.                                         
 | #UD            | If the LOCK prefix is used.                
-`,
-"MOVSB":`-R:MOVS`,
-"MOVSW":`-R:MOVS`,
-"MOVSQ":`-R:MOVS`,
-"MOVSD":`
+');
+INSERT INTO `instructions` VALUES ('x86','MOVSB','-R:MOVS');
+INSERT INTO `instructions` VALUES ('x86','MOVSW','-R:MOVS');
+INSERT INTO `instructions` VALUES ('x86','MOVSD','-R:MOVS');
+INSERT INTO `instructions` VALUES ('x86','MOVSQ','-R:MOVS');
+INSERT INTO `instructions` VALUES ('x86','MOVSD','
 MOVSD - Move Scalar Double-Precision Floating-Point Value:
 | Opcode/Instruction                      | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                                 
 | F2 0F 10 /r MOVSD xmm1, xmm2/m64        | RM   | V/V           | SSE2              | Move scalar double-precision floating-point 
@@ -25035,9 +25315,8 @@ Other Exceptions:
 See Exceptions Type 5; additionally
 
 | #UD| If VEX.vvvv != 1111B.
-`,
-"VMOVSD":`-R:MOVSD`,
-"MOVSHDUP":`
+');
+INSERT INTO `instructions` VALUES ('x86','MOVSHDUP','
 MOVSHDUP - Move Packed Single-FP High and Duplicate:
 | Opcode/Instruction                     | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                                   
 | F3 0F 16 /r MOVSHDUP xmm1, xmm2/m128   | RM   | V/V           | SSE3              | Move two single-precision floating-point      
@@ -25122,9 +25401,8 @@ None
 Other Exceptions:
 See Exceptions Type 2.
 
-`,
-"VMOVSHDUP":`-R:MOVSHDUP`,
-"MOVSLDUP":`
+');
+INSERT INTO `instructions` VALUES ('x86','MOVSLDUP','
 MOVSLDUP - Move Packed Single-FP Low and Duplicate:
 | Opcode/Instruction                     | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                                   
 | F3 0F 12 /r MOVSLDUP xmm1, xmm2/m128   | RM   | V/V           | SSE3              | Move two single-precision floating-point      
@@ -25213,9 +25491,8 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.vvvv != 1111B.
-`,
-"VMOVSLDUP":`-R:MOVSLDUP`,
-"MOVSS":`
+');
+INSERT INTO `instructions` VALUES ('x86','MOVSS','
 MOVSS - Move Scalar Single-Precision Floating-Point Values:
 | Opcode/Instruction                      | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                                 
 | F3 0F 10 /r MOVSS xmm1, xmm2/m32        | RM   | V/V           | SSE               | Move scalar single-precision floating-point 
@@ -25302,9 +25579,8 @@ Other Exceptions:
 See Exceptions Type 5; additionally
 
 | #UD| If VEX.vvvv != 1111B.
-`,
-"VMOVSS":`-R:MOVSS`,
-"MOVSX":`
+');
+INSERT INTO `instructions` VALUES ('x86','MOVSX','
 MOVSX/MOVSXD - Move with Sign-Extension:
 | Opcode          | Instruction      | Op/En| 64-Bit Mode| Compat/Leg Mode| Description                                    
 | 0F BE /r        | MOVSX r16, r/m8  | RM   | Valid      | Valid          | Move byte to word with sign-extension.         
@@ -25389,9 +25665,9 @@ Same exceptions as in protected mode.
 |                | while the current privilege level is       
 |                | 3.                                         
 | #UD            | If the LOCK prefix is used.                
-`,
-"MOVSXD":`-R:MOVSX`,
-"MOVUPD":`
+');
+INSERT INTO `instructions` VALUES ('x86','MOVSXD','-R:MOVSX');
+INSERT INTO `instructions` VALUES ('x86','MOVUPD','
 MOVUPD - Move Unaligned Packed Double-Precision Floating-Point Values:
 | Opcode/Instruction                        | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                                
 | 66 0F 10 /r MOVUPD xmm1, xmm2/m128        | RM   | V/V           | SSE2              | Move packed double-precision floating-point
@@ -25482,9 +25758,8 @@ Other Exceptions:
 See Exceptions Type 4 Note treatment of #AC varies; additionally
 
 | #UD| If VEX.vvvv != 1111B.
-`,
-"VMOVUPD":`-R:MOVUPD`,
-"MOVUPS":`
+');
+INSERT INTO `instructions` VALUES ('x86','MOVUPS','
 MOVUPS - Move Unaligned Packed Single-Precision Floating-Point Values:
 | Opcode/Instruction                          | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                                
 | 0F 10 /r MOVUPS xmm1, xmm2/m128             | RM   | V/V           | SSE               | Move packed single-precision floating-point
@@ -25572,9 +25847,8 @@ Other Exceptions:
 See Exceptions Type 4 Note treatment of #AC varies; additionally
 
 | #UD| If VEX.vvvv != 1111B.
-`,
-"VMOVUPS":`-R:MOVUPS`,
-"MOVZX":`
+');
+INSERT INTO `instructions` VALUES ('x86','MOVZX','
 MOVZX - Move with Zero-Extend:
 | Opcode          | Instruction     | Op/En| 64-Bit Mode| Compat/Leg Mode| Description                             
 | 0F B6 /r        | MOVZX r16, r/m8 | RM   | Valid      | Valid          | Move byte to word with zero-extension.  
@@ -25657,9 +25931,9 @@ Same exceptions as in protected mode.
 |                | while the current privilege level is       
 |                | 3.                                         
 | #UD            | If the LOCK prefix is used.                
-`,
-"MPSADBW":`
-MPSADBW - Compute Multiple Packed Sums of Absolute Difference:
+');
+INSERT INTO `instructions` VALUES ('x86','MPSADBW','
+MPSADBW  -  Compute Multiple Packed Sums of Absolute Difference:
 | Opcode/Instruction                        | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                             
 | 66 0F 3A 42 /r ib MPSADBW xmm1, xmm2/m128,| RMI  | V/V           | SSE4_1            | Sums absolute 8-bit integer difference  
 | imm8                                      |      |               |                   | of adjacent groups of 4 byte integers   
@@ -25998,9 +26272,8 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.L = 1.
-`,
-"VMPSADBW":`-R:MPSADBW`,
-"MUL":`
+');
+INSERT INTO `instructions` VALUES ('x86','MUL','
 MUL - Unsigned Multiply:
 | Opcode       | Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                               
 | F6 /4        | MUL r/m8   | M    | Valid      | Valid          | Unsigned multiply (AX ← AL * r/m8).       
@@ -26109,8 +26382,8 @@ Same exceptions as in protected mode.
 |                | an unaligned memory reference is made      
 |                | while the current privilege level is       
 |                | 3.                                         
-`,
-"MULPD":`
+');
+INSERT INTO `instructions` VALUES ('x86','MULPD','
 MULPD - Multiply Packed Double-Precision Floating-Point Values:
 | Opcode/Instruction                           | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                                    
 | 66 0F 59 /r MULPD xmm1, xmm2/m128            | RM   | V/V           | SSE2              | Multiply packed double-precision floating-point
@@ -26175,9 +26448,8 @@ Overflow, Underflow, Invalid, Precision, Denormal.
 Other Exceptions:
 See Exceptions Type 2
 
-`,
-"VMULPD":`-R:MULPD`,
-"MULPS":`
+');
+INSERT INTO `instructions` VALUES ('x86','MULPS','
 MULPS - Multiply Packed Single-Precision Floating-Point Values:
 | Opcode/Instruction                        | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                                    
 | 0F 59 /r MULPS xmm1, xmm2/m128            | RM   | V/V           | SSE               | Multiply packed single-precision floating-point
@@ -26249,9 +26521,8 @@ Overflow, Underflow, Invalid, Precision, Denormal.
 Other Exceptions:
 See Exceptions Type 2
 
-`,
-"VMULPS":`-R:MULPS`,
-"MULSD":`
+');
+INSERT INTO `instructions` VALUES ('x86','MULSD','
 MULSD - Multiply Scalar Double-Precision Floating-Point Values:
 | Opcode/Instruction                          | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                                    
 | F2 0F 59 /r MULSD xmm1, xmm2/m64            | RM   | V/V           | SSE2              | Multiply the low double-precision floatingpoint
@@ -26302,9 +26573,8 @@ Overflow, Underflow, Invalid, Precision, Denormal.
 Other Exceptions:
 See Exceptions Type 3
 
-`,
-"VMULSD":`-R:MULSD`,
-"MULSS":`
+');
+INSERT INTO `instructions` VALUES ('x86','MULSS','
 MULSS - Multiply Scalar Single-Precision Floating-Point Values:
 | Opcode/Instruction                           | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                                     
 | F3 0F 59 /r MULSS xmm1, xmm2/m32             | RM   | V/V           | SSE               | Multiply the low single-precision floating-point
@@ -26355,10 +26625,9 @@ Overflow, Underflow, Invalid, Precision, Denormal.
 Other Exceptions:
 See Exceptions Type 3
 
-`,
-"VMULSS":`-R:MULSS`,
-"MULX":`
-MULX - Unsigned Multiply Without Affecting Flags:
+');
+INSERT INTO `instructions` VALUES ('x86','MULX','
+MULX  -  Unsigned Multiply Without Affecting Flags:
 | Opcode/Instruction                    | Op/En| 64/32 -bit Mode| CPUID Feature Flag| Description                        
 | VEX.NDD.LZ.F2.0F38.W0 F6 /r MULX r32a,| RVM  | V/V            | BMI2              | Unsigned multiply of r/m32 with EDX
 | r32b, r/m32                           |      |                |                   | without affecting arithmetic flags.
@@ -26418,8 +26687,8 @@ See Section 2.5.1, “Exception Conditions for VEX-Encoded GPR Instructions”,
 Table 2-29; additionally
 
 | #UD| If VEX.W = 1.
-`,
-"MWAIT":`
+');
+INSERT INTO `instructions` VALUES ('x86','MWAIT','
 MWAIT - Monitor Wait:
 | Opcode  | Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                                                
 | 0F 01 C9| MWAIT      | NP   | Valid      | Valid          | A hint that allow the processor to stop                    
@@ -26595,8 +26864,8 @@ Same exceptions as in protected mode.
 | #UD   | If the current privilege level is not
 |       | 0. If CPUID.01H:ECX.MONITOR[bit 3] = 
 |       | 0.                                   
-`,
-"NEG":`
+');
+INSERT INTO `instructions` VALUES ('x86','NEG','
 NEG - Two''s Complement Negation:
 | Opcode       | Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                   
 | F6 /3        | NEG r/m8   | M    | Valid      | Valid          | Two''s complement negate r/m8. 
@@ -26692,8 +26961,8 @@ Same as for protected mode exceptions.
 |                | 3.                                            
 | #UD            | If the LOCK prefix is used but the destination
 |                | is not a memory operand.                      
-`,
-"NOP":`
+');
+INSERT INTO `instructions` VALUES ('x86','NOP','
 NOP - No Operation:
 | Opcode  | Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                         
 | 90      | NOP        | NP   | Valid      | Valid          | One byte no-operation instruction.  
@@ -26744,8 +27013,8 @@ None.
 
 Exceptions (All Operating Modes):
 | #UD| If the LOCK prefix is used.
-`,
-"NOT":`
+');
+INSERT INTO `instructions` VALUES ('x86','NOT','
 NOT - One''s Complement Negation:
 | Opcode       | Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description               
 | F6 /2        | NOT r/m8   | M    | Valid      | Valid          | Reverse each bit of r/m8. 
@@ -26839,8 +27108,8 @@ Same as for protected mode exceptions.
 |                | 3.                                            
 | #UD            | If the LOCK prefix is used but the destination
 |                | is not a memory operand.                      
-`,
-"OR":`
+');
+INSERT INTO `instructions` VALUES ('x86','OR','
 OR - Logical Inclusive OR:
 | Opcode          | Instruction    | Op/En| 64-Bit Mode| Compat/Leg Mode| Description                    
 | 0C ib           | OR AL, imm8    | I    | Valid      | Valid          | AL OR imm8.                    
@@ -26956,8 +27225,8 @@ Same as for protected mode exceptions.
 |                | 3.                                            
 | #UD            | If the LOCK prefix is used but the destination
 |                | is not a memory operand.                      
-`,
-"ORPD":`
+');
+INSERT INTO `instructions` VALUES ('x86','ORPD','
 ORPD - Bitwise Logical OR of Double-Precision Floating-Point Values:
 | Opcode/Instruction                          | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                            
 | 66 0F 56 /r ORPD xmm1, xmm2/m128            | RM   | V/V                   | SSE2              | Bitwise OR of xmm2/m128 and xmm1.      
@@ -27021,9 +27290,8 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.L = 1.
-`,
-"VORPD":`-R:ORPD`,
-"ORPS":`
+');
+INSERT INTO `instructions` VALUES ('x86','ORPS','
 ORPS - Bitwise Logical OR of Single-Precision Floating-Point Values:
 | Opcode/Instruction                  | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                            
 | 0F 56 /r ORPS xmm1, xmm2/m128       | RM   | V/V                   | SSE               | Bitwise OR of xmm1 and xmm2/m128.      
@@ -27093,9 +27361,8 @@ None.
 Other Exceptions:
 See Exceptions Type 4.
 
-`,
-"VORPS":`-R:ORPS`,
-"OUT":`
+');
+INSERT INTO `instructions` VALUES ('x86','OUT','
 OUT - Output to Port:
 | Opcode*| Instruction  | Op/En| 64-Bit Mode| Compat/Leg Mode| Description                          
 | E6 ib  | OUT imm8, AL | I    | Valid      | Valid          | Output byte in AL to I/O port address
@@ -27192,8 +27459,8 @@ Same as protected mode exceptions.
 64-Bit Mode Exceptions:
 Same as protected mode exceptions.
 
-`,
-"OUTS":`
+');
+INSERT INTO `instructions` VALUES ('x86','OUTS','
 OUTS/OUTSB/OUTSW/OUTSD - Output String to Port:
 | Opcode*| Instruction | Op/En| 64-Bit Mode| Compat/Leg Mode| Description                               
 | 6E     | OUTS DX, m8 | NP   | Valid      | Valid          | Output byte from memory location specified
@@ -27420,12 +27687,12 @@ Same as for protected mode exceptions.
 |                | while the current privilege level is       
 |                | 3.                                         
 | #UD            | If the LOCK prefix is used.                
-`,
-"OUTSB":`-R:OUTS`,
-"OUTSW":`-R:OUTS`,
-"OUTSD":`-R:OUTS`,
-"PABSB":`
-PABSB/PABSW/PABSD - Packed Absolute Value:
+');
+INSERT INTO `instructions` VALUES ('x86','OUTSB','-R:OUTS');
+INSERT INTO `instructions` VALUES ('x86','OUTSW','-R:OUTS');
+INSERT INTO `instructions` VALUES ('x86','OUTSD','-R:OUTS');
+INSERT INTO `instructions` VALUES ('x86','PABSB','
+PABSB/PABSW/PABSD  -  Packed Absolute Value:
 | Opcode/Instruction                    | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                             
 | 0F 38 1C /r1 PABSB mm1, mm2/m64       | RM   | V/V                   | SSSE3             | Compute the absolute value of bytes     
 |                                       |      |                       |                   | in mm2/m64 and store UNSIGNED result    
@@ -27574,13 +27841,10 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.L = 1. If VEX.vvvv != 1111B.
-`,
-"PABSW":`-R:PABSB`,
-"PABSD":`-R:PABSB`,
-"VPABSB":`-R:PABSB`,
-"VPABSW":`-R:PABSB`,
-"VPABSD":`-R:PABSB`,
-"PACKSSWB":`
+');
+INSERT INTO `instructions` VALUES ('x86','PABSW','-R:PABSB');
+INSERT INTO `instructions` VALUES ('x86','PABSD','-R:PABSB');
+INSERT INTO `instructions` VALUES ('x86','PACKSSWB','
 PACKSSWB/PACKSSDW - Pack with Signed Saturation:
 | Opcode/Instruction                   | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                             
 | 0F 63 /r1 PACKSSWB mm1, mm2/m64      | RM   | V/V                   | MMX               | Converts 4 packed signed word integers  
@@ -27821,12 +28085,10 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.L = 1.
-`,
-"PACKSSDW":`-R:PACKSSWB`,
-"VPACKSSWB":`-R:PACKSSWB`,
-"VPACKSSDW":`-R:PACKSSWB`,
-"PACKUSDW":`
-PACKUSDW - Pack with Unsigned Saturation:
+');
+INSERT INTO `instructions` VALUES ('x86','PACKSSDW','-R:PACKSSWB');
+INSERT INTO `instructions` VALUES ('x86','PACKUSDW','
+PACKUSDW  -  Pack with Unsigned Saturation:
 | Opcode/Instruction                     | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                                
 | 66 0F 38 2B /r PACKUSDW xmm1, xmm2/m128| RM   | V/V                   | SSE4_1            | Convert 4 packed signed doubleword integers
 |                                        |      |                       |                   | from xmm1 and 4 packed signed doubleword   
@@ -27968,9 +28230,8 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.L = 1.
-`,
-"VPACKUSDW":`-R:PACKUSDW`,
-"PACKUSWB":`
+');
+INSERT INTO `instructions` VALUES ('x86','PACKUSWB','
 PACKUSWB - Pack with Unsigned Saturation:
 | Opcode/Instruction                   | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                              
 | 0F 67 /r1 PACKUSWB mm, mm/m64        | RM   | V/V                   | MMX               | Converts 4 signed word integers from     
@@ -28126,9 +28387,8 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.L = 1.
-`,
-"VPACKUSWB":`-R:PACKUSWB`,
-"PADDB":`
+');
+INSERT INTO `instructions` VALUES ('x86','PADDB','
 PADDB/PADDW/PADDD - Add Packed Integers:
 | Opcode/Instruction                      | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                            
 | 0F FC /r1 PADDB mm, mm/m64              | RM   | V/V                   | MMX               | Add packed byte integers from mm/m64   
@@ -28306,13 +28566,10 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.L = 1.
-`,
-"PADDW":`-R:PADDB`,
-"PADDD":`-R:PADDB`,
-"VPADDB":`-R:PADDB`,
-"VPADDW":`-R:PADDB`,
-"VPADDD":`-R:PADDB`,
-"PADDQ":`
+');
+INSERT INTO `instructions` VALUES ('x86','PADDW','-R:PADDB');
+INSERT INTO `instructions` VALUES ('x86','PADDD','-R:PADDB');
+INSERT INTO `instructions` VALUES ('x86','PADDQ','
 PADDQ - Add Packed Quadword Integers:
 | Opcode/Instruction                      | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                            
 | 0F D4 /r1 PADDQ mm1, mm2/m64            | RM   | V/V                   | SSE2              | Add quadword integer mm2/m64 to mm1.   
@@ -28402,9 +28659,8 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.L = 1.
-`,
-"VPADDQ":`-R:PADDQ`,
-"PADDSB":`
+');
+INSERT INTO `instructions` VALUES ('x86','PADDSB','
 PADDSB/PADDSW - Add Packed Signed Integers with Signed Saturation:
 | Opcode/Instruction                 | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                                
 | 0F EC /r1 PADDSB mm, mm/m64        | RM   | V/V                   | MMX               | Add packed signed byte integers from       
@@ -28538,11 +28794,9 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.L = 1.
-`,
-"PADDSW":`-R:PADDSB`,
-"VPADDSB":`-R:PADDSB`,
-"VPADDSW":`-R:PADDSB`,
-"PADDUSB":`
+');
+INSERT INTO `instructions` VALUES ('x86','PADDSW','-R:PADDSB');
+INSERT INTO `instructions` VALUES ('x86','PADDUSB','
 PADDUSB/PADDUSW - Add Packed Unsigned Integers with Unsigned Saturation:
 | Opcode/Instruction                  | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                                
 | 0F DC /r1 PADDUSB mm, mm/m64        | RM   | V/V                   | MMX               | Add packed unsigned byte integers from     
@@ -28672,12 +28926,10 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.L = 1.
-`,
-"PADDUSW":`-R:PADDUSB`,
-"VPADDUSB":`-R:PADDUSB`,
-"VPADDUSW":`-R:PADDUSB`,
-"PALIGNR":`
-PALIGNR - Packed Align Right:
+');
+INSERT INTO `instructions` VALUES ('x86','PADDUSW','-R:PADDUSB');
+INSERT INTO `instructions` VALUES ('x86','PALIGNR','
+PALIGNR  -  Packed Align Right:
 | Opcode/Instruction                        | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                                 
 | 0F 3A 0F /r ib1 PALIGNR mm1, mm2/m64,     | RMI  | V/V                   | SSSE3             | Concatenate destination and source operands,
 | imm8                                      |      |                       |                   | extract byte-aligned result shifted         
@@ -28786,9 +29038,8 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.L = 1.
-`,
-"VPALIGNR":`-R:PALIGNR`,
-"PAND":`
+');
+INSERT INTO `instructions` VALUES ('x86','PAND','
 PAND - Logical AND:
 | Opcode/Instruction                     | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                           
 | 0F DB /r1 PAND mm, mm/m64              | RM   | V/V                   | MMX               | Bitwise AND mm/m64 and mm.            
@@ -28866,9 +29117,8 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.L = 1.
-`,
-"VPAND":`-R:PAND`,
-"PANDN":`
+');
+INSERT INTO `instructions` VALUES ('x86','PANDN','
 PANDN - Logical AND NOT:
 | Opcode/Instruction                      | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                           
 | 0F DF /r1 PANDN mm, mm/m64              | RM   | V/V                   | MMX               | Bitwise AND NOT of mm/m64 and mm.     
@@ -28945,9 +29195,8 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.L = 1.
-`,
-"VPANDN":`-R:PANDN`,
-"PAUSE":`
+');
+INSERT INTO `instructions` VALUES ('x86','PAUSE','
 PAUSE - Spin Loop Hint:
 | Opcode| Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                          
 | F3 90 | PAUSE      | NP   | Valid      | Valid          | Gives hint to processor that improves
@@ -28991,8 +29240,8 @@ None.
 
 Exceptions (All Operating Modes):
 | #UD| If the LOCK prefix is used.
-`,
-"PAVGB":`
+');
+INSERT INTO `instructions` VALUES ('x86','PAVGB','
 PAVGB/PAVGW - Average Packed Integers:
 | Opcode/Instruction                      | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                           
 | 0F E0 /r1 PAVGB mm1, mm2/m64            | RM   | V/V                   | SSE               | Average packed unsigned byte integers 
@@ -29113,12 +29362,10 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.L = 1.
-`,
-"PAVGW":`-R:PAVGB`,
-"VPAVGB":`-R:PAVGB`,
-"VPAVGW":`-R:PAVGB`,
-"PBLENDVB":`
-PBLENDVB - Variable Blend Packed Bytes:
+');
+INSERT INTO `instructions` VALUES ('x86','PAVGW','-R:PAVGB');
+INSERT INTO `instructions` VALUES ('x86','PBLENDVB','
+PBLENDVB  -  Variable Blend Packed Bytes:
 | Opcode/Instruction                         | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                               
 | 66 0F 38 10 /r PBLENDVB xmm1, xmm2/m128,   | RM   | V/V                   | SSE4_1            | Select byte values from xmm1 and xmm2/m128
 | <XMM0>                                     |      |                       |                   | from mask specified in the high bit       
@@ -29323,10 +29570,9 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.L = 1. If VEX.W = 1.
-`,
-"VPBLENDVB":`-R:PBLENDVB`,
-"PBLENDW":`
-PBLENDW - Blend Packed Words:
+');
+INSERT INTO `instructions` VALUES ('x86','PBLENDW','
+PBLENDW  -  Blend Packed Words:
 | Opcode/Instruction                        | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                          
 | 66 0F 3A 0E /r ib PBLENDW xmm1, xmm2/m128,| RMI  | V/V                   | SSE4_1            | Select words from xmm1 and xmm2/m128 
 | imm8                                      |      |                       |                   | from mask specified in imm8 and store
@@ -29449,9 +29695,8 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.L = 1.
-`,
-"VPBLENDW":`-R:PBLENDW`,
-"PCLMULQDQ":`
+');
+INSERT INTO `instructions` VALUES ('x86','PCLMULQDQ','
 PCLMULQDQ - Carry-Less Multiplication Quadword:
 | Opcode/Instruction                          | Op/En| 64/32 bit Mode Support| CPUID Feature Flag      | Description                              
 | 66 0F 3A 44 /r ib PCLMULQDQ xmm1, xmm2/m128,| RMI  | V/V                   | CLMUL                   | Carry-less multiplication of one quadword
@@ -29573,10 +29818,9 @@ None.
 Other Exceptions:
 See Exceptions Type 4.
 
-`,
-"VPCLMULQDQ":`-R:PCLMULQDQ`,
-"PCMPEQB":`
-PCMPEQB/PCMPEQW/PCMPEQD - Compare Packed Data for Equal:
+');
+INSERT INTO `instructions` VALUES ('x86','PCMPEQB','
+PCMPEQB/PCMPEQW/PCMPEQD -  Compare Packed Data for Equal:
 | Opcode/Instruction                    | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                            
 | 0F 74 /r1 PCMPEQB mm, mm/m64          | RM   | V/V                   | MMX               | Compare packed bytes in mm/m64 and mm  
 |                                       |      |                       |                   | for equality.                          
@@ -29741,15 +29985,11 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.L = 1.
-`,
-"PCMPEQW":`-R:PCMPEQB`,
-"PCMPEQD":`-R:PCMPEQB`,
-"VPCMPEQB":`-R:PCMPEQB`,
-"VPCMPEQW":`-R:PCMPEQB`,
-"VPCMPEQD":`-R:PCMPEQB`,
-"VPCMPEQQ":`-R:PCMPEQB`,
-"PCMPEQQ":`
-PCMPEQQ - Compare Packed Qword Data for Equal:
+');
+INSERT INTO `instructions` VALUES ('x86','PCMPEQW','-R:PCMPEQB');
+INSERT INTO `instructions` VALUES ('x86','PCMPEQD','-R:PCMPEQB');
+INSERT INTO `instructions` VALUES ('x86','PCMPEQQ','
+PCMPEQQ  -  Compare Packed Qword Data for Equal:
 | Opcode/Instruction                    | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                           
 | 66 0F 38 29 /r PCMPEQQ xmm1, xmm2/m128| RM   | V/V                   | SSE4_1            | Compare packed qwords in xmm2/m128 and
 |                                       |      |                       |                   | xmm1 for equality.                    
@@ -29821,9 +30061,9 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.L = 1.
-`,
-"PCMPESTRI":`
-PCMPESTRI - Packed Compare Explicit Length Strings, Return Index:
+');
+INSERT INTO `instructions` VALUES ('x86','PCMPESTRI','
+PCMPESTRI  -  Packed Compare Explicit Length Strings, Return Index:
 | Opcode/Instruction                     | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                           
 | 66 0F 3A 61 /r imm8 PCMPESTRI xmm1,    | RMI  | V/V                   | SSE4_2            | Perform a packed comparison of string 
 | xmm2/m128, imm8                        |      |                       |                   | data with explicit lengths, generating
@@ -29910,10 +30150,9 @@ See Exceptions Type 4; additionally, this instruction does not cause #GP if
 the memory operand is not aligned to 16 Byte boundary, and
 
 | #UD| If VEX.L = 1. If VEX.vvvv != 1111B.
-`,
-"VPCMPESTRI":`-R:PCMPESTRI`,
-"PCMPESTRM":`
-PCMPESTRM - Packed Compare Explicit Length Strings, Return Mask:
+');
+INSERT INTO `instructions` VALUES ('x86','PCMPESTRM','
+PCMPESTRM  -  Packed Compare Explicit Length Strings, Return Mask:
 | Opcode/Instruction                     | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                            
 | 66 0F 3A 60 /r imm8 PCMPESTRM xmm1,    | RMI  | V/V                   | SSE4_2            | Perform a packed comparison of string  
 | xmm2/m128, imm8                        |      |                       |                   | data with explicit lengths, generating 
@@ -29993,9 +30232,8 @@ See Exceptions Type 4; additionally, this instruction does not cause #GP if
 the memory operand is not aligned to 16 Byte boundary, and
 
 | #UD| If VEX.L = 1. If VEX.vvvv != 1111B.
-`,
-"VPCMPESTRM":`-R:PCMPESTRM`,
-"PCMPGTB":`
+');
+INSERT INTO `instructions` VALUES ('x86','PCMPGTB','
 PCMPGTB/PCMPGTW/PCMPGTD - Compare Packed Signed Integers for Greater Than:
 | Opcode/Instruction                  | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                              
 | 0F 64 /r1 PCMPGTB mm, mm/m64        | RM   | V/V                   | MMX               | Compare packed signed byte integers      
@@ -30165,14 +30403,11 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.L = 1.
-`,
-"PCMPGTW":`-R:PCMPGTB`,
-"PCMPGTD":`-R:PCMPGTB`,
-"VPCMPGTB":`-R:PCMPGTB`,
-"VPCMPGTW":`-R:PCMPGTB`,
-"VPCMPGTD":`-R:PCMPGTB`,
-"PCMPGTQ":`
-PCMPGTQ - Compare Packed Data for Greater Than:
+');
+INSERT INTO `instructions` VALUES ('x86','PCMPGTW','-R:PCMPGTB');
+INSERT INTO `instructions` VALUES ('x86','PCMPGTD','-R:PCMPGTB');
+INSERT INTO `instructions` VALUES ('x86','PCMPGTQ','
+PCMPGTQ  -  Compare Packed Data for Greater Than:
 | Opcode/Instruction                    | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                              
 | 66 0F 38 37 /r PCMPGTQ xmm1,xmm2/m128 | RM   | V/V                   | SSE4_2            | Compare packed signed qwords in xmm2/m128
 |                                       |      |                       |                   | and xmm1 for greater than.               
@@ -30238,10 +30473,9 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.L = 1.
-`,
-"VPCMPGTQ":`-R:PCMPGTQ`,
-"PCMPISTRI":`
-PCMPISTRI - Packed Compare Implicit Length Strings, Return Index:
+');
+INSERT INTO `instructions` VALUES ('x86','PCMPISTRI','
+PCMPISTRI  -  Packed Compare Implicit Length Strings, Return Index:
 | Opcode/Instruction                     | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                           
 | 66 0F 3A 63 /r imm8 PCMPISTRI xmm1,    | RM   | V/V                   | SSE4_2            | Perform a packed comparison of string 
 | xmm2/m128, imm8                        |      |                       |                   | data with implicit lengths, generating
@@ -30314,10 +30548,9 @@ See Exceptions Type 4; additionally, this instruction does not cause #GP if
 the memory operand is not aligned to 16 Byte boundary, and
 
 | #UD| If VEX.L = 1. If VEX.vvvv != 1111B.
-`,
-"VPCMPISTRI":`-R:PCMPISTRI`,
-"PCMPISTRM":`
-PCMPISTRM - Packed Compare Implicit Length Strings, Return Mask:
+');
+INSERT INTO `instructions` VALUES ('x86','PCMPISTRM','
+PCMPISTRM  -  Packed Compare Implicit Length Strings, Return Mask:
 | Opcode/Instruction                     | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                            
 | 66 0F 3A 62 /r imm8 PCMPISTRM xmm1,    | RM   | V/V                   | SSE4_2            | Perform a packed comparison of string  
 | xmm2/m128, imm8                        |      |                       |                   | data with implicit lengths, generating 
@@ -30392,10 +30625,9 @@ See Exceptions Type 4; additionally, this instruction does not cause #GP if
 the memory operand is not aligned to 16 Byte boundary, and
 
 | #UD| If VEX.L = 1. If VEX.vvvv != 1111B.
-`,
-"VPCMPISTRM":`-R:PCMPISTRM`,
-"PDEP":`
-PDEP - Parallel Bits Deposit:
+');
+INSERT INTO `instructions` VALUES ('x86','PDEP','
+PDEP  -  Parallel Bits Deposit:
 | Opcode/Instruction                    | Op/En| 64/32 -bit Mode| CPUID Feature Flag| Description                             
 | VEX.NDS.LZ.F2.0F38.W0 F5 /r PDEP r32a,| RVM  | V/V            | BMI2              | Parallel deposit of bits from r32b using
 | r32b, r/m32                           |      |                |                   | mask in r/m32, result is written to     
@@ -30459,9 +30691,9 @@ See Section 2.5.1, “Exception Conditions for VEX-Encoded GPR Instructions”,
 Table 2-29; additionally
 
 | #UD| If VEX.W = 1.
-`,
-"PEXT":`
-PEXT - Parallel Bits Extract:
+');
+INSERT INTO `instructions` VALUES ('x86','PEXT','
+PEXT  -  Parallel Bits Extract:
 | Opcode/Instruction                    | Op/En| 64/32 -bit Mode| CPUID Feature Flag| Description                             
 | VEX.NDS.LZ.F3.0F38.W0 F5 /r PEXT r32a,| RVM  | V/V            | BMI2              | Parallel extract of bits from r32b using
 | r32b, r/m32                           |      |                |                   | mask in r/m32, result is written to     
@@ -30527,9 +30759,9 @@ See Section 2.5.1, “Exception Conditions for VEX-Encoded GPR Instructions”,
 Table 2-29; additionally
 
 | #UD| If VEX.W = 1.
-`,
-"PEXTRB":`
-PEXTRB/PEXTRD/PEXTRQ - Extract Byte/Dword/Qword:
+');
+INSERT INTO `instructions` VALUES ('x86','PEXTRB','
+PEXTRB/PEXTRD/PEXTRQ  -  Extract Byte/Dword/Qword:
 | Opcode/Instruction                    | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                            
 | 66 0F 3A 14 /r ib PEXTRB reg/m8, xmm2,| MRI  | V/V                   | SSE4_1            | Extract a byte integer value from xmm2 
 | imm8                                  |      |                       |                   | at the source byte offset specified    
@@ -30641,13 +30873,10 @@ See Exceptions Type 5; additionally
 
 | #UD| If VEX.L = 1. If VEX.vvvv != 1111B.    
 |    | If VPEXTRQ in non-64-bit mode, VEX.W=1.
-`,
-"PEXTRD":`-R:PEXTRB`,
-"PEXTRQ":`-R:PEXTRB`,
-"VPEXTRB":`-R:PEXTRB`,
-"VPEXTRD":`-R:PEXTRB`,
-"VPEXTRQ":`-R:PEXTRB`,
-"PEXTRW":`
+');
+INSERT INTO `instructions` VALUES ('x86','PEXTRD','-R:PEXTRB');
+INSERT INTO `instructions` VALUES ('x86','PEXTRQ','-R:PEXTRB');
+INSERT INTO `instructions` VALUES ('x86','PEXTRW','
 PEXTRW - Extract Word:
 | Opcode/Instruction                    | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                            
 | 0F C5 /r ib1 PEXTRW reg, mm, imm8     | RMI  | V/V                   | SSE               | Extract the word specified by imm8 from
@@ -30764,10 +30993,9 @@ Other Exceptions:
 See Exceptions Type 5; additionally
 
 | #UD| If VEX.L = 1. If VEX.vvvv != 1111B.
-`,
-"VPEXTRW":`-R:PEXTRW`,
-"PHADDW":`
-PHADDW/PHADDD - Packed Horizontal Add:
+');
+INSERT INTO `instructions` VALUES ('x86','PHADDW','
+PHADDW/PHADDD  -  Packed Horizontal Add:
 | Opcode/Instruction                   | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                             
 | 0F 38 01 /r1 PHADDW mm1, mm2/m64     | RM   | V/V                   | SSSE3             | Add 16-bit integers horizontally, pack  
 |                                      |      |                       |                   | to mm1.                                 
@@ -30923,12 +31151,10 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.L = 1.
-`,
-"PHADDD":`-R:PHADDW`,
-"VPHADDW":`-R:PHADDW`,
-"VPHADDD":`-R:PHADDW`,
-"PHADDSW":`
-PHADDSW - Packed Horizontal Add and Saturate:
+');
+INSERT INTO `instructions` VALUES ('x86','PHADDD','-R:PHADDW');
+INSERT INTO `instructions` VALUES ('x86','PHADDSW','
+PHADDSW  -  Packed Horizontal Add and Saturate:
 | Opcode/Instruction                    | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                             
 | 0F 38 03 /r1 PHADDSW mm1, mm2/m64     | RM   | V/V                   | SSSE3             | Add 16-bit signed integers horizontally,
 |                                       |      |                       |                   | pack saturated integers to mm1.         
@@ -31033,10 +31259,9 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.L = 1.
-`,
-"VPHADDSW":`-R:PHADDSW`,
-"PHMINPOSUW":`
-PHMINPOSUW - Packed Horizontal Word Minimum:
+');
+INSERT INTO `instructions` VALUES ('x86','PHMINPOSUW','
+PHMINPOSUW  -  Packed Horizontal Word Minimum:
 | Opcode/Instruction                       | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                                
 | 66 0F 38 41 /r PHMINPOSUW xmm1, xmm2/m128| RM   | V/V                   | SSE4_1            | Find the minimum unsigned word in xmm2/m128
 |                                          |      |                       |                   | and place its value in the low word        
@@ -31108,10 +31333,9 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.L = 1. If VEX.vvvv != 1111B.
-`,
-"VPHMINPOSUW":`-R:PHMINPOSUW`,
-"PHSUBW":`
-PHSUBW/PHSUBD - Packed Horizontal Subtract:
+');
+INSERT INTO `instructions` VALUES ('x86','PHSUBW','
+PHSUBW/PHSUBD  -  Packed Horizontal Subtract:
 | Opcode/Instruction                   | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                                  
 | 0F 38 05 /r1 PHSUBW mm1, mm2/m64     | RM   | V/V                   | SSSE3             | Subtract 16-bit signed integers horizontally,
 |                                      |      |                       |                   | pack to mm1.                                 
@@ -31257,12 +31481,10 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.L = 1.
-`,
-"PHSUBD":`-R:PHSUBW`,
-"VPHSUBW":`-R:PHSUBW`,
-"VPHSUBD":`-R:PHSUBW`,
-"PHSUBSW":`
-PHSUBSW - Packed Horizontal Subtract and Saturate:
+');
+INSERT INTO `instructions` VALUES ('x86','PHSUBD','-R:PHSUBW');
+INSERT INTO `instructions` VALUES ('x86','PHSUBSW','
+PHSUBSW  -  Packed Horizontal Subtract and Saturate:
 | Opcode/Instruction                    | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                                 
 | 0F 38 07 /r1 PHSUBSW mm1, mm2/m64     | RM   | V/V                   | SSSE3             | Subtract 16-bit signed integer horizontally,
 |                                       |      |                       |                   | pack saturated integers to mm1.             
@@ -31368,10 +31590,9 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.L = 1.
-`,
-"VPHSUBSW":`-R:PHSUBSW`,
-"PINSRB":`
-PINSRB/PINSRD/PINSRQ - Insert Byte/Dword/Qword:
+');
+INSERT INTO `instructions` VALUES ('x86','PINSRB','
+PINSRB/PINSRD/PINSRQ  -  Insert Byte/Dword/Qword:
 | Opcode/Instruction                     | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                              
 | 66 0F 3A 20 /r ib PINSRB xmm1, r32/m8, | RMI  | V/V                   | SSE4_1            | Insert a byte integer value from r32/m8  
 | imm8                                   |      |                       |                   | into xmm1 at the destination element     
@@ -31465,13 +31686,10 @@ See Exceptions Type 5; additionally
 
 | #UD| If VEX.L = 1. If VPINSRQ in non-64-bit
 |    | mode with VEX.W=1.                    
-`,
-"PINSRD":`-R:PINSRB`,
-"PINSRQ":`-R:PINSRB`,
-"VPINSRB":`-R:PINSRB`,
-"VPINSRD":`-R:PINSRB`,
-"VPINSRQ":`-R:PINSRB`,
-"PINSRW":`
+');
+INSERT INTO `instructions` VALUES ('x86','PINSRD','-R:PINSRB');
+INSERT INTO `instructions` VALUES ('x86','PINSRQ','-R:PINSRB');
+INSERT INTO `instructions` VALUES ('x86','PINSRW','
 PINSRW - Insert Word:
 | Opcode/Instruction                   | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                               
 | 0F C4 /r ib1 PINSRW mm, r32/m16, imm8| RMI  | V/V                   | SSE               | Insert the low word from r32 or from      
@@ -31560,10 +31778,9 @@ See Exceptions Type 5; additionally
 
 | #UD| If VEX.L = 1. If VPINSRW in non-64-bit
 |    | mode with VEX.W=1.                    
-`,
-"VPINSRW":`-R:PINSRW`,
-"PMADDUBSW":`
-PMADDUBSW - Multiply and Add Packed Signed and Unsigned Bytes:
+');
+INSERT INTO `instructions` VALUES ('x86','PMADDUBSW','
+PMADDUBSW  -  Multiply and Add Packed Signed and Unsigned Bytes:
 | Opcode/Instruction                      | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                         
 | 0F 38 04 /r1 PMADDUBSW mm1, mm2/m64     | RM   | V/V                   | SSSE3             | Multiply signed and unsigned bytes, 
 |                                         |      |                       |                   | add horizontal pair of signed words,
@@ -31649,9 +31866,8 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.L = 1.
-`,
-"VPMADDUBSW":`-R:PMADDUBSW`,
-"PMADDWD":`
+');
+INSERT INTO `instructions` VALUES ('x86','PMADDWD','
 PMADDWD - Multiply and Add Packed Integers:
 | Opcode/Instruction                  | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                                
 | 0F F5 /r1 PMADDWD mm, mm/m64        | RM   | V/V                   | MMX               | Multiply the packed words in mm by the     
@@ -31767,10 +31983,9 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.L = 1.
-`,
-"VPMADDWD":`-R:PMADDWD`,
-"PMAXSB":`
-PMAXSB - Maximum of Packed Signed Byte Integers:
+');
+INSERT INTO `instructions` VALUES ('x86','PMAXSB','
+PMAXSB  -  Maximum of Packed Signed Byte Integers:
 | Opcode/Instruction                   | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                           
 | 66 0F 38 3C /r PMAXSB xmm1, xmm2/m128| RM   | V/V                   | SSE4_1            | Compare packed signed byte integers   
 |                                      |      |                       |                   | in xmm1 and xmm2/m128 and store packed
@@ -31892,10 +32107,9 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.L = 1.
-`,
-"VPMAXSB":`-R:PMAXSB`,
-"PMAXSD":`
-PMAXSD - Maximum of Packed Signed Dword Integers:
+');
+INSERT INTO `instructions` VALUES ('x86','PMAXSD','
+PMAXSD  -  Maximum of Packed Signed Dword Integers:
 | Opcode/Instruction                   | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                           
 | 66 0F 38 3D /r PMAXSD xmm1, xmm2/m128| RM   | V/V                   | SSE4_1            | Compare packed signed dword integers  
 |                                      |      |                       |                   | in xmm1 and xmm2/m128 and store packed
@@ -31981,9 +32195,8 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.L = 1.
-`,
-"VPMAXSD":`-R:PMAXSD`,
-"PMAXSW":`
+');
+INSERT INTO `instructions` VALUES ('x86','PMAXSW','
 PMAXSW - Maximum of Packed Signed Word Integers:
 | Opcode/Instruction                 | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                              
 | 0F EE /r1 PMAXSW mm1, mm2/m64      | RM   | V/V                   | SSE               | Compare signed word integers in mm2/m64  
@@ -32093,9 +32306,8 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.L = 1.
-`,
-"VPMAXSW":`-R:PMAXSW`,
-"PMAXUB":`
+');
+INSERT INTO `instructions` VALUES ('x86','PMAXUB','
 PMAXUB - Maximum of Packed Unsigned Byte Integers:
 | Opcode/Instruction                 | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                                
 | 0F DE /r1 PMAXUB mm1, mm2/m64      | RM   | V/V                   | SSE               | Compare unsigned byte integers in mm2/m64  
@@ -32205,10 +32417,9 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.L = 1.
-`,
-"VPMAXUB":`-R:PMAXUB`,
-"PMAXUD":`
-PMAXUD - Maximum of Packed Unsigned Dword Integers:
+');
+INSERT INTO `instructions` VALUES ('x86','PMAXUD','
+PMAXUD  -  Maximum of Packed Unsigned Dword Integers:
 | Opcode/Instruction                   | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                           
 | 66 0F 38 3F /r PMAXUD xmm1, xmm2/m128| RM   | V/V                   | SSE4_1            | Compare packed unsigned dword integers
 |                                      |      |                       |                   | in xmm1 and xmm2/m128 and store packed
@@ -32294,10 +32505,9 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.L = 1.
-`,
-"VPMAXUD":`-R:PMAXUD`,
-"PMAXUW":`
-PMAXUW - Maximum of Packed Word Integers:
+');
+INSERT INTO `instructions` VALUES ('x86','PMAXUW','
+PMAXUW  -  Maximum of Packed Word Integers:
 | Opcode/Instruction                   | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                            
 | 66 0F 38 3E /r PMAXUW xmm1, xmm2/m128| RM   | V/V                   | SSE4_1            | Compare packed unsigned word integers  
 |                                      |      |                       |                   | in xmm1 and xmm2/m128 and store packed 
@@ -32397,10 +32607,9 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.L = 1.
-`,
-"VPMAXUW":`-R:PMAXUW`,
-"PMINSB":`
-PMINSB - Minimum of Packed Signed Byte Integers:
+');
+INSERT INTO `instructions` VALUES ('x86','PMINSB','
+PMINSB  -  Minimum of Packed Signed Byte Integers:
 | Opcode/Instruction                   | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                           
 | 66 0F 38 38 /r PMINSB xmm1, xmm2/m128| RM   | V/V                   | SSE4_1            | Compare packed signed byte integers   
 |                                      |      |                       |                   | in xmm1 and xmm2/m128 and store packed
@@ -32522,10 +32731,9 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.L = 1.
-`,
-"VPMINSB":`-R:PMINSB`,
-"PMINSD":`
-PMINSD - Minimum of Packed Dword Integers:
+');
+INSERT INTO `instructions` VALUES ('x86','PMINSD','
+PMINSD  -  Minimum of Packed Dword Integers:
 | Opcode/Instruction                   | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                           
 | 66 0F 38 39 /r PMINSD xmm1, xmm2/m128| RM   | V/V                   | SSE4_1            | Compare packed signed dword integers  
 |                                      |      |                       |                   | in xmm1 and xmm2/m128 and store packed
@@ -32611,9 +32819,8 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.L = 1.
-`,
-"VPMINSD":`-R:PMINSD`,
-"PMINSW":`
+');
+INSERT INTO `instructions` VALUES ('x86','PMINSW','
 PMINSW - Minimum of Packed Signed Word Integers:
 | Opcode/Instruction                 | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                              
 | 0F EA /r1 PMINSW mm1, mm2/m64      | RM   | V/V                   | SSE               | Compare signed word integers in mm2/m64  
@@ -32725,9 +32932,8 @@ See Exceptions Type 4; additionally
 | #UD| If VEX.L = 1.                       
 | #MF| (64-bit operations only) If there is
 |    | a pending x87 FPU exception.        
-`,
-"VPMINSW":`-R:PMINSW`,
-"PMINUB":`
+');
+INSERT INTO `instructions` VALUES ('x86','PMINUB','
 PMINUB - Minimum of Packed Unsigned Byte Integers:
 | Opcode/Instruction                 | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                                
 | 0F DA /r1 PMINUB mm1, mm2/m64      | RM   | V/V                   | SSE               | Compare unsigned byte integers in mm2/m64  
@@ -32839,10 +33045,9 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.L = 1.
-`,
-"VPMINUB":`-R:PMINUB`,
-"PMINUD":`
-PMINUD - Minimum of Packed Dword Integers:
+');
+INSERT INTO `instructions` VALUES ('x86','PMINUD','
+PMINUD  -  Minimum of Packed Dword Integers:
 | Opcode/Instruction                   | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                           
 | 66 0F 38 3B /r PMINUD xmm1, xmm2/m128| RM   | V/V                   | SSE4_1            | Compare packed unsigned dword integers
 |                                      |      |                       |                   | in xmm1 and xmm2/m128 and store packed
@@ -32930,10 +33135,9 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.L = 1.
-`,
-"VPMINUD":`-R:PMINUD`,
-"PMINUW":`
-PMINUW - Minimum of Packed Word Integers:
+');
+INSERT INTO `instructions` VALUES ('x86','PMINUW','
+PMINUW  -  Minimum of Packed Word Integers:
 | Opcode/Instruction                   | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                            
 | 66 0F 38 3A /r PMINUW xmm1, xmm2/m128| RM   | V/V                   | SSE4_1            | Compare packed unsigned word integers  
 |                                      |      |                       |                   | in xmm1 and xmm2/m128 and store packed 
@@ -33033,9 +33237,8 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.L = 1.
-`,
-"VPMINUW":`-R:PMINUW`,
-"PMOVMSKB":`
+');
+INSERT INTO `instructions` VALUES ('x86','PMOVMSKB','
 PMOVMSKB - Move Byte Mask:
 | Opcode/Instruction                    | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                             
 | 0F D7 /r1 PMOVMSKB reg, mm            | RM   | V/V                   | SSE               | Move a byte mask of mm to reg. The upper
@@ -33129,10 +33332,9 @@ Other Exceptions:
 See Exceptions Type 7; additionally
 
 | #UD| If VEX.L = 1. If VEX.vvvv != 1111B.
-`,
-"VPMOVMSKB":`-R:PMOVMSKB`,
-"PMOVSX":`
-PMOVSX - Packed Move with Sign Extend:
+');
+INSERT INTO `instructions` VALUES ('x86','PMOVSX','
+PMOVSX  -  Packed Move with Sign Extend:
 | Opcode/Instruction                    | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                                
 | 66 0f 38 20 /r PMOVSXBW xmm1, xmm2/m64| RM   | V/V                   | SSE4_1            | Sign extend 8 packed signed 8-bit integers 
 |                                       |      |                       |                   | in the low 8 bytes of xmm2/m64 to 8        
@@ -33309,21 +33511,9 @@ Other Exceptions:
 See Exceptions Type 5; additionally
 
 | #UD| If VEX.L = 1. If VEX.vvvv != 1111B.
-`,
-"PMOVSXBW":`-R:PMOVSX`,
-"PMOVSXBD":`-R:PMOVSX`,
-"PMOVSXBQ":`-R:PMOVSX`,
-"PMOVSXWD":`-R:PMOVSX`,
-"PMOVSXWQ":`-R:PMOVSX`,
-"PMOVSXDQ":`-R:PMOVSX`,
-"VPMOVSXBW":`-R:PMOVSX`,
-"VPMOVSXBD":`-R:PMOVSX`,
-"VPMOVSXBQ":`-R:PMOVSX`,
-"VPMOVSXWD":`-R:PMOVSX`,
-"VPMOVSXWQ":`-R:PMOVSX`,
-"VPMOVSXDQ":`-R:PMOVSX`,
-"PMOVZX":`
-PMOVZX - Packed Move with Zero Extend:
+');
+INSERT INTO `instructions` VALUES ('x86','PMOVZX','
+PMOVZX  -  Packed Move with Zero Extend:
 | Opcode/Instruction                    | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                         
 | 66 0f 38 30 /r PMOVZXBW xmm1, xmm2/m64| RM   | V/V                   | SSE4_1            | Zero extend 8 packed 8-bit integers 
 |                                       |      |                       |                   | in the low 8 bytes of xmm2/m64 to 8 
@@ -33506,21 +33696,9 @@ Other Exceptions:
 See Exceptions Type 5; additionally
 
 | #UD| If VEX.L = 1. If VEX.vvvv != 1111B.
-`,
-"PMOVZXBW":`-R:PMOVZX`,
-"PMOVZXBD":`-R:PMOVZX`,
-"PMOVZXBQ":`-R:PMOVZX`,
-"PMOVZXWD":`-R:PMOVZX`,
-"PMOVZXWQ":`-R:PMOVZX`,
-"PMOVZXDQ":`-R:PMOVZX`,
-"VPMOVZXBW":`-R:PMOVZX`,
-"VPMOVZXBD":`-R:PMOVZX`,
-"VPMOVZXBQ":`-R:PMOVZX`,
-"VPMOVZXWD":`-R:PMOVZX`,
-"VPMOVZXWQ":`-R:PMOVZX`,
-"VPMOVZXDQ":`-R:PMOVZX`,
-"PMULDQ":`
-PMULDQ - Multiply Packed Signed Dword Integers:
+');
+INSERT INTO `instructions` VALUES ('x86','PMULDQ','
+PMULDQ  -  Multiply Packed Signed Dword Integers:
 | Opcode/Instruction                   | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                               
 | 66 0F 38 28 /r PMULDQ xmm1, xmm2/m128| RM   | V/V                   | SSE4_1            | Multiply the packed signed dword integers 
 |                                      |      |                       |                   | in xmm1 and xmm2/m128 and store the       
@@ -33603,10 +33781,9 @@ Other Exceptions:
 See Exceptions Type 5; additionally
 
 | #UD| If VEX.L = 1. If VEX.vvvv != 1111B.
-`,
-"VPMULDQ":`-R:PMULDQ`,
-"PMULHRSW":`
-PMULHRSW - Packed Multiply High with Round and Scale:
+');
+INSERT INTO `instructions` VALUES ('x86','PMULHRSW','
+PMULHRSW  -  Packed Multiply High with Round and Scale:
 | Opcode/Instruction                     | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                            
 | 0F 38 0B /r1 PMULHRSW mm1, mm2/m64     | RM   | V/V                   | SSSE3             | Multiply 16-bit signed words, scale    
 |                                        |      |                       |                   | and round signed doublewords, pack high
@@ -33739,9 +33916,8 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.L = 1.
-`,
-"VPMULHRSW":`-R:PMULHRSW`,
-"PMULHUW":`
+');
+INSERT INTO `instructions` VALUES ('x86','PMULHUW','
 PMULHUW - Multiply Packed Unsigned Integers and Store High Result:
 | Opcode/Instruction                  | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                               
 | 0F E4 /r1 PMULHUW mm1, mm2/m64      | RM   | V/V                   | SSE               | Multiply the packed unsigned word integers
@@ -33895,9 +34071,8 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.L = 1.
-`,
-"VPMULHUW":`-R:PMULHUW`,
-"PMULHW":`
+');
+INSERT INTO `instructions` VALUES ('x86','PMULHW','
 PMULHW - Multiply Packed Signed Integers and Store High Result:
 | Opcode/Instruction                 | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                             
 | 0F E5 /r1 PMULHW mm, mm/m64        | RM   | V/V                   | MMX               | Multiply the packed signed word integers
@@ -34045,10 +34220,9 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.L = 1.
-`,
-"VPMULHW":`-R:PMULHW`,
-"PMULLD":`
-PMULLD - Multiply Packed Signed Dword Integers and Store Low Result:
+');
+INSERT INTO `instructions` VALUES ('x86','PMULLD','
+PMULLD  -  Multiply Packed Signed Dword Integers and Store Low Result:
 | Opcode/Instruction                   | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                              
 | 66 0F 38 40 /r PMULLD xmm1, xmm2/m128| RM   | V/V                   | SSE4_1            | Multiply the packed dword signed integers
 |                                      |      |                       |                   | in xmm1 and xmm2/m128 and store the      
@@ -34130,9 +34304,8 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.L = 1.
-`,
-"VPMULLD":`-R:PMULLD`,
-"PMULLW":`
+');
+INSERT INTO `instructions` VALUES ('x86','PMULLW','
 PMULLW - Multiply Packed Signed Integers and Store Low Result:
 | Opcode/Instruction                 | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                              
 | 0F D5 /r1 PMULLW mm, mm/m64        | RM   | V/V                   | MMX               | Multiply the packed signed word integers 
@@ -34268,9 +34441,8 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.L = 1.
-`,
-"VPMULLW":`-R:PMULLW`,
-"PMULUDQ":`
+');
+INSERT INTO `instructions` VALUES ('x86','PMULUDQ','
 PMULUDQ - Multiply Packed Unsigned Doubleword Integers:
 | Opcode/Instruction                  | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                              
 | 0F F4 /r1 PMULUDQ mm1, mm2/m64      | RM   | V/V                   | SSE2              | Multiply unsigned doubleword integer     
@@ -34384,9 +34556,8 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.L = 1.
-`,
-"VPMULUDQ":`-R:PMULUDQ`,
-"POP":`
+');
+INSERT INTO `instructions` VALUES ('x86','POP','
 POP - Pop a Value from the Stack:
 | Opcode| Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                         
 | 8F /0 | POP r/m16  | M    | Valid      | Valid          | Pop top of stack into m16; increment
@@ -34670,8 +34841,8 @@ Same as for protected mode exceptions.
 |                | and the segment pointed to is marked       
 |                | not present.                               
 | #UD            | If the LOCK prefix is used.                
-`,
-"POPA":`
+');
+INSERT INTO `instructions` VALUES ('x86','POPA','
 POPA/POPAD - Pop All General-Purpose Registers:
 | Opcode| Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                          
 | 61    | POPA       | NP   | Invalid    | Valid          | Pop DI, SI, BP, BX, DX, CX, and AX.  
@@ -34764,10 +34935,10 @@ Same as for protected mode exceptions.
 
 64-Bit Mode Exceptions:
 | #UD| If in 64-bit mode.
-`,
-"POPAD":`-R:POPA`,
-"POPCNT":`
-POPCNT - Return the Count of Number of Bits Set to 1:
+');
+INSERT INTO `instructions` VALUES ('x86','POPAD','-R:POPA');
+INSERT INTO `instructions` VALUES ('x86','POPCNT','
+POPCNT  -  Return the Count of Number of Bits Set to 1:
 | Opcode           | Instruction      | Op/En| 64-Bit Mode| Compat/Leg Mode| Description    
 | F3               | POPCNT r16, r/m16| RM   | Valid      | Valid          | POPCNT on r/m16
 | F3               | POPCNT r32, r/m32| RM   | Valid      | Valid          | POPCNT on r/m32
@@ -34854,8 +35025,8 @@ Same exceptions as in Protected Mode.
 | #UD             | If CPUID.01H:ECX.POPCNT [Bit 23] = 0.      
 |                 | If LOCK prefix is used. Either the prefix  
 |                 | REP (F3h) or REPN (F2H) is used.           
-`,
-"POPF":`
+');
+INSERT INTO `instructions` VALUES ('x86','POPF','
 POPF/POPFD/POPFQ - Pop Stack into EFLAGS Register:
 | Opcode| Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                          
 | 9D    | POPF       | NP   | Valid      | Valid          | Pop top of stack into lower 16 bits  
@@ -35024,10 +35195,10 @@ Same as for protected mode exceptions.
 |                | while the current privilege level is       
 |                | 3.                                         
 | #UD            | If the LOCK prefix is used.                
-`,
-"POPFD":`-R:POPF`,
-"POPFQ":`-R:POPF`,
-"POR":`
+');
+INSERT INTO `instructions` VALUES ('x86','POPFD','-R:POPF');
+INSERT INTO `instructions` VALUES ('x86','POPFQ','-R:POPF');
+INSERT INTO `instructions` VALUES ('x86','POR','
 POR - Bitwise Logical OR:
 | Opcode/Instruction                    | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                      
 | 0F EB /r1 POR mm, mm/m64              | RM   | V/V                   | MMX               | Bitwise OR of mm/m64 and mm.     
@@ -35101,9 +35272,8 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.L = 1.
-`,
-"VPOR":`-R:POR`,
-"PREFETCHh":`
+');
+INSERT INTO `instructions` VALUES ('x86','PREFETCHh','
 PREFETCHh - Prefetch Data Into Caches:
 | Opcode  | Instruction   | Op/En| 64-Bit Mode| Compat/Leg Mode| Description                              
 | 0F 18 /1| PREFETCHT0 m8 | M    | Valid      | Valid          | Move data from m8 closer to the processor
@@ -35186,12 +35356,8 @@ None.
 
 Exceptions (All Operating Modes):
 | #UD| If the LOCK prefix is used.
-`,
-"PREFETCHT0":`-R:PREFETCHh`,
-"PREFETCHT1":`-R:PREFETCHh`,
-"PREFETCHT2":`-R:PREFETCHh`,
-"PREFETCHNTA":`-R:PREFETCHh`,
-"PREFETCHW":`
+');
+INSERT INTO `instructions` VALUES ('x86','PREFETCHW','
 PREFETCHW - Prefetch Data into Caches in Anticipation of a Write:
 | Opcode/Instruction   | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                              
 | 0F 0D /1 PREFETCHW m8| A    | V/V                   | PRFCHW            | Move data from m8 closer to the processor
@@ -35251,8 +35417,8 @@ Compatibility Mode Exceptions:
 
 64-Bit Mode Exceptions:
 | #UD| If the LOCK prefix is used.
-`,
-"PSADBW":`
+');
+INSERT INTO `instructions` VALUES ('x86','PSADBW','
 PSADBW - Compute Sum of Absolute Differences:
 | Opcode/Instruction                 | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                               
 | 0F F6 /r1 PSADBW mm1, mm2/m64      | RM   | V/V                   | SSE               | Computes the absolute differences of      
@@ -35386,10 +35552,9 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.L = 1.
-`,
-"VPSADBW":`-R:PSADBW`,
-"PSHUFB":`
-PSHUFB - Packed Shuffle Bytes:
+');
+INSERT INTO `instructions` VALUES ('x86','PSHUFB','
+PSHUFB  -  Packed Shuffle Bytes:
 | Opcode/Instruction                   | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                                
 | 0F 38 00 /r1 PSHUFB mm1, mm2/m64     | RM   | V/V                   | SSSE3             | Shuffle bytes in mm1 according to contents 
 |                                      |      |                       |                   | of mm2/m64.                                
@@ -35511,9 +35676,8 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.L = 1.
-`,
-"VPSHUFB":`-R:PSHUFB`,
-"PSHUFD":`
+');
+INSERT INTO `instructions` VALUES ('x86','PSHUFD','
 PSHUFD - Shuffle Packed Doublewords:
 | Opcode/Instruction                      | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                            
 | 66 0F 70 /r ib PSHUFD xmm1, xmm2/m128,  | RMI  | V/V                   | SSE2              | Shuffle the doublewords in xmm2/m128   
@@ -35608,9 +35772,8 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.L = 1. If VEX.vvvv != 1111B.
-`,
-"VPSHUFD":`-R:PSHUFD`,
-"PSHUFHW":`
+');
+INSERT INTO `instructions` VALUES ('x86','PSHUFHW','
 PSHUFHW - Shuffle Packed High Words:
 | Opcode/Instruction                     | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                            
 | F3 0F 70 /r ib PSHUFHW xmm1, xmm2/m128,| RMI  | V/V                   | SSE2              | Shuffle the high words in xmm2/m128    
@@ -35701,9 +35864,8 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.L = 1. If VEX.vvvv != 1111B.
-`,
-"VPSHUFHW":`-R:PSHUFHW`,
-"PSHUFLW":`
+');
+INSERT INTO `instructions` VALUES ('x86','PSHUFLW','
 PSHUFLW - Shuffle Packed Low Words:
 | Opcode/Instruction                     | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                             
 | F2 0F 70 /r ib PSHUFLW xmm1, xmm2/m128,| RMI  | V/V                   | SSE2              | Shuffle the low words in xmm2/m128 based
@@ -35794,9 +35956,8 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.L = 1. If VEX.vvvv != 1111B.
-`,
-"VPSHUFLW":`-R:PSHUFLW`,
-"PSHUFW":`
+');
+INSERT INTO `instructions` VALUES ('x86','PSHUFW','
 PSHUFW - Shuffle Packed Words:
 | Opcode/Instruction                   | Op/En| 64-Bit Mode| Compat/Leg Mode| Description                              
 | 0F 70 /r ib PSHUFW mm1, mm2/m64, imm8| RMI  | Valid      | Valid          | Shuffle the words in mm2/m64 based on    
@@ -35849,9 +36010,9 @@ See Table 22-7, “Exception Conditions for SIMD/MMX Instructions with Memory
 Reference,” in the Intel® 64 and IA-32 Architectures Software Developer''s Manual,
 Volume 3A.
 
-`,
-"PSIGNB":`
-PSIGNB/PSIGNW/PSIGND - Packed SIGN:
+');
+INSERT INTO `instructions` VALUES ('x86','PSIGNB','
+PSIGNB/PSIGNW/PSIGND  -  Packed SIGN:
 | Opcode/Instruction                   | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                                    
 | 0F 38 08 /r1 PSIGNB mm1, mm2/m64     | RM   | V/V                   | SSSE3             | Negate/zero/preserve packed byte integers      
 |                                      |      |                       |                   | in mm1 depending on the corresponding          
@@ -36055,13 +36216,10 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.L = 1.
-`,
-"PSIGNW":`-R:PSIGNB`,
-"PSIGND":`-R:PSIGNB`,
-"VPSIGNB":`-R:PSIGNB`,
-"VPSIGNW":`-R:PSIGNB`,
-"VPSIGND":`-R:PSIGNB`,
-"PSLLDQ":`
+');
+INSERT INTO `instructions` VALUES ('x86','PSIGNW','-R:PSIGNB');
+INSERT INTO `instructions` VALUES ('x86','PSIGND','-R:PSIGNB');
+INSERT INTO `instructions` VALUES ('x86','PSLLDQ','
 PSLLDQ - Shift Double Quadword Left Logical:
 | Opcode/Instruction                    | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                             
 | 66 0F 73 /7 ib PSLLDQ xmm1, imm8      | MI   | V/V                   | SSE2              | Shift xmm1 left by imm8 bytes while     
@@ -36128,9 +36286,8 @@ Other Exceptions:
 See Exceptions Type 7; additionally
 
 | #UD| If VEX.L = 1.
-`,
-"VPSLLDQ":`-R:PSLLDQ`,
-"PSLLW":`
+');
+INSERT INTO `instructions` VALUES ('x86','PSLLW','
 PSLLW/PSLLD/PSLLQ - Shift Packed Data Left Logical:
 | Opcode/Instruction                      | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                                 
 | 0F F1 /r1 PSLLW mm, mm/m64              | RM   | V/V                   | MMX               | Shift words in mm left mm/m64 while         
@@ -36397,13 +36554,10 @@ Other Exceptions:
 See Exceptions Type 4 and 7 for non-VEX-encoded instructions; additionally
 
 | #UD| If VEX.L = 1.
-`,
-"PSLLD":`-R:PSLLW`,
-"PSLLQ":`-R:PSLLW`,
-"VPSLLW":`-R:PSLLW`,
-"VPSLLD":`-R:PSLLW`,
-"VPSLLQ":`-R:PSLLW`,
-"PSRAW":`
+');
+INSERT INTO `instructions` VALUES ('x86','PSLLD','-R:PSLLW');
+INSERT INTO `instructions` VALUES ('x86','PSLLQ','-R:PSLLW');
+INSERT INTO `instructions` VALUES ('x86','PSRAW','
 PSRAW/PSRAD - Shift Packed Data Right Arithmetic:
 | Opcode/Instruction                      | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                              
 | 0F E1 /r1 PSRAW mm, mm/m64              | RM   | V/V                   | MMX               | Shift words in mm right by mm/m64 while  
@@ -36595,11 +36749,9 @@ Other Exceptions:
 See Exceptions Type 4 and 7 for non-VEX-encoded instructions; additionally
 
 | #UD| If VEX.L = 1.
-`,
-"PSRAD":`-R:PSRAW`,
-"VPSRAW":`-R:PSRAW`,
-"VPSRAD":`-R:PSRAW`,
-"PSRLDQ":`
+');
+INSERT INTO `instructions` VALUES ('x86','PSRAD','-R:PSRAW');
+INSERT INTO `instructions` VALUES ('x86','PSRLDQ','
 PSRLDQ - Shift Double Quadword Right Logical:
 | Opcode/Instruction                    | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                            
 | 66 0F 73 /3 ib PSRLDQ xmm1, imm8      | MI   | V/V                   | SSE2              | Shift xmm1 right by imm8 while shifting
@@ -36669,9 +36821,8 @@ Other Exceptions:
 See Exceptions Type 7; additionally
 
 | #UD| If VEX.L = 1.
-`,
-"VPSRLDQ":`-R:PSRLDQ`,
-"PSRLW":`
+');
+INSERT INTO `instructions` VALUES ('x86','PSRLW','
 PSRLW/PSRLD/PSRLQ - Shift Packed Data Right Logical:
 | Opcode/Instruction                      | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                                
 | 0F D1 /r1 PSRLW mm, mm/m64              | RM   | V/V                   | MMX               | Shift words in mm right by amount specified
@@ -36930,13 +37081,10 @@ Other Exceptions:
 See Exceptions Type 4 and 7 for non-VEX-encoded instructions; additionally
 
 | #UD| If VEX.L = 1.
-`,
-"PSRLD":`-R:PSRLW`,
-"PSRLQ":`-R:PSRLW`,
-"VPSRLW":`-R:PSRLW`,
-"VPSRLD":`-R:PSRLW`,
-"VPSRLQ":`-R:PSRLW`,
-"PSUBB":`
+');
+INSERT INTO `instructions` VALUES ('x86','PSRLD','-R:PSRLW');
+INSERT INTO `instructions` VALUES ('x86','PSRLQ','-R:PSRLW');
+INSERT INTO `instructions` VALUES ('x86','PSUBB','
 PSUBB/PSUBW/PSUBD - Subtract Packed Integers:
 | Opcode/Instruction                      | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                               
 | 0F F8 /r1 PSUBB mm, mm/m64              | RM   | V/V                   | MMX               | Subtract packed byte integers in mm/m64   
@@ -37168,13 +37316,10 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.L = 1.
-`,
-"PSUBW":`-R:PSUBB`,
-"PSUBD":`-R:PSUBB`,
-"VPSUBB":`-R:PSUBB`,
-"VPSUBW":`-R:PSUBB`,
-"VPSUBD":`-R:PSUBB`,
-"PSUBQ":`
+');
+INSERT INTO `instructions` VALUES ('x86','PSUBW','-R:PSUBB');
+INSERT INTO `instructions` VALUES ('x86','PSUBD','-R:PSUBB');
+INSERT INTO `instructions` VALUES ('x86','PSUBQ','
 PSUBQ - Subtract Packed Quadword Integers:
 | Opcode/Instruction                      | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                          
 | 0F FB /r1 PSUBQ mm1, mm2/m64            | RM   | V/V                   | SSE2              | Subtract quadword integer in mm1 from
@@ -37262,9 +37407,8 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.L = 1.
-`,
-"VPSUBQ":`-R:PSUBQ`,
-"PSUBSB":`
+');
+INSERT INTO `instructions` VALUES ('x86','PSUBSB','
 PSUBSB/PSUBSW - Subtract Packed Signed Integers with Signed Saturation:
 | Opcode/Instruction                 | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                                
 | 0F E8 /r1 PSUBSB mm, mm/m64        | RM   | V/V                   | MMX               | Subtract signed packed bytes in mm/m64     
@@ -37400,11 +37544,9 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.L = 1.
-`,
-"PSUBSW":`-R:PSUBSB`,
-"VPSUBSB":`-R:PSUBSB`,
-"VPSUBSW":`-R:PSUBSB`,
-"PSUBUSB":`
+');
+INSERT INTO `instructions` VALUES ('x86','PSUBSW','-R:PSUBSB');
+INSERT INTO `instructions` VALUES ('x86','PSUBUSB','
 PSUBUSB/PSUBUSW - Subtract Packed Unsigned Integers with Unsigned Saturation:
 | Opcode/Instruction                  | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                             
 | 0F D8 /r1 PSUBUSB mm, mm/m64        | RM   | V/V                   | MMX               | Subtract unsigned packed bytes in mm/m64
@@ -37538,12 +37680,10 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.L = 1.
-`,
-"PSUBUSW":`-R:PSUBUSB`,
-"VPSUBUSB":`-R:PSUBUSB`,
-"VPSUBUSW":`-R:PSUBUSB`,
-"PTEST":`
-PTEST - Logical Compare:
+');
+INSERT INTO `instructions` VALUES ('x86','PSUBUSW','-R:PSUBUSB');
+INSERT INTO `instructions` VALUES ('x86','PTEST','
+PTEST- Logical Compare:
 | Opcode/Instruction                    | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                           
 | 66 0F 38 17 /r PTEST xmm1, xmm2/m128  | RM   | V/V                   | SSE4_1            | Set ZF if xmm2/m128 AND xmm1 result   
 |                                       |      |                       |                   | is all 0s. Set CF if xmm2/m128 AND NOT
@@ -37627,10 +37767,9 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.vvvv != 1111B.
-`,
-"VPTEST":`-R:PTEST`,
-"PUNPCKHBW":`
-PUNPCKHBW/PUNPCKHWD/PUNPCKHDQ/PUNPCKHQDQ - Unpack High Data:
+');
+INSERT INTO `instructions` VALUES ('x86','PUNPCKHBW','
+PUNPCKHBW/PUNPCKHWD/PUNPCKHDQ/PUNPCKHQDQ -  Unpack High Data:
 | Opcode/Instruction                     | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                                 
 | 0F 68 /r1 PUNPCKHBW mm, mm/m64         | RM   | V/V                   | MMX               | Unpack and interleave high-order bytes      
 |                                        |      |                       |                   | from mm and mm/m64 into mm.                 
@@ -37943,15 +38082,11 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.L = 1.
-`,
-"PUNPCKHWD":`-R:PUNPCKHBW`,
-"PUNPCKHDQ":`-R:PUNPCKHBW`,
-"PUNPCKHQDQ":`-R:PUNPCKHBW`,
-"VPUNPCKHBW":`-R:PUNPCKHBW`,
-"VPUNPCKHWD":`-R:PUNPCKHBW`,
-"VPUNPCKHDQ":`-R:PUNPCKHBW`,
-"VPUNPCKHQDQ":`-R:PUNPCKHBW`,
-"PUNPCKLBW":`
+');
+INSERT INTO `instructions` VALUES ('x86','PUNPCKHWD','-R:PUNPCKHBW');
+INSERT INTO `instructions` VALUES ('x86','PUNPCKHDQ','-R:PUNPCKHBW');
+INSERT INTO `instructions` VALUES ('x86','PUNPCKHQDQ','-R:PUNPCKHBW');
+INSERT INTO `instructions` VALUES ('x86','PUNPCKLBW','
 PUNPCKLBW/PUNPCKLWD/PUNPCKLDQ/PUNPCKLQDQ - Unpack Low Data:
 | Opcode/Instruction                     | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                            
 | 0F 60 /r1 PUNPCKLBW mm, mm/m32         | RM   | V/V                   | MMX               | Interleave low-order bytes from mm and 
@@ -38263,15 +38398,11 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.L = 1.
-`,
-"PUNPCKLWD":`-R:PUNPCKLBW`,
-"PUNPCKLDQ":`-R:PUNPCKLBW`,
-"PUNPCKLQDQ":`-R:PUNPCKLBW`,
-"VPUNPCKLBW":`-R:PUNPCKLBW`,
-"VPUNPCKLWD":`-R:PUNPCKLBW`,
-"VPUNPCKLDQ":`-R:PUNPCKLBW`,
-"VPUNPCKLQDQ":`-R:PUNPCKLBW`,
-"PUSH":`
+');
+INSERT INTO `instructions` VALUES ('x86','PUNPCKLWD','-R:PUNPCKLBW');
+INSERT INTO `instructions` VALUES ('x86','PUNPCKLDQ','-R:PUNPCKLBW');
+INSERT INTO `instructions` VALUES ('x86','PUNPCKLQDQ','-R:PUNPCKLBW');
+INSERT INTO `instructions` VALUES ('x86','PUSH','
 PUSH - Push Word, Doubleword or Quadword Onto the Stack:
 | Opcode*| Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description
 | FF /6  | PUSH r/m16 | M    | Valid      | Valid          | Push r/m16.
@@ -38449,8 +38580,8 @@ Same exceptions as in protected mode.
 |                | 3.                                         
 | #UD            | If the LOCK prefix is used. If the PUSH    
 |                | is of CS, SS, DS, or ES.                   
-`,
-"PUSHA":`
+');
+INSERT INTO `instructions` VALUES ('x86','PUSHA','
 PUSHA/PUSHAD - Push All General-Purpose Registers:
 | Opcode| Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                           
 | 60    | PUSHA      | NP   | Invalid    | Valid          | Push AX, CX, DX, BX, original SP, BP, 
@@ -38548,9 +38679,9 @@ Same exceptions as in protected mode.
 
 64-Bit Mode Exceptions:
 | #UD| If in 64-bit mode.
-`,
-"PUSHAD":`-R:PUSHA`,
-"PUSHF":`
+');
+INSERT INTO `instructions` VALUES ('x86','PUSHAD','-R:PUSHA');
+INSERT INTO `instructions` VALUES ('x86','PUSHF','
 PUSHF/PUSHFD - Push EFLAGS Register onto the Stack:
 | Opcode*| Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                  
 | 9C     | PUSHF      | NP   | Valid      | Valid          | Push lower 16 bits of EFLAGS.
@@ -38660,10 +38791,9 @@ Same exceptions as in protected mode.
 |                | made while the current privilege level     
 |                | is 3 and alignment checking is enabled.    
 | #UD            | If the LOCK prefix is used.                
-`,
-"PUSHFD":`-R:PUSHF`,
-"PUSHFQ":`-R:PUSHF`,
-"PXOR":`
+');
+INSERT INTO `instructions` VALUES ('x86','PUSHFD','-R:PUSHF');
+INSERT INTO `instructions` VALUES ('x86','PXOR','
 PXOR - Logical Exclusive OR:
 | Opcode*/Instruction                    | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                       
 | 0F EF /r1 PXOR mm, mm/m64              | RM   | V/V                   | MMX               | Bitwise XOR of mm/m64 and mm.     
@@ -38739,10 +38869,9 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.L = 1.
-`,
-"VPXOR":`-R:PXOR`,
-"RCL":`
-RCL/RCR/ROL/ROR - Rotate:
+');
+INSERT INTO `instructions` VALUES ('x86','RCL','
+RCL/RCR/ROL/ROR- - Rotate:
 | Opcode**        | Instruction    | Op/En| 64-Bit Mode| Compat/Leg Mode| Description                              
 | D0 /2           | RCL r/m8, 1    | M1   | Valid      | Valid          | Rotate 9 bits (CF, r/m8) left once.      
 | REX + D0 /2     | RCL r/m8*, 1   | M1   | Valid      | N.E.           | Rotate 9 bits (CF, r/m8) left once.      
@@ -39006,11 +39135,11 @@ Same exceptions as in protected mode.
 |                | while the current privilege level is  
 |                | 3.                                    
 | #UD            | If the LOCK prefix is used.           
-`,
-"RCR":`-R:RCL`,
-"ROL":`-R:RCL`,
-"ROR":`-R:RCL`,
-"RCPPS":`
+');
+INSERT INTO `instructions` VALUES ('x86','RCR','-R:RCL');
+INSERT INTO `instructions` VALUES ('x86','ROL','-R:RCL');
+INSERT INTO `instructions` VALUES ('x86','ROR','-R:RCL');
+INSERT INTO `instructions` VALUES ('x86','RCPPS','
 RCPPS - Compute Reciprocals of Packed Single-Precision Floating-Point Values:
 | Opcode*/Instruction                        | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                                  
 | 0F 53 /r RCPPS xmm1, xmm2/m128             | RM   | V/V                   | SSE               | Computes the approximate reciprocals         
@@ -39101,9 +39230,8 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.vvvv != 1111B.
-`,
-"VRCPPS":`-R:RCPPS`,
-"RCPSS":`
+');
+INSERT INTO `instructions` VALUES ('x86','RCPSS','
 RCPSS - Compute Reciprocal of Scalar Single-Precision Floating-Point Values:
 | Opcode*/Instruction                     | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                                  
 | F3 0F 53 /r RCPSS xmm1, xmm2/m32        | RM   | V/V                   | SSE               | Computes the approximate reciprocal          
@@ -39173,9 +39301,8 @@ None.
 Other Exceptions:
 See Exceptions Type 5.
 
-`,
-"VRCPSS":`-R:RCPSS`,
-"RDFSBASE":`
+');
+INSERT INTO `instructions` VALUES ('x86','RDFSBASE','
 RDFSBASE/RDGSBASE - Read FS/GS Segment Base:
 | Opcode/Instruction              | Op/En| 64/32bit Mode| CPUID Feature Flag| Description                         
 | F3 0F AE /0 RDFSBASE r32        | M    | V/I          | FSGSBASE          | Load the 32-bit destination register
@@ -39238,9 +39365,9 @@ Compatibility Mode Exceptions:
 | #UD| If the LOCK prefix is used. If CR4.FSGSBASE[bit
 |    | 16] = 0. If CPUID.07H.0H:EBX.FSGSBASE[bit      
 |    | 0] = 0.                                        
-`,
-"RDGSBASE":`-R:RDFSBASE`,
-"RDMSR":`
+');
+INSERT INTO `instructions` VALUES ('x86','RDGSBASE','-R:RDFSBASE');
+INSERT INTO `instructions` VALUES ('x86','RDMSR','
 RDMSR - Read from Model Specific Register:
 | Opcode*| Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                            
 | 0F 32  | RDMSR      | NP   | Valid      | Valid          | Read MSR specified by ECX into EDX:EAX.
@@ -39317,8 +39444,8 @@ Same exceptions as in protected mode.
 64-Bit Mode Exceptions:
 Same exceptions as in protected mode.
 
-`,
-"RDPMC":`
+');
+INSERT INTO `instructions` VALUES ('x86','RDPMC','
 RDPMC - Read Performance-Monitoring Counters:
 | Opcode*| Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                        
 | 0F 33  | RDPMC      | NP   | Valid      | Valid          | Read performance-monitoring counter
@@ -39553,8 +39680,8 @@ Same exceptions as in protected mode.
 |       | counter index is specified in ECX[30:0]
 |       | (see Table 4-12).                      
 | #UD   | If the LOCK prefix is used.            
-`,
-"RDRAND":`
+');
+INSERT INTO `instructions` VALUES ('x86','RDRAND','
 RDRAND - Read Random Number:
 | Opcode*/Instruction        | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                          
 | 0F C7 /6 RDRAND r16        | M    | V/V                   | RDRAND            | Read a 16-bit random number and store
@@ -39637,8 +39764,8 @@ Same exceptions as in protected mode.
 64-Bit Mode Exceptions:
 Same exceptions as in protected mode.
 
-`,
-"RDTSC":`
+');
+INSERT INTO `instructions` VALUES ('x86','RDTSC','
 RDTSC - Read Time-Stamp Counter:
 | Opcode*| Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                          
 | 0F 31  | RDTSC      | NP   | Valid      | Valid          | Read time-stamp counter into EDX:EAX.
@@ -39713,8 +39840,8 @@ Same exceptions as in protected mode.
 64-Bit Mode Exceptions:
 Same exceptions as in protected mode.
 
-`,
-"RDTSCP":`
+');
+INSERT INTO `instructions` VALUES ('x86','RDTSCP','
 RDTSCP - Read Time-Stamp Counter and Processor ID:
 | Opcode* | Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                              
 | 0F 01 F9| RDTSCP     | NP   | Valid      | Valid          | Read 64-bit time-stamp counter and 32-bit
@@ -39795,8 +39922,8 @@ Same exceptions as in protected mode.
 64-Bit Mode Exceptions:
 Same exceptions as in protected mode.
 
-`,
-"REP":`
+');
+INSERT INTO `instructions` VALUES ('x86','REP','
 REP/REPE/REPZ/REPNE/REPNZ - Repeat String Operation Prefix:
 | Opcode     | Instruction        | Op/En| 64-Bit Mode| Compat/Leg Mode| Description                                  
 | F3 6C      | REP INS m8, DX     | NP   | Valid      | Valid          | Input (E)CX bytes from port DX into          
@@ -39980,10 +40107,12 @@ Exceptions may be generated by an instruction associated with the prefix.
 64-Bit Mode Exceptions:
 | #GP(0)| If the memory address is in a non-canonical
 |       | form.                                      
-`,
-"REPE":`-R:REP`,
-"REPNE":`-R:REP`,
-"RET":`
+');
+INSERT INTO `instructions` VALUES ('x86','REPE','-R:REP');
+INSERT INTO `instructions` VALUES ('x86','REPZ','-R:REP');
+INSERT INTO `instructions` VALUES ('x86','REPNE','-R:REP');
+INSERT INTO `instructions` VALUES ('x86','REPNZ','-R:REP');
+INSERT INTO `instructions` VALUES ('x86','RET','
 RET - Return from Procedure:
 | Opcode*| Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                         
 | C3     | RET        | NP   | Valid      | Valid          | Near return to calling procedure.   
@@ -40543,9 +40672,9 @@ Same as 64-bit mode exceptions.
 |                | an unaligned memory reference is made       
 |                | while the current privilege level is        
 |                | 3.                                          
-`,
-"RORX":`
-RORX - Rotate Right Logical Without Affecting Flags:
+');
+INSERT INTO `instructions` VALUES ('x86','RORX','
+RORX  -  Rotate Right Logical Without Affecting Flags:
 | Opcode/Instruction                  | Op/En| 64/32 -bit Mode| CPUID Feature Flag| Description                         
 | VEX.LZ.F2.0F3A.W0 F0 /r ib RORX r32,| RMI  | V/V            | BMI2              | Rotate 32-bit r/m32 right imm8 times
 | r/m32, imm8                         |      |                |                   | without affecting arithmetic flags. 
@@ -40591,9 +40720,9 @@ See Section 2.5.1, “Exception Conditions for VEX-Encoded GPR Instructions”,
 Table 2-29; additionally
 
 | #UD| If VEX.W = 1.
-`,
-"ROUNDPD":`
-ROUNDPD - Round Packed Double Precision Floating-Point Values:
+');
+INSERT INTO `instructions` VALUES ('x86','ROUNDPD','
+ROUNDPD  -  Round Packed Double Precision Floating-Point Values:
 | Opcode*/Instruction                       | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                                 
 | 66 0F 3A 09 /r ib ROUNDPD xmm1, xmm2/m128,| RMI  | V/V                   | SSE4_1            | Round packed double precision floating-point
 | imm8                                      |      |                       |                   | values in xmm2/m128 and place the result    
@@ -40710,10 +40839,9 @@ Other Exceptions:
 See Exceptions Type 2; additionally
 
 | #UD| If VEX.vvvv != 1111B.
-`,
-"VROUNDPD":`-R:ROUNDPD`,
-"ROUNDPS":`
-ROUNDPS - Round Packed Single Precision Floating-Point Values:
+');
+INSERT INTO `instructions` VALUES ('x86','ROUNDPS','
+ROUNDPS  -  Round Packed Single Precision Floating-Point Values:
 | Opcode*/Instruction                       | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                                 
 | 66 0F 3A 08 /r ib ROUNDPS xmm1, xmm2/m128,| RMI  | V/V                   | SSE4_1            | Round packed single precision floating-point
 | imm8                                      |      |                       |                   | values in xmm2/m128 and place the result    
@@ -40818,10 +40946,9 @@ Other Exceptions:
 See Exceptions Type 2; additionally
 
 | #UD| If VEX.vvvv != 1111B.
-`,
-"VROUNDPS":`-R:ROUNDPS`,
-"ROUNDSD":`
-ROUNDSD - Round Scalar Double Precision Floating-Point Values:
+');
+INSERT INTO `instructions` VALUES ('x86','ROUNDSD','
+ROUNDSD  -  Round Scalar Double Precision Floating-Point Values:
 | Opcode*/Instruction                      | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                             
 | 66 0F 3A 0B /r ib ROUNDSD xmm1, xmm2/m64,| RMI  | V/V                   | SSE4_1            | Round the low packed double precision   
 | imm8                                     |      |                       |                   | floating-point value in xmm2/m64 and    
@@ -40895,10 +41022,9 @@ exception is not signaled.) Note that Denormal is not signaled by ROUNDSD.
 Other Exceptions:
 See Exceptions Type 3.
 
-`,
-"VROUNDSD":`-R:ROUNDSD`,
-"ROUNDSS":`
-ROUNDSS - Round Scalar Single Precision Floating-Point Values:
+');
+INSERT INTO `instructions` VALUES ('x86','ROUNDSS','
+ROUNDSS  -  Round Scalar Single Precision Floating-Point Values:
 | Opcode*/Instruction                      | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                            
 | 66 0F 3A 0A /r ib ROUNDSS xmm1, xmm2/m32,| RMI  | V/V                   | SSE4_1            | Round the low packed single precision  
 | imm8                                     |      |                       |                   | floating-point value in xmm2/m32 and   
@@ -40972,9 +41098,8 @@ exception is not signaled.) Note that Denormal is not signaled by ROUNDSS.
 Other Exceptions:
 See Exceptions Type 3.
 
-`,
-"VROUNDSS":`-R:ROUNDSS`,
-"RSM":`
+');
+INSERT INTO `instructions` VALUES ('x86','RSM','
 RSM - Resume from System Management Mode:
 | Opcode*| Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                             
 | 0F AA  | RSM        | NP   | Invalid    | Valid          | Resume operation of interrupted program.
@@ -41041,8 +41166,8 @@ Same exceptions as in protected mode.
 64-Bit Mode Exceptions:
 Same exceptions as in protected mode.
 
-`,
-"RSQRTPS":`
+');
+INSERT INTO `instructions` VALUES ('x86','RSQRTPS','
 RSQRTPS - Compute Reciprocals of Square Roots of Packed Single-Precision Floating-Point Values:
 | Opcode*/Instruction                | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                                       
 | 0F 52 /r RSQRTPS xmm1, xmm2/m128   | RM   | V/V                   | SSE               | Computes the approximate reciprocals              
@@ -41131,9 +41256,8 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.vvvv != 1111B.
-`,
-"VRSQRTPS":`-R:RSQRTPS`,
-"RSQRTSS":`
+');
+INSERT INTO `instructions` VALUES ('x86','RSQRTSS','
 RSQRTSS - Compute Reciprocal of Square Root of Scalar Single-Precision Floating-Point Value:
 | Opcode*/Instruction                 | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                                   
 | F3 0F 52 /r RSQRTSS xmm1, xmm2/m32  | RM   | V/V                   | SSE               | Computes the approximate reciprocal           
@@ -41200,9 +41324,8 @@ None.
 Other Exceptions:
 See Exceptions Type 5.
 
-`,
-"VRSQRTSS":`-R:RSQRTSS`,
-"SAHF":`
+');
+INSERT INTO `instructions` VALUES ('x86','SAHF','
 SAHF - Store AH into Flags:
 | Opcode*| Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                         
 | 9E     | SAHF       | NP   | Invalid*   | Valid          | Loads SF, ZF, AF, PF, and CF from AH
@@ -41264,8 +41387,8 @@ None.
 64-Bit Mode Exceptions:
 | #UD| If CPUID.80000001H.ECX[0] = 0. If the
 |    | LOCK prefix is used.                 
-`,
-"SAL":`
+');
+INSERT INTO `instructions` VALUES ('x86','SAL','
 SAL/SAR/SHL/SHR - Shift:
 | Opcode***       | Instruction     | Op/En| 64-Bit Mode| Compat/Leg Mode| Description                            
 | D0 /4           | SAL r/m8, 1     | M1   | Valid      | Valid          | Multiply r/m8 by 2, once.              
@@ -41521,12 +41644,12 @@ Same exceptions as in protected mode.
 |                | while the current privilege level is       
 |                | 3.                                         
 | #UD            | If the LOCK prefix is used.                
-`,
-"SAR":`-R:SAL`,
-"SHL":`-R:SAL`,
-"SHR":`-R:SAL`,
-"SARX":`
-SARX/SHLX/SHRX - Shift Without Affecting Flags:
+');
+INSERT INTO `instructions` VALUES ('x86','SAR','-R:SAL');
+INSERT INTO `instructions` VALUES ('x86','SHL','-R:SAL');
+INSERT INTO `instructions` VALUES ('x86','SHR','-R:SAL');
+INSERT INTO `instructions` VALUES ('x86','SARX','
+SARX/SHLX/SHRX  -  Shift Without Affecting Flags:
 | Opcode/Instruction                     | Op/En| 64/32 -bit Mode| CPUID Feature Flag| Description                           
 | VEX.NDS1.LZ.F3.0F38.W0 F7 /r SARX r32a,| RMV  | V/V            | BMI2              | Shift r/m32 arithmetically right with 
 | r/m32, r32b                            |      |                |                   | count specified in r32b.              
@@ -41605,10 +41728,10 @@ See Section 2.5.1, “Exception Conditions for VEX-Encoded GPR Instructions”,
 Table 2-29; additionally
 
 | #UD| If VEX.W = 1.
-`,
-"SHLX":`-R:SARX`,
-"SHRX":`-R:SARX`,
-"SBB":`
+');
+INSERT INTO `instructions` VALUES ('x86','SHLX','-R:SARX');
+INSERT INTO `instructions` VALUES ('x86','SHRX','-R:SARX');
+INSERT INTO `instructions` VALUES ('x86','SBB','
 SBB - Integer Subtraction with Borrow:
 | Opcode          | Instruction     | Op/En| 64-Bit Mode| Compat/Leg Mode| Description                              
 | 1C ib           | SBB AL, imm8    | I    | Valid      | Valid          | Subtract with borrow imm8 from AL.       
@@ -41755,8 +41878,8 @@ Same exceptions as in protected mode.
 |                | 3.                                            
 | #UD            | If the LOCK prefix is used but the destination
 |                | is not a memory operand.                      
-`,
-"SCAS":`
+');
+INSERT INTO `instructions` VALUES ('x86','SCAS','
 SCAS/SCASB/SCASW/SCASD - Scan String:
 | Opcode    | Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                            
 | AE        | SCAS m8    | NP   | Valid      | Valid          | Compare AL with byte at ES:(E)DI or    
@@ -41944,12 +42067,11 @@ Same exceptions as in protected mode.
 |                | while the current privilege level is       
 |                | 3.                                         
 | #UD            | If the LOCK prefix is used.                
-`,
-"SCASB":`-R:SCAS`,
-"SCASW":`-R:SCAS`,
-"SCASD":`-R:SCAS`,
-"SCASQ":`-R:SCAS`,
-"SETcc":`
+');
+INSERT INTO `instructions` VALUES ('x86','SCASB','-R:SCAS');
+INSERT INTO `instructions` VALUES ('x86','SCASW','-R:SCAS');
+INSERT INTO `instructions` VALUES ('x86','SCASD','-R:SCAS');
+INSERT INTO `instructions` VALUES ('x86','SETcc','
 SETcc - Set Byte on Condition:
 | Opcode     | Instruction | Op/En| 64-Bit Mode| Compat/Leg Mode| Description                           
 | 0F 97      | SETA r/m8   | M    | Valid      | Valid          | Set byte if above (CF=0 and ZF=0).    
@@ -42112,38 +42234,8 @@ Same exceptions as in protected mode.
 |                | form.                                      
 | #PF(fault-code)| If a page fault occurs.                    
 | #UD            | If the LOCK prefix is used.                
-`,
-"SETA":`-R:SETcc`,
-"SETAE":`-R:SETcc`,
-"SETB":`-R:SETcc`,
-"SETBE":`-R:SETcc`,
-"SETC":`-R:SETcc`,
-"SETE":`-R:SETcc`,
-"SETG":`-R:SETcc`,
-"SETGE":`-R:SETcc`,
-"SETL":`-R:SETcc`,
-"SETLE":`-R:SETcc`,
-"SETNA":`-R:SETcc`,
-"SETNAE":`-R:SETcc`,
-"SETNB":`-R:SETcc`,
-"SETNBE":`-R:SETcc`,
-"SETNC":`-R:SETcc`,
-"SETNE":`-R:SETcc`,
-"SETNG":`-R:SETcc`,
-"SETNGE":`-R:SETcc`,
-"SETNL":`-R:SETcc`,
-"SETNLE":`-R:SETcc`,
-"SETNO":`-R:SETcc`,
-"SETNP":`-R:SETcc`,
-"SETNS":`-R:SETcc`,
-"SETNZ":`-R:SETcc`,
-"SETO":`-R:SETcc`,
-"SETP":`-R:SETcc`,
-"SETPE":`-R:SETcc`,
-"SETPO":`-R:SETcc`,
-"SETS":`-R:SETcc`,
-"SETZ":`-R:SETcc`,
-"SFENCE":`
+');
+INSERT INTO `instructions` VALUES ('x86','SFENCE','
 SFENCE - Store Fence:
 | Opcode* | Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                 
 | 0F AE /7| SFENCE     | NP   | Valid      | Valid          | Serializes store operations.
@@ -42183,8 +42275,8 @@ void _mm_sfence(void)
 Exceptions (All Operating Modes):
 | #UD| If CPUID.01H:EDX.SSE[bit 25] = 0. If
 |    | the LOCK prefix is used.            
-`,
-"SGDT":`
+');
+INSERT INTO `instructions` VALUES ('x86','SGDT','
 SGDT - Store Global Descriptor Table Register:
 | Opcode* | Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description     
 | 0F 01 /0| SGDT m     | M    | Valid      | Valid          | Store GDTR to m.
@@ -42299,8 +42391,8 @@ Same exceptions as in protected mode.
 |                | an unaligned memory reference is made      
 |                | while the current privilege level is       
 |                | 3.                                         
-`,
-"SHLD":`
+');
+INSERT INTO `instructions` VALUES ('x86','SHLD','
 SHLD - Double Precision Shift Left:
 | Opcode*            | Instruction          | Op/En| 64-Bit Mode| Compat/Leg Mode| Description                              
 | 0F A4 /r ib        | SHLD r/m16, r16, imm8| MRI  | Valid      | Valid          | Shift r/m16 to left imm8 places while    
@@ -42437,8 +42529,8 @@ Same exceptions as in protected mode.
 |                | while the current privilege level is       
 |                | 3.                                         
 | #UD            | If the LOCK prefix is used.                
-`,
-"SHRD":`
+');
+INSERT INTO `instructions` VALUES ('x86','SHRD','
 SHRD - Double Precision Shift Right:
 | Opcode*            | Instruction          | Op/En| 64-Bit Mode| Compat/Leg Mode| Description                             
 | 0F AC /r ib        | SHRD r/m16, r16, imm8| MRI  | Valid      | Valid          | Shift r/m16 to right imm8 places while  
@@ -42574,8 +42666,8 @@ Same exceptions as in protected mode.
 |                | while the current privilege level is       
 |                | 3.                                         
 | #UD            | If the LOCK prefix is used.                
-`,
-"SHUFPD":`
+');
+INSERT INTO `instructions` VALUES ('x86','SHUFPD','
 SHUFPD - Shuffle Packed Double-Precision Floating-Point Values:
 | Opcode*/Instruction                   | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                                  
 | 66 0F C6 /r ib SHUFPD xmm1, xmm2/m128,| RMI  | V/V                   | SSE2              | Shuffle packed double-precision floatingpoint
@@ -42674,9 +42766,8 @@ None.
 Other Exceptions:
 See Exceptions Type 4.
 
-`,
-"VSHUFPD":`-R:SHUFPD`,
-"SHUFPS":`
+');
+INSERT INTO `instructions` VALUES ('x86','SHUFPS','
 SHUFPS - Shuffle Packed Single-Precision Floating-Point Values:
 | Opcode*/Instruction                | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                                   
 | 0F C6 /r ib SHUFPS xmm1, xmm2/m128,| RMI  | V/V                   | SSE               | Shuffle packed single-precision floating-point
@@ -42789,9 +42880,8 @@ None.
 Other Exceptions:
 See Exceptions Type 4.
 
-`,
-"VSHUFPS":`-R:SHUFPS`,
-"SIDT":`
+');
+INSERT INTO `instructions` VALUES ('x86','SIDT','
 SIDT - Store Interrupt Descriptor Table Register:
 | Opcode* | Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description     
 | 0F 01 /1| SIDT m     | M    | Valid      | Valid          | Store IDTR to m.
@@ -42901,8 +42991,8 @@ Same exceptions as in protected mode.
 |                | an unaligned memory reference is made      
 |                | while the current privilege level is       
 |                | 3.                                         
-`,
-"SLDT":`
+');
+INSERT INTO `instructions` VALUES ('x86','SLDT','
 SLDT - Store Local Descriptor Table Register:
 | Opcode*         | Instruction | Op/En| 64-Bit Mode| Compat/Leg Mode| Description                         
 | 0F 00 /0        | SLDT r/m16  | M    | Valid      | Valid          | Stores segment selector from LDTR in
@@ -42992,8 +43082,8 @@ Same exceptions as in protected mode.
 |                | while the current privilege level is       
 |                | 3.                                         
 | #UD            | If the LOCK prefix is used.                
-`,
-"SMSW":`
+');
+INSERT INTO `instructions` VALUES ('x86','SMSW','
 SMSW - Store Machine Status Word:
 | Opcode*         | Instruction | Op/En| 64-Bit Mode| Compat/Leg Mode| Description                           
 | 0F 01 /4        | SMSW r/m16  | M    | Valid      | Valid          | Store machine status word to r/m16.   
@@ -43101,8 +43191,8 @@ Same exceptions as in protected mode.
 |                | while the current privilege level is       
 |                | 3.                                         
 | #UD            | If the LOCK prefix is used.                
-`,
-"SQRTPD":`
+');
+INSERT INTO `instructions` VALUES ('x86','SQRTPD','
 SQRTPD - Compute Square Roots of Packed Double-Precision Floating-Point Values:
 | Opcode*/Instruction                  | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                          
 | 66 0F 51 /r SQRTPD xmm1, xmm2/m128   | RM   | V/V                   | SSE2              | Computes square roots of the packed  
@@ -43171,9 +43261,8 @@ Other Exceptions:
 See Exceptions Type 2; additionally
 
 | #UD| If VEX.vvvv != 1111B.
-`,
-"VSQRTPD":`-R:SQRTPD`,
-"SQRTPS":`
+');
+INSERT INTO `instructions` VALUES ('x86','SQRTPS','
 SQRTPS - Compute Square Roots of Packed Single-Precision Floating-Point Values:
 | Opcode*/Instruction                         | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                          
 | 0F 51 /r SQRTPS xmm1, xmm2/m128             | RM   | V/V                   | SSE               | Computes square roots of the packed  
@@ -43250,9 +43339,8 @@ Other Exceptions:
 See Exceptions Type 2; additionally
 
 | #UD| If VEX.vvvv != 1111B.
-`,
-"VSQRTPS":`-R:SQRTPS`,
-"SQRTSD":`
+');
+INSERT INTO `instructions` VALUES ('x86','SQRTSD','
 SQRTSD - Compute Square Root of Scalar Double-Precision Floating-Point Value:
 | Opcode*/Instruction                          | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                                    
 | F2 0F 51 /r SQRTSD xmm1, xmm2/m64            | RM   | V/V                   | SSE2              | Computes square root of the low doubleprecision
@@ -43306,9 +43394,8 @@ Invalid, Precision, Denormal.
 Other Exceptions:
 See Exceptions Type 3.
 
-`,
-"VSQRTSD":`-R:SQRTSD`,
-"SQRTSS":`
+');
+INSERT INTO `instructions` VALUES ('x86','SQRTSS','
 SQRTSS - Compute Square Root of Scalar Single-Precision Floating-Point Value:
 | Opcode*/Instruction                     | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                                    
 | F3 0F 51 /r SQRTSS xmm1, xmm2/m32       | RM   | V/V                   | SSE               | Computes square root of the low singleprecision
@@ -43361,9 +43448,8 @@ Invalid, Precision, Denormal.
 Other Exceptions:
 See Exceptions Type 3.
 
-`,
-"VSQRTSS":`-R:SQRTSS`,
-"STC":`
+');
+INSERT INTO `instructions` VALUES ('x86','STC','
 STC - Set Carry Flag:
 | Opcode*| Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description 
 | F9     | STC        | NP   | Valid      | Valid          | Set CF flag.
@@ -43387,8 +43473,8 @@ The CF flag is set. The OF, ZF, SF, AF, and PF flags are unaffected.
 
 Exceptions (All Operating Modes):
 | #UD| If the LOCK prefix is used.
-`,
-"STD":`
+');
+INSERT INTO `instructions` VALUES ('x86','STD','
 STD - Set Direction Flag:
 | Opcode*| Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description 
 | FD     | STD        | NP   | Valid      | Valid          | Set DF flag.
@@ -43413,8 +43499,8 @@ The DF flag is set. The CF, OF, ZF, SF, AF, and PF flags are unaffected.
 
 Exceptions (All Operating Modes):
 | #UD| If the LOCK prefix is used.
-`,
-"STI":`
+');
+INSERT INTO `instructions` VALUES ('x86','STI','
 STI - Set Interrupt Flag:
 | Opcode*| Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                           
 | FB     | STI        | NP   | Valid      | Valid          | Set interrupt flag; external, maskable
@@ -43529,8 +43615,8 @@ Same exceptions as in protected mode.
 64-Bit Mode Exceptions:
 Same exceptions as in protected mode.
 
-`,
-"STMXCSR":`
+');
+INSERT INTO `instructions` VALUES ('x86','STMXCSR','
 STMXCSR - Store MXCSR Register State:
 | Opcode*/Instruction             | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                        
 | 0F AE /3 STMXCSR m32            | M    | V/V                   | SSE               | Store contents of MXCSR register to
@@ -43569,9 +43655,8 @@ Other Exceptions:
 See Exceptions Type 5; additionally
 
 | #UD| If VEX.L= 1, If VEX.vvvv != 1111B.
-`,
-"VSTMXCSR":`-R:STMXCSR`,
-"STOS":`
+');
+INSERT INTO `instructions` VALUES ('x86','STOS','
 STOS/STOSB/STOSW/STOSD/STOSQ - Store String:
 | Opcode    | Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                          
 | AA        | STOS m8    | NA   | Valid      | Valid          | For legacy mode, store AL at address 
@@ -43760,12 +43845,12 @@ Same exceptions as in protected mode.
 |                | while the current privilege level is       
 |                | 3.                                         
 | #UD            | If the LOCK prefix is used.                
-`,
-"STOSB":`-R:STOS`,
-"STOSW":`-R:STOS`,
-"STOSD":`-R:STOS`,
-"STOSQ":`-R:STOS`,
-"STR":`
+');
+INSERT INTO `instructions` VALUES ('x86','STOSB','-R:STOS');
+INSERT INTO `instructions` VALUES ('x86','STOSW','-R:STOS');
+INSERT INTO `instructions` VALUES ('x86','STOSD','-R:STOS');
+INSERT INTO `instructions` VALUES ('x86','STOSQ','-R:STOS');
+INSERT INTO `instructions` VALUES ('x86','STR','
 STR - Store Task Register:
 | Opcode  | Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                              
 | 0F 00 /1| STR r/m16  | M    | Valid      | Valid          | Stores segment selector from TR in r/m16.
@@ -43841,8 +43926,8 @@ Same exceptions as in protected mode.
 |                | while the current privilege level is       
 |                | 3.                                         
 | #UD            | If the LOCK prefix is used.                
-`,
-"SUB":`
+');
+INSERT INTO `instructions` VALUES ('x86','SUB','
 SUB - Subtract:
 | Opcode          | Instruction     | Op/En| 64-Bit Mode| Compat/Leg Mode| Description                            
 | 2C ib           | SUB AL, imm8    | I    | Valid      | Valid          | Subtract imm8 from AL.                 
@@ -43963,8 +44048,8 @@ Same exceptions as in protected mode.
 |                | 3.                                            
 | #UD            | If the LOCK prefix is used but the destination
 |                | is not a memory operand.                      
-`,
-"SUBPD":`
+');
+INSERT INTO `instructions` VALUES ('x86','SUBPD','
 SUBPD - Subtract Packed Double-Precision Floating-Point Values:
 | Opcode/Instruction                           | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                                   
 | 66 0F 5C /r SUBPD xmm1, xmm2/m128            | RM   | V/V                   | SSE2              | Subtract packed double-precision floatingpoint
@@ -44032,9 +44117,8 @@ Overflow, Underflow, Invalid, Precision, Denormal.
 Other Exceptions:
 See Exceptions Type 2.
 
-`,
-"VSUBPD":`-R:SUBPD`,
-"SUBPS":`
+');
+INSERT INTO `instructions` VALUES ('x86','SUBPS','
 SUBPS - Subtract Packed Single-Precision Floating-Point Values:
 | Opcode/Instruction                        | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                                    
 | 0F 5C /r SUBPS xmm1 xmm2/m128             | RM   | V/V                   | SSE               | Subtract packed single-precision floating-point
@@ -44110,9 +44194,8 @@ Overflow, Underflow, Invalid, Precision, Denormal.
 Other Exceptions:
 See Exceptions Type 2.
 
-`,
-"VSUBPS":`-R:SUBPS`,
-"SUBSD":`
+');
+INSERT INTO `instructions` VALUES ('x86','SUBSD','
 SUBSD - Subtract Scalar Double-Precision Floating-Point Values:
 | Opcode/Instruction                           | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                                     
 | F2 0F 5C /r SUBSD xmm1, xmm2/m64             | RM   | V/V                   | SSE2              | Subtracts the low double-precision floatingpoint
@@ -44164,9 +44247,8 @@ Overflow, Underflow, Invalid, Precision, Denormal.
 Other Exceptions:
 See Exceptions Type 3.
 
-`,
-"VSUBSD":`-R:SUBSD`,
-"SUBSS":`
+');
+INSERT INTO `instructions` VALUES ('x86','SUBSS','
 SUBSS - Subtract Scalar Single-Precision Floating-Point Values:
 | Opcode/Instruction                           | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                                    
 | F3 0F 5C /r SUBSS xmm1, xmm2/m32             | RM   | V/V                   | SSE               | Subtract the lower single-precision            
@@ -44219,9 +44301,8 @@ Overflow, Underflow, Invalid, Precision, Denormal.
 Other Exceptions:
 See Exceptions Type 3.
 
-`,
-"VSUBSS":`-R:SUBSS`,
-"SWAPGS":`
+');
+INSERT INTO `instructions` VALUES ('x86','SWAPGS','
 SWAPGS - Swap GS Base Register:
 | Opcode  | Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                           
 | 0F 01 F8| SWAPGS     | NP   | Valid      | Invalid        | Exchanges the current GS base register
@@ -44283,8 +44364,8 @@ Compatibility Mode Exceptions:
 
 64-Bit Mode Exceptions:
 | #GP(0)| If CPL != 0. If the LOCK prefix is used.
-`,
-"SYSCALL":`
+');
+INSERT INTO `instructions` VALUES ('x86','SYSCALL','
 SYSCALL - Fast System Call:
 | Opcode| Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                          
 | 0F 05 | SYSCALL    | NP   | Valid      | Invalid        | Fast call to privilege level 0 system
@@ -44377,8 +44458,8 @@ Compatibility Mode Exceptions:
 64-Bit Mode Exceptions:
 | #UD| If IA32_EFER.SCE = 0. If the LOCK prefix
 |    | is used.                                
-`,
-"SYSENTER":`
+');
+INSERT INTO `instructions` VALUES ('x86','SYSENTER','
 SYSENTER - Fast System Call:
 | Opcode| Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                          
 | 0F 34 | SYSENTER   | NP   | Valid      | Valid          | Fast call to privilege level 0 system
@@ -44531,8 +44612,8 @@ Same exceptions as in protected mode.
 64-Bit Mode Exceptions:
 Same exceptions as in protected mode.
 
-`,
-"SYSEXIT":`
+');
+INSERT INTO `instructions` VALUES ('x86','SYSEXIT','
 SYSEXIT - Fast Return from Fast System Call:
 | Opcode       | Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                          
 | 0F 35        | SYSEXIT    | NP   | Valid      | Valid          | Fast return to privilege level 3 user
@@ -44668,8 +44749,8 @@ Same exceptions as in protected mode.
 |       | If RCX or RDX contains a non-canonical
 |       | address.                              
 | #UD   | If the LOCK prefix is used.           
-`,
-"SYSRET":`
+');
+INSERT INTO `instructions` VALUES ('x86','SYSRET','
 SYSRET - Return From Fast System Call:
 | Opcode       | Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                           
 | 0F 07        | SYSRET     | NP   | Valid      | Invalid        | Return to compatibility mode from fast
@@ -44794,8 +44875,8 @@ Compatibility Mode Exceptions:
 |       | is used.                                   
 | #GP(0)| If CPL != 0. If RCX contains a non-canonical
 |       | address.                                   
-`,
-"TEST":`
+');
+INSERT INTO `instructions` VALUES ('x86','TEST','
 TEST - Logical Compare:
 | Opcode          | Instruction      | Op/En| 64-Bit Mode| Compat/Leg Mode| Description                                 
 | A8 ib           | TEST AL, imm8    | I    | Valid      | Valid          | AND imm8 with AL; set SF, ZF, PF according  
@@ -44914,9 +44995,9 @@ Same exceptions as in protected mode.
 |                | while the current privilege level is       
 |                | 3.                                         
 | #UD            | If the LOCK prefix is used.                
-`,
-"TZCNT":`
-TZCNT - Count the Number of Trailing Zero Bits:
+');
+INSERT INTO `instructions` VALUES ('x86','TZCNT','
+TZCNT  -  Count the Number of Trailing Zero Bits:
 | Opcode/Instruction                  | Op/En| 64/32 -bit Mode| CPUID Feature Flag| Description                           
 | F3 0F BC /r TZCNT r16, r/m16        | RM   | V/V            | BMI1              | Count the number of trailing zero bits
 |                                     |      |                |                   | in r/m16, return result in r16.       
@@ -45013,8 +45094,8 @@ Same exceptions as in Protected Mode.
 |                 | an unaligned memory reference is made      
 |                 | while the current privilege level is       
 |                 | 3.                                         
-`,
-"UCOMISD":`
+');
+INSERT INTO `instructions` VALUES ('x86','UCOMISD','
 UCOMISD - Unordered Compare Scalar Double-Precision Floating-Point Values and Set EFLAGS:
 | Opcode/Instruction                    | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                                 
 | 66 0F 2E /r UCOMISD xmm1, xmm2/m64    | RM   | V/V                   | SSE2              | Compares (unordered) the low doubleprecision
@@ -45079,9 +45160,8 @@ Other Exceptions:
 See Exceptions Type 3; additionally
 
 | #UD| If VEX.vvvv != 1111B.
-`,
-"VUCOMISD":`-R:UCOMISD`,
-"UCOMISS":`
+');
+INSERT INTO `instructions` VALUES ('x86','UCOMISS','
 UCOMISS - Unordered Compare Scalar Single-Precision Floating-Point Values and Set EFLAGS:
 | Opcode/Instruction                 | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                                      
 | 0F 2E /r UCOMISS xmm1, xmm2/m32    | RM   | V/V                   | SSE               | Compare lower single-precision floating-point    
@@ -45148,9 +45228,8 @@ Other Exceptions:
 See Exceptions Type 3; additionally
 
 | #UD| If VEX.vvvv != 1111B.
-`,
-"VUCOMISS":`-R:UCOMISS`,
-"UD2":`
+');
+INSERT INTO `instructions` VALUES ('x86','UD2','
 UD2 - Undefined Instruction:
 | Opcode| Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                    
 | 0F 0B | UD2        | NP   | Valid      | Valid          | Raise invalid opcode exception.
@@ -45184,8 +45263,8 @@ None.
 Exceptions (All Operating Modes):
 | #UD| Raises an invalid opcode exception in
 |    | all operating modes.                 
-`,
-"UNPCKHPD":`
+');
+INSERT INTO `instructions` VALUES ('x86','UNPCKHPD','
 UNPCKHPD - Unpack and Interleave High Packed Double-Precision Floating-Point Values:
 | Opcode/Instruction                   | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                              
 | 66 0F 15 /r UNPCKHPD xmm1, xmm2/m128 | RM   | V/V                   | SSE2              | Unpacks and Interleaves double-precision 
@@ -45256,9 +45335,8 @@ None.
 Other Exceptions:
 See Exceptions Type 4.
 
-`,
-"VUNPCKHPD":`-R:UNPCKHPD`,
-"UNPCKHPS":`
+');
+INSERT INTO `instructions` VALUES ('x86','UNPCKHPS','
 UNPCKHPS - Unpack and Interleave High Packed Single-Precision Floating-Point Values:
 | Opcode/Instruction                                    | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                              
 | 0F 15 /r UNPCKHPS xmm1, xmm2/m128                     | RM   | V/V                   | SSE               | Unpacks and Interleaves single-precision 
@@ -45336,9 +45414,8 @@ None.
 Other Exceptions:
 See Exceptions Type 4.
 
-`,
-"VUNPCKHPS":`-R:UNPCKHPS`,
-"UNPCKLPD":`
+');
+INSERT INTO `instructions` VALUES ('x86','UNPCKLPD','
 UNPCKLPD - Unpack and Interleave Low Packed Double-Precision Floating-Point Values:
 | Opcode/Instruction                   | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                             
 | 66 0F 14 /r UNPCKLPD xmm1, xmm2/m128 | RM   | V/V                   | SSE2              | Unpacks and Interleaves double-precision
@@ -45408,9 +45485,8 @@ None.
 Other Exceptions:
 See Exceptions Type 4.
 
-`,
-"VUNPCKLPD":`-R:UNPCKLPD`,
-"UNPCKLPS":`
+');
+INSERT INTO `instructions` VALUES ('x86','UNPCKLPS','
 UNPCKLPS - Unpack and Interleave Low Packed Single-Precision Floating-Point Values:
 | Opcode/Instruction                                    | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                             
 | 0F 14 /r UNPCKLPS xmm1, xmm2/m128                     | RM   | V/V                   | SSE               | Unpacks and Interleaves single-precision
@@ -45488,9 +45564,8 @@ None.
 Other Exceptions:
 See Exceptions Type 4.
 
-`,
-"VUNPCKLPS":`-R:UNPCKLPS`,
-"VBROADCAST":`
+');
+INSERT INTO `instructions` VALUES ('x86','VBROADCAST','
 VBROADCAST - Broadcast Floating-Point Data:
 | Opcode/Instruction                     | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                                     
 | VEX.128.66.0F38.W0 18 /r VBROADCASTSS  | RM   | V/V           | AVX               | Broadcast single-precision floating-point       
@@ -45599,11 +45674,8 @@ See Exceptions Type 6; additionally
 
 | #UD| If VEX.L = 0 for VBROADCASTSD, If VEX.L
 |    | = 0 for VBROADCASTF128, If VEX.W = 1.  
-`,
-"VBROADCASTSS":`-R:VBROADCAST`,
-"VBROADCASTSD":`-R:VBROADCAST`,
-"VBROADCASTF128":`-R:VBROADCAST`,
-"VCVTPH2PS":`
+');
+INSERT INTO `instructions` VALUES ('x86','VCVTPH2PS','
 VCVTPH2PS - Convert 16-bit FP Values to Single-Precision FP Values:
 | Opcode/Instruction                      | Op/En| 64/32bit Mode| CPUID Feature Flag| Description                                
 | VEX.256.66.0F38.W0 13 /r VCVTPH2PS ymm1,| RM   | V/V          | F16C              | Convert eight packed half precision        
@@ -45677,8 +45749,8 @@ Other Exceptions:
 Exceptions Type 11 (do not report #AC); additionally
 
 | #UD| If VEX.W=1.
-`,
-"VCVTPS2PH":`
+');
+INSERT INTO `instructions` VALUES ('x86','VCVTPS2PH','
 VCVTPS2PH - Convert Single-Precision FP value to 16-bit FP value:
 | Opcode/Instruction                   | Op/En  | 64/32bit Mode| CPUID Feature Flag| Description                              
 | VEX.256.66.0F3A.W0 1D /r ib VCVTPS2PH| MR imm8| V/V          | F16C              | Convert eight packed single-precision    
@@ -45775,8 +45847,8 @@ Other Exceptions:
 Exceptions Type 11 (do not report #AC); additionally
 
 | #UD| If VEX.W=1.
-`,
-"VERR":`
+');
+INSERT INTO `instructions` VALUES ('x86','VERR','
 VERR/VERW - Verify a Segment for Reading or Writing:
 | Opcode  | Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                             
 | 0F 00 /4| VERR r/m16 | M    | Valid      | Valid          | Set ZF=1 if segment specified with r/m16
@@ -45884,10 +45956,10 @@ Same exceptions as in protected mode.
 |                | while the current privilege level is       
 |                | 3.                                         
 | #UD            | If the LOCK prefix is used.                
-`,
-"VERW":`-R:VERR`,
-"VEXTRACTF128":`
-VEXTRACTF128 - Extract Packed Floating-Point Values:
+');
+INSERT INTO `instructions` VALUES ('x86','VERW','-R:VERR');
+INSERT INTO `instructions` VALUES ('x86','VEXTRACTF128','
+VEXTRACTF128  -  Extract Packed Floating-Point Values:
 | Opcode/Instruction                      | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                              
 | VEX.256.66.0F3A.W0 19 /r ib VEXTRACTF128| MR   | V/V           | AVX               | Extract 128 bits of packed floating-point
 | xmm1/m128, ymm2, imm8                   |      |               |                   | values from ymm2 and store results in    
@@ -45936,9 +46008,9 @@ Other Exceptions:
 See Exceptions Type 6; additionally
 
 | #UD| If VEX.L= 0 If VEX.W=1.
-`,
-"VEXTRACTI128":`
-VEXTRACTI128 - Extract packed Integer Values:
+');
+INSERT INTO `instructions` VALUES ('x86','VEXTRACTI128','
+VEXTRACTI128  -  Extract packed Integer Values:
 | Opcode/Instruction                      | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                          
 | VEX.256.66.0F3A.W0 39 /r ib VEXTRACTI128| RMI  | V/V           | AVX2              | Extract 128 bits of integer data from
 | xmm1/m128, ymm2, imm8                   |      |               |                   | ymm2 and store results in xmm1/mem.  
@@ -45981,9 +46053,9 @@ Other Exceptions:
 See Exceptions Type 6; additionally
 
 | #UD| IF VEX.L = 0, If VEX.W = 1.
-`,
-"VFMADD132PD":`
-VFMADD132PD/VFMADD213PD/VFMADD231PD - Fused Multiply-Add of Packed DoublePrecision Floating-Point Values:
+');
+INSERT INTO `instructions` VALUES ('x86','VFMADD132PD','
+VFMADD132PD/VFMADD213PD/VFMADD231PD  -  Fused Multiply-Add of Packed DoublePrecision Floating-Point Values:
 | Opcode/Instruction                      | Op/En| 64/32bit Mode| CPUID Feature Flag| Description                                    
 | VEX.DDS.128.66.0F38.W1 98 /r VFMADD132PD| A    | V/V          | FMA               | Multiply packed double-precision floating-point
 | xmm0, xmm1, xmm2/m128                   |      |              |                   | values from xmm0 and xmm2/mem, add to          
@@ -46114,11 +46186,11 @@ Overflow, Underflow, Invalid, Precision, Denormal
 Other Exceptions:
 See Exceptions Type 2
 
-`,
-"VFMADD213PD":`-R:VFMADD132PD`,
-"VFMADD231PD":`-R:VFMADD132PD`,
-"VFMADD132PS":`
-VFMADD132PS/VFMADD213PS/VFMADD231PS - Fused Multiply-Add of Packed SinglePrecision Floating-Point Values:
+');
+INSERT INTO `instructions` VALUES ('x86','VFMADD213PD','-R:VFMADD132PD');
+INSERT INTO `instructions` VALUES ('x86','VFMADD231PD','-R:VFMADD132PD');
+INSERT INTO `instructions` VALUES ('x86','VFMADD132PS','
+VFMADD132PS/VFMADD213PS/VFMADD231PS  -  Fused Multiply-Add of Packed SinglePrecision Floating-Point Values:
 | Opcode/Instruction                      | Op/En| 64/32 -bit Mode| CPUID Feature Flag| Description                                    
 | VEX.DDS.128.66.0F38.W0 98 /r VFMADD132PS| A    | V/V            | FMA               | Multiply packed single-precision floating-point
 | xmm0, xmm1, xmm2/m128                   |      |                |                   | values from xmm0 and xmm2/mem, add to          
@@ -46250,11 +46322,11 @@ Overflow, Underflow, Invalid, Precision, Denormal
 Other Exceptions:
 See Exceptions Type 2
 
-`,
-"VFMADD213PS":`-R:VFMADD132PS`,
-"VFMADD231PS":`-R:VFMADD132PS`,
-"VFMADD132SD":`
-VFMADD132SD/VFMADD213SD/VFMADD231SD - Fused Multiply-Add of Scalar DoublePrecision Floating-Point Values:
+');
+INSERT INTO `instructions` VALUES ('x86','VFMADD213PS','-R:VFMADD132PS');
+INSERT INTO `instructions` VALUES ('x86','VFMADD231PS','-R:VFMADD132PS');
+INSERT INTO `instructions` VALUES ('x86','VFMADD132SD','
+VFMADD132SD/VFMADD213SD/VFMADD231SD  -  Fused Multiply-Add of Scalar DoublePrecision Floating-Point Values:
 | Opcode/Instruction                          | Op/En| 64/32bit Mode| CPUID Feature Flag| Description                                    
 | VEX.DDS.LIG.128.66.0F38.W1 99 /r VFMADD132SD| A    | V/V          | FMA               | Multiply scalar double-precision floating-point
 | xmm0, xmm1, xmm2/m64                        |      |              |                   | value from xmm0 and xmm2/mem, add to           
@@ -46337,11 +46409,11 @@ Overflow, Underflow, Invalid, Precision, Denormal
 Other Exceptions:
 See Exceptions Type 3
 
-`,
-"VFMADD213SD":`-R:VFMADD132SD`,
-"VFMADD231SD":`-R:VFMADD132SD`,
-"VFMADD132SS":`
-VFMADD132SS/VFMADD213SS/VFMADD231SS - Fused Multiply-Add of Scalar Single-Precision Floating-Point Values:
+');
+INSERT INTO `instructions` VALUES ('x86','VFMADD213SD','-R:VFMADD132SD');
+INSERT INTO `instructions` VALUES ('x86','VFMADD231SD','-R:VFMADD132SD');
+INSERT INTO `instructions` VALUES ('x86','VFMADD132SS','
+VFMADD132SS/VFMADD213SS/VFMADD231SS  -  Fused Multiply-Add of Scalar Single-Precision Floating-Point Values:
 | Opcode/Instruction                          | Op/En| 64/32 -bit Mode| CPUID Feature Flag| Description                                    
 | VEX.DDS.LIG.128.66.0F38.W0 99 /r VFMADD132SS| A    | V/V            | FMA               | Multiply scalar single-precision floating-point
 | xmm0, xmm1, xmm2/m32                        |      |                |                   | value from xmm0 and xmm2/mem, add to           
@@ -46424,11 +46496,11 @@ Overflow, Underflow, Invalid, Precision, Denormal
 Other Exceptions:
 See Exceptions Type 3
 
-`,
-"VFMADD213SS":`-R:VFMADD132SS`,
-"VFMADD231SS":`-R:VFMADD132SS`,
-"VFMADDSUB132PD":`
-VFMADDSUB132PD/VFMADDSUB213PD/VFMADDSUB231PD - Fused Multiply-Alternating Add/Subtract of Packed Double-Precision Floating-Point Values:
+');
+INSERT INTO `instructions` VALUES ('x86','VFMADD213SS','-R:VFMADD132SS');
+INSERT INTO `instructions` VALUES ('x86','VFMADD231SS','-R:VFMADD132SS');
+INSERT INTO `instructions` VALUES ('x86','VFMADDSUB132PD','
+VFMADDSUB132PD/VFMADDSUB213PD/VFMADDSUB231PD  -  Fused Multiply-Alternating Add/Subtract of Packed Double-Precision Floating-Point Values:
 | Opcode/Instruction                         | Op/En| 64/32 -bit Mode| CPUID Feature Flag| Description                                    
 | VEX.DDS.128.66.0F38.W1 96 /r VFMADDSUB132PD| A    | V/V            | FMA               | Multiply packed double-precision floating-point
 | xmm0, xmm1, xmm2/m128                      |      |                |                   | values from xmm0 and xmm2/mem, add/subtract    
@@ -46555,11 +46627,11 @@ Overflow, Underflow, Invalid, Precision, Denormal
 Other Exceptions:
 See Exceptions Type 2
 
-`,
-"VFMADDSUB213PD":`-R:VFMADDSUB132PD`,
-"VFMADDSUB231PD":`-R:VFMADDSUB132PD`,
-"VFMADDSUB132PS":`
-VFMADDSUB132PS/VFMADDSUB213PS/VFMADDSUB231PS - Fused Multiply-Alternating Add/Subtract of Packed Single-Precision Floating-Point Values:
+');
+INSERT INTO `instructions` VALUES ('x86','VFMADDSUB213PD','-R:VFMADDSUB132PD');
+INSERT INTO `instructions` VALUES ('x86','VFMADDSUB231PD','-R:VFMADDSUB132PD');
+INSERT INTO `instructions` VALUES ('x86','VFMADDSUB132PS','
+VFMADDSUB132PS/VFMADDSUB213PS/VFMADDSUB231PS  -  Fused Multiply-Alternating Add/Subtract of Packed Single-Precision Floating-Point Values:
 | Opcode/Instruction                         | Op/En| 64/32 -bit Mode| CPUID Feature Flag| Description                                    
 | VEX.DDS.128.66.0F38.W0 96 /r VFMADDSUB132PS| A    | V/V            | FMA               | Multiply packed single-precision floating-point
 | xmm0, xmm1, xmm2/m128                      |      |                |                   | values from xmm0 and xmm2/mem, add/subtract    
@@ -46695,11 +46767,11 @@ Overflow, Underflow, Invalid, Precision, Denormal
 Other Exceptions:
 See Exceptions Type 2
 
-`,
-"VFMADDSUB213PS":`-R:VFMADDSUB132PS`,
-"VFMADDSUB231PS":`-R:VFMADDSUB132PS`,
-"VFMSUBADD132PD":`
-VFMSUBADD132PD/VFMSUBADD213PD/VFMSUBADD231PD - Fused Multiply-Alternating Subtract/Add of Packed Double-Precision Floating-Point Values:
+');
+INSERT INTO `instructions` VALUES ('x86','VFMADDSUB213PS','-R:VFMADDSUB132PS');
+INSERT INTO `instructions` VALUES ('x86','VFMADDSUB231PS','-R:VFMADDSUB132PS');
+INSERT INTO `instructions` VALUES ('x86','VFMSUBADD132PD','
+VFMSUBADD132PD/VFMSUBADD213PD/VFMSUBADD231PD  -  Fused Multiply-Alternating Subtract/Add of Packed Double-Precision Floating-Point Values:
 | Opcode/Instruction                         | Op/En| 64/32 -bit Mode| CPUID Feature Flag| Description                                    
 | VEX.DDS.128.66.0F38.W1 97 /r VFMSUBADD132PD| A    | V/V            | FMA               | Multiply packed double-precision floating-point
 | xmm0, xmm1, xmm2/m128                      |      |                |                   | values from xmm0 and xmm2/mem, subtract/add    
@@ -46826,11 +46898,11 @@ Overflow, Underflow, Invalid, Precision, Denormal
 Other Exceptions:
 See Exceptions Type 2
 
-`,
-"VFMSUBADD213PD":`-R:VFMSUBADD132PD`,
-"VFMSUBADD231PD":`-R:VFMSUBADD132PD`,
-"VFMSUBADD132PS":`
-VFMSUBADD132PS/VFMSUBADD213PS/VFMSUBADD231PS - Fused Multiply-Alternating Subtract/Add of Packed Single-Precision Floating-Point Values:
+');
+INSERT INTO `instructions` VALUES ('x86','VFMSUBADD213PD','-R:VFMSUBADD132PD');
+INSERT INTO `instructions` VALUES ('x86','VFMSUBADD231PD','-R:VFMSUBADD132PD');
+INSERT INTO `instructions` VALUES ('x86','VFMSUBADD132PS','
+VFMSUBADD132PS/VFMSUBADD213PS/VFMSUBADD231PS  -  Fused Multiply-Alternating Subtract/Add of Packed Single-Precision Floating-Point Values:
 | Opcode/Instruction                         | Op/En| 64/32 -bit Mode| CPUID Feature Flag| Description                                    
 | VEX.DDS.128.66.0F38.W0 97 /r VFMSUBADD132PS| A    | V/V            | FMA               | Multiply packed single-precision floating-point
 | xmm0, xmm1, xmm2/m128                      |      |                |                   | values from xmm0 and xmm2/mem, subtract/add    
@@ -46966,11 +47038,11 @@ Overflow, Underflow, Invalid, Precision, Denormal
 Other Exceptions:
 See Exceptions Type 2
 
-`,
-"VFMSUBADD213PS":`-R:VFMSUBADD132PS`,
-"VFMSUBADD231PS":`-R:VFMSUBADD132PS`,
-"VFMSUB132PD":`
-VFMSUB132PD/VFMSUB213PD/VFMSUB231PD - Fused Multiply-Subtract of Packed DoublePrecision Floating-Point Values:
+');
+INSERT INTO `instructions` VALUES ('x86','VFMSUBADD213PS','-R:VFMSUBADD132PS');
+INSERT INTO `instructions` VALUES ('x86','VFMSUBADD231PS','-R:VFMSUBADD132PS');
+INSERT INTO `instructions` VALUES ('x86','VFMSUB132PD','
+VFMSUB132PD/VFMSUB213PD/VFMSUB231PD  -  Fused Multiply-Subtract of Packed DoublePrecision Floating-Point Values:
 | Opcode/Instruction                      | Op/En| 64/32 -bit Mode| CPUID Feature Flag| Description                                    
 | VEX.DDS.128.66.0F38.W1 9A /r VFMSUB132PD| A    | V/V            | FMA               | Multiply packed double-precision floating-point
 | xmm0, xmm1, xmm2/m128                   |      |                |                   | values from xmm0 and xmm2/mem, subtract        
@@ -47103,11 +47175,11 @@ Overflow, Underflow, Invalid, Precision, Denormal
 Other Exceptions:
 See Exceptions Type 2
 
-`,
-"VFMSUB213PD":`-R:VFMSUB132PD`,
-"VFMSUB231PD":`-R:VFMSUB132PD`,
-"VFMSUB132PS":`
-VFMSUB132PS/VFMSUB213PS/VFMSUB231PS - Fused Multiply-Subtract of Packed SinglePrecision Floating-Point Values:
+');
+INSERT INTO `instructions` VALUES ('x86','VFMSUB213PD','-R:VFMSUB132PD');
+INSERT INTO `instructions` VALUES ('x86','VFMSUB231PD','-R:VFMSUB132PD');
+INSERT INTO `instructions` VALUES ('x86','VFMSUB132PS','
+VFMSUB132PS/VFMSUB213PS/VFMSUB231PS  -  Fused Multiply-Subtract of Packed SinglePrecision Floating-Point Values:
 | Opcode/Instruction                      | Op/En| 64/32 -bit Mode| CPUID Feature Flag| Description                                    
 | VEX.DDS.128.66.0F38.W0 9A /r VFMSUB132PS| A    | V/V            | FMA               | Multiply packed single-precision floating-point
 | xmm0, xmm1, xmm2/m128                   |      |                |                   | values from xmm0 and xmm2/mem, subtract        
@@ -47239,11 +47311,11 @@ Overflow, Underflow, Invalid, Precision, Denormal
 Other Exceptions:
 See Exceptions Type 2
 
-`,
-"VFMSUB213PS":`-R:VFMSUB132PS`,
-"VFMSUB231PS":`-R:VFMSUB132PS`,
-"VFMSUB132SD":`
-VFMSUB132SD/VFMSUB213SD/VFMSUB231SD - Fused Multiply-Subtract of Scalar DoublePrecision Floating-Point Values:
+');
+INSERT INTO `instructions` VALUES ('x86','VFMSUB213PS','-R:VFMSUB132PS');
+INSERT INTO `instructions` VALUES ('x86','VFMSUB231PS','-R:VFMSUB132PS');
+INSERT INTO `instructions` VALUES ('x86','VFMSUB132SD','
+VFMSUB132SD/VFMSUB213SD/VFMSUB231SD  -  Fused Multiply-Subtract of Scalar DoublePrecision Floating-Point Values:
 | Opcode/Instruction                          | Op/En| 64/32 -bit Mode| CPUID Feature Flag| Description                                    
 | VEX.DDS.LIG.128.66.0F38.W1 9B /r VFMSUB132SD| A    | V/V            | FMA               | Multiply scalar double-precision floating-point
 | xmm0, xmm1, xmm2/m64                        |      |                |                   | value from xmm0 and xmm2/mem, subtract         
@@ -47327,11 +47399,11 @@ Overflow, Underflow, Invalid, Precision, Denormal
 Other Exceptions:
 See Exceptions Type 3
 
-`,
-"VFMSUB213SD":`-R:VFMSUB132SD`,
-"VFMSUB231SD":`-R:VFMSUB132SD`,
-"VFMSUB132SS":`
-VFMSUB132SS/VFMSUB213SS/VFMSUB231SS - Fused Multiply-Subtract of Scalar SinglePrecision Floating-Point Values:
+');
+INSERT INTO `instructions` VALUES ('x86','VFMSUB213SD','-R:VFMSUB132SD');
+INSERT INTO `instructions` VALUES ('x86','VFMSUB231SD','-R:VFMSUB132SD');
+INSERT INTO `instructions` VALUES ('x86','VFMSUB132SS','
+VFMSUB132SS/VFMSUB213SS/VFMSUB231SS  -  Fused Multiply-Subtract of Scalar SinglePrecision Floating-Point Values:
 | Opcode/Instruction                          | Op/En| 64/32 -bit Mode| CPUID Feature Flag| Description                                    
 | VEX.DDS.LIG.128.66.0F38.W0 9B /r VFMSUB132SS| A    | V/V            | FMA               | Multiply scalar single-precision floating-point
 | xmm0, xmm1, xmm2/m32                        |      |                |                   | value from xmm0 and xmm2/mem, subtract         
@@ -47415,11 +47487,11 @@ Overflow, Underflow, Invalid, Precision, Denormal
 Other Exceptions:
 See Exceptions Type 3
 
-`,
-"VFMSUB213SS":`-R:VFMSUB132SS`,
-"VFMSUB231SS":`-R:VFMSUB132SS`,
-"VFNMADD132PD":`
-VFNMADD132PD/VFNMADD213PD/VFNMADD231PD - Fused Negative Multiply-Add of Packed Double-Precision Floating-Point Values:
+');
+INSERT INTO `instructions` VALUES ('x86','VFMSUB213SS','-R:VFMSUB132SS');
+INSERT INTO `instructions` VALUES ('x86','VFMSUB231SS','-R:VFMSUB132SS');
+INSERT INTO `instructions` VALUES ('x86','VFNMADD132PD','
+VFNMADD132PD/VFNMADD213PD/VFNMADD231PD  -  Fused Negative Multiply-Add of Packed Double-Precision Floating-Point Values:
 | Opcode/Instruction                       | Op/En| 64/32 -bit Mode| CPUID Feature Flag| Description                                    
 | VEX.DDS.128.66.0F38.W1 9C /r VFNMADD132PD| A    | V/V            | FMA               | Multiply packed double-precision floating-point
 | xmm0, xmm1, xmm2/m128                    |      |                |                   | values from xmm0 and xmm2/mem, negate          
@@ -47554,11 +47626,11 @@ Overflow, Underflow, Invalid, Precision, Denormal
 Other Exceptions:
 See Exceptions Type 2
 
-`,
-"VFNMADD213PD":`-R:VFNMADD132PD`,
-"VFNMADD231PD":`-R:VFNMADD132PD`,
-"VFNMADD132PS":`
-VFNMADD132PS/VFNMADD213PS/VFNMADD231PS - Fused Negative Multiply-Add of Packed Single-Precision Floating-Point Values:
+');
+INSERT INTO `instructions` VALUES ('x86','VFNMADD213PD','-R:VFNMADD132PD');
+INSERT INTO `instructions` VALUES ('x86','VFNMADD231PD','-R:VFNMADD132PD');
+INSERT INTO `instructions` VALUES ('x86','VFNMADD132PS','
+VFNMADD132PS/VFNMADD213PS/VFNMADD231PS  -  Fused Negative Multiply-Add of Packed Single-Precision Floating-Point Values:
 | Opcode/Instruction                       | Op/En| 64/32 -bit Mode| CPUID Feature Flag| Description                                    
 | VEX.DDS.128.66.0F38.W0 9C /r VFNMADD132PS| A    | V/V            | FMA               | Multiply packed single-precision floating-point
 | xmm0, xmm1, xmm2/m128                    |      |                |                   | values from xmm0 and xmm2/mem, negate          
@@ -47691,11 +47763,11 @@ Overflow, Underflow, Invalid, Precision, Denormal
 Other Exceptions:
 See Exceptions Type 2
 
-`,
-"VFNMADD213PS":`-R:VFNMADD132PS`,
-"VFNMADD231PS":`-R:VFNMADD132PS`,
-"VFNMADD132SD":`
-VFNMADD132SD/VFNMADD213SD/VFNMADD231SD - Fused Negative Multiply-Add of Scalar Double-Precision Floating-Point Values:
+');
+INSERT INTO `instructions` VALUES ('x86','VFNMADD213PS','-R:VFNMADD132PS');
+INSERT INTO `instructions` VALUES ('x86','VFNMADD231PS','-R:VFNMADD132PS');
+INSERT INTO `instructions` VALUES ('x86','VFNMADD132SD','
+VFNMADD132SD/VFNMADD213SD/VFNMADD231SD  -  Fused Negative Multiply-Add of Scalar Double-Precision Floating-Point Values:
 | Opcode/Instruction                           | Op/En| 64/32 -bit Mode| CPUID Feature Flag| Description                                    
 | VEX.DDS.LIG.128.66.0F38.W1 9D /r VFNMADD132SD| A    | V/V            | FMA               | Multiply scalar double-precision floating-point
 | xmm0, xmm1, xmm2/m64                         |      |                |                   | value from xmm0 and xmm2/mem, negate           
@@ -47777,11 +47849,11 @@ Overflow, Underflow, Invalid, Precision, Denormal
 Other Exceptions:
 See Exceptions Type 3
 
-`,
-"VFNMADD213SD":`-R:VFNMADD132SD`,
-"VFNMADD231SD":`-R:VFNMADD132SD`,
-"VFNMADD132SS":`
-VFNMADD132SS/VFNMADD213SS/VFNMADD231SS - Fused Negative Multiply-Add of Scalar Single-Precision Floating-Point Values:
+');
+INSERT INTO `instructions` VALUES ('x86','VFNMADD213SD','-R:VFNMADD132SD');
+INSERT INTO `instructions` VALUES ('x86','VFNMADD231SD','-R:VFNMADD132SD');
+INSERT INTO `instructions` VALUES ('x86','VFNMADD132SS','
+VFNMADD132SS/VFNMADD213SS/VFNMADD231SS  -  Fused Negative Multiply-Add of Scalar Single-Precision Floating-Point Values:
 | Opcode/Instruction                           | Op/En| 64/32 -bit Mode| CPUID Feature Flag| Description                                    
 | VEX.DDS.LIG.128.66.0F38.W0 9D /r VFNMADD132SS| A    | V/V            | FMA               | Multiply scalar single-precision floating-point
 | xmm0, xmm1, xmm2/m32                         |      |                |                   | value from xmm0 and xmm2/mem, negate           
@@ -47863,11 +47935,11 @@ Overflow, Underflow, Invalid, Precision, Denormal
 Other Exceptions:
 See Exceptions Type 3
 
-`,
-"VFNMADD213SS":`-R:VFNMADD132SS`,
-"VFNMADD231SS":`-R:VFNMADD132SS`,
-"VFNMSUB132PD":`
-VFNMSUB132PD/VFNMSUB213PD/VFNMSUB231PD - Fused Negative Multiply-Subtract of Packed Double-Precision Floating-Point Values:
+');
+INSERT INTO `instructions` VALUES ('x86','VFNMADD213SS','-R:VFNMADD132SS');
+INSERT INTO `instructions` VALUES ('x86','VFNMADD231SS','-R:VFNMADD132SS');
+INSERT INTO `instructions` VALUES ('x86','VFNMSUB132PD','
+VFNMSUB132PD/VFNMSUB213PD/VFNMSUB231PD  -  Fused Negative Multiply-Subtract of Packed Double-Precision Floating-Point Values:
 | Opcode/Instruction                       | Op/En| 64/32 -bit Mode| CPUID Feature Flag| Description                                    
 | VEX.DDS.128.66.0F38.W1 9E /r VFNMSUB132PD| A    | V/V            | FMA               | Multiply packed double-precision floating-point
 | xmm0, xmm1, xmm2/m128                    |      |                |                   | values from xmm0 and xmm2/mem, negate          
@@ -48003,11 +48075,11 @@ Overflow, Underflow, Invalid, Precision, Denormal
 Other Exceptions:
 See Exceptions Type 2
 
-`,
-"VFNMSUB213PD":`-R:VFNMSUB132PD`,
-"VFNMSUB231PD":`-R:VFNMSUB132PD`,
-"VFNMSUB132PS":`
-VFNMSUB132PS/VFNMSUB213PS/VFNMSUB231PS - Fused Negative Multiply-Subtract of Packed Single-Precision Floating-Point Values:
+');
+INSERT INTO `instructions` VALUES ('x86','VFNMSUB213PD','-R:VFNMSUB132PD');
+INSERT INTO `instructions` VALUES ('x86','VFNMSUB231PD','-R:VFNMSUB132PD');
+INSERT INTO `instructions` VALUES ('x86','VFNMSUB132PS','
+VFNMSUB132PS/VFNMSUB213PS/VFNMSUB231PS  -  Fused Negative Multiply-Subtract of Packed Single-Precision Floating-Point Values:
 | Opcode/Instruction                       | Op/En| 64/32 -bit Mode| CPUID Feature Flag| Description                                    
 | VEX.DDS.128.66.0F38.W0 9E /r VFNMSUB132PS| A    | V/V            | FMA               | Multiply packed single-precision floating-point
 | xmm0, xmm1, xmm2/m128                    |      |                |                   | values from xmm0 and xmm2/mem, negate          
@@ -48142,11 +48214,11 @@ Overflow, Underflow, Invalid, Precision, Denormal
 Other Exceptions:
 See Exceptions Type 2
 
-`,
-"VFNMSUB213PS":`-R:VFNMSUB132PS`,
-"VFNMSUB231PS":`-R:VFNMSUB132PS`,
-"VFNMSUB132SD":`
-VFNMSUB132SD/VFNMSUB213SD/VFNMSUB231SD - Fused Negative Multiply-Subtract of Scalar Double-Precision Floating-Point Values:
+');
+INSERT INTO `instructions` VALUES ('x86','VFNMSUB213PS','-R:VFNMSUB132PS');
+INSERT INTO `instructions` VALUES ('x86','VFNMSUB231PS','-R:VFNMSUB132PS');
+INSERT INTO `instructions` VALUES ('x86','VFNMSUB132SD','
+VFNMSUB132SD/VFNMSUB213SD/VFNMSUB231SD  -  Fused Negative Multiply-Subtract of Scalar Double-Precision Floating-Point Values:
 | Opcode/Instruction                           | Op/En| 64/32bit Mode| CPUID Feature Flag| Description                                    
 | VEX.DDS.LIG.128.66.0F38.W1 9F /r VFNMSUB132SD| A    | V/V          | FMA               | Multiply scalar double-precision floating-point
 | xmm0, xmm1, xmm2/m64                         |      |              |                   | value from xmm0 and xmm2/mem, negate           
@@ -48228,11 +48300,11 @@ Overflow, Underflow, Invalid, Precision, Denormal
 Other Exceptions:
 See Exceptions Type 3
 
-`,
-"VFNMSUB213SD":`-R:VFNMSUB132SD`,
-"VFNMSUB231SD":`-R:VFNMSUB132SD`,
-"VFNMSUB132SS":`
-VFNMSUB132SS/VFNMSUB213SS/VFNMSUB231SS - Fused Negative Multiply-Subtract of Scalar Single-Precision Floating-Point Values:
+');
+INSERT INTO `instructions` VALUES ('x86','VFNMSUB213SD','-R:VFNMSUB132SD');
+INSERT INTO `instructions` VALUES ('x86','VFNMSUB231SD','-R:VFNMSUB132SD');
+INSERT INTO `instructions` VALUES ('x86','VFNMSUB132SS','
+VFNMSUB132SS/VFNMSUB213SS/VFNMSUB231SS  -  Fused Negative Multiply-Subtract of Scalar Single-Precision Floating-Point Values:
 | Opcode/Instruction                           | Op/En| 64/32 -bit Mode| CPUID Feature Flag| Description                                    
 | VEX.DDS.LIG.128.66.0F38.W0 9F /r VFNMSUB132SS| A    | V/V            | FMA               | Multiply scalar single-precision floating-point
 | xmm0, xmm1, xmm2/m32                         |      |                |                   | value from xmm0 and xmm2/mem, negate           
@@ -48314,11 +48386,11 @@ Overflow, Underflow, Invalid, Precision, Denormal
 Other Exceptions:
 See Exceptions Type 3
 
-`,
-"VFNMSUB213SS":`-R:VFNMSUB132SS`,
-"VFNMSUB231SS":`-R:VFNMSUB132SS`,
-"VGATHERDPD":`
-VGATHERDPD/VGATHERQPD - Gather Packed DP FP Values Using Signed Dword/Qword Indices:
+');
+INSERT INTO `instructions` VALUES ('x86','VFNMSUB213SS','-R:VFNMSUB132SS');
+INSERT INTO `instructions` VALUES ('x86','VFNMSUB231SS','-R:VFNMSUB132SS');
+INSERT INTO `instructions` VALUES ('x86','VGATHERDPD','
+VGATHERDPD/VGATHERQPD  -  Gather Packed DP FP Values Using Signed Dword/Qword Indices:
 | Opcode/Instruction                     | Op/En| 64/3 2-bit Mode| CPUID Feature Flag| Description                             
 | VEX.DDS.128.66.0F38.W1 92 /r VGATHERDPD| RMV  | V/V            | AVX2              | Using dword indices specified in vm32x, 
 | xmm1, vm32x, xmm2                      |      |                |                   | gather double-precision FP values from  
@@ -48544,10 +48616,10 @@ None
 Other Exceptions:
 See Exceptions Type 12
 
-`,
-"VGATHERQPD":`-R:VGATHERDPD`,
-"VGATHERDPS":`
-VGATHERDPS/VGATHERQPS - Gather Packed SP FP values Using Signed Dword/Qword Indices:
+');
+INSERT INTO `instructions` VALUES ('x86','VGATHERQPD','-R:VGATHERDPD');
+INSERT INTO `instructions` VALUES ('x86','VGATHERDPS','
+VGATHERDPS/VGATHERQPS  -  Gather Packed SP FP values Using Signed Dword/Qword Indices:
 | Opcode/Instruction                     | Op/En| 64/32 -bit Mode| CPUID Feature Flag| Description                             
 | VEX.DDS.128.66.0F38.W0 92 /r VGATHERDPS| RMV  | V/V            | AVX2              | Using dword indices specified in vm32x, 
 | xmm1, vm32x, xmm2                      |      |                |                   | gather single-precision FP values from  
@@ -48774,10 +48846,10 @@ None
 Other Exceptions:
 See Exceptions Type 12
 
-`,
-"VGATHERQPS":`-R:VGATHERDPS`,
-"VPGATHERDD":`
-VPGATHERDD/VPGATHERQD - Gather Packed Dword Values Using Signed Dword/Qword Indices:
+');
+INSERT INTO `instructions` VALUES ('x86','VGATHERQPS','-R:VGATHERDPS');
+INSERT INTO `instructions` VALUES ('x86','VPGATHERDD','
+VPGATHERDD/VPGATHERQD  -  Gather Packed Dword Values Using Signed Dword/Qword Indices:
 | Opcode/Instruction                     | Op/En| 64/32 -bit Mode| CPUID Feature Flag| Description                                
 | VEX.DDS.128.66.0F38.W0 90 /r VPGATHERDD| RMV  | V/V            | AVX2              | Using dword indices specified in vm32x,    
 | xmm1, vm32x, xmm2                      |      |                |                   | gather dword values from memory conditioned
@@ -49001,10 +49073,10 @@ None
 Other Exceptions:
 See Exceptions Type 12
 
-`,
-"VPGATHERQD":`-R:VPGATHERDD`,
-"VPGATHERDQ":`
-VPGATHERDQ/VPGATHERQQ - Gather Packed Qword Values Using Signed Dword/Qword Indices:
+');
+INSERT INTO `instructions` VALUES ('x86','VPGATHERQD','-R:VPGATHERDD');
+INSERT INTO `instructions` VALUES ('x86','VPGATHERDQ','
+VPGATHERDQ/VPGATHERQQ  -  Gather Packed Qword Values Using Signed Dword/Qword Indices:
 | Opcode/Instruction                     | Op/En| 64/32 -bit Mode| CPUID Feature Flag| Description                                
 | VEX.DDS.128.66.0F38.W1 90 /r VPGATHERDQ| RMV  | V/V            | AVX2              | Using dword indices specified in vm32x,    
 | xmm1, vm32x, xmm2                      |      |                |                   | gather qword values from memory conditioned
@@ -49220,10 +49292,10 @@ None
 Other Exceptions:
 See Exceptions Type 12
 
-`,
-"VPGATHERQQ":`-R:VPGATHERDQ`,
-"VINSERTF128":`
-VINSERTF128 - Insert Packed Floating-Point Values:
+');
+INSERT INTO `instructions` VALUES ('x86','VPGATHERQQ','-R:VPGATHERDQ');
+INSERT INTO `instructions` VALUES ('x86','VINSERTF128','
+VINSERTF128  -  Insert Packed Floating-Point Values:
 | Opcode/Instruction                         | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                              
 | VEX.NDS.256.66.0F3A.W0 18 /r ib VINSERTF128| RVM  | V/V           | AVX               | Insert a single precision floating-point 
 | ymm1, ymm2, xmm3/m128, imm8                |      |               |                   | value selected by imm8 from xmm3/m128    
@@ -49269,9 +49341,9 @@ Other Exceptions:
 See Exceptions Type 6; additionally
 
 | #UD| If VEX.W = 1.
-`,
-"VINSERTI128":`
-VINSERTI128 - Insert Packed Integer Values:
+');
+INSERT INTO `instructions` VALUES ('x86','VINSERTI128','
+VINSERTI128  -  Insert Packed Integer Values:
 | Opcode/Instruction                         | Op/En| 64/32 -bit Mode| CPUID Feature Flag| Description                           
 | VEX.NDS.256.66.0F3A.W0 38 /r ib VINSERTI128| RVMI | V/V            | AVX2              | Insert 128-bits of integer data from  
 | ymm1, ymm2, xmm3/m128, imm8                |      |                |                   | xmm3/mem and the remaining values from
@@ -49312,8 +49384,8 @@ Other Exceptions:
 See Exceptions Type 6; additionally
 
 | #UD| If VEX.L = 0, If VEX.W = 1.
-`,
-"VMASKMOV":`
+');
+INSERT INTO `instructions` VALUES ('x86','VMASKMOV','
 VMASKMOV - Conditional SIMD Packed Loads and Stores:
 | Opcode/Instruction                     | Op/En| 64/32-bit Mode| CPUID Feature Flag| Description                                
 | VEX.NDS.128.66.0F38.W0 2C /r VMASKMOVPS| RVM  | V/V           | AVX               | Conditionally load packed single-precision 
@@ -49443,11 +49515,9 @@ Other Exceptions:
 See Exceptions Type 6 (No AC# reported for any mask bit combinations); additionally
 
 | #UD| If VEX.W = 1.
-`,
-"VMASKMOVPS":`-R:VMASKMOV`,
-"VMASKMOVPD":`-R:VMASKMOV`,
-"VPBLENDD":`
-VPBLENDD - Blend Packed Dwords:
+');
+INSERT INTO `instructions` VALUES ('x86','VPBLENDD','
+VPBLENDD  -  Blend Packed Dwords:
 | Opcode/Instruction                      | Op/En| 64/32 -bit Mode| CPUID Feature Flag| Description                          
 | VEX.NDS.128.66.0F3A.W0 02 /r ib VPBLENDD| RVMI | V/V            | AVX2              | Select dwords from xmm2 and xmm3/m128
 | xmm1, xmm2, xmm3/m128, imm8             |      |                |                   | from mask specified in imm8 and store
@@ -49517,8 +49587,8 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.W = 1.
-`,
-"VPBROADCAST":`
+');
+INSERT INTO `instructions` VALUES ('x86','VPBROADCAST','
 VPBROADCAST - Broadcast Integer Data:
 | Opcode/Instruction                     | Op/En| 64/32 -bit Mode| CPUID Feature Flag| Description                            
 | VEX.128.66.0F38.W0 78 /r VPBROADCASTB  | RM   | V/V            | AVX2              | Broadcast a byte integer in the source 
@@ -49648,14 +49718,9 @@ Other Exceptions:
 See Exceptions Type 6; additionally
 
 | #UD| If VEX.W = 1, If VEX.L = 0 for VBROADCASTI128.
-`,
-"VPBROADCASTB":`-R:VPBROADCAST`,
-"VPBROADCASTW":`-R:VPBROADCAST`,
-"VPBROADCASTD":`-R:VPBROADCAST`,
-"VPBROADCASTQ":`-R:VPBROADCAST`,
-"VBROADCASTI128":`-R:VPBROADCAST`,
-"VPERMD":`
-VPERMD - Full Doublewords Element Permutation:
+');
+INSERT INTO `instructions` VALUES ('x86','VPERMD','
+VPERMD  -  Full Doublewords Element Permutation:
 | Opcode/Instruction                 | Op/En| 64/32 -bit Mode| CPUID Feature Flag| Description                           
 | VEX.NDS.256.66.0F38.W0 36 /r VPERMD| RVM  | V/V            | AVX2              | Permute doublewords in ymm3/m256 using
 | ymm1, ymm2, ymm3/m256              |      |                |                   | indexes in ymm2 and store the result  
@@ -49700,9 +49765,9 @@ See Exceptions Type 4; additionally
 
 | #UD| If VEX.L = 0 for VPERMD, If VEX.W =
 |    | 1.                                 
-`,
-"VPERMPD":`
-VPERMPD - Permute Double-Precision Floating-Point Elements:
+');
+INSERT INTO `instructions` VALUES ('x86','VPERMPD','
+VPERMPD  -  Permute Double-Precision Floating-Point Elements:
 | Opcode/Instruction                 | Op/En| 64/32 -bit Mode| CPUID Feature Flag| Description                            
 | VEX.256.66.0F3A.W1 01 /r ib VPERMPD| RMI  | V/V            | AVX2              | Permute double-precision floating-point
 | ymm1, ymm2/m256, imm8              |      |                |                   | elements in ymm2/m256 using indexes    
@@ -49740,9 +49805,9 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.L = 0.
-`,
-"VPERMPS":`
-VPERMPS - Permute Single-Precision Floating-Point Elements:
+');
+INSERT INTO `instructions` VALUES ('x86','VPERMPS','
+VPERMPS  -  Permute Single-Precision Floating-Point Elements:
 | Opcode/Instruction                  | Op/En| 64/32 -bit Mode| CPUID Feature Flag| Description                            
 | VEX.NDS.256.66.0F38.W0 16 /r VPERMPS| RVM  | V/V            | AVX2              | Permute single-precision floating-point
 | ymm1, ymm2, ymm3/m256               |      |                |                   | elements in ymm3/m256 using indexes    
@@ -49786,9 +49851,9 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.L = 0, If VEX.W = 1.
-`,
-"VPERMQ":`
-VPERMQ - Qwords Element Permutation:
+');
+INSERT INTO `instructions` VALUES ('x86','VPERMQ','
+VPERMQ  -  Qwords Element Permutation:
 | Opcode/Instruction                      | Op/En| 64/32 -bit Mode| CPUID Feature Flag| Description                              
 | VEX.256.66.0F3A.W1 00 /r ib VPERMQ ymm1,| RMI  | V/V            | AVX2              | Permute qwords in ymm2/m256 using indexes
 | ymm2/m256, imm8                         |      |                |                   | in imm8 and store the result in ymm1.    
@@ -49825,9 +49890,9 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.L = 0.
-`,
-"VPERM2I128":`
-VPERM2I128 - Permute Integer Values:
+');
+INSERT INTO `instructions` VALUES ('x86','VPERM2I128','
+VPERM2I128  -  Permute Integer Values:
 | Opcode/Instruction                        | Op/En| 64/32 -bit Mode| CPUID Feature Flag| Description                          
 | VEX.NDS.256.66.0F3A.W0 46 /r ib VPERM2I128| RVMI | V/V            | AVX2              | Permute 128-bit integer data in ymm2 
 | ymm1, ymm2, ymm3/m256, imm8               |      |                |                   | and ymm3/mem using controls from imm8
@@ -49886,9 +49951,9 @@ Other Exceptions:
 See Exceptions Type 6; additionally
 
 | #UD| If VEX.L = 0, If VEX.W = 1.
-`,
-"VPERMILPD":`
-VPERMILPD - Permute Double-Precision Floating-Point Values:
+');
+INSERT INTO `instructions` VALUES ('x86','VPERMILPD','
+VPERMILPD  -  Permute Double-Precision Floating-Point Values:
 | Opcode/Instruction                    | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                                
 | VEX.NDS.128.66.0F38.W0 0D /r VPERMILPD| RVM  | V/V                   | AVX               | Permute double-precision floating-point    
 | xmm1, xmm2, xmm3/m128                 |      |                       |                   | values in xmm2 using controls from xmm3/mem
@@ -49986,9 +50051,9 @@ Other Exceptions:
 See Exceptions Type 6; additionally
 
 | #UD| If VEX.W = 1
-`,
-"VPERMILPS":`
-VPERMILPS - Permute Single-Precision Floating-Point Values:
+');
+INSERT INTO `instructions` VALUES ('x86','VPERMILPS','
+VPERMILPS  -  Permute Single-Precision Floating-Point Values:
 | Opcode/Instruction                    | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                                
 | VEX.NDS.128.66.0F38.W0 0C /r VPERMILPS| RVM  | V/V                   | AVX               | Permute single-precision floating-point    
 | xmm1, xmm2, xmm3/m128                 |      |                       |                   | values in xmm2 using controls from xmm3/mem
@@ -50097,9 +50162,9 @@ Other Exceptions:
 See Exceptions Type 6; additionally
 
 | #UD| If VEX.W = 1.
-`,
-"VPERM2F128":`
-VPERM2F128 - Permute Floating-Point Values:
+');
+INSERT INTO `instructions` VALUES ('x86','VPERM2F128','
+VPERM2F128  -  Permute Floating-Point Values:
 | Opcode/Instruction                        | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                          
 | VEX.NDS.256.66.0F3A.W0 06 /r ib VPERM2F128| RVMI | V/V                   | AVX               | Permute 128-bit floating-point fields
 | ymm1, ymm2, ymm3/m256, imm8               |      |                       |                   | in ymm2 and ymm3/mem using controls  
@@ -50163,9 +50228,9 @@ Other Exceptions:
 See Exceptions Type 6; additionally
 
 | #UD| If VEX.L = 0 If VEX.W = 1.
-`,
-"VPMASKMOV":`
-VPMASKMOV - Conditional SIMD Integer Packed Loads and Stores:
+');
+INSERT INTO `instructions` VALUES ('x86','VPMASKMOV','
+VPMASKMOV  -  Conditional SIMD Integer Packed Loads and Stores:
 | Opcode/Instruction                     | Op/En| 64/32 -bit Mode| CPUID Feature Flag| Description                          
 | VEX.NDS.128.66.0F38.W0 8C /r VPMASKMOVD| RVM  | V/V            | AVX2              | Conditionally load dword values from 
 | xmm1, xmm2, m128                       |      |                |                   | m128 using mask in xmm2 and store in 
@@ -50295,11 +50360,9 @@ None
 Other Exceptions:
 See Exceptions Type 6 (No AC# reported for any mask bit combinations).
 
-`,
-"VPMASKMOVD":`-R:VPMASKMOV`,
-"VPMASKMOVQ":`-R:VPMASKMOV`,
-"VPSLLVD":`
-VPSLLVD/VPSLLVQ - Variable Bit Shift Left Logical:
+');
+INSERT INTO `instructions` VALUES ('x86','VPSLLVD','
+VPSLLVD/VPSLLVQ  -  Variable Bit Shift Left Logical:
 | Opcode/Instruction                  | Op/En| 64/32 -bit Mode| CPUID Feature Flag| Description                             
 | VEX.NDS.128.66.0F38.W0 47 /r VPSLLVD| RVM  | V/V            | AVX2              | Shift bits in doublewords in xmm2 left  
 | xmm1, xmm2, xmm3/m128               |      |                |                   | by amount specified in the corresponding
@@ -50409,10 +50472,10 @@ None
 Other Exceptions:
 See Exceptions Type 4
 
-`,
-"VPSLLVQ":`-R:VPSLLVD`,
-"VPSRAVD":`
-VPSRAVD - Variable Bit Shift Right Arithmetic:
+');
+INSERT INTO `instructions` VALUES ('x86','VPSLLVQ','-R:VPSLLVD');
+INSERT INTO `instructions` VALUES ('x86','VPSRAVD','
+VPSRAVD  -  Variable Bit Shift Right Arithmetic:
 | Opcode/Instruction                  | Op/En| 64/32 -bit Mode| CPUID Feature Flag| Description                             
 | VEX.NDS.128.66.0F38.W0 46 /r VPSRAVD| RVM  | V/V            | AVX2              | Shift bits in doublewords in xmm2 right 
 | xmm1, xmm2, xmm3/m128               |      |                |                   | by amount specified in the corresponding
@@ -50490,9 +50553,9 @@ Other Exceptions:
 See Exceptions Type 4; additionally
 
 | #UD| If VEX.W = 1.
-`,
-"VPSRLVD":`
-VPSRLVD/VPSRLVQ - Variable Bit Shift Right Logical:
+');
+INSERT INTO `instructions` VALUES ('x86','VPSRLVD','
+VPSRLVD/VPSRLVQ  -  Variable Bit Shift Right Logical:
 | Opcode/Instruction                  | Op/EN| 64/32 -bit Mode| CPUID Feature Flag| Description                             
 | VEX.NDS.128.66.0F38.W0 45 /r VPSRLVD| RVM  | V/V            | AVX2              | Shift bits in doublewords in xmm2 right 
 | xmm1, xmm2, xmm3/m128               |      |                |                   | by amount specified in the corresponding
@@ -50602,9 +50665,9 @@ None
 Other Exceptions:
 See Exceptions Type 4
 
-`,
-"VPSRLVQ":`-R:VPSRLVD`,
-"VTESTPD":`
+');
+INSERT INTO `instructions` VALUES ('x86','VPSRLVQ','-R:VPSRLVD');
+INSERT INTO `instructions` VALUES ('x86','VTESTPD','
 VTESTPD/VTESTPS - Packed Bit Test:
 | Opcode/Instruction                    | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                            
 | VEX.128.66.0F38.W0 0E /r VTESTPS xmm1,| RM   | V/V                   | AVX               | Set ZF and CF depending on sign bit    
@@ -50736,9 +50799,9 @@ See Exceptions Type 4; additionally
 
 | #UD| If VEX.vvvv != 1111B. If VEX.W = 1 for
 |    | VTESTPS or VTESTPD.                   
-`,
-"VTESTPS":`-R:VTESTPD`,
-"VZEROALL":`
+');
+INSERT INTO `instructions` VALUES ('x86','VTESTPS','-R:VTESTPD');
+INSERT INTO `instructions` VALUES ('x86','VZEROALL','
 VZEROALL - Zero All YMM Registers:
 | Opcode/Instruction        | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description            
 | VEX.256.0F.WIG 77 VZEROALL| NP   | V/V                   | AVX               | Zero all YMM registers.
@@ -50794,8 +50857,8 @@ None.
 Other Exceptions:
 See Exceptions Type 8.
 
-`,
-"VZEROUPPER":`
+');
+INSERT INTO `instructions` VALUES ('x86','VZEROUPPER','
 VZEROUPPER - Zero Upper Bits of YMM Registers:
 | Opcode/Instruction          | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                              
 | VEX.128.0F.WIG 77 VZEROUPPER| NP   | V/V                   | AVX               | Zero upper 128 bits of all YMM registers.
@@ -50855,8 +50918,8 @@ None.
 Other Exceptions:
 See Exceptions Type 8.
 
-`,
-"WAIT":`
+');
+INSERT INTO `instructions` VALUES ('x86','WAIT','
 WAIT/FWAIT - Wait:
 | Opcode| Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                          
 | 9B    | WAIT       | NP   | Valid      | Valid          | Check pending unmasked floating-point
@@ -50914,9 +50977,9 @@ Same exceptions as in protected mode.
 64-Bit Mode Exceptions:
 Same exceptions as in protected mode.
 
-`,
-"FWAIT":`-R:WAIT`,
-"WBINVD":`
+');
+INSERT INTO `instructions` VALUES ('x86','FWAIT','-R:WAIT');
+INSERT INTO `instructions` VALUES ('x86','WBINVD','
 WBINVD - Write Back and Invalidate Cache:
 | Opcode| Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                          
 | 0F 09 | WBINVD     | NP   | Valid      | Valid          | Write back and flush Internal caches;
@@ -50993,8 +51056,8 @@ Same exceptions as in protected mode.
 64-Bit Mode Exceptions:
 Same exceptions as in protected mode.
 
-`,
-"WRFSBASE":`
+');
+INSERT INTO `instructions` VALUES ('x86','WRFSBASE','
 WRFSBASE/WRGSBASE - Write FS/GS Segment Base:
 | Opcode/Instruction              | Op/En| 64/32bit Mode| CPUID Feature Flag| Description                             
 | F3 0F AE /2 WRFSBASE r32        | M    | V/I          | FSGSBASE          | Load the FS base address with the 32-bit
@@ -51059,9 +51122,9 @@ Compatibility Mode Exceptions:
 |       | 0] = 0                                         
 | #GP(0)| If the source register contains a non-canonical
 |       | address.                                       
-`,
-"WRGSBASE":`-R:WRFSBASE`,
-"WRMSR":`
+');
+INSERT INTO `instructions` VALUES ('x86','WRGSBASE','-R:WRFSBASE');
+INSERT INTO `instructions` VALUES ('x86','WRMSR','
 WRMSR - Write to Model Specific Register:
 | Opcode| Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                                
 | 0F 30 | WRMSR      | NP   | Valid      | Valid          | Write the value in EDX:EAX to MSR specified
@@ -51157,9 +51220,9 @@ Same exceptions as in protected mode.
 64-Bit Mode Exceptions:
 Same exceptions as in protected mode.
 
-`,
-"XACQUIRE":`
-XACQUIRE/XRELEASE - Hardware Lock Elision Prefix Hints:
+');
+INSERT INTO `instructions` VALUES ('x86','XACQUIRE','
+XACQUIRE/XRELEASE  -  Hardware Lock Elision Prefix Hints:
 | Opcode/Instruction| 64/32bit Mode Support| CPUID Feature Flag| Description                            
 | F2 XACQUIRE       | V/V                  | HLE1              | A hint used with an “XACQUIRE-enabled“ 
 |                   |                      |                   | instruction to start lock elision on   
@@ -51309,10 +51372,10 @@ None
 Other Exceptions:
 | #GP(0)| If the use of prefix causes instruction
 |       | length to exceed 15 bytes.             
-`,
-"XRELEASE":`-R:XACQUIRE`,
-"XABORT":`
-XABORT - Transactional Abort:
+');
+INSERT INTO `instructions` VALUES ('x86','XRELEASE','-R:XACQUIRE');
+INSERT INTO `instructions` VALUES ('x86','XABORT','
+XABORT  -  Transactional Abort:
 | Opcode/Instruction  | Op/En| 64/32bit Mode Support| CPUID Feature Flag| Description                            
 | C6 F8 ib XABORT imm8| A    | V/V                  | RTM               | Causes an RTM abort if in RTM execution
 
@@ -51364,8 +51427,8 @@ None
 Other Exceptions:
 | #UD| CPUID.(EAX=7, ECX=0):RTM[bit 11] = 0.
 |    | If LOCK prefix is used.              
-`,
-"XADD":`
+');
+INSERT INTO `instructions` VALUES ('x86','XADD','
 XADD - Exchange and Add:
 | Opcode          | Instruction    | Op/En| 64-Bit Mode| Compat/Leg Mode| Description                          
 | 0F C0 /r        | XADD r/m8, r8  | MR   | Valid      | Valid          | Exchange r8 and r/m8; load sum into  
@@ -51471,9 +51534,9 @@ Same exceptions as in protected mode.
 |                | 3.                                            
 | #UD            | If the LOCK prefix is used but the destination
 |                | is not a memory operand.                      
-`,
-"XBEGIN":`
-XBEGIN - Transactional Begin:
+');
+INSERT INTO `instructions` VALUES ('x86','XBEGIN','
+XBEGIN  -  Transactional Begin:
 | Opcode/Instruction| Op/En| 64/32bit Mode Support| CPUID Feature Flag| Description                           
 | C7 F8 XBEGIN rel16| A    | V/V                  | RTM               | Specifies the start of an RTM region. 
 |                   |      |                      |                   | Provides a 16-bit relative offset to  
@@ -51584,8 +51647,8 @@ Same exceptions as in protected mode.
 | #UD   | CPUID.(EAX=7, ECX=0):RTM[bit 11] = 0.    
 |       | If LOCK prefix is used.                  
 | #GP(0)| If the fallback address is non-canonical.
-`,
-"XCHG":`
+');
+INSERT INTO `instructions` VALUES ('x86','XCHG','
 XCHG - Exchange Register/Memory with Register:
 | Opcode       | Instruction    | Op/En| 64-Bit Mode| Compat/Leg Mode| Description                             
 | 90+rw        | XCHG AX, r16   | O    | Valid      | Valid          | Exchange r16 with AX.                   
@@ -51706,9 +51769,9 @@ Same exceptions as in protected mode.
 |                | 3.                                            
 | #UD            | If the LOCK prefix is used but the destination
 |                | is not a memory operand.                      
-`,
-"XEND":`
-XEND - Transactional End:
+');
+INSERT INTO `instructions` VALUES ('x86','XEND','
+XEND  -  Transactional End:
 | Opcode/Instruction| Op/En| 64/32bit Mode Support| CPUID Feature Flag| Description                             
 | 0F 01 D5 XEND     | A    | V/V                  | RTM               | Specifies the end of an RTM code region.
 
@@ -51776,8 +51839,8 @@ Other Exceptions:
 |       | If LOCK or 66H or F2H or F3H prefix  
 |       | is used.                             
 | #GP(0)| If RTM_ACTIVE = 0.                   
-`,
-"XGETBV":`
+');
+INSERT INTO `instructions` VALUES ('x86','XGETBV','
 XGETBV - Get Value of Extended Control Register:
 | Opcode  | Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                                
 | 0F 01 D0| XGETBV     | NP   | Valid      | Valid          | Reads an XCR specified by ECX into EDX:EAX.
@@ -51846,8 +51909,8 @@ Same exceptions as in protected mode.
 64-Bit Mode Exceptions:
 Same exceptions as in protected mode.
 
-`,
-"XLAT":`
+');
+INSERT INTO `instructions` VALUES ('x86','XLAT','
 XLAT/XLATB - Table Look-up Translation:
 | Opcode    | Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                               
 | D7        | XLAT m8    | NP   | Valid      | Valid          | Set AL to memory byte DS:[(E)BX + unsigned
@@ -51942,9 +52005,9 @@ Same exceptions as in protected mode.
 |                | form.                                      
 | #PF(fault-code)| If a page fault occurs.                    
 | #UD            | If the LOCK prefix is used.                
-`,
-"XLATB":`-R:XLAT`,
-"XOR":`
+');
+INSERT INTO `instructions` VALUES ('x86','XLATB','-R:XLAT');
+INSERT INTO `instructions` VALUES ('x86','XOR','
 XOR - Logical Exclusive OR:
 | Opcode          | Instruction     | Op/En| 64-Bit Mode| Compat/Leg Mode| Description                     
 | 34 ib           | XOR AL, imm8    | I    | Valid      | Valid          | AL XOR imm8.                    
@@ -52060,8 +52123,8 @@ Same exceptions as in protected mode.
 |                | 3.                                            
 | #UD            | If the LOCK prefix is used but the destination
 |                | is not a memory operand.                      
-`,
-"XORPD":`
+');
+INSERT INTO `instructions` VALUES ('x86','XORPD','
 XORPD - Bitwise Logical XOR for Double-Precision Floating-Point Values:
 | Opcode/Instruction                           | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                             
 | 66 0F 57 /r XORPD xmm1, xmm2/m128            | RM   | V/V                   | SSE2              | Bitwise exclusive-OR of xmm2/m128 and   
@@ -52126,9 +52189,8 @@ None.
 Other Exceptions:
 See Exceptions Type 4.
 
-`,
-"VXORPD":`-R:XORPD`,
-"XORPS":`
+');
+INSERT INTO `instructions` VALUES ('x86','XORPS','
 XORPS - Bitwise Logical XOR for Single-Precision Floating-Point Values:
 | Opcode/Instruction                        | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                             
 | 0F 57 /r XORPS xmm1, xmm2/m128            | RM   | V/V                   | SSE               | Bitwise exclusive-OR of xmm2/m128 and   
@@ -52200,9 +52262,8 @@ None.
 Other Exceptions:
 See Exceptions Type 4.
 
-`,
-"VXORPS":`-R:XORPS`,
-"XRSTOR":`
+');
+INSERT INTO `instructions` VALUES ('x86','XRSTOR','
 XRSTOR - Restore Processor Extended States:
 | Opcode         | Instruction | Op/En| 64-Bit Mode| Compat/Leg Mode| Description                          
 | 0F AE /5       | XRSTOR mem  | M    | Valid      | Valid          | Restore state components specified by
@@ -52462,9 +52523,8 @@ Same exceptions as in protected mode.
 |                | protection exception might be signaled                           
 |                | for all other misalignments (4-, 8-,                             
 |                | or 16-byte misalignments).                                       
-`,
-"XRSTOR64":`-R:XRSTOR`,
-"XRSTORS":`
+');
+INSERT INTO `instructions` VALUES ('x86','XRSTORS','
 XRSTORS - Restore Processor Extended States Supervisor:
 | Opcode         | Instruction  | Op/En| 64-Bit Mode| Compat/Leg Mode| Description                          
 | 0F C7 /3       | XRSTORS mem  | M    | Valid      | Valid          | Restore state components specified by
@@ -52670,9 +52730,8 @@ Same exceptions as in protected mode.
 tion exception might be signaled for all other misalignments (4-, 8-, or 16-byte
 misalignments).
 
-`,
-"XRSTORS64":`-R:XRSTORS`,
-"XSAVE":`
+');
+INSERT INTO `instructions` VALUES ('x86','XSAVE','
 XSAVE - Save Processor Extended States:
 | Opcode         | Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                               
 | 0F AE /4       | XSAVE mem  | M    | Valid      | Valid          | Save state components specified by EDX:EAX
@@ -52830,9 +52889,8 @@ Same exceptions as in protected mode.
 |                | protection exception might be signaled      
 |                | for all other misalignments (4-, 8-,        
 |                | or 16-byte misalignments).                  
-`,
-"XSAVE64":`-R:XSAVE`,
-"XSAVEC":`
+');
+INSERT INTO `instructions` VALUES ('x86','XSAVEC','
 XSAVEC - Save Processor Extended States with Compaction:
 | Opcode         | Instruction | Op/En| 64-Bit Mode| Compat/Leg Mode| Description                               
 | 0F C7 /4       | XSAVEC mem  | M    | Valid      | Valid          | Save state components specified by EDX:EAX
@@ -52995,9 +53053,8 @@ Same exceptions as in protected mode.
 |                | protection exception might be signaled      
 |                | for all other misalignments (4-, 8-,        
 |                | or 16-byte misalignments).                  
-`,
-"XSAVEC64":`-R:XSAVEC`,
-"XSAVEOPT":`
+');
+INSERT INTO `instructions` VALUES ('x86','XSAVEOPT','
 XSAVEOPT - Save Processor Extended States Optimized:
 | Opcode/Instruction             | Op/En| 64/32 bit Mode Support| CPUID Feature Flag| Description                               
 | 0F AE /6 XSAVEOPT mem          | M    | V/V                   | XSAVEOPT          | Save state components specified by EDX:EAX
@@ -53139,9 +53196,8 @@ Same exceptions as in protected mode.
 | #UD            | 0] =0. If CR4.OSXSAVE[bit 18] = 0. If      
 |                | the LOCK prefix is used. If 66H, F3H       
 |                | or F2H prefix is used.                     
-`,
-"XSAVEOPT64":`-R:XSAVEOPT`,
-"XSAVES":`
+');
+INSERT INTO `instructions` VALUES ('x86','XSAVES','
 XSAVES - Save Processor Extended States Supervisor:
 | Opcode         | Instruction | Op/En| 64-Bit Mode| Compat/Leg Mode| Description                               
 | 0F C7 /5       | XSAVES mem  | M    | Valid      | Valid          | Save state components specified by EDX:EAX
@@ -53333,9 +53389,8 @@ Same exceptions as in protected mode.
 |                | protection exception might be signaled      
 |                | for all other misalignments (4-, 8-,        
 |                | or 16-byte misalignments).                  
-`,
-"XSAVES64":`-R:XSAVES`,
-"XSETBV":`
+');
+INSERT INTO `instructions` VALUES ('x86','XSETBV','
 XSETBV - Set Extended Control Register:
 | Opcode  | Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                          
 | 0F 01 D1| XSETBV     | NP   | Valid      | Valid          | Write the value in EDX:EAX to the XCR
@@ -53418,9 +53473,9 @@ Same exceptions as in protected mode.
 64-Bit Mode Exceptions:
 Same exceptions as in protected mode.
 
-`,
-"XTEST":`
-XTEST - Test If In Transactional Execution:
+');
+INSERT INTO `instructions` VALUES ('x86','XTEST','
+XTEST  -  Test If In Transactional Execution:
 | Opcode/Instruction| Op/En| 64/32bit Mode Support| CPUID Feature Flag| Description                         
 | 0F 01 D6 XTEST    | A    | V/V                  | HLE or RTM        | Test if executing in a transactional
 |                   |      |                      |                   | region                              
@@ -53461,5 +53516,5 @@ Other Exceptions:
 |    | and CPUID.(EAX=7, ECX=0):RTM[bit 11]    
 |    | = 0. If LOCK or 66H or F2H or F3H prefix
 |    | is used.                                
-`,
-}
+');
+COMMIT;
