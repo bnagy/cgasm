@@ -27,13 +27,19 @@ You can cross compile this to any architecture that go supports.
 What was that AES thing...?
 ```
 velleity:~ ben$ cgasm -f aes
-Fuzzy matches for "aes":
-AESKEYGENASSIST - AES Round Key Generation Assist
-AESENCLAST - Perform Last Round of an AES Encryption Flow
-AESDEC - Perform One Round of an AES Decryption Flow
-AESIMC - Perform the AES InvMixColumn Transformation
-AESDECLAST - Perform Last Round of an AES Decryption Flow
+Fuzzy matches for "aes" (12):
 AESENC - Perform One Round of an AES Encryption Flow
+VAESIMC -> AESIMC - Perform the AES InvMixColumn Transformation
+AESKEYGENASSIST - AES Round Key Generation Assist
+AESIMC - Perform the AES InvMixColumn Transformation
+VAESDECLAST -> AESDECLAST - Perform Last Round of an AES Decryption Flow
+AESDEC - Perform One Round of an AES Decryption Flow
+VAESENC -> AESENC - Perform One Round of an AES Encryption Flow
+VAESDEC -> AESDEC - Perform One Round of an AES Decryption Flow
+VAESENCLAST -> AESENCLAST - Perform Last Round of an AES Encryption Flow
+AESENCLAST - Perform Last Round of an AES Encryption Flow
+VAESKEYGENASSIST -> AESKEYGENASSIST - AES Round Key Generation Assist
+AESDECLAST - Perform Last Round of an AES Decryption Flow
 ```
 
 Default output is a summary
