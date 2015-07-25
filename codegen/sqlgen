@@ -152,13 +152,13 @@ case @format
 when :go
 	puts("package main\n\nvar data = map[string]string {")
 	master.each {|k,(all,redirs)|
-		print "\"#{k}\":`\n#{all}`,\n"
+		print "\"#{k.upcase}\":`\n#{all}`,\n"
 		redirs.each {|r|
 			# There are a couple of redirects that are used twice
 			# (VPCMPEQQ and VMOVQ). Don't know what to do here.
 			# Just keep the first one.
 			next if master[r] || used_redirects[r]
-			print "\"#{r}\":`-R:#{k}`,\n"
+			print "\"#{r}\":`-R:#{k.upcase}`,\n"
 			used_redirects[r] = true
 		}
 	}
