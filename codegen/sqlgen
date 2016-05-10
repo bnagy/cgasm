@@ -130,9 +130,28 @@ loop do
 		end
 		# No redirects to self
 		redirects -= [key]
+		# SPECIAL CASE
+		# create synthetic entries for two MOV duplicates
+		if master[key]
+			case body_header
+			# The updated text will show in the header (in fuzzy search for example)
+			# We change the mnemonic key as well, creating new MOVDR/MOVCR mnemonics
+			when "MOV - Move to/from Control Registers:\n"
+				body_header[-2] = " [synthetic mnemonic, is really MOV]:"
+				body_header.sub!(/MOV/, "MOVCR")
+				key = "MOVCR"
+			when "MOV - Move to/from Debug Registers:\n"
+				body_header[-2] = " [synthetic mnemonic, is really MOV]:"
+				body_header.sub!(/MOV/, "MOVDR")
+				key = "MOVDR"
+			else
+				fail "tried to insert a duplicate toplevel entry for #{key}"
+			end
+		end
 		# put the table header and first line back into the entry
 		all.unshift table_header
 		all.unshift body_header
+
 		master[key] = [all.join, redirects]	
 
 	end # entry parser
