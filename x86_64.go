@@ -335,7 +335,7 @@ addition in which an ADD instruction is followed by an ADC instruction.
 This instruction can be used with a LOCK prefix to allow the instruction to
 be executed atomically.
 
-In 64-bit mode, the instruction''s default operation size is 32 bits. Using a
+In 64-bit mode, the instruction's default operation size is 32 bits. Using a
 REX prefix in the form of REX.R permits access to additional registers (R8-R15).
 Using a REX prefix in the form of REX.W promotes operation to 64 bits. See the
 summary chart at the beginning of this section for encoding data and limits.
@@ -472,7 +472,7 @@ indicates the sign of the signed result.
 This instruction can be used with a LOCK prefix to allow the instruction to
 be executed atomically.
 
-In 64-bit mode, the instruction''s default operation size is 32 bits. Using a
+In 64-bit mode, the instruction's default operation size is 32 bits. Using a
 REX prefix in the form of REX.R permits access to additional registers (R8-R15).
 Using a REX a REX prefix in the form of REX.W promotes operation to 64 bits.
 See the summary chart at the beginning of this section for encoding data and
@@ -572,7 +572,7 @@ to access additional registers (XMM8-XMM15).
 memory location. The destination is not distinct from the first source XMM register
 and the upper bits (VLMAX-1:128) of the corresponding YMM register destination
 are unmodified. See Chapter 11 in the Intel® 64 and IA-32 Architectures Software
-Developer''s Manual, Volume 1, for an overview of SIMD double-precision floating-point
+Developer's Manual, Volume 1, for an overview of SIMD double-precision floating-point
 operation.
 
 VEX.128 encoded version: the first source operand is an XMM register or 128-bit
@@ -645,7 +645,7 @@ to access additional registers (XMM8-XMM15).
 memory location. The destination is not distinct from the first source XMM register
 and the upper bits (VLMAX-1:128) of the corresponding YMM register destination
 are unmodified. See Chapter 10 in the Intel® 64 and IA-32 Architectures Software
-Developer''s Manual, Volume 1, for an overview of SIMD single-precision floating-point
+Developer's Manual, Volume 1, for an overview of SIMD single-precision floating-point
 operation. VEX.128 encoded version: the first source operand is an XMM register
 or 128-bit memory location. The destination operand is an XMM register. The
 upper bits (VLMAX-1:128) of the corresponding YMM register destination are zeroed.
@@ -712,7 +712,7 @@ double-precision floating-point result in the destination operand.
 
 The source operand can be an XMM register or a 64-bit memory location. The destination
 operand is an XMM register. See Chapter 11 in the Intel® 64 and IA-32 Architectures
-Software Developer''s Manual, Volume 1, for an overview of a scalar double-precision
+Software Developer's Manual, Volume 1, for an overview of a scalar double-precision
 floating-point operation.
 
 In 64-bit mode, using a REX prefix in the form of REX.R permits this instruction
@@ -765,7 +765,7 @@ single-precision floating-point result in the destination operand.
 
 The source operand can be an XMM register or a 32-bit memory location. The destination
 operand is an XMM register. See Chapter 10 in the Intel® 64 and IA-32 Architectures
-Software Developer''s Manual, Volume 1, for an overview of a scalar single-precision
+Software Developer's Manual, Volume 1, for an overview of a scalar single-precision
 floating-point operation.
 
 In 64-bit mode, using a REX prefix in the form of REX.R permits this instruction
@@ -1384,7 +1384,7 @@ set to 0.
 This instruction can be used with a LOCK prefix to allow the it to be executed
 atomically.
 
-In 64-bit mode, the instruction''s default operation size is 32 bits. Using a
+In 64-bit mode, the instruction's default operation size is 32 bits. Using a
 REX prefix in the form of REX.R permits access to additional registers (R8-R15).
 Using a REX prefix in the form of REX.W promotes operation to 64 bits. See the
 summary chart at the beginning of this section for encoding data and limits.
@@ -1803,19 +1803,19 @@ it can also be used by applications). It is generally used to adjust the RPL
 of a segment selector that has been passed to the operating system by an application
 program to match the privilege level of the application program. Here the segment
 selector passed to the operating system is placed in the destination operand
-and segment selector for the application program''s code segment is placed in
+and segment selector for the application program's code segment is placed in
 the source operand. (The RPL field in the source operand represents the privilege
 level of the application program.) Execution of the ARPL instruction then ensures
 that the RPL of the segment selector received by the operating system is no
 lower (does not have a higher privilege) than the privilege level of the application
-program (the segment selector for the application program''s code segment can
+program (the segment selector for the application program's code segment can
 be read from the stack following a procedure call).
 
 This instruction executes as described in compatibility mode and legacy mode.
 It is not encodable in 64-bit mode.
 
 See “Checking Caller Access Privileges” in Chapter 3, “Protected-Mode Memory
-Management,” of the Intel® 64 and IA-32 Architectures Software Developer''s Manual,
+Management,” of the Intel® 64 and IA-32 Architectures Software Developer's Manual,
 Volume 3A, for more information about the use of this instruction.
 
 Operation:
@@ -2605,7 +2605,7 @@ a memory location; the destination operand is a register. The bit index is an
 unsigned offset from bit 0 of the source operand. If the content of the source
 operand is 0, the content of the destination operand is undefined.
 
-In 64-bit mode, the instruction''s default operation size is 32 bits. Using a
+In 64-bit mode, the instruction's default operation size is 32 bits. Using a
 REX prefix in the form of REX.R permits access to additional registers (R8-R15).
 Using a REX prefix in the form of REX.W promotes operation to 64 bits. See the
 summary chart at the beginning of this section for encoding data and limits.
@@ -2700,7 +2700,7 @@ a memory location; the destination operand is a register. The bit index is an
 unsigned offset from bit 0 of the source operand. If the content source operand
 is 0, the content of the destination operand is undefined.
 
-In 64-bit mode, the instruction''s default operation size is 32 bits. Using a
+In 64-bit mode, the instruction's default operation size is 32 bits. Using a
 REX prefix in the form of REX.R permits access to additional registers (R8-R15).
 Using a REX prefix in the form of REX.W promotes operation to 64 bits. See the
 summary chart at the beginning of this section for encoding data and limits.
@@ -2796,7 +2796,7 @@ is provided for converting littleendian values to big-endian format and vice
 versa. To swap bytes in a word value (16-bit register), use the XCHG instruction.
 When the BSWAP instruction references a 16-bit register, the result is undefined.
 
-In 64-bit mode, the instruction''s default operation size is 32 bits. Using a
+In 64-bit mode, the instruction's default operation size is 32 bits. Using a
 REX prefix in the form of REX.R permits access to additional registers (R8-R15).
 Using a REX prefix in the form of REX.W promotes operation to 64 bits. See the
 summary chart at the beginning of this section for encoding data and limits.
@@ -2892,7 +2892,7 @@ references to memory-mapped I/O registers. Instead, software should use the
 MOV instructions to load from or store to these addresses, and use the register
 form of these instructions to manipulate the data.
 
-In 64-bit mode, the instruction''s default operation size is 32 bits. Using a
+In 64-bit mode, the instruction's default operation size is 32 bits. Using a
 REX prefix in the form of REX.R permits access to additional registers (R8-R15).
 Using a REX prefix in the form of REX.W promotes operation to 64 bit operands.
 See the summary chart at the beginning of this section for encoding data and
@@ -2997,7 +2997,7 @@ See “BT - Bit Test” in this chapter for more information on this addressing 
 This instruction can be used with a LOCK prefix to allow the instruction to
 be executed atomically.
 
-In 64-bit mode, the instruction''s default operation size is 32 bits. Using a
+In 64-bit mode, the instruction's default operation size is 32 bits. Using a
 REX prefix in the form of REX.R permits access to additional registers (R8-R15).
 Using a REX prefix in the form of REX.W promotes operation to 64 bits. See the
 summary chart at the beginning of this section for encoding data and limits.
@@ -3107,7 +3107,7 @@ See “BT - Bit Test” in this chapter for more information on this addressing 
 This instruction can be used with a LOCK prefix to allow the instruction to
 be executed atomically.
 
-In 64-bit mode, the instruction''s default operation size is 32 bits. Using a
+In 64-bit mode, the instruction's default operation size is 32 bits. Using a
 REX prefix in the form of REX.R permits access to additional registers (R8-R15).
 Using a REX prefix in the form of REX.W promotes operation to 64 bits. See the
 summary chart at the beginning of this section for encoding data and limits.
@@ -3217,7 +3217,7 @@ See “BT - Bit Test” in this chapter for more information on this addressing 
 This instruction can be used with a LOCK prefix to allow the instruction to
 be executed atomically.
 
-In 64-bit mode, the instruction''s default operation size is 32 bits. Using a
+In 64-bit mode, the instruction's default operation size is 32 bits. Using a
 REX prefix in the form of REX.R permits access to additional registers (R8-R15).
 Using a REX prefix in the form of REX.W promotes operation to 64 bits. See the
 summary chart at the beginning of this section for encoding data and limits.
@@ -3406,10 +3406,10 @@ different privilege level than that of the currently executing program or proced
 
 The latter two call types (inter-privilege-level call and task switch) can only
 be executed in protected mode. See “Calling Procedures Using Call and RET” in
-Chapter 6 of the Intel® 64 and IA-32 Architectures Software Developer''s Manual,
+Chapter 6 of the Intel® 64 and IA-32 Architectures Software Developer's Manual,
 Volume 1, for additional information on near, far, and inter-privilege-level
 calls. See Chapter 7, “Task Management,” in the Intel® 64 and IA-32 Architectures
-Software Developer''s Manual, Volume 3A, for information on performing task switches
+Software Developer's Manual, Volume 3A, for information on performing task switches
 with the CALL instruction.
 
 Near Call. When executing a near call, the processor pushes the value of the
@@ -3503,9 +3503,9 @@ segment is specified in the TSS for the currently running task. The branch to
 the new code segment occurs after the stack switch. (Note that when using a
 call gate to perform a far call to a segment at the same privilege level, no
 stack switch occurs.) On the new stack, the processor pushes the segment selector
-and stack pointer for the calling procedure''s stack, an optional set of parameters
+and stack pointer for the calling procedure's stack, an optional set of parameters
 from the calling procedures stack, and the segment selector and instruction
-pointer for the calling procedure''s code segment. (A value in the call gate
+pointer for the calling procedure's code segment. (A value in the call gate
 descriptor determines how many parameters to copy to the new stack.) Finally,
 the processor branches to the address of the procedure being called within the
 new code segment.
@@ -3514,23 +3514,23 @@ Executing a task switch with the CALL instruction is similar to executing a
 call through a call gate. The target operand specifies the segment selector
 of the task gate for the new task activated by the switch (the offset in the
 target operand is ignored). The task gate in turn points to the TSS for the
-new task, which contains the segment selectors for the task''s code and stack
+new task, which contains the segment selectors for the task's code and stack
 segments. Note that the TSS also contains the EIP value for the next instruction
 that was to be executed before the calling task was suspended. This instruction
 pointer value is loaded into the EIP register to re-start the calling task.
 
 The CALL instruction can also specify the segment selector of the TSS directly,
 which eliminates the indirection of the task gate. See Chapter 7, “Task Management,”
-in the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume
+in the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume
 3A, for information on the mechanics of a task switch.
 
 When you execute at task switch with a CALL instruction, the nested task flag
-(NT) is set in the EFLAGS register and the new TSS''s previous task link field
-is loaded with the old task''s TSS selector. Code is expected to suspend this
+(NT) is set in the EFLAGS register and the new TSS's previous task link field
+is loaded with the old task's TSS selector. Code is expected to suspend this
 nested task by executing an IRET instruction which, because the NT flag is set,
 automatically uses the previous task link to return to the calling task. (See
 “Task Linking” in Chapter 7 of the Intel® 64 and IA-32 Architectures Software
-Developer''s Manual, Volume 3A, for information on nested tasks.) Switching tasks
+Developer's Manual, Volume 3A, for information on nested tasks.) Switching tasks
 with the CALL instruction differs in this regard from JMP instruction. JMP does
 not set the NT flag and therefore does not expect an IRET instruction to suspend
 the task.
@@ -3542,7 +3542,7 @@ the 32-bit code segment. This is because the operand-size attribute of the instr
 is set to 16, so only a 16-bit return address offset can be saved. Also, the
 call should be made using a 16-bit call gate so that 16-bit values can be pushed
 on the stack. See Chapter 21, “Mixing 16-Bit and 32-Bit Code,” in the Intel®
-64 and IA-32 Architectures Software Developer''s Manual, Volume 3B, for more
+64 and IA-32 Architectures Software Developer's Manual, Volume 3B, for more
 information.
 
 Far Calls in Compatibility Mode. When the processor is operating in compatibility
@@ -3599,8 +3599,8 @@ entering 64-bit mode. The SS selector is unchanged, but stack segment accesses
 use a segment base of 0x0, the limit is ignored, and the default stack size
 is 64-bits. The full value of RSP is used for the offset, of which the upper
 32-bits are undefined.) On the new stack, the processor pushes the segment selector
-and stack pointer for the calling procedure''s stack and the segment selector
-and instruction pointer for the calling procedure''s code segment. (Parameter
+and stack pointer for the calling procedure's stack and the segment selector
+and instruction pointer for the calling procedure's code segment. (Parameter
 copy is not supported in IA-32e mode.) Finally, the processor branches to the
 address of the procedure being called within the new code segment.
 
@@ -3659,8 +3659,8 @@ base of 0x0, the limit is ignored, and the default stack size is 64-bits. (The
 full value of RSP is used for the
 
 offset.) On the new stack, the processor pushes the segment selector and stack
-pointer for the calling procedure''s stack and the segment selector and instruction
-pointer for the calling procedure''s code segment. (Parameter copy is not supported
+pointer for the calling procedure's stack and the segment selector and instruction
+pointer for the calling procedure's code segment. (Parameter copy is not supported
 in IA-32e mode.) Finally, the processor branches to the address of the procedure
 being called within the new code segment.
 
@@ -3926,7 +3926,7 @@ MORE-PRIVILEGE:
        (* Segment descriptor information also loaded *)
        Push(oldSS:oldESP); (* From calling procedure *)
        temp <- parameter count from call gate, masked to 5 bits;
-       Push(parameters from calling procedure''s stack, temp)
+       Push(parameters from calling procedure's stack, temp)
        Push(oldCS:oldEIP); (* Return address to calling procedure *)
      ELSE
        IF CallGateSize = 16
@@ -3941,7 +3941,7 @@ MORE-PRIVILEGE:
              (* Segment descriptor information also loaded *)
              Push(oldSS:oldESP); (* From calling procedure *)
              temp <- parameter count from call gate, masked to 5 bits;
-             Push(parameters from calling procedure''s stack, temp)
+             Push(parameters from calling procedure's stack, temp)
              Push(oldCS:oldEIP); (* Return address to calling procedure *)
           ELSE (* CallGateSize = 64 *)
              IF pushing 32 bytes on the stack would use a non-canonical address
@@ -4044,13 +4044,13 @@ a NULL segment selector.
 |                | call gate, task gate, or task state         
 |                | segment. If the DPL for a nonconforming-code
 |                | segment is not equal to the CPL or the      
-|                | RPL for the segment''s segment selector      
+|                | RPL for the segment's segment selector      
 |                | is greater than the CPL. If the DPL         
 |                | for a conforming-code segment is greater    
 |                | than the CPL. If the DPL from a call-gate,  
 |                | task-gate, or TSS segment descriptor        
 |                | is less than the CPL or than the RPL        
-|                | of the call-gate, task-gate, or TSS''s       
+|                | of the call-gate, task-gate, or TSS's       
 |                | segment selector. If the segment descriptor 
 |                | for a segment selector from a call gate     
 |                | does not indicate it is a code segment.     
@@ -4148,7 +4148,7 @@ Same exceptions as in protected mode.
 |                | is a code segment and has both the D-bit   
 |                | and the L- bit set. If the DPL for a       
 |                | nonconforming-code segment is not equal    
-|                | to the CPL, or the RPL for the segment''s   
+|                | to the CPL, or the RPL for the segment's   
 |                | segment selector is greater than the       
 |                | CPL. If the DPL for a conforming-code      
 |                | segment is greater than the CPL. If        
@@ -4162,7 +4162,7 @@ Same exceptions as in protected mode.
 |                | obtained from a 64-bit call gate is        
 |                | greater than the CPL. If the code segment  
 |                | descriptor pointed to by the selector      
-|                | in the 64-bit gate doesn''t have the        
+|                | in the 64-bit gate doesn't have the        
 |                | L-bit set and the D-bit clear. If the      
 |                | segment descriptor for a segment selector  
 |                | from the 64-bit call gate does not indicate
@@ -4509,13 +4509,13 @@ mode to allow initialization for protected mode.
 The processor sets the TS flag every time a task switch occurs. The flag is
 used to synchronize the saving of FPU context in multitasking applications.
 See the description of the TS flag in the section titled “Control Registers”
-in Chapter 2 of the Intel® 64 and IA-32 Architectures Software Developer''s Manual,
+in Chapter 2 of the Intel® 64 and IA-32 Architectures Software Developer's Manual,
 Volume 3A, for more information about this flag.
 
 CLTS operation is the same in non-64-bit modes and 64-bit mode.
 
 See Chapter 25, “VMX Non-Root Operation,” of the Intel® 64 and IA-32 Architectures
-Software Developer''s Manual, Volume 3C, for more information about the behavior
+Software Developer's Manual, Volume 3C, for more information about the behavior
 of this instruction in VMX non-root operation.
 
 Operation:
@@ -4701,11 +4701,11 @@ not below or equal) instruction are alternate mnemonics for the opcode 0F 47H.
 
 The CMOVcc instructions were introduced in P6 family processors; however, these
 instructions may not be supported by all IA-32 processors. Software can determine
-if the CMOVcc instructions are supported by checking the processor''s feature
+if the CMOVcc instructions are supported by checking the processor's feature
 information with the CPUID instruction (see “CPUID - CPU Identification” in this
 chapter).
 
-In 64-bit mode, the instruction''s default operation size is 32 bits. Use of
+In 64-bit mode, the instruction's default operation size is 32 bits. Use of
 the REX.R prefix permits access to additional registers (R8-R15). Use of the
 REX.W prefix promotes operation to 64 bits. See the summary chart at the beginning
 of this section for encoding data and limits.
@@ -4856,10 +4856,10 @@ the first operand.
 
 The condition codes used by the Jcc, CMOVcc, and SETcc instructions are based
 on the results of a CMP instruction. Appendix B, “EFLAGS Condition Codes,” in
-the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume 1,
+the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume 1,
 shows the relationship of the status flags and the condition codes.
 
-In 64-bit mode, the instruction''s default operation size is 32 bits. Use of
+In 64-bit mode, the instruction's default operation size is 32 bits. Use of
 the REX.R prefix permits access to additional registers (R8-R15). Use of the
 REX.W prefix promotes operation to 64 bits. See the summary chart at the beginning
 of this section for encoding data and limits.
@@ -5569,9 +5569,9 @@ REP prefix for block comparisons. More often, however, these instructions will
 be used in a LOOP construct that takes some action based on the setting of the
 status flags before the next comparison is made. See “REP/REPE/REPZ /REPNE/REPNZ - Repeat
 String Operation Prefix” in Chapter 4 of the Intel® 64 and IA-32 Architectures
-Software Developer''s Manual, Volume 2B, for a description of the REP prefix.
+Software Developer's Manual, Volume 2B, for a description of the REP prefix.
 
-In 64-bit mode, the instruction''s default address size is 64 bits, 32 bit address
+In 64-bit mode, the instruction's default address size is 64 bits, 32 bit address
 size is supported using the prefix 67H. Use of the REX.W prefix promotes doubleword
 operation to 64 bits (see CMPSQ). See the summary chart at the beginning of
 this section for encoding data and limits.
@@ -6150,13 +6150,13 @@ operand is loaded into the AL, AX, EAX or RAX register. RAX register is availabl
 only in 64-bit mode.
 
 This instruction can be used with a LOCK prefix to allow the instruction to
-be executed atomically. To simplify the interface to the processor''s bus, the
+be executed atomically. To simplify the interface to the processor's bus, the
 destination operand receives a write cycle without regard to the result of the
 comparison. The destination operand is written back if the comparison fails;
 otherwise, the source operand is written into the destination. (The processor
 never produces a locked read without also producing a locked write.)
 
-In 64-bit mode, the instruction''s default operation size is 32 bits. Use of
+In 64-bit mode, the instruction's default operation size is 32 bits. Use of
 the REX.R prefix permits access to additional registers (R8-R15). Use of the
 REX.W prefix promotes operation to 64 bits. See the summary chart at the beginning
 of this section for encoding data and limits.
@@ -6270,7 +6270,7 @@ RCX:RBX register pairs, RDX and RCX contain the highorder 64 bits and RAX and
 RBX contain the low-order 64bits of a 128-bit value.
 
 This instruction can be used with a LOCK prefix to allow the instruction to
-be executed atomically. To simplify the interface to the processor''s bus, the
+be executed atomically. To simplify the interface to the processor's bus, the
 destination operand receives a write cycle without regard to the result of the
 comparison. The destination operand is written back if the comparison fails;
 otherwise, the source operand is written into the destination. (The processor
@@ -6529,7 +6529,7 @@ The ID flag (bit 21) in the EFLAGS register indicates support for the CPUID
 instruction. If a software procedure can set and clear this flag, the processor
 executing the procedure supports the CPUID instruction. This instruction operates
 the same in non-64-bit modes and 64-bit mode. CPUID returns processor identification
-and feature information in the EAX, EBX, ECX, and EDX registers.1 The instruction''s
+and feature information in the EAX, EBX, ECX, and EDX registers.1 The instruction's
 output is dependent on the contents of the EAX register upon execution (in some
 cases, ECX as well). For example, the following pseudocode loads EAX with 00H
 and causes CPUID to return a Maximum Return Value and the Vendor Identification
@@ -6568,13 +6568,13 @@ instruction is fetched and executed.
 See also:
 
 “Serializing Instructions” in Chapter 8, “Multiple-Processor Management,” in
-the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume 3A.
+the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume 3A.
 
 | 1.| On Intel 64 processors, CPUID clears   
 |   | the high 32 bits of the RAX/RBX/RCX/RDX
 |   | registers in all modes.                
 “Caching Translation Information” in Chapter 4, “Paging,” in the Intel® 64 and
-IA-32 Architectures Software Developer''s Manual, Volume 3A.
+IA-32 Architectures Software Developer's Manual, Volume 3A.
 
 
 Table 3-17. Information Returned by CPUID Instruction:
@@ -6675,10 +6675,10 @@ for valid initial values in ECX. Valid ECX values start from 0.
 MONITOR/MWAIT Leaf
 
 | 05H| EAX EBX ECX EDX| Bits 15-00: Smallest monitor-line size      
-|    |                | in bytes (default is processor''s monitor    
+|    |                | in bytes (default is processor's monitor    
 |    |                | granularity) Bits 31-16: Reserved =         
 |    |                | 0 Bits 15-00: Largest monitor-line size     
-|    |                | in bytes (default is processor''s monitor    
+|    |                | in bytes (default is processor's monitor    
 |    |                | granularity) Bits 31-16: Reserved =         
 |    |                | 0 Bit 00: Enumeration of Monitor-Mwait      
 |    |                | extensions (beyond EAX and EBX registers)   
@@ -6914,7 +6914,7 @@ Processor Extended State Enumeration Main Leaf (EAX = 0DH, ECX = 0)
 |                                         | n, does not map to a valid bit in the              
 |                                         | XCR0 register*.                                    
 | EBX                                     | Bits 31-0: The offset in bytes of this             
-|                                         | extended state component''s save area               
+|                                         | extended state component's save area               
 |                                         | from the beginning of the XSAVE/XRSTOR             
 |                                         | area. This field reports 0 if the sub-leaf         
 |                                         | index, n, is invalid*.                             
@@ -7040,7 +7040,7 @@ Notes:
 |  | the maximum physical address number      
 |  | supported should come from this field.   
 
-INPUT EAX = 0: Returns CPUID''s Highest Value for Basic Processor Information and the Vendor Identification String:
+INPUT EAX = 0: Returns CPUID's Highest Value for Basic Processor Information and the Vendor Identification String:
 When CPUID executes with EAX set to 0, the processor returns the highest value
 the CPUID recognizes for returning basic processor information. The value is
 returned in the EAX register (see Table 3-18) and is processor specific. A vendor
@@ -7051,7 +7051,7 @@ eight bits of DL *) ECX ← 6c65746eh (* "ntel", with n in the low eight bits
 of CL *)
 
 
-INPUT EAX = 80000000H: Returns CPUID''s Highest Value for Extended Processor Information:
+INPUT EAX = 80000000H: Returns CPUID's Highest Value for Extended Processor Information:
 When CPUID executes with EAX set to 80000000H, the processor returns the highest
 value the processor recognizes for returning extended processor information.
 The value is returned in the EAX register (see Table 3-18) and is processor
@@ -7087,7 +7087,7 @@ IA32_BIOS_SIGN_ID Returns Microcode Update Signature:
 For processors that support the microcode update facility, the IA32_BIOS_SIGN_ID
 MSR is loaded with the update signature whenever CPUID executes. The signature
 is returned in the upper DWORD. For details, see Chapter 9 in the Intel® 64
-and IA-32 Architectures Software Developer''s Manual, Volume 3A.
+and IA-32 Architectures Software Developer's Manual, Volume 3A.
 
 
 INPUT EAX = 1: Returns Model, Family, Stepping Information:
@@ -7113,7 +7113,7 @@ OM16525
 | Figure 3-5.| Version Information Returned by CPUID
 |            | in EAX Processor Type Field Encoding 
 |            | 00B 01B 10B 11B                      
-NOTE See Chapter 17 in the Intel® 64 and IA-32 Architectures Software Developer''s
+NOTE See Chapter 17 in the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 1, for information on identifying earlier IA-32 processors.
 
 The Extended Family ID needs to be examined only when the Family ID is 0FH.
@@ -7244,7 +7244,7 @@ xTPR Update Control CMPXCHG16B
 |                                          | that the processor supports MOVBE instruction.      
 |                                          | A value of 1 indicates that the processor           
 |                                          | supports the POPCNT instruction. A value            
-|                                          | of 1 indicates that the processor''s                 
+|                                          | of 1 indicates that the processor's                 
 |                                          | local APIC timer supports one-shot operation        
 |                                          | using a TSC deadline value. A value                 
 |                                          | of 1 indicates that the processor supports          
@@ -7387,7 +7387,7 @@ OM16523
 |                                     | facilities (see Chapter 23, “Introduction         
 |                                     | to Virtual-Machine Extensions,” in the            
 |                                     | Intel® 64 and IA-32 Architectures Software        
-|                                     | Developer''s Manual, Volume 3C). Thermal           
+|                                     | Developer's Manual, Volume 3C). Thermal           
 |                                     | Monitor and Software Controlled Clock             
 |                                     | Facilities. The processor implements              
 |                                     | internal MSRs that allow processor temperature    
@@ -7432,13 +7432,13 @@ OM16523
 
 INPUT EAX = 2: TLB/Cache/Prefetch Information Returned in EAX, EBX, ECX, EDX:
 When CPUID executes with EAX set to 2, the processor returns information about
-the processor''s internal TLBs, cache and prefetch hardware in the EAX, EBX,
+the processor's internal TLBs, cache and prefetch hardware in the EAX, EBX,
 ECX, and EDX registers. The information is reported in encoded form and fall
 into the following categories:
 
  - The least-significant byte in register EAX (register AL) indicates the number
 of times the CPUID instruction must be executed with an input value of 2 to
-get a complete description of the processor''s TLB/Cache/Prefetch hardware. The
+get a complete description of the processor's TLB/Cache/Prefetch hardware. The
 Intel Xeon processor 7400 series will return a 1.
  - The most significant bit (bit 31) of each register indicates whether the register
 contains valid information (set to 0) or is reserved (set to 1).
@@ -7674,7 +7674,7 @@ of processor cores in a physical package. This information is constant for all
 valid index values. Software can query the raw data reported by executing CPUID
 with EAX=04H and ECX=0 and use it as part of the topology enumeration algorithm
 described in Chapter 8, “Multiple-Processor Management,” in the Intel® 64 and
-IA-32 Architectures Software Developer''s Manual, Volume 3A.
+IA-32 Architectures Software Developer's Manual, Volume 3A.
 
 
 INPUT EAX = 05H: Returns MONITOR and MWAIT Features:
@@ -7716,7 +7716,7 @@ For each version of architectural performance monitoring capability, software
 must enumerate this leaf to discover the programming facilities and the architectural
 performance events available in the processor. The details are described in
 Chapter 23, “Introduction to Virtual-Machine Extensions,” in the Intel® 64 and
-IA-32 Architectures Software Developer''s Manual, Volume 3C.
+IA-32 Architectures Software Developer's Manual, Volume 3C.
 
 
 INPUT EAX = 0BH: Returns Extended Topology Information:
@@ -7776,14 +7776,14 @@ METHODS FOR RETURNING BRANDING INFORMATION:
 Use the following techniques to access branding information:
 
 | 1.| Processor brand string method; this    
-|   | method also returns the processor''s    
+|   | method also returns the processor's    
 |   | maximum operating frequency            
 | 2.| Processor brand index; this method uses
 |   | a software supplied brand string table.
 These two methods are discussed in the following sections. For methods that
 are available in early processors, see Section: “Identification of Earlier IA-32
 Processors” in Chapter 17 of the Intel® 64 and IA-32 Architectures Software
-Developer''s Manual, Volume 1.
+Developer's Manual, Volume 1.
 
 
 The Processor Brand String Method:
@@ -8516,7 +8516,7 @@ Invalid, Precision.
 Other Exceptions:
 See Table 22-4, “Exception Conditions for Legacy SIMD/MMX Instructions with
 FP Exception and 16-Byte Alignment,” in the Intel® 64 and IA-32 Architectures
-Software Developer''s Manual, Volume 3B.
+Software Developer's Manual, Volume 3B.
 
 `,
 "CVTPD2PS":`
@@ -8642,7 +8642,7 @@ None.
 Other Exceptions:
 See Table 22-6, “Exception Conditions for Legacy SIMD/MMX Instructions with
 XMM and without FP Exception,” in the Intel® 64 and IA-32 Architectures Software
-Developer''s Manual, Volume 3B.
+Developer's Manual, Volume 3B.
 
 `,
 "CVTPI2PS":`
@@ -8692,7 +8692,7 @@ Precision.
 
 Other Exceptions:
 See Table 22-5, “Exception Conditions for Legacy SIMD/MMX Instructions with
-XMM and FP Exception,” in the Intel® 64 and IA-32 Architectures Software Developer''s
+XMM and FP Exception,” in the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 3B.
 
 `,
@@ -8899,7 +8899,7 @@ Invalid, Precision.
 
 Other Exceptions:
 See Table 22-5, “Exception Conditions for Legacy SIMD/MMX Instructions with
-XMM and FP Exception,” in the Intel® 64 and IA-32 Architectures Software Developer''s
+XMM and FP Exception,” in the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 3B.
 
 `,
@@ -9429,7 +9429,7 @@ Invalid, Precision.
 Other Mode Exceptions:
 See Table 22-4, “Exception Conditions for Legacy SIMD/MMX Instructions with
 FP Exception and 16-Byte Alignment,” in the Intel® 64 and IA-32 Architectures
-Software Developer''s Manual, Volume 3B.
+Software Developer's Manual, Volume 3B.
 
 `,
 "CVTTPS2DQ":`
@@ -9557,7 +9557,7 @@ Invalid, Precision.
 
 Other Exceptions:
 See Table 22-5, “Exception Conditions for Legacy SIMD/MMX Instructions with
-XMM and FP Exception,” in the Intel® 64 and IA-32 Architectures Software Developer''s
+XMM and FP Exception,” in the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 3B.
 
 `,
@@ -9931,7 +9931,7 @@ This instruction can be used with a LOCK prefix to allow the instruction to
 be executed atomically.
 
 In 64-bit mode, DEC r16 and DEC r32 are not encodable (because opcodes 48H through
-4FH are REX prefixes). Otherwise, the instruction''s 64-bit mode default operation
+4FH are REX prefixes). Otherwise, the instruction's 64-bit mode default operation
 size is 32 bits. Use of the REX.R prefix permits access to additional registers
 (R8-R15). Use of the REX.W prefix promotes operation to 64 bits.
 
@@ -10038,7 +10038,7 @@ Non-integral results are truncated (chopped) towards 0. The remainder is always
 less than the divisor in magnitude. Overflow is indicated with the #DE (divide
 error) exception rather than with the CF flag.
 
-In 64-bit mode, the instruction''s default operation size is 32 bits. Use of
+In 64-bit mode, the instruction's default operation size is 32 bits. Use of
 the REX.R prefix permits access to additional registers (R8-R15). Use of the
 REX.W prefix promotes operation to 64 bits. In 64-bit mode when REX.W is applied,
 the instruction divides the unsigned value in RDX:RAX by the source operand
@@ -10191,7 +10191,7 @@ Description:
 Performs an SIMD divide of the two or four packed double-precision floating-point
 values in the first source operand by the two or four packed double-precision
 floating-point values in the second source operand. See Chapter 11 in the Intel®
-64 and IA-32 Architectures Software Developer''s Manual, Volume 1, for an overview
+64 and IA-32 Architectures Software Developer's Manual, Volume 1, for an overview
 of a SIMD doubleprecision floating-point operation.
 
 In 64-bit mode, use of the REX.R prefix permits this instruction to access additional
@@ -10258,7 +10258,7 @@ Description:
 Performs an SIMD divide of the four or eight packed single-precision floating-point
 values in the first source operand by the four or eight packed single-precision
 floating-point values in the second source operand. See Chapter 10 in the Intel®
-64 and IA-32 Architectures Software Developer''s Manual, Volume 1, for an overview
+64 and IA-32 Architectures Software Developer's Manual, Volume 1, for an overview
 of a SIMD single-precision floating-point operation.
 
 In 64-bit mode, use of the REX.R prefix permits this instruction to access additional
@@ -10332,7 +10332,7 @@ and stores the double-precision floating-point result in the destination operand
 The second source operand can be an XMM register or a 64-bit memory location.
 The first source and destination hyperons are XMM registers. The high quadword
 of the destination operand is copied from the high quadword of the first source
-operand. See Chapter 11 in the Intel® 64 and IA-32 Architectures Software Developer''s
+operand. See Chapter 11 in the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 1, for an overview of a scalar double-precision floating-point
 operation.
 
@@ -10387,7 +10387,7 @@ The second source operand can be an XMM register or a 32-bit memory location.
 The first source and destination operands are XMM registers. The three high-order
 doublewords of the destination are copied from the same dwords of the first
 source operand. See Chapter 10 in the Intel® 64 and IA-32 Architectures Software
-Developer''s Manual, Volume 1, for an overview of a scalar single-precision floating-point
+Developer's Manual, Volume 1, for an overview of a scalar single-precision floating-point
 operation.
 
 In 64-bit mode, use of the REX.R prefix permits this instruction to access additional
@@ -10443,7 +10443,7 @@ the destination operand (first operand) with the packed double-precision floatin
 values in the source (second operand) depending on a mask extracted from bits
 [5:4] of the immediate operand (third operand). If a condition mask bit is zero,
 the corresponding multiplication is replaced by a value of 0.0 in the manner
-described by Section 12.8.4 of Intel® 64 and IA-32 Architectures Software Developer''s
+described by Section 12.8.4 of Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 1.
 
 The two resulting double-precision values are summed into an intermediate result.
@@ -10453,7 +10453,7 @@ a broadcast mask specified by bits [1:0] of the immediate byte.
 If a broadcast mask bit is "1", the intermediate result is copied to the corresponding
 qword element in the destination operand. If a broadcast mask bit is zero, the
 corresponding element in the destination is set to zero. DPPD follows the NaN
-forwarding rules stated in the Software Developer''s Manual, vol. 1, table 4.7.
+forwarding rules stated in the Software Developer's Manual, vol. 1, table 4.7.
 These rules do not cover horizontal prioritization of NaNs. Horizontal propagation
 of NaNs to the destination and the positioning of those NaNs in the destination
 is implementation dependent. NaNs on the input sources or computationally generated
@@ -10541,7 +10541,7 @@ in the source (second operand) depending on a mask extracted from the high 4
 bits of the immediate byte (third operand). If a condition mask bit in Imm8[7:4]
 is zero, the corresponding multiplication is replaced by a value of 0.0 in the
 manner described by Section 12.8.4 of Intel® 64 and IA-32 Architectures Software
-Developer''s Manual, Volume 1.
+Developer's Manual, Volume 1.
 
 The four resulting single-precision values are summed into an intermediate result.
 The intermediate result is conditionally broadcasted to the destination using
@@ -10550,7 +10550,7 @@ a broadcast mask specified by bits [3:0] of the immediate byte.
 If a broadcast mask bit is "1", the intermediate result is copied to the corresponding
 dword element in the destination operand. If a broadcast mask bit is zero, the
 corresponding element in the destination is set to zero. DPPS follows the NaN
-forwarding rules stated in the Software Developer''s Manual, vol. 1, table 4.7.
+forwarding rules stated in the Software Developer's Manual, vol. 1, table 4.7.
 These rules do not cover horizontal prioritization of NaNs. Horizontal propagation
 of NaNs to the destination and the positioning of those NaNs in the destination
 is implementation dependent. NaNs on the input sources or computationally generated
@@ -10643,7 +10643,7 @@ Description:
 Sets the values of all the tags in the x87 FPU tag word to empty (all 1s). This
 operation marks the x87 FPU data registers (which are aliased to the MMX technology
 registers) as available for use by x87 FPU floating-point instructions. (See
-Figure 8-7 in the Intel® 64 and IA-32 Architectures Software Developer''s Manual,
+Figure 8-7 in the Intel® 64 and IA-32 Architectures Software Developer's Manual,
 Volume 1, for the format of the x87 FPU tag word.) All other MMX instructions
 (other than the EMMS instruction) set all the tags in x87 FPU tag word to valid
 (all 0s).
@@ -10731,7 +10731,7 @@ levels of 1 or greater, the processor pushes additional frame pointers on the
 stack before adjusting the stack pointer. These additional frame pointers provide
 the called procedure with access points to other nested frames on the stack.
 See “Procedure Calls for Block-Structured Languages” in Chapter 6 of the Intel®
-64 and IA-32 Architectures Software Developer''s Manual, Volume 1, for more information
+64 and IA-32 Architectures Software Developer's Manual, Volume 1, for more information
 about the actions of the ENTER instruction.
 
 The ENTER instruction causes a page fault whenever a write using the final value
@@ -10948,7 +10948,7 @@ Values other than 2 can be exponentiated using the following formula:
 
 xy ← 2(y * log2x)
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 Operation:
 
@@ -11012,7 +11012,7 @@ Table 3-27. Results Obtained from FABS:
 | NaN      | NaN       
 Notes: F Means finite floating-point value.
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 Operation:
 
@@ -11115,7 +11115,7 @@ Notes: F Means finite floating-point value.
 
 | I * Indicates floating-point invalid-arithmetic-operand| Means integer.
 | (#IA) exception.                                       |               
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 Operation:
 
@@ -11222,7 +11222,7 @@ The packed BCD digits are assumed to be in the range 0 through 9; the instructio
 does not check for invalid digits (AH through FH). Attempting to load an invalid
 encoding produces an undefined result.
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 Operation:
 
@@ -11332,7 +11332,7 @@ invalid-arithmetic-operand exception (#IA) is generated and no value is stored
 in the destination operand. If the invalid-operation exception is masked, the
 packed BCD indefinite value is stored in memory.
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 Operation:
 
@@ -11426,7 +11426,7 @@ Table 3-30. FCHS Results:
 | ST(0) SRC| ST(0) DEST + ∞+ F + 0 − 0 − F − ∞NaN
 Notes: * F means finite floating-point value.
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 Operation:
 
@@ -11489,14 +11489,14 @@ When operating a Pentium or Intel486 processor in MS-DOS* compatibility mode,
 it is possible (under unusual circumstances) for an FNCLEX instruction to be
 interrupted prior to being executed to handle a pending FPU exception. See the
 section titled “No-Wait FPU Instructions Can Get FPU Interrupt in Window” in
-Appendix D of the Intel®64 and IA-32 Architectures Software Developer''s Manual,
+Appendix D of the Intel®64 and IA-32 Architectures Software Developer's Manual,
 Volume 1, for a description of these circumstances. An FNCLEX instruction cannot
 be interrupted in this way on a Pentium 4, Intel Xeon, or P6 family processor.
 
 This instruction affects only the x87 FPU floating-point exception flags. It
 does not affect the SIMD floating-point exception flags in the MXCRS register.
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 Operation:
 
@@ -11551,7 +11551,7 @@ Description:
 Tests the status flags in the EFLAGS register and moves the source operand (second
 operand) to the destination operand (first operand) if the given test condition
 is true. The condition for each mnemonic os given in the Description column
-above and in Chapter 8 in the Intel® 64 and IA-32 Architectures Software Developer''s
+above and in Chapter 8 in the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 1. The source operand is always in the ST(i) register and the
 destination operand is always ST(0).
 
@@ -11560,12 +11560,12 @@ also help eliminate branching overhead for IF operations and the possibility
 of branch mispredictions by the processor.
 
 A processor may not support the FCMOVcc instructions. Software can check if
-the FCMOVcc instructions are supported by checking the processor''s feature information
+the FCMOVcc instructions are supported by checking the processor's feature information
 with the CPUID instruction (see “COMISS - Compare Scalar Ordered Single-Precision
 Floating-Point Values and Set EFLAGS” in this chapter). If both the CMOV and
 FPU feature bits are set, the FCMOVcc instructions are supported.
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 
 IA-32 Architecture Compatibility:
@@ -11666,7 +11666,7 @@ operands is a NaN value or is in an unsupported format. The FUCOM instructions
 perform the same operation as the FCOM instructions, except that they do not
 generate an invalid-arithmetic-operand exception for QNaNs.
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 Operation:
 
@@ -11813,7 +11813,7 @@ The FCOMIP and FUCOMIP instructions also pop the register stack following the
 comparison operation. To pop the register stack, the processor marks the ST(0)
 register as empty and increments the stack pointer (TOP) by 1.
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 
 IA-32 Architecture Compatibility:
@@ -11925,10 +11925,10 @@ to the program to check the C2 flag for out-of-range conditions. Source values
 outside the range −263 to +263 can be reduced to the range of the instruction
 by subtracting an appropriate integer multiple of 2π or by using the FPREM instruction
 with a divisor of 2π. See the section titled “Pi” in Chapter 8 of the Intel®
-64 and IA-32 Architectures Software Developer''s Manual, Volume 1, for a discussion
+64 and IA-32 Architectures Software Developer's Manual, Volume 1, for a discussion
 of the proper value to use for π in performing such reductions.
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 Operation:
 
@@ -11988,7 +11988,7 @@ pointer). If the TOP field contains a 0, it is set to 7. The effect of this
 instruction is to rotate the stack by one position. The contents of the FPU
 data registers and tag register are not affected.
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 Operation:
 
@@ -12093,7 +12093,7 @@ Notes: F Means finite floating-point value.
 | I * Indicates floating-point invalid-arithmetic-operand| Means integer.
 | (#IA) exception. ** Indicates floating-point           |               
 | zero-divide (#Z) exception.                            |               
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 Operation:
 
@@ -12259,7 +12259,7 @@ Notes: F Means finite floating-point value.
 | I * Indicates floating-point invalid-arithmetic-operand| Means integer.
 | (#IA) exception. ** Indicates floating-point           |               
 | zero-divide (#Z) exception.                            |               
-When the source operand is an integer 0, it is treated as a +0. This instruction''s
+When the source operand is an integer 0, it is treated as a +0. This instruction's
 operation is the same in non-64-bit modes and 64-bit mode.
 
 Operation:
@@ -12366,7 +12366,7 @@ Description:
 Sets the tag in the FPU tag register associated with register ST(i) to empty
 (11B). The contents of ST(i) and the FPU stack-top pointer (TOP) are not affected.
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 Operation:
 
@@ -12432,7 +12432,7 @@ The FICOMP instructions pop the register stack following the comparison. To
 pop the register stack, the processor marks the ST(0) register empty and increments
 the stack pointer (TOP) by 1.
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 Operation:
 
@@ -12526,7 +12526,7 @@ format and pushes the value onto the FPU register stack. The source operand
 can be a word, doubleword, or quadword integer. It is loaded without rounding
 errors. The sign of the source operand is preserved.
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 Operation:
 
@@ -12610,7 +12610,7 @@ data registers and tag register are not affected. This operation is not equivale
 to popping the stack, because the tag for the previous top-of-stack register
 is not marked empty.
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 Operation:
 
@@ -12675,7 +12675,7 @@ followed by an FNINIT instruction), and the processor executes each of these
 instructions in separately. If an exception is generated for either of these
 instructions, the save EIP points to the instruction that caused the exception.
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 
 IA-32 Architecture Compatibility:
@@ -12683,7 +12683,7 @@ When operating a Pentium or Intel486 processor in MS-DOS compatibility mode,
 it is possible (under unusual circumstances) for an FNINIT instruction to be
 interrupted prior to being executed to handle a pending FPU exception. See the
 section titled “No-Wait FPU Instructions Can Get FPU Interrupt in Window” in
-Appendix D of the Intel®64 and IA-32 Architectures Software Developer''s Manual,
+Appendix D of the Intel®64 and IA-32 Architectures Software Developer's Manual,
 Volume 1, for a description of these circumstances. An FNINIT instruction cannot
 be interrupted in this way on a Pentium 4, Intel Xeon, or P6 family processor.
 
@@ -12781,7 +12781,7 @@ invalid-arithmetic-operand exception (#IA) is generated and no value is stored
 in the destination operand. If the invalid-operation exception is masked, the
 integer indefinite value is stored in memory.
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 Operation:
 
@@ -12889,7 +12889,7 @@ Table 3-38. FISTTP Results:
 Notes: F Means finite floating-point value. Ι Means integer. * Indicates floating-point
 invalid-operation (#IA) exception.
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 Operation:
 
@@ -12976,7 +12976,7 @@ format before being pushed on the stack.
 The FLD instruction can also push the value in a selected FPU register [ST(i)]
 onto the stack. Here, pushing register ST(0) duplicates the stack top.
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 Operation:
 
@@ -13093,9 +13093,9 @@ a result of the rounding, nor is the C1 flag set in the x87 FPU status word
 if the value is rounded up.
 
 See the section titled “Pi” in Chapter 8 of the Intel® 64 and IA-32 Architectures
-Software Developer''s Manual, Volume 1, for a description of the π constant.
+Software Developer's Manual, Volume 1, for a description of the π constant.
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 
 IA-32 Architecture Compatibility:
@@ -13154,18 +13154,18 @@ FLDCW - Load x87 FPU Control Word:
 Description:
 Loads the 16-bit source operand into the FPU control word. The source operand
 is a memory location. This instruction is typically used to establish or change
-the FPU''s mode of operation.
+the FPU's mode of operation.
 
 If one or more exception flags are set in the FPU status word prior to loading
 a new FPU control word and the new control word unmasks one or more of those
 exceptions, a floating-point exception will be generated upon execution of the
 next floating-point instruction (except for the no-wait floating-point instructions,
 see the section titled “Software Exception Handling” in Chapter 8 of the Intel®
-64 and IA-32 Architectures Software Developer''s Manual, Volume 1). To avoid
+64 and IA-32 Architectures Software Developer's Manual, Volume 1). To avoid
 raising exceptions when changing FPU operating modes, clear any pending exceptions
 (using the FCLEX or FNCLEX instruction) before loading the new control word.
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 Operation:
 
@@ -13250,7 +13250,7 @@ a FSTENV or FNSTENV instruction.
 
 The FPU operating environment consists of the FPU control word, status word,
 tag word, instruction pointer, data pointer, and last opcode. Figures 8-9 through
-8-12 in the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume
+8-12 in the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume
 1, show the layout in memory of the loaded environment, depending on the operating
 mode of the processor (protected or real) and the current operand-size attribute
 (16-bit or 32-bit). In virtual-8086 mode, the real mode layouts are used.
@@ -13262,7 +13262,7 @@ If one or more unmasked exception flags are set in the new FPU status word,
 a floating-point exception will be generated upon execution of the next floating-point
 instruction (except for the no-wait floating-point instructions, see the section
 titled “Software Exception Handling” in Chapter 8 of the Intel® 64 and IA-32
-Architectures Software Developer''s Manual, Volume 1). To avoid generating exceptions
+Architectures Software Developer's Manual, Volume 1). To avoid generating exceptions
 when loading a new environment, clear all the exception flags in the FPU status
 word that is being loaded.
 
@@ -13273,7 +13273,7 @@ should ignore the status of the x87 FPU registers, handle the fault, and return.
 The FLDENV instruction will then complete the loading of the x87 FPU registers
 with no resulting context inconsistency.
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 Operation:
 
@@ -13415,7 +13415,7 @@ Notes: F Means finite floating-point value.
 
 | I * Indicates invalid-arithmetic-operand| Means Integer.
 | (#IA) exception.                        |               
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 Operation:
 
@@ -13515,7 +13515,7 @@ Description:
 Performs no FPU operation. This instruction takes up space in the instruction
 stream but does not affect the FPU or machine context, except the EIP register.
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 
 FPU Flags Affected:
@@ -13583,7 +13583,7 @@ ST(0)
 | +3π/4* | +π/2      | +π/2 | +π/2 | + π/2     | + π/4*| NaN
 | NaN    | NaN       | NaN  | NaN  | NaN       | NaN   | NaN
 Notes: F Means finite floating-point value. * Table 8-10 in the Intel® 64 and
-IA-32 Architectures Software Developer''s Manual, Volume 1, specifies that the
+IA-32 Architectures Software Developer's Manual, Volume 1, specifies that the
 ratios 0/0 and ∞/∞generate the floating-point invalid arithmetic-operation exception
 and, if this exception is masked, the floating-point QNaN indefinite value is
 returned. With the FPATAN instruction, the 0/0 or ∞/∞ value is actually not
@@ -13596,7 +13596,7 @@ that only allow floating-point values as arguments.
 
 There is no restriction on the range of source operands that FPATAN can accept.
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 
 IA-32 Architecture Compatibility:
@@ -13708,7 +13708,7 @@ status word. This information is important in argument reduction for the tangent
 function (using a modulus of π/4), because it locates the original angle in
 the correct one of eight sectors of the unit circle.
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 Operation:
 
@@ -13825,7 +13825,7 @@ status word. This information is important in argument reduction for the tangent
 function (using a modulus of π/4), because it locates the original angle in
 the correct one of eight sectors of the unit circle.
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 Operation:
 
@@ -13913,7 +13913,7 @@ to the program to check the C2 flag for out-of-range conditions. Source values
 outside the range −263 to +263 can be reduced to the range of the instruction
 by subtracting an appropriate integer multiple of 2π or by using the FPREM instruction
 with a divisor of 2π. See the section titled “Pi” in Chapter 8 of the Intel®
-64 and IA-32 Architectures Software Developer''s Manual, Volume 1, for a discussion
+64 and IA-32 Architectures Software Developer's Manual, Volume 1, for a discussion
 of the proper value to use for π in performing such reductions.
 
 The value 1.0 is pushed onto the register stack after the tangent has been computed
@@ -13922,7 +13922,7 @@ This operation also simplifies the calculation of other trigonometric functions.
 For instance, the cotangent (which is the reciprocal of the tangent) can be
 computed by executing a FDIVR instruction after the FPTAN instruction.
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 Operation:
 
@@ -13989,7 +13989,7 @@ word), and stores the result in ST(0).
 If the source value is ∞, the value is not changed. If the source value is not
 an integral value, the floating-point inexact-result exception (#P) is generated.
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 Operation:
 
@@ -14041,7 +14041,7 @@ to the specified memory location by a previous FSAVE/FNSAVE instruction.
 
 The FPU operating environment consists of the FPU control word, status word,
 tag word, instruction pointer, data pointer, and last opcode. Figures 8-9 through
-8-12 in the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume
+8-12 in the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume
 1, show the layout in memory of the stored environment, depending on the operating
 mode of the processor (protected or real) and the current operand-size attribute
 (16-bit or 32-bit). In virtual-8086 mode, the real mode layouts are used. The
@@ -14056,7 +14056,7 @@ floating-point exception will be generated. To avoid raising exceptions when
 loading a new operating environment, clear all the exception flags in the FPU
 status word that is being loaded.
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 Operation:
 
@@ -14160,7 +14160,7 @@ before storing the FPU state; the FNSAVE instruction does not.
 
 The FPU operating environment consists of the FPU control word, status word,
 tag word, instruction pointer, data pointer, and last opcode. Figures 8-9 through
-8-12 in the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume
+8-12 in the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume
 1, show the layout in memory of the stored environment, depending on the operating
 mode of the processor (protected or real) and the current operand-size attribute
 (16-bit or 32-bit). In virtual-8086 mode, the real mode layouts are used. The
@@ -14183,7 +14183,7 @@ followed by an FNSAVE instruction), and the processor executes each of these
 instructions separately. If an exception is generated for either of these instructions,
 the save EIP points to the instruction that caused the exception.
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 
 IA-32 Architecture Compatibility:
@@ -14196,7 +14196,7 @@ When operating a Pentium or Intel486 processor in MS-DOS compatibility mode,
 it is possible (under unusual circumstances) for an FNSAVE instruction to be
 interrupted prior to being executed to handle a pending FPU exception. See the
 section titled “No-Wait FPU Instructions Can Get FPU Interrupt in Window” in
-Appendix D of the Intel®64 and IA-32 Architectures Software Developer''s Manual,
+Appendix D of the Intel®64 and IA-32 Architectures Software Developer's Manual,
 Volume 1, for a description of these circumstances. An FNSAVE instruction cannot
 be interrupted in this way on a Pentium 4, Intel Xeon, or P6 family processor.
 
@@ -14321,7 +14321,7 @@ In most cases, only the exponent is changed and the mantissa (significand) remai
 unchanged. However, when the value being scaled in ST(0) is a denormal value,
 the mantissa is also changed and the result may turn out to be a normalized
 number. Similarly, if overflow or underflow results from a scale operation,
-the resulting mantissa will differ from the source''s mantissa.
+the resulting mantissa will differ from the source's mantissa.
 
 The FSCALE instruction can also be used to reverse the action of the FXTRACT
 instruction, as shown in the following example: FXTRACT; FSCALE; FSTP ST(1);
@@ -14334,7 +14334,7 @@ instruction overwrites the exponent (extracted by the FXTRACT instruction) with
 the recreated value, which returns the stack to its original state with only
 one register [ST(0)] occupied.
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 Operation:
 
@@ -14408,10 +14408,10 @@ to the program to check the C2 flag for out-of-range conditions. Source values
 outside the range −263 to +263 can be reduced to the range of the instruction
 by subtracting an appropriate integer multiple of 2π or by using the FPREM instruction
 with a divisor of 2π. See the section titled “Pi” in Chapter 8 of the Intel®
-64 and IA-32 Architectures Software Developer''s Manual, Volume 1, for a discussion
+64 and IA-32 Architectures Software Developer's Manual, Volume 1, for a discussion
 of the proper value to use for π in performing such reductions.
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 Operation:
 
@@ -14494,10 +14494,10 @@ to the program to check the C2 flag for out-of-range conditions. Source values
 outside the range −263 to +263 can be reduced to the range of the instruction
 by subtracting an appropriate integer multiple of 2π or by using the FPREM instruction
 with a divisor of 2π. See the section titled “Pi” in Chapter 8 of the Intel®
-64 and IA-32 Architectures Software Developer''s Manual, Volume 1, for a discussion
+64 and IA-32 Architectures Software Developer's Manual, Volume 1, for a discussion
 of the proper value to use for π in performing such reductions.
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 Operation:
 
@@ -14575,7 +14575,7 @@ Table 3-47. FSQRT Results:
 Notes: F Means finite floating-point value. * Indicates floating-point invalid-arithmetic-operand
 (#IA) exception.
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 Operation:
 
@@ -14661,12 +14661,12 @@ as a numeric underflow exception (#U) condition.
 
 If the value being stored is ±0, ±∞, or a NaN, the least-significant bits of
 the significand and the exponent are truncated to fit the destination format.
-This operation preserves the value''s identity as a 0, ∞, or NaN.
+This operation preserves the value's identity as a 0, ∞, or NaN.
 
 If the destination operand is a non-empty register, the invalid-operation exception
 is not generated.
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 Operation:
 
@@ -14776,7 +14776,7 @@ followed by an FNSTCW instruction), and the processor executes each of these
 instructions in separately. If an exception is generated for either of these
 instructions, the save EIP points to the instruction that caused the exception.
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 
 IA-32 Architecture Compatibility:
@@ -14784,7 +14784,7 @@ When operating a Pentium or Intel486 processor in MS-DOS compatibility mode,
 it is possible (under unusual circumstances) for an FNSTCW instruction to be
 interrupted prior to being executed to handle a pending FPU exception. See the
 section titled “No-Wait FPU Instructions Can Get FPU Interrupt in Window” in
-Appendix D of the Intel® 64 and IA-32 Architectures Software Developer''s Manual,
+Appendix D of the Intel® 64 and IA-32 Architectures Software Developer's Manual,
 Volume 1, for a description of these circumstances. An FNSTCW instruction cannot
 be interrupted in this way on a Pentium 4, Intel Xeon, or P6 family processor.
 
@@ -14876,7 +14876,7 @@ Saves the current FPU operating environment at the memory location specified
 with the destination operand, and then masks all floating-point exceptions.
 The FPU operating environment consists of the FPU control word, status word,
 tag word, instruction pointer, data pointer, and last opcode. Figures 8-9 through
-8-12 in the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume
+8-12 in the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume
 1, show the layout in memory of the stored environment, depending on the operating
 mode of the processor (protected or real) and the current operand-size attribute
 (16-bit or 32-bit). In virtual-8086 mode, the real mode layouts are used.
@@ -14897,7 +14897,7 @@ followed by an FNSTENV instruction), and the processor executes each of these
 instructions separately. If an exception is generated for either of these instructions,
 the save EIP points to the instruction that caused the exception.
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 
 IA-32 Architecture Compatibility:
@@ -14905,7 +14905,7 @@ When operating a Pentium or Intel486 processor in MS-DOS compatibility mode,
 it is possible (under unusual circumstances) for an FNSTENV instruction to be
 interrupted prior to being executed to handle a pending FPU exception. See the
 section titled “No-Wait FPU Instructions Can Get FPU Interrupt in Window” in
-Appendix D of the Intel® 64 and IA-32 Architectures Software Developer''s Manual,
+Appendix D of the Intel® 64 and IA-32 Architectures Software Developer's Manual,
 Volume 1, for a description of these circumstances. An FNSTENV instruction cannot
 be interrupted in this way on a Pentium 4, Intel Xeon, or P6 family processor.
 
@@ -15011,7 +15011,7 @@ The FNSTSW AX form of the instruction is used primarily in conditional branching
 instruction), where the direction of the branch depends on the state of the
 FPU condition code flags. (See the section titled “Branching and Conditional
 Moves on FPU Condition Codes” in Chapter 8 of the Intel® 64 and IA-32 Architectures
-Software Developer''s Manual, Volume 1.) This instruction can also be used to
+Software Developer's Manual, Volume 1.) This instruction can also be used to
 invoke exception handlers (by examining the exception flags) in environments
 that do not use interrupts. When the FNSTSW AX instruction is executed, the
 AX register is updated before the processor executes any further instructions.
@@ -15023,7 +15023,7 @@ followed by an FNSTSW instruction), and the processor executes each of these
 instructions separately. If an exception is generated for either of these instructions,
 the save EIP points to the instruction that caused the exception.
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 
 IA-32 Architecture Compatibility:
@@ -15031,7 +15031,7 @@ When operating a Pentium or Intel486 processor in MS-DOS compatibility mode,
 it is possible (under unusual circumstances) for an FNSTSW instruction to be
 interrupted prior to being executed to handle a pending FPU exception. See the
 section titled “No-Wait FPU Instructions Can Get FPU Interrupt in Window” in
-Appendix D of the Intel® 64 and IA-32 Architectures Software Developer''s Manual,
+Appendix D of the Intel® 64 and IA-32 Architectures Software Developer's Manual,
 Volume 1, for a description of these circumstances. An FNSTSW instruction cannot
 be interrupted in this way on a Pentium 4, Intel Xeon, or P6 family processor.
 
@@ -15173,7 +15173,7 @@ Notes: F Means finite floating-point value.
 
 | I * Indicates floating-point invalid-arithmetic-operand| Means integer.
 | (#IA) exception.                                       |               
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 Operation:
 
@@ -15337,7 +15337,7 @@ Notes: F Means finite floating-point value.
 
 | I * Indicates floating-point invalid-arithmetic-operand| Means integer.
 | (#IA) exception.                                       |               
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 Operation:
 
@@ -15447,7 +15447,7 @@ exception is generated.
 
 The sign of zero is ignored, so that (- 0.0 ← +0.0).
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 Operation:
 
@@ -15537,7 +15537,7 @@ and the FUCOMPP instruction pops the register stack twice following the comparis
 operation. To pop the register stack, the processor marks the ST(0) register
 as empty and increments the stack pointer (TOP) by 1.
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 Operation:
 
@@ -15616,7 +15616,7 @@ Table 3-52. FXAM Results:
 The C1 flag is set to the sign of the value in ST(0), regardless of whether
 the register is empty or full.
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 Operation:
 
@@ -15676,7 +15676,7 @@ floating-point instructions that can only operate on values in ST(0). For exampl
 the following instruction sequence takes the square root of the third register
 from the top of the register stack: FXCH ST(3); FSQRT; FXCH ST(3);
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 Operation:
 
@@ -15923,12 +15923,12 @@ Table 3-54. Field Definitions:
 | Field                  | Definition                                           
 | FCW                    | x87 FPU Control Word (16 bits). See                  
 |                        | Figure 8-6 in the Intel® 64 and IA-32                
-|                        | Architectures Software Developer''s Manual,           
+|                        | Architectures Software Developer's Manual,           
 |                        | Volume 1, for the layout of the x87                  
 |                        | FPU control word.                                    
 | FSW                    | x87 FPU Status Word (16 bits). See Figure            
 |                        | 8-4 in the Intel® 64 and IA-32 Architectures         
-|                        | Software Developer''s Manual, Volume                  
+|                        | Software Developer's Manual, Volume                  
 |                        | 1, for the layout of the x87 FPU status              
 |                        | word.                                                
 | Abridged FTW           | x87 FPU Tag Word (8 bits). The tag information       
@@ -15938,7 +15938,7 @@ Table 3-54. Field Definitions:
 |                        | 11 bits of this field contain the opcode,            
 |                        | upper 5 bits are reserved. See Figure                
 |                        | 8-8 in the Intel® 64 and IA-32 Architectures         
-|                        | Software Developer''s Manual, Volume                  
+|                        | Software Developer's Manual, Volume                  
 |                        | 1, for the layout of the x87 FPU opcode              
 |                        | field.                                               
 | FPU IP                 | x87 FPU Instruction Pointer Offset (32               
@@ -15951,7 +15951,7 @@ Table 3-54. Field Definitions:
 |                        | 16 bits are reserved. See “x87 FPU Instruction       
 |                        | and Operand (Data) Pointers” in Chapter              
 |                        | 8 of the Intel® 64 and IA-32 Architectures           
-|                        | Software Developer''s Manual, Volume                  
+|                        | Software Developer's Manual, Volume                  
 |                        | 1, for a description of the x87 FPU                  
 |                        | instruction pointer.                                 
 | FPU CS                 | x87 FPU Instruction Pointer Selector                 
@@ -15971,7 +15971,7 @@ Table 3-54. Field Definitions:
 |                        | See “x87 FPU Instruction and Operand                 
 |                        | (Data) Pointers” in Chapter 8 of the                 
 |                        | Intel® 64 and IA-32 Architectures Software           
-|                        | Developer''s Manual, Volume 1, for a                  
+|                        | Developer's Manual, Volume 1, for a                  
 |                        | description of the x87 FPU operand pointer.          
 | FPU DS                 | x87 FPU Instruction Operand (Data) Pointer           
 |                        | Selector (16 bits). If CPUID.(EAX=07H,ECX=0H):EBX[bit
@@ -15980,7 +15980,7 @@ Table 3-54. Field Definitions:
 |                        | is saved as 0000H.                                   
 | MXCSR                  | MXCSR Register State (32 bits). See                  
 |                        | Figure 10-3 in the Intel® 64 and IA-32               
-|                        | Architectures Software Developer''s Manual,           
+|                        | Architectures Software Developer's Manual,           
 |                        | Volume 1, for the layout of the MXCSR                
 |                        | register. If the OSFXSR bit in control               
 |                        | register CR4 is not set, the FXSAVE                  
@@ -15995,7 +15995,7 @@ Table 3-54. Field Definitions:
 |                        | instructions. See “Guidelines for Writing            
 |                        | to the MXCSR Register” in Chapter 11                 
 |                        | of the Intel® 64 and IA-32 Architectures             
-|                        | Software Developer''s Manual, Volume                  
+|                        | Software Developer's Manual, Volume                  
 |                        | 1, for instructions for how to determine             
 |                        | and use the MXCSR_MASK value.                        
 | ST0/MM0 through ST7/MM7| x87 FPU or MMX technology registers.                 
@@ -16069,7 +16069,7 @@ registers) using Table 3-55.
 
 
 Table 3-55. Recreating FSAVE Format:
-| Exponent all 1''s| Exponent all 0''s| Fraction all 0''s| J and M bits| FTW valid bit x87 FTW
+| Exponent all 1's| Exponent all 0's| Fraction all 0's| J and M bits| FTW valid bit x87 FTW
 | 0               | 0               | 0               | 0x          | 10                   
 | 0               | 0               | 0               | 1x          | 00                   
 | 0               | 0               | 1               | 00          | 10                   
@@ -16088,7 +16088,7 @@ of the fractional portion of the significand (i.e., the bit immediately to the
 right of the decimal place).
 
 When the M-bit is the most significant bit of the fractional portion of the
-significand, it must be 0 if the fraction is all 0''s.
+significand, it must be 0 if the fraction is all 0's.
 
 
 IA-32e Mode Operation:
@@ -16223,7 +16223,7 @@ Same exceptions as in protected mode.
 Implementation Note:
 The order in which the processor signals general-protection (#GP) and page-fault
 (#PF) exceptions when they both occur on an instruction boundary is given in
-Table 5-2 in the Intel® 64 and IA-32 Architectures Software Developer''s Manual,
+Table 5-2 in the Intel® 64 and IA-32 Architectures Software Developer's Manual,
 Volume 3B. This order vary for FXSAVE for different processor implementations.
 
 `,
@@ -16243,7 +16243,7 @@ Following this operation, the new top-of-stack register ST(0) contains the value
 of the original significand expressed as a floating-point value. The sign and
 significand of this value are the same as those found in the source operand,
 and the exponent is 3FFFH (biased value for a true exponent of zero). The ST(1)
-register contains the value of the original operand''s true (unbiased) exponent
+register contains the value of the original operand's true (unbiased) exponent
 expressed as a floating-point value. (The operation performed by this instruction
 is a superset of the IEEE-recommended logb(x) function.)
 
@@ -16256,7 +16256,7 @@ If the floating-point zero-divide exception (#Z) is masked and the source operan
 is zero, an exponent value of ∞ is stored in register ST(1) and 0 with the sign
 of the source operand is stored in register ST(0).
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 Operation:
 
@@ -16330,7 +16330,7 @@ the calculation of logarithms with an arbitrary positive base (b):
 
 log<sub>b</sub>x ← (log<sub>2</sub>b)-1 * log<sub>2</sub>x
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 Operation:
 
@@ -16420,7 +16420,7 @@ result of the FYL2XP1 instruction:
 
 scale factor ← log<sub>n</sub> 2
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 Operation:
 
@@ -16692,7 +16692,7 @@ The HLT instruction is a privileged instruction. When the processor is running
 in protected or virtual-8086 mode, the privilege level of a program or procedure
 must be 0 to execute the HLT instruction.
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 Operation:
 
@@ -16958,7 +16958,7 @@ Non-integral results are truncated (chopped) towards 0. The remainder is always
 less than the divisor in magnitude. Overflow is indicated with the #DE (divide
 error) exception rather than with the CF flag.
 
-In 64-bit mode, the instruction''s default operation size is 32 bits. Use of
+In 64-bit mode, the instruction's default operation size is 32 bits. Use of
 the REX.R prefix permits access to additional registers (R8-R15). Use of the
 REX.W prefix promotes operation to 64 bits. In 64-bit mode when REX.W is applied,
 the instruction divides the signed value in RDX:RAX by the source operand. RAX
@@ -17164,7 +17164,7 @@ the lower half of the product is the same regardless if the operands are signed
 or unsigned. The CF and OF flags, however, cannot be used to determine if the
 upper half of the result is non-zero.
 
-In 64-bit mode, the instruction''s default operation size is 32 bits. Use of
+In 64-bit mode, the instruction's default operation size is 32 bits. Use of
 the REX.R prefix permits access to additional registers (R8-R15). Use of the
 REX.W prefix promotes operation to 64 bits. Use of REX.W modifies the three
 forms of the instruction as follows.
@@ -17318,12 +17318,12 @@ accessing a 16- and 32-bit I/O port, the operand-size attribute determines the
 port size. At the machine code level, I/O instructions are shorter when accessing
 8-bit I/O ports. Here, the upper eight bits of the port address will be 0.
 
-This instruction is only useful for accessing I/O ports located in the processor''s
+This instruction is only useful for accessing I/O ports located in the processor's
 I/O address space. See Chapter 16, “Input/Output,” in the Intel® 64 and IA-32
-Architectures Software Developer''s Manual, Volume 1, for more information on
+Architectures Software Developer's Manual, Volume 1, for more information on
 accessing I/O ports in the I/O address space.
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 Operation:
 
@@ -17404,7 +17404,7 @@ This instruction can be used with a LOCK prefix to allow the instruction to
 be executed atomically.
 
 In 64-bit mode, INC r16 and INC r32 are not encodable (because opcodes 40H through
-47H are REX prefixes). Otherwise, the instruction''s 64-bit mode default operation
+47H are REX prefixes). Otherwise, the instruction's 64-bit mode default operation
 size is 32 bits. Use of the REX.R prefix permits access to additional registers
 (R8-R15). Use of the REX.W prefix promotes operation to 64 bits.
 
@@ -17543,11 +17543,11 @@ operations, by 2 for word operations, or by 4 for doubleword operations.
 The INS, INSB, INSW, and INSD instructions can be preceded by the REP prefix
 for block input of ECX bytes, words, or doublewords. See “REP/REPE/REPZ /REPNE/REPNZ - Repeat
 String Operation Prefix” in Chapter 4 of the Intel®64 and IA-32 Architectures
-Software Developer''s Manual, Volume 2B, for a description of the REP prefix.
+Software Developer's Manual, Volume 2B, for a description of the REP prefix.
 
-These instructions are only useful for accessing I/O ports located in the processor''s
+These instructions are only useful for accessing I/O ports located in the processor's
 I/O address space. See Chapter 16, “Input/Output,” in the Intel® 64 and IA-32
-Architectures Software Developer''s Manual, Volume 1, for more information on
+Architectures Software Developer's Manual, Volume 1, for more information on
 accessing I/O ports in the I/O address space.
 
 In 64-bit mode, default address size is 64 bits, 32 bit address size is supported
@@ -17798,7 +17798,7 @@ Instruction Operand Encoding:
 Description:
 The INT n instruction generates a call to the interrupt or exception handler
 specified with the destination operand (see the section titled “Interrupts and
-Exceptions” in Chapter 6 of the Intel® 64 and IA-32 Architectures Software Developer''s
+Exceptions” in Chapter 6 of the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 1). The destination operand specifies an interrupt vector number
 from 0 to 255, encoded as an 8-bit unsigned intermediate value. Each interrupt
 vector number provides an index to a gate descriptor in the IDT. The first 32
@@ -17866,12 +17866,12 @@ Table 3-61. Decision Table:
 | TASK-GATE #GP                                                 |  |        |         |                        |                        |                        |                        |                        
 Notes: 
 
-| −| Don''t Care.                         
+| −| Don't Care.                         
 | Y| Yes, action taken. Action not taken.
 When the processor is executing in virtual-8086 mode, the IOPL determines the
 action of the INT n instruction. If the IOPL is less than 3, the processor generates
 a #GP(selector) exception; if the IOPL is 3, the processor executes a protected
-mode interrupt to privilege level 0. The interrupt gate''s DPL must be set to
+mode interrupt to privilege level 0. The interrupt gate's DPL must be set to
 3 and the target CPL of the interrupt handler procedure must be 0 to execute
 the protected mode interrupt to privilege level 0.
 
@@ -18305,7 +18305,7 @@ The EFLAGS register is pushed onto the stack. The IF, TF, NT, AC, RF, and VM
 flags may be cleared, depending on the mode of operation of the processor when
 the INT instruction is executed (see the “Operation” section). If the interrupt
 uses a task gate, any flags may be set or cleared, controlled by the EFLAGS
-image in the new task''s TSS.
+image in the new task's TSS.
 
 
 Protected Mode Exceptions:
@@ -18409,7 +18409,7 @@ Virtual-8086 Mode Exceptions:
 |                | in the TSS is not equal to the DPL of           
 |                | the code segment being accessed by the          
 |                | interrupt or trap gate. If DPL of the           
-|                | stack segment descriptor for the TSS''s          
+|                | stack segment descriptor for the TSS's          
 |                | stack segment is not equal to the DPL           
 |                | of the code segment descriptor for the          
 |                | interrupt or trap gate. If the stack            
@@ -18448,7 +18448,7 @@ Same exceptions as in protected mode.
 |                | non-canonical space. If the descriptor       
 |                | pointed to by the gate selector is not       
 |                | a code segment. If the descriptor pointed    
-|                | to by the gate selector doesn''t have         
+|                | to by the gate selector doesn't have         
 |                | the L-bit set, or has both the Lbit          
 |                | and D-bit set. If the descriptor pointed     
 |                | to by the gate selector has DPL > CPL.       
@@ -18485,7 +18485,7 @@ Instruction Operand Encoding:
 | NP   | NA       | NA       | NA       | NA       
 
 Description:
-Invalidates (flushes) the processor''s internal caches and issues a special-function
+Invalidates (flushes) the processor's internal caches and issues a special-function
 bus cycle that directs external caches to also flush themselves. Data held in
 internal caches is not written back to main memory.
 
@@ -18512,7 +18512,7 @@ cache lines (for example, temporary memory, testing, or fault recovery where
 cache coherency with main memory is not a concern), software should instead
 use the WBINVD instruction.
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 
 IA-32 Architecture Compatibility:
@@ -18580,10 +18580,10 @@ page, regardless of PCID.
 
 For more details on operations that flush the TLB, see “MOV - Move to/from Control
 Registers” and Section 4.10.4.1, “Operations that Invalidate TLBs and Paging-Structure
-Caches,” of the Intel® 64 and IA-32 Architectures Software Developer''s Manual,
+Caches,” of the Intel® 64 and IA-32 Architectures Software Developer's Manual,
 Volume 3A.
 
-This instruction''s operation is the same in all non-64-bit modes. It also operates
+This instruction's operation is the same in all non-64-bit modes. It also operates
 the same in 64-bit mode, except if the memory address is in non-canonical form.
 In this case, INVLPG is the same as a NOP.
 
@@ -18640,7 +18640,7 @@ Instruction Operand Encoding:
 Description:
 Invalidates mappings in the translation lookaside buffers (TLBs) and paging-structure
 caches based on processcontext identifier (PCID). (See Section 4.10, “Caching
-Translation Information,” in Intel 64 and IA-32 Architecture Software Developer''s
+Translation Information,” in Intel 64 and IA-32 Architecture Software Developer's
 Manual, Volume 3A.) Invalidation is based on the INVPCID type specified in the
 register operand and the INVPCID descriptor specified in the memory operand.
 
@@ -18678,7 +18678,7 @@ only if the PCID specified in the INVPCID descriptor is 000H;
 
 executions with INVPCID types 2 and 3 invalidate mappings only for PCID 000H.
 Note that CR4.PCIDE must be 0 outside 64-bit mode (see Chapter 4.10.1, “Process-Context
-Identifiers (PCIDs)‚” of the Intel® 64 and IA-32 Architectures Software Developer''s
+Identifiers (PCIDs)‚” of the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 3A).
 
 Operation:
@@ -18796,7 +18796,7 @@ a software-generated interrupt. These instructions are also used to perform
 a return from a nested task. (A nested task is created when a CALL instruction
 is used to initiate a task switch or when an interrupt or exception causes a
 task switch to an interrupt or exception handler.) See the section titled “Task
-Linking” in Chapter 7 of the Intel® 64 and IA-32 Architectures Software Developer''s
+Linking” in Chapter 7 of the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 3A.
 
 IRET and IRETD are mnemonics for the same opcode. The IRETD mnemonic (interrupt
@@ -18844,12 +18844,12 @@ re-entered later, the code that follows the IRET instruction is executed.
 If the NT flag is set and the processor is in IA-32e mode, the IRET instruction
 causes a general protection exception.
 
-In 64-bit mode, the instruction''s default operation size is 32 bits. Use of
+In 64-bit mode, the instruction's default operation size is 32 bits. Use of
 the REX.W prefix promotes operation to 64 bits (IRETQ). See the summary chart
 at the beginning of this section for encoding data and limits.
 
 See “Changes to Instruction Behavior in VMX Non-Root Operation” in Chapter 25
-of the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume
+of the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume
 3C, for more information about the behavior of this instruction in VMX non-root
 operation.
 
@@ -19131,7 +19131,7 @@ Flags Affected:
 All the flags and fields in the EFLAGS register are potentially modified, depending
 on the mode of operation of the processor. If performing a return from a nested
 task to a previous task, the EFLAGS register will be modified according to the
-EFLAGS image stored in the previous task''s TSS.
+EFLAGS image stored in the previous task's TSS.
 
 
 Protected Mode Exceptions:
@@ -19569,7 +19569,7 @@ jump.
  - Task switch - A jump to an instruction located in a different task.
 
 A task switch can only be executed in protected mode (see Chapter 7, in the
-Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume 3A, for
+Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume 3A, for
 information on performing task switches with the JMP instruction).
 
 Near and Short Jumps. When executing a near jump, the processor jumps to the
@@ -19652,25 +19652,25 @@ Executing a task switch with the JMP instruction is somewhat similar to executin
 a jump through a call gate. Here the target operand specifies the segment selector
 of the task gate for the task being switched to (and the offset part of the
 target operand is ignored). The task gate in turn points to the TSS for the
-task, which contains the segment selectors for the task''s code and stack segments.
+task, which contains the segment selectors for the task's code and stack segments.
 The TSS also contains the EIP value for the next instruction that was to be
 executed before the task was suspended. This instruction pointer value is loaded
 into the EIP register so that the task begins executing again at this next instruction.
 
 The JMP instruction can also specify the segment selector of the TSS directly,
 which eliminates the indirection of the task gate. See Chapter 7 in Intel® 64
-and IA-32 Architectures Software Developer''s Manual, Volume 3A, for detailed
+and IA-32 Architectures Software Developer's Manual, Volume 3A, for detailed
 information on the mechanics of a task switch.
 
 Note that when you execute at task switch with a JMP instruction, the nested
-task flag (NT) is not set in the EFLAGS register and the new TSS''s previous
-task link field is not loaded with the old task''s TSS selector. A return to
+task flag (NT) is not set in the EFLAGS register and the new TSS's previous
+task link field is not loaded with the old task's TSS selector. A return to
 the previous task can thus not be carried out by executing the IRET instruction.
 Switching tasks with the JMP instruction differs in this regard from the CALL
 instruction which does set the NT flag and save the previous task link information,
 allowing a return to the calling task with an IRET instruction.
 
-In 64-Bit Mode  -  The instruction''s operation size is fixed at 64 bits. If a
+In 64-Bit Mode  -  The instruction's operation size is fixed at 64 bits. If a
 selector points to a gate, then RIP equals the 64-bit displacement taken from
 gate; else RIP equals the zero-extended offset from the far pointer referenced
 in the instruction.
@@ -19880,14 +19880,14 @@ Protected Mode Exceptions:
 |                | task gate, or task state segment. If        
 |                | the DPL for a nonconforming-code segment    
 |                | is not equal to the CPL (When not using     
-|                | a call gate.) If the RPL for the segment''s  
+|                | a call gate.) If the RPL for the segment's  
 |                | segment selector is greater than the        
 |                | CPL. If the DPL for a conforming-code       
 |                | segment is greater than the CPL. If         
 |                | the DPL from a call-gate, task-gate,        
 |                | or TSS segment descriptor is less than      
 |                | the CPL or than the RPL of the call-gate,   
-|                | task-gate, or TSS''s segment selector.       
+|                | task-gate, or TSS's segment selector.       
 |                | If the segment descriptor for selector      
 |                | in a call gate does not indicate it         
 |                | is a code segment. If the segment descriptor
@@ -19963,7 +19963,7 @@ Same as 64-bit mode exceptions.
 |              | and has both the D-bit and the L-bit       
 |              | set. If the DPL for a nonconforming-code   
 |              | segment is not equal to the CPL, or        
-|              | the RPL for the segment''s segment selector 
+|              | the RPL for the segment's segment selector 
 |              | is greater than the CPL. If the DPL        
 |              | for a conforming-code segment is greater   
 |              | than the CPL. If the DPL from a 64-bit     
@@ -19974,7 +19974,7 @@ Same as 64-bit mode exceptions.
 |              | from a 64-bit call gate is beyond the      
 |              | descriptor table limits. If the code       
 |              | segment descriptor pointed to by the       
-|              | selector in the 64-bit gate doesn''t        
+|              | selector in the 64-bit gate doesn't        
 |              | have the Lbit set and the D-bit clear.     
 |              | If the segment descriptor for a segment    
 |              | selector from the 64-bit call gate does    
@@ -20274,7 +20274,7 @@ Instruction Operand Encoding:
 Description:
 Loads the source operand into the MXCSR control/status register. The source
 operand is a 32-bit memory location. See “MXCSR Control and Status Register”
-in Chapter 10, of the Intel® 64 and IA-32 Architectures Software Developer''s
+in Chapter 10, of the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 1, for a description of the MXCSR register and its contents.
 
 The LDMXCSR instruction is typically used in conjunction with the (V)STMXCSR
@@ -20290,7 +20290,7 @@ the execution of the next instruction that meets both conditions below:
  - the instruction must operate on an XMM or YMM register operand,
  - the instruction causes that particular SIMD floating-point exception to be reported.
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 If VLDMXCSR is encoded with VEX.L= 1, an attempt to execute the instruction
 encoded with VEX.L= 1 will cause an #UD exception.
 
@@ -20359,7 +20359,7 @@ subsequent reference to a segment whose corresponding segment register is loaded
 with a NULL selector, causes a general-protection exception (#GP) and no memory
 reference to the segment occurs.)
 
-In 64-bit mode, the instruction''s default operation size is 32 bits. Using a
+In 64-bit mode, the instruction's default operation size is 32 bits. Using a
 REX prefix in the form of REX.W promotes operation to specify a source operand
 referencing an 80-bit pointer (16-bit selector, 64-bit offset) in memory. Using
 a REX prefix in the form of REX.R permits access to additional registers (R8-R15).
@@ -20602,7 +20602,7 @@ Table 3-63. Non-64-bit Mode LEA Operation with Address and Operand Size Attribut
 Different assemblers may use different algorithms based on the size attribute
 and symbolic reference of the source operand.
 
-In 64-bit mode, the instruction''s destination operand is governed by operand
+In 64-bit mode, the instruction's destination operand is governed by operand
 size attribute, the default operand size is 32 bits. Address calculation is
 governed by address size attribute, the default address size is 64-bits. In
 64bit mode, address size of 16 bits is not encodable. See Table 3-64.
@@ -20709,16 +20709,16 @@ copies the frame pointer (in the EBP register) into the stack pointer register
 (ESP), which releases the stack space allocated to the stack frame. The old
 frame pointer (the frame pointer for the calling procedure that was saved by
 the ENTER instruction) is then popped from the stack into the EBP register,
-restoring the calling procedure''s stack frame.
+restoring the calling procedure's stack frame.
 
 A RET instruction is commonly executed following a LEAVE instruction to return
 program control to the calling procedure.
 
 See “Procedure Calls for Block-Structured Languages” in Chapter 7 of the Intel®
-64 and IA-32 Architectures Software Developer''s Manual, Volume 1, for detailed
+64 and IA-32 Architectures Software Developer's Manual, Volume 1, for detailed
 information on the use of the ENTER and LEAVE instructions.
 
-In 64-bit mode, the instruction''s default operation size is 64 bits; 32-bit
+In 64-bit mode, the instruction's default operation size is 64 bits; 32-bit
 operation cannot be encoded. See the summary chart at the beginning of this
 section for encoding data and limits.
 
@@ -20818,7 +20818,7 @@ ordered with respect to executions of the LFENCE instruction; data can be brough
 into the caches speculatively just before, during, or after the execution of
 an LFENCE instruction.
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 Operation:
 
@@ -20863,12 +20863,12 @@ load a linear address (that is, not a segment-relative address) and a limit
 in protected mode. They are commonly executed in real-address mode to allow
 processor initialization prior to switching to protected mode.
 
-In 64-bit mode, the instruction''s operand size is fixed at 8+2 bytes (an 8-byte
+In 64-bit mode, the instruction's operand size is fixed at 8+2 bytes (an 8-byte
 base and a 2-byte limit). See the summary chart at the beginning of this section
 for encoding data and limits.
 
 See “SGDT - Store Global Descriptor Table Register” in Chapter 4, Intel® 64 and
-IA-32 Architectures Software Developer''s Manual, Volume 2B, for information
+IA-32 Architectures Software Developer's Manual, Volume 2B, for information
 on storing the contents of the GDTR and IDTR.
 
 Operation:
@@ -21090,11 +21090,11 @@ between protected and real-address modes.
 
 This instruction is a serializing instruction.
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 Note that the operand size is fixed at 16 bits.
 
 See “Changes to Instruction Behavior in VMX Non-Root Operation” in Chapter 25
-of the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume
+of the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume
 3C, for more information about the behavior of this instruction in VMX non-root
 operation.
 
@@ -21159,7 +21159,7 @@ Instruction Operand Encoding:
 | NP   | NA       | NA       | NA       | NA       
 
 Description:
-Causes the processor''s LOCK# signal to be asserted during execution of the accompanying
+Causes the processor's LOCK# signal to be asserted during execution of the accompanying
 instruction (turns the instruction into an atomic instruction). In a multiprocessor
 environment, the LOCK# signal ensures that the processor has exclusive use of
 any shared memory while the signal is asserted.
@@ -21184,17 +21184,17 @@ operation on a memory location in shared memory environment.
 The integrity of the LOCK prefix is not affected by the alignment of the memory
 field. Memory locking is observed for arbitrarily misaligned fields.
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 
 IA-32 Architecture Compatibility:
 Beginning with the P6 family processors, when the LOCK prefix is prefixed to
 an instruction and the memory area being accessed is cached internally in the
-processor, the LOCK# signal is generally not asserted. Instead, only the processor''s
-cache is locked. Here, the processor''s cache coherency mechanism ensures that
+processor, the LOCK# signal is generally not asserted. Instead, only the processor's
+cache is locked. Here, the processor's cache coherency mechanism ensures that
 the operation is carried out atomically with regards to memory. See “Effects
 of a Locked Operation on Internal Processor Caches”in Chapter 8 of Intel® 64
-and IA-32 Architectures Software Developer''s Manual, Volume 3A, the for more
+and IA-32 Architectures Software Developer's Manual, Volume 3A, the for more
 information on locking of caches.
 
 Operation:
@@ -21306,7 +21306,7 @@ instructions are used within a LOOP construct because
 | into the register is See “REP/REPE/REPZ     | can be made.                              
 | /REPNE/REPNZ - Repeat String Operation        |                                           
 | Prefix” in Chapter 4 of the Intel® 64       |                                           
-| and IA-32 Architectures Software Developer''s|                                           
+| and IA-32 Architectures Software Developer's|                                           
 | Manual, Volume 2B, for a description        |                                           
 | of the REP prefix.                          |                                           
 Operation:
@@ -21892,7 +21892,7 @@ byte location in memory: 0 indicates no write and 1 indicates write.
 The MASKMOVDQU instruction generates a non-temporal hint to the processor to
 minimize cache pollution. The non-temporal hint is implemented by using a write
 combining (WC) memory type protocol (see “Caching of Temporal vs. Non-Temporal
-Data” in Chapter 10, of the Intel® 64 and IA-32 Architectures Software Developer''s
+Data” in Chapter 10, of the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 1). Because the WC protocol uses a weakly-ordered memory consistency
 model, a fencing operation implemented with the SFENCE or MFENCE instruction
 should be used in conjunction with MASKMOVDQU instructions if multiple processors
@@ -21972,7 +21972,7 @@ byte location in memory: 0 indicates no write and 1 indicates write.
 The MASKMOVQ instruction generates a non-temporal hint to the processor to minimize
 cache pollution. The nontemporal hint is implemented by using a write combining
 (WC) memory type protocol (see “Caching of Temporal vs. Non-Temporal Data” in
-Chapter 10, of the Intel® 64 and IA-32 Architectures Software Developer''s Manual,
+Chapter 10, of the Intel® 64 and IA-32 Architectures Software Developer's Manual,
 Volume 1). Because the WC protocol uses a weakly-ordered memory consistency
 model, a fencing operation implemented with the SFENCE or MFENCE instruction
 should be used in conjunction with MASKMOVQ instructions if multiple processors
@@ -22015,7 +22015,7 @@ void _mm_maskmove_si64(__m64d, __m64n, char * p)
 
 Other Exceptions:
 See Table 22-8, “Exception Conditions for Legacy SIMD/MMX Instructions without
-FP Exception,” in the Intel® 64 and IA-32 Architectures Software Developer''s
+FP Exception,” in the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 3A.
 
 `,
@@ -22369,7 +22369,7 @@ ordered with respect to executions of the MFENCE instruction; data can be brough
 into the caches speculatively just before, during, or after the execution of
 an MFENCE instruction.
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 Operation:
 
@@ -22736,7 +22736,7 @@ The address range must use memory of the write-back type. Only write-back memory
 will correctly trigger the monitoring hardware. Additional information on determining
 what address range to use in order to prevent false wake-ups is described in
 Chapter 8, “Multiple-Processor Management” of the Intel® 64 and IA-32 Architectures
-Software Developer''s Manual, Volume 3A.
+Software Developer's Manual, Volume 3A.
 
 The MONITOR instruction is ordered as a load operation with respect to other
 memory transactions. The instruction is subject to the permission checking and
@@ -22750,7 +22750,7 @@ The operating system or system BIOS may disable this instruction by using the
 IA32_MISC_ENABLE MSR; disabling MONITOR clears the CPUID feature flag and causes
 execution to generate an invalid-opcode exception.
 
-The instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+The instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 Operation:
 
@@ -22928,7 +22928,7 @@ implementation dependent. For the Pentium 4, Intel Xeon, and P6 family processor
 the two high-order bytes are filled with zeros; for earlier 32-bit IA-32 processors,
 the two high order bytes are undefined.
 
-In 64-bit mode, the instruction''s default operation size is 32 bits. Use of
+In 64-bit mode, the instruction's default operation size is 32 bits. Use of
 the REX.R prefix permits access to additional registers (R8-R15). Use of the
 REX.W prefix promotes operation to 64 bits. See the summary chart at the beginning
 of this section for encoding data and limits.
@@ -22944,7 +22944,7 @@ IF SS is loaded
      IF segment selector is NULL
        THEN #GP(0); FI;
      IF segment selector index is outside descriptor table limits
-     or segment selector''s RPL != CPL
+     or segment selector's RPL != CPL
      or segment is not a writable data segment
      or DPL != CPL
        THEN #GP(selector); FI;
@@ -22988,8 +22988,8 @@ Protected Mode Exceptions:
 |                | selector.                                     
 | #GP(selector)  | If segment selector index is outside          
 |                | descriptor table limits. If the SS register   
-|                | is being loaded and the segment selector''s    
-|                | RPL and the segment descriptor''s DPL          
+|                | is being loaded and the segment selector's    
+|                | RPL and the segment descriptor's DPL          
 |                | are not equal to the CPL. If the SS           
 |                | register is being loaded and the segment      
 |                | pointed to is a non-writable data segment.    
@@ -23053,8 +23053,8 @@ Same exceptions as in protected mode.
 |                | descriptor table limits. If the memory          
 |                | access to the descriptor table is non-canonical.
 |                | If the SS register is being loaded and          
-|                | the segment selector''s RPL and the segment      
-|                | descriptor''s DPL are not equal to the           
+|                | the segment selector's RPL and the segment      
+|                | descriptor's DPL are not equal to the           
 |                | CPL. If the SS register is being loaded         
 |                | and the segment pointed to is a nonwritable     
 |                | data segment. If the DS, ES, FS, or             
@@ -23096,7 +23096,7 @@ NOTE::
 |   | a serializing instruction. For more   
 |   | information, see Chapter 8 in Intel®  
 |   | 64 and IA-32 Architectures Software   
-|   | Developer''s Manual, Volume 3A.        
+|   | Developer's Manual, Volume 3A.        
 
 Instruction Operand Encoding:
 | Op/En| Operand 1    | Operand 2    | Operand 3| Operand 4
@@ -23108,7 +23108,7 @@ Moves the contents of a control register (CR0, CR2, CR3, CR4, or CR8) to a gener
 register or the contents of a general purpose register to a control register.
 The operand size for these instructions is always 32 bits in non-64-bit modes,
 regardless of the operand-size attribute. (See “Control Registers” in Chapter
-2 of the Intel®64 and IA-32 Architectures Software Developer''s Manual, Volume
+2 of the Intel®64 and IA-32 Architectures Software Developer's Manual, Volume
 3A, for a detailed description of the flags and fields in the control registers.)
 This instruction can be executed only when the current privilege level is 0.
 
@@ -23120,7 +23120,7 @@ exceptions.
 
 When loading control registers, programs should not attempt to change the reserved
 bits; that is, always set reserved bits to the value previously read. An attempt
-to change CR4''s reserved bits will cause a general protection fault. Reserved
+to change CR4's reserved bits will cause a general protection fault. Reserved
 bits in CR0 and CR3 remain clear after any load of those registers; attempts
 to set them have no impact. On Pentium 4, Intel Xeon and P6 family processors,
 CR0.ET remains set after any load of CR0; attempts to clear this bit have no
@@ -23129,14 +23129,14 @@ impact.
 In certain cases, these instructions have the side effect of invalidating entries
 in the TLBs and the paging-structure caches. See Section 4.10.4.1, “Operations
 that Invalidate TLBs and Paging-Structure Caches,” in the Intel® 64 and IA-32
-Architectures Software Developer''s Manual, Volume 3A for details.
+Architectures Software Developer's Manual, Volume 3A for details.
 
 The following side effects are implementation-specific for the Pentium 4, Intel
 Xeon, and P6 processor family: when modifying PE or PG in register CR0, or PSE
 or PAE in register CR4, all TLB entries are flushed, including global entries.
 Software should not depend on this functionality in all Intel 64 or IA-32 processors.
 
-In 64-bit mode, the instruction''s default operation size is 64 bits. The REX.R
+In 64-bit mode, the instruction's default operation size is 64 bits. The REX.R
 prefix must be used to access CR8. Use of REX.B permits access to additional
 registers (R8-R15). Use of the REX.W prefix or 66H prefix is ignored. Use of
 
@@ -23147,12 +23147,12 @@ data and limits.
 If CR4.PCIDE = 1, bit 63 of the source operand to MOV to CR3 determines whether
 the instruction invalidates entries in the TLBs and the paging-structure caches
 (see Section 4.10.4.1, “Operations that Invalidate TLBs and Paging-Structure
-Caches,” in the Intel® 64 and IA-32 Architectures Software Developer''s Manual,
+Caches,” in the Intel® 64 and IA-32 Architectures Software Developer's Manual,
 Volume 3A). The instruction does not modify bit 63 of CR3, which is reserved
 and always 0.
 
 See “Changes to Instruction Behavior in VMX Non-Root Operation” in Chapter 25
-of the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume
+of the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume
 3C, for more information about the behavior of this instruction in VMX non-root
 operation.
 
@@ -23259,7 +23259,7 @@ Moves the contents of a debug register (DR0, DR1, DR2, DR3, DR4, DR5, DR6, or
 DR7) to a general-purpose register or vice versa. The operand size for these
 instructions is always 32 bits in non-64-bit modes, regardless of the operand-size
 attribute. (See Section 17.2, “Debug Registers”, of the Intel® 64 and IA-32
-Architectures Software Developer''s Manual, Volume 3A, for a detailed description
+Architectures Software Developer's Manual, Volume 3A, for a detailed description
 of the flags and fields in the debug registers.)
 
 The instructions must be executed at privilege level 0 or in real-address mode.
@@ -23275,7 +23275,7 @@ At the opcode level, the reg field within the ModR/M byte specifies which of
 the debug registers is loaded or read. The two bits in the mod field are ignored.
 The r/m field specifies the general-purpose register loaded or read.
 
-In 64-bit mode, the instruction''s default operation size is 64 bits. Use of
+In 64-bit mode, the instruction's default operation size is 64 bits. Use of
 the REX.B prefix permits access to additional registers (R8-R15). Use of the
 REX.W or 66H prefix is ignored. Use of the REX.R prefix causes an invalidopcode
 exception. See the summary chart at the beginning of this section for encoding
@@ -23543,7 +23543,7 @@ The MOVBE instruction is provided for swapping the bytes on a read from memory
 or on a write to memory; thus providing support for converting little-endian
 values to big-endian format and vice versa.
 
-In 64-bit mode, the instruction''s default operation size is 32 bits. Use of
+In 64-bit mode, the instruction's default operation size is 32 bits. Use of
 the REX.R prefix permits access to additional registers (R8-R15). Use of the
 REX.W prefix promotes operation to 64 bits. See the summary chart at the beginning
 of this section for encoding data and limits.
@@ -23679,7 +23679,7 @@ to 64 bits. When the destination operand is an XMM register, the source operand
 is written to the low doubleword of the register, and the register is zero-extended
 to 128 bits.
 
-In 64-bit mode, the instruction''s default operation size is 32 bits. Use of
+In 64-bit mode, the instruction's default operation size is 32 bits. Use of
 the REX.R prefix permits access to additional registers (R8-R15). Use of the
 REX.W prefix promotes operation to 64 bits. See the summary chart at the beginning
 of this section for encoding data and limits.
@@ -24609,7 +24609,7 @@ to the destination operand (first operand) using a non-temporal hint. A processo
 implementation may make use of the non-temporal hint associated with this instruction
 if the memory source is WC (write combining) memory type. An implementation
 may also make use of the non-temporal hint associated with this instruction
-if the memory source is WB (write back) memory type. A processor''s implementation
+if the memory source is WB (write back) memory type. A processor's implementation
 of the non-temporal hint does not override the effective memory type semantics,
 but the implementation of the hint is processor dependent. For example, a processor
 implementation may choose to ignore the hint and process the instruction as
@@ -24641,7 +24641,7 @@ of a mis-speculation condition, and various fault conditions
 The memory type of the region being read can override the non-temporal hint,
 if the memory address specified for the non-temporal read is not a WC memory
 region. Information on non-temporal reads and writes can be found in Chapter
-11, “Memory Cache Control” of Intel® 64 and IA-32 Architectures Software Developer''s
+11, “Memory Cache Control” of Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 3A. Because the WC protocol uses a weakly-ordered memory consistency
 model, an MFENCE or locked instruction should be used in conjunction with MOVNTDQA
 instructions if multiple processors might reference the same WC memory locations
@@ -24652,7 +24652,7 @@ to I/O devices having side effects or when reads to these devices are destruc-
 
 tive. For additional information on MOVNTDQA usages, see Section 12.10.3 in
 Chapter 12, “Programming with SSE3, SSSE3 and SSE4” of Intel® 64 and IA-32 Architectures
-Software Developer''s Manual, Volume 1. The 128-bit (V)MOVNTDQA addresses must
+Software Developer's Manual, Volume 1. The 128-bit (V)MOVNTDQA addresses must
 be 16-byte aligned or the instruction will cause a #GP. The 256-bit VMOVNTDQA
 addresses must be 32-byte aligned or the instruction will cause a #GP. Note:
 In VEX-128 encoded versions, VEX.vvvv is reserved and must be 1111b, VEX.L must
@@ -24717,7 +24717,7 @@ being written to can override the non-temporal hint, if the memory address speci
 for the non-temporal store is in an uncacheable (UC) or write protected (WP)
 memory region. For more information on non-temporal stores, see “Caching of
 Temporal vs. Non-Temporal Data” in Chapter 10 in the Intel® 64 and IA-32 Architectures
-Software Developer''s Manual, Volume 1.
+Software Developer's Manual, Volume 1.
 
 Because the WC protocol uses a weakly-ordered memory consistency model, a fencing
 operation implemented with the SFENCE or MFENCE instruction should be used in
@@ -24775,14 +24775,14 @@ being written to can override the non-temporal hint, if the memory address speci
 for the non-temporal store is in an uncacheable (UC) or write protected (WP)
 memory region. For more information on non-temporal stores, see “Caching of
 Temporal vs. Non-Temporal Data” in Chapter 10 in the Intel® 64 and IA-32 Architectures
-Software Developer''s Manual, Volume 1.
+Software Developer's Manual, Volume 1.
 
 Because the WC protocol uses a weakly-ordered memory consistency model, a fencing
 operation implemented with the SFENCE or MFENCE instruction should be used in
 conjunction with MOVNTI instructions if multiple processors might use different
 memory types to read/write the destination memory locations.
 
-In 64-bit mode, the instruction''s default operation size is 32 bits. Use of
+In 64-bit mode, the instruction's default operation size is 32 bits. Use of
 the REX.R prefix permits access to additional registers (R8-R15). Use of the
 REX.W prefix promotes operation to 64 bits. See the summary chart at the beginning
 of this section for encoding data and limits.
@@ -24873,7 +24873,7 @@ being written to can override the non-temporal hint, if the memory address speci
 for the non-temporal store is in an uncacheable (UC) or write protected (WP)
 memory region. For more information on non-temporal stores, see “Caching of
 Temporal vs. Non-Temporal Data” in Chapter 10 in the Intel® 64 and IA-32 Architectures
-Software Developer''s Manual, Volume 1.
+Software Developer's Manual, Volume 1.
 
 Because the WC protocol uses a weakly-ordered memory consistency model, a fencing
 operation implemented with the SFENCE or MFENCE instruction should be used in
@@ -24938,7 +24938,7 @@ being written to can override the non-temporal hint, if the memory address speci
 for the non-temporal store is in an uncacheable (UC) or write protected (WP)
 memory region. For more information on non-temporal stores, see “Caching of
 Temporal vs. Non-Temporal Data” in Chapter 10 in the Intel® 64 and IA-32 Architectures
-Software Developer''s Manual, Volume 1.
+Software Developer's Manual, Volume 1.
 
 Because the WC protocol uses a weakly-ordered memory consistency model, a fencing
 operation implemented with the SFENCE or MFENCE instruction should be used in
@@ -24995,14 +24995,14 @@ being written to can override the non-temporal hint, if the memory address speci
 for the non-temporal store is in an uncacheable (UC) or write protected (WP)
 memory region. For more information on non-temporal stores, see “Caching of
 Temporal vs. Non-Temporal Data” in Chapter 10 in the Intel® 64 and IA-32 Architectures
-Software Developer''s Manual, Volume 1.
+Software Developer's Manual, Volume 1.
 
 Because the WC protocol uses a weakly-ordered memory consistency model, a fencing
 operation implemented with the SFENCE or MFENCE instruction should be used in
 conjunction with MOVNTQ instructions if multiple processors might use different
 memory types to read/write the destination memory locations.
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 Operation:
 
@@ -25018,7 +25018,7 @@ None.
 
 Other Exceptions:
 See Table 22-8, “Exception Conditions for Legacy SIMD/MMX Instructions without
-FP Exception,” in the Intel® 64 and IA-32 Architectures Software Developer''s
+FP Exception,” in the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 3A.
 
 `,
@@ -25099,7 +25099,7 @@ None.
 
 Other Exceptions:
 See Table 22-8, “Exception Conditions for Legacy SIMD/MMX Instructions without
-FP Exception,” in the Intel® 64 and IA-32 Architectures Software Developer''s
+FP Exception,” in the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 3B.
 
 `,
@@ -25231,17 +25231,17 @@ for word operations, or by 4 for doubleword operations.
 
 NOTE:
 To improve performance, more recent processors support modifications to the
-processor''s operation during the string store operations initiated with MOVS
+processor's operation during the string store operations initiated with MOVS
 and MOVSB. See Section 7.3.9.3 in the Intel® 64 and IA-32 Architectures Software
-Developer''s Manual, Volume 1 for additional information on fast-string operation.
+Developer's Manual, Volume 1 for additional information on fast-string operation.
 
 The MOVS, MOVSB, MOVSW, and MOVSD instructions can be preceded by the REP prefix
 (see “REP/REPE/REPZ /REPNE/REPNZ - Repeat String Operation Prefix” in Chapter
-4 of the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume
+4 of the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume
 2B, for a description of the REP prefix) for block moves of ECX bytes, words,
 or doublewords.
 
-In 64-bit mode, the instruction''s default address size is 64 bits, 32-bit address
+In 64-bit mode, the instruction's default address size is 64 bits, 32-bit address
 size is supported using the prefix 67H. The 64-bit addresses are specified by
 RSI and RDI; 32-bit address are specified by ESI and EDI. Use of the REX.W prefix
 promotes doubleword operation to 64 bits. See the summary chart at the beginning
@@ -25755,10 +25755,10 @@ Instruction Operand Encoding:
 Description:
 Copies the contents of the source operand (register or memory location) to the
 destination operand (register) and sign extends the value to 16 or 32 bits (see
-Figure 7-6 in the Intel® 64 and IA-32 Architectures Software Developer''s Manual,
+Figure 7-6 in the Intel® 64 and IA-32 Architectures Software Developer's Manual,
 Volume 1). The size of the converted value depends on the operand-size attribute.
 
-In 64-bit mode, the instruction''s default operation size is 32 bits. Use of
+In 64-bit mode, the instruction's default operation size is 32 bits. Use of
 the REX.R prefix permits access to additional registers (R8-R15). Use of the
 REX.W prefix promotes operation to 64 bits. See the summary chart at the beginning
 of this section for encoding data and limits.
@@ -26024,7 +26024,7 @@ Copies the contents of the source operand (register or memory location) to the
 destination operand (register) and zero extends the value. The size of the converted
 value depends on the operand-size attribute.
 
-In 64-bit mode, the instruction''s default operation size is 32 bits. Use of
+In 64-bit mode, the instruction's default operation size is 32 bits. Use of
 the REX.R prefix permits access to additional registers (R8-R15). Use of the
 REX.W prefix promotes operation to 64 bit operands. See the summary chart at
 the beginning of this section for encoding data and limits.
@@ -26459,7 +26459,7 @@ The result is stored in register AX, register pair DX:AX, or register pair EDX:E
 in register AH, DX, or EDX, respectively. If the high-order bits of the product
 are 0, the CF and OF flags are cleared; otherwise, the flags are set.
 
-In 64-bit mode, the instruction''s default operation size is 32 bits. Use of
+In 64-bit mode, the instruction's default operation size is 32 bits. Use of
 the REX.R prefix permits access to additional registers (R8-R15). Use of the
 REX.W prefix promotes operation to 64 bits.
 
@@ -26562,7 +26562,7 @@ values from the source operand (second operand) and the destination operand
 (first operand), and stores the packed double-precision floatingpoint results
 in the destination operand. The source operand can be an XMM register or a 128-bit
 memory location. The destination operand is an XMM register. See Figure 11-3
-in the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume
+in the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume
 1, for an illustration of a SIMD double-precision floating-point operation.
 
 In 64-bit mode, use of the REX.R prefix permits this instruction to access additional
@@ -26628,7 +26628,7 @@ Performs a SIMD multiply of the four packed single-precision floating-point
 values from the source operand (second operand) and the destination operand
 (first operand), and stores the packed single-precision floatingpoint results
 in the destination operand. See Figure 10-5 in the Intel® 64 and IA-32 Architectures
-Software Developer''s Manual, Volume 1, for an illustration of a SIMD single-precision
+Software Developer's Manual, Volume 1, for an illustration of a SIMD single-precision
 floating-point operation.
 
 In 64-bit mode, use of the REX.R prefix permits this instruction to access additional
@@ -26702,7 +26702,7 @@ operand (first operand), and stores the double-precision floatingpoint result
 in the destination operand. The source operand can be an XMM register or a 64-bit
 memory location. The destination operand is an XMM register. The high quadword
 of the destination operand remains unchanged. See Figure 11-4 in the Intel®
-64 and IA-32 Architectures Software Developer''s Manual, Volume 1, for an illustration
+64 and IA-32 Architectures Software Developer's Manual, Volume 1, for an illustration
 of a scalar double-precision floating-point operation.
 
 In 64-bit mode, use of the REX.R prefix permits this instruction to access additional
@@ -26755,7 +26755,7 @@ operand (first operand), and stores the single-precision floating-point result
 in the destination operand. The source operand can be an XMM register or a 32-bit
 memory location. The destination operand is an XMM register. The three high-order
 doublewords of the destination operand remain unchanged. See Figure 10-6 in
-the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume 1,
+the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume 1,
 for an illustration of a scalar single-precision floating-point operation.
 
 In 64-bit mode, use of the REX.R prefix permits this instruction to access additional
@@ -26873,7 +26873,7 @@ operating system or system BIOS may disable this instruction by using the IA32_M
 MSR; disabling MWAIT clears the CPUID feature flag and causes execution to generate
 an invalid-opcode exception.
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 ECX specifies optional extensions for the MWAIT instruction. EAX may contain
 hints such as the preferred optimized state the processor should enter. The
@@ -26958,7 +26958,7 @@ processor agents. A store from non-processor agent might not cause the processor
 to exit MWAIT in such cases.
 
 For additional details of MWAIT extensions, see Chapter 14, “Power and Thermal
-Management,” of Intel® 64 and IA-32 Architectures Software Developer''s Manual,
+Management,” of Intel® 64 and IA-32 Architectures Software Developer's Manual,
 Volume 3A.
 
 Operation:
@@ -27026,13 +27026,13 @@ Same exceptions as in protected mode.
 |       | 0.                                   
 `,
 "NEG":`
-NEG - Two''s Complement Negation:
+NEG - Two's Complement Negation:
 | Opcode       | Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description                   
-| F6 /3        | NEG r/m8   | M    | Valid      | Valid          | Two''s complement negate r/m8. 
-| REX + F6 /3  | NEG r/m8*  | M    | Valid      | N.E.           | Two''s complement negate r/m8. 
-| F7 /3        | NEG r/m16  | M    | Valid      | Valid          | Two''s complement negate r/m16.
-| F7 /3        | NEG r/m32  | M    | Valid      | Valid          | Two''s complement negate r/m32.
-| REX.W + F7 /3| NEG r/m64  | M    | Valid      | N.E.           | Two''s complement negate r/m64.
+| F6 /3        | NEG r/m8   | M    | Valid      | Valid          | Two's complement negate r/m8. 
+| REX + F6 /3  | NEG r/m8*  | M    | Valid      | N.E.           | Two's complement negate r/m8. 
+| F7 /3        | NEG r/m16  | M    | Valid      | Valid          | Two's complement negate r/m16.
+| F7 /3        | NEG r/m32  | M    | Valid      | Valid          | Two's complement negate r/m32.
+| REX.W + F7 /3| NEG r/m64  | M    | Valid      | N.E.           | Two's complement negate r/m64.
 Notes: * In 64-bit mode, r/m8 can not be encoded to access the following byte
 registers if a REX prefix is used: AH, BH, CH, DH.
 
@@ -27042,14 +27042,14 @@ Instruction Operand Encoding:
 | M    | ModRM:r/m (r, w)| NA       | NA       | NA       
 
 Description:
-Replaces the value of operand (the destination operand) with its two''s complement.
+Replaces the value of operand (the destination operand) with its two's complement.
 (This operation is equivalent to subtracting the operand from 0.) The destination
 operand is located in a general-purpose register or a memory location.
 
 This instruction can be used with a LOCK prefix to allow the instruction to
 be executed atomically.
 
-In 64-bit mode, the instruction''s default operation size is 32 bits. Using a
+In 64-bit mode, the instruction's default operation size is 32 bits. Using a
 REX prefix in the form of REX.R permits access to additional registers (R8-R15).
 Using a REX prefix in the form of REX.W promotes operation to 64 bits. See the
 summary chart at the beginning of this section for encoding data and limits.
@@ -27144,7 +27144,7 @@ The multi-byte form of NOP is available on processors with model encoding:
  - CPUID.01H.EAX[Bytes 11:8] = 0110B or 1111B
 
 The multi-byte NOP instruction does not alter the content of a register and
-will not issue a memory operation. The instruction''s operation is the same in
+will not issue a memory operation. The instruction's operation is the same in
 non-64-bit modes and 64-bit mode.
 
 Operation:
@@ -27175,7 +27175,7 @@ Exceptions (All Operating Modes):
 | #UD| If the LOCK prefix is used.
 `,
 "NOT":`
-NOT - One''s Complement Negation:
+NOT - One's Complement Negation:
 | Opcode       | Instruction| Op/En| 64-Bit Mode| Compat/Leg Mode| Description               
 | F6 /2        | NOT r/m8   | M    | Valid      | Valid          | Reverse each bit of r/m8. 
 | REX + F6 /2  | NOT r/m8*  | M    | Valid      | N.E.           | Reverse each bit of r/m8. 
@@ -27201,7 +27201,7 @@ location. The destination operand can be a register or a memory location.
 This instruction can be used with a LOCK prefix to allow the instruction to
 be executed atomically.
 
-In 64-bit mode, the instruction''s default operation size is 32 bits. Using a
+In 64-bit mode, the instruction's default operation size is 32 bits. Using a
 REX prefix in the form of REX.R permits access to additional registers (R8-R15).
 Using a REX prefix in the form of REX.W promotes operation to 64 bits. See the
 summary chart at the beginning of this section for encoding data and limits.
@@ -27317,7 +27317,7 @@ are 0; otherwise, each bit is set to 1.
 This instruction can be used with a LOCK prefix to allow the instruction to
 be executed atomically.
 
-In 64-bit mode, the instruction''s default operation size is 32 bits. Using a
+In 64-bit mode, the instruction's default operation size is 32 bits. Using a
 REX prefix in the form of REX.R permits access to additional registers (R8-R15).
 Using a REX prefix in the form of REX.W promotes operation to 64 bits. See the
 summary chart at the beginning of this section for encoding data and limits.
@@ -27563,12 +27563,12 @@ I/O port.
 At the machine code level, I/O instructions are shorter when accessing 8-bit
 I/O ports. Here, the upper eight bits of the port address will be 0.
 
-This instruction is only useful for accessing I/O ports located in the processor''s
+This instruction is only useful for accessing I/O ports located in the processor's
 I/O address space. See Chapter 16, “Input/Output,” in the Intel® 64 and IA-32
-Architectures Software Developer''s Manual, Volume 1, for more information on
+Architectures Software Developer's Manual, Volume 1, for more information on
 accessing I/O ports in the I/O address space.
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 
 IA-32 Architecture Compatibility:
@@ -27693,9 +27693,9 @@ operations.
 The OUTS, OUTSB, OUTSW, and OUTSD instructions can be preceded by the REP prefix
 for block input of ECX bytes, words, or doublewords. See “REP/REPE/REPZ /REPNE/REPNZ - Repeat
 String Operation Prefix” in this chapter for a description of the REP prefix.
-This instruction is only useful for accessing I/O ports located in the processor''s
+This instruction is only useful for accessing I/O ports located in the processor's
 I/O address space. See Chapter 16, “Input/Output,” in the Intel® 64 and IA-32
-Architectures Software Developer''s Manual, Volume 1, for more information on
+Architectures Software Developer's Manual, Volume 1, for more information on
 accessing I/O ports in the I/O address space.
 
 In 64-bit mode, the default operand size is 32 bits; operand size is not promoted
@@ -27893,9 +27893,9 @@ PABSB/PABSW/PABSD - Packed Absolute Value:
 | ymm2/m256                             |      |                       |                   | integers in ymm2/m256 and store UNSIGNED
 |                                       |      |                       |                   | result in ymm1.                         
 Notes: 1. See note in Section 2.4, “Instruction Exception Specification” in
-the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume 2A
+the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume 2A
 and Section 22.25.3, “Exception Conditions of Legacy SIMD Instructions Operating
-on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer''s
+on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 3A.
 
 
@@ -28045,9 +28045,9 @@ PACKSSWB/PACKSSDW - Pack with Signed Saturation:
 |                                      |      |                       |                   | into 16 packed signed word integers     
 |                                      |      |                       |                   | in ymm1using signed saturation.         
 Notes: 1. See note in Section 2.4, “Instruction Exception Specification” in
-the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume 2A
+the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume 2A
 and Section 22.25.3, “Exception Conditions of Legacy SIMD Instructions Operating
-on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer''s
+on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 3A.
 
 
@@ -28064,7 +28064,7 @@ an example of the packing operation.
 
 | 64-Bit SRC                           | 64-Bit DEST
 | C                                    | A          
-| D''64-Bit DEST                        | A''         
+| D'64-Bit DEST                        | A'         
 | Operation of the PACKSSDW Instruction| Figure 4-2.
 | Using 64-bit Operands                |            
 The (V)PACKSSWB instruction converts 4, 8 or 16 signed word integers from the
@@ -28419,9 +28419,9 @@ PACKUSWB - Pack with Unsigned Saturation:
 |                                      |      |                       |                   | ymm3/m256 into 32 unsigned byte integers 
 |                                      |      |                       |                   | in ymm1 using unsigned saturation.       
 Notes: 1. See note in Section 2.4, “Instruction Exception Specification” in
-the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume 2A
+the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume 2A
 and Section 22.25.3, “Exception Conditions of Legacy SIMD Instructions Operating
-on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer''s
+on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 3A.
 
 
@@ -28585,9 +28585,9 @@ PADDB/PADDW/PADDD - Add Packed Integers:
 | VEX.NDS.256.66.0F.WIG FE /r VPADDD ymm1,| RVM  | V/V                   | AVX2              | Add packed doubleword integers from    
 | ymm2, ymm3/m256                         |      |                       |                   | ymm2, ymm3/m256 and store in ymm1.     
 Notes: 1. See note in Section 2.4, “Instruction Exception Specification” in
-the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume 2A
+the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume 2A
 and Section 22.25.3, “Exception Conditions of Legacy SIMD Instructions Operating
-on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer''s
+on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 3A.
 
 
@@ -28600,7 +28600,7 @@ Description:
 Performs a SIMD add of the packed integers from the source operand (second operand)
 and the destination operand (first operand), and stores the packed integer results
 in the destination operand. See Figure 9-4 in the Intel® 64 and IA-32 Architectures
-Software Developer''s Manual, Volume 1, for an illustration of a SIMD operation.
+Software Developer's Manual, Volume 1, for an illustration of a SIMD operation.
 Overflow is handled with wraparound, as described in the following paragraphs.
 Adds the packed byte, word, doubleword, or quadword integers in the first source
 operand to the second source operand and stores the result in the destination
@@ -28609,7 +28609,7 @@ operand. When a result is too large to be represented in the
 8/16/32 integer (overflow), the result is wrapped around and the low bits are
 written to the destination element (that is, the carry is ignored).
 
-Note that these instructions can operate on either unsigned or signed (two''s
+Note that these instructions can operate on either unsigned or signed (two's
 complement notation) integers; however, it does not set bits in the EFLAGS register
 to indicate overflow and/or a carry. To prevent undetected overflow conditions,
 software must control the ranges of the values operated on.
@@ -28752,9 +28752,9 @@ PADDQ - Add Packed Quadword Integers:
 | VEX.NDS.256.66.0F.WIG D4 /r VPADDQ ymm1,| RVM  | V/V                   | AVX2              | Add packed quadword integers from ymm2,
 | ymm2, ymm3/m256                         |      |                       |                   | ymm3/m256 and store in ymm1.           
 Notes: 1. See note in Section 2.4, “Instruction Exception Specification” in
-the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume 2A
+the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume 2A
 and Section 22.25.3, “Exception Conditions of Legacy SIMD Instructions Operating
-on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer''s
+on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 3A.
 
 
@@ -28776,7 +28776,7 @@ result is wrapped around and the low 64 bits are written to the destination
 element (that is, the carry is ignored).
 
 Note that the (V)PADDQ instruction can operate on either unsigned or signed
-(two''s complement notation) integers; however, it does not set bits in the EFLAGS
+(two's complement notation) integers; however, it does not set bits in the EFLAGS
 register to indicate overflow and/or a carry. To prevent undetected overflow
 conditions, software must control the ranges of the values operated on.
 
@@ -28857,9 +28857,9 @@ PADDSB/PADDSW - Add Packed Signed Integers with Signed Saturation:
 | ymm1, ymm2, ymm3/m256              |      |                       |                   | ymm2, and ymm3/m256 and store the saturated
 |                                    |      |                       |                   | results in ymm1.                           
 Notes: 1. See note in Section 2.4, “Instruction Exception Specification” in
-the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume 2A
+the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume 2A
 and Section 22.25.3, “Exception Conditions of Legacy SIMD Instructions Operating
-on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer''s
+on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 3A.
 
 
@@ -28872,7 +28872,7 @@ Description:
 Performs a SIMD add of the packed signed integers from the source operand (second
 operand) and the destination operand (first operand), and stores the packed
 integer results in the destination operand. See Figure 9-4 in the Intel® 64
-and IA-32 Architectures Software Developer''s Manual, Volume 1, for an illustration
+and IA-32 Architectures Software Developer's Manual, Volume 1, for an illustration
 of a SIMD operation. Overflow is handled with signed saturation, as described
 in the following paragraphs.
 
@@ -28993,9 +28993,9 @@ PADDUSB/PADDUSW - Add Packed Unsigned Integers with Unsigned Saturation:
 | ymm1, ymm2, ymm3/m256               |      |                       |                   | ymm2, and ymm3/m256 and store the saturated
 |                                     |      |                       |                   | results in ymm1.                           
 Notes: 1. See note in Section 2.4, “Instruction Exception Specification” in
-the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume 2A
+the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume 2A
 and Section 22.25.3, “Exception Conditions of Legacy SIMD Instructions Operating
-on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer''s
+on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 3A.
 
 
@@ -29008,7 +29008,7 @@ Description:
 Performs a SIMD add of the packed unsigned integers from the source operand
 (second operand) and the destination operand (first operand), and stores the
 packed integer results in the destination operand. See Figure 9-4 in the Intel®
-64 and IA-32 Architectures Software Developer''s Manual, Volume 1, for an illustration
+64 and IA-32 Architectures Software Developer's Manual, Volume 1, for an illustration
 of a SIMD operation. Overflow is handled with unsigned saturation, as described
 in the following paragraphs.
 
@@ -29128,9 +29128,9 @@ PALIGNR - Packed Align Right:
 |                                           |      |                       |                   | result, and two 16-byte results are         
 |                                           |      |                       |                   | stored in ymm1.                             
 Notes: 1. See note in Section 2.4, “Instruction Exception Specification” in
-the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume 2A
+the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume 2A
 and Section 22.25.3, “Exception Conditions of Legacy SIMD Instructions Operating
-on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer''s
+on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 3A.
 
 
@@ -29227,9 +29227,9 @@ PAND - Logical AND:
 | VEX.NDS.256.66.0F.WIG DB /r VPAND ymm1,| RVM  | V/V                   | AVX2              | Bitwise AND of ymm2, and ymm3/m256 and
 | ymm2, ymm3/.m256                       |      |                       |                   | store result in ymm1.                 
 Notes: 1. See note in Section 2.4, “Instruction Exception Specification” in
-the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume 2A
+the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume 2A
 and Section 22.25.3, “Exception Conditions of Legacy SIMD Instructions Operating
-on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer''s
+on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 3A.
 
 
@@ -29307,9 +29307,9 @@ PANDN - Logical AND NOT:
 | VEX.NDS.256.66.0F.WIG DF /r VPANDN ymm1,| RVM  | V/V                   | AVX2              | Bitwise AND NOT of ymm2, and ymm3/m256
 | ymm2, ymm3/m256                         |      |                       |                   | and store result in ymm1.             
 Notes: 1. See note in Section 2.4, “Instruction Exception Specification” in
-the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume 2A
+the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume 2A
 and Section 22.25.3, “Exception Conditions of Legacy SIMD Instructions Operating
-on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer''s
+on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 3A.
 
 
@@ -29399,7 +29399,7 @@ An additional function of the PAUSE instruction is to reduce the power consumed
 by a processor while executing a spin loop. A processor can execute a spin-wait
 loop extremely quickly, causing the processor to consume a lot of power while
 it waits for the resource it is spinning on to become available. Inserting a
-pause instruction in a spinwait loop greatly reduces the processor''s power consumption.
+pause instruction in a spinwait loop greatly reduces the processor's power consumption.
 
 This instruction was introduced in the Pentium 4 processors, but is backward
 compatible with all IA-32 processors. In earlier IA-32 processors, the PAUSE
@@ -29408,7 +29408,7 @@ implement the PAUSE instruction as a delay. The delay is finite and can be zero
 for some processors. This instruction does not change the architectural state
 of the processor (that is, it performs essentially a delaying no-op operation).
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 Operation:
 
@@ -29443,9 +29443,9 @@ PAVGB/PAVGW - Average Packed Integers:
 | ymm2, ymm3/m256                         |      |                       |                   | from ymm2, ymm3/m256 with rounding to 
 |                                         |      |                       |                   | ymm1.                                 
 Notes: 1. See note in Section 2.4, “Instruction Exception Specification” in
-the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume 2A
+the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume 2A
 and Section 22.25.3, “Exception Conditions of Legacy SIMD Instructions Operating
-on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer''s
+on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 3A.
 
 
@@ -30032,9 +30032,9 @@ PCMPEQB/PCMPEQW/PCMPEQD - Compare Packed Data for Equal:
 | VEX.NDS.256.66.0F38.WIG 29 /r VPCMPEQQ| RVM  | V/V                   | AVX2              | Compare packed quadwords in ymm3/m256  
 | ymm1, ymm2, ymm3 /m256                |      |                       |                   | and ymm2 for equality.                 
 Notes: 1. See note in Section 2.4, “Instruction Exception Specification” in
-the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume 2A
+the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume 2A
 and Section 22.25.3, “Exception Conditions of Legacy SIMD Instructions Operating
-on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer''s
+on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 3A.
 
 
@@ -30452,9 +30452,9 @@ PCMPGTB/PCMPGTW/PCMPGTD - Compare Packed Signed Integers for Greater Than:
 | VEX.NDS.256.66.0F.WIG 66 /r VPCMPGTD| RVM  | V/V                   | AVX2              | Compare packed signed doubleword integers
 | ymm1, ymm2, ymm3/m256               |      |                       |                   | in ymm2 and ymm3/m256 for greater than.  
 Notes: 1. See note in Section 2.4, “Instruction Exception Specification” in
-the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume 2A
+the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume 2A
 and Section 22.25.3, “Exception Conditions of Legacy SIMD Instructions Operating
-on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer''s
+on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 3A.
 
 
@@ -31098,9 +31098,9 @@ PEXTRW - Extract Word:
 |                                       |      |                       |                   | by imm8 into reg or m16. The upper bits
 |                                       |      |                       |                   | of r64/r32 is filled with zeros.       
 Notes: 1. See note in Section 2.4, “Instruction Exception Specification” in
-the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume 2A
+the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume 2A
 and Section 22.25.3, “Exception Conditions of Legacy SIMD Instructions Operating
-on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer''s
+on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 3A. 2. In 64-bit mode, VEX.W1 is ignored for VPEXTRW (similar
 to legacy REX.W=1 prefix in PEXTRW).
 
@@ -31215,9 +31215,9 @@ PHADDW/PHADDD - Packed Horizontal Add:
 | VEX.NDS.256.66.0F38.WIG 02 /r VPHADDD| RVM  | V/V                   | AVX2              | Add 32-bit signed integers horizontally,
 | ymm1, ymm2, ymm3/m256                |      |                       |                   | pack to ymm1.                           
 Notes: 1. See note in Section 2.4, “Instruction Exception Specification” in
-the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume 2A
+the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume 2A
 and Section 22.25.3, “Exception Conditions of Legacy SIMD Instructions Operating
-on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer''s
+on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 3A.
 
 
@@ -31235,7 +31235,7 @@ results to the destination operand (first operand). When the source operand
 is a 128-bit memory operand, the operand must be aligned on a 16-byte boundary
 or a general-protection exception (#GP) will be generated.
 
-Note that these instructions can operate on either unsigned or signed (two''s
+Note that these instructions can operate on either unsigned or signed (two's
 complement notation) integers; however, it does not set bits in the EFLAGS register
 to indicate overflow and/or a carry. To prevent undetected overflow conditions,
 software must control the ranges of the values operated on.
@@ -31368,9 +31368,9 @@ PHADDSW - Packed Horizontal Add and Saturate:
 | VEX.NDS.256.66.0F38.WIG 03 /r VPHADDSW| RVM  | V/V                   | AVX2              | Add 16-bit signed integers horizontally,
 | ymm1, ymm2, ymm3/m256                 |      |                       |                   | pack saturated integers to ymm1.        
 Notes: 1. See note in Section 2.4, “Instruction Exception Specification” in
-the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume 2A
+the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume 2A
 and Section 22.25.3, “Exception Conditions of Legacy SIMD Instructions Operating
-on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer''s
+on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 3A.
 
 
@@ -31559,9 +31559,9 @@ PHSUBW/PHSUBD - Packed Horizontal Subtract:
 | VEX.NDS.256.66.0F38.WIG 06 /r VPHSUBD| RVM  | V/V                   | AVX2              | Subtract 32-bit signed integers horizontally,
 | ymm1, ymm2, ymm3/m256                |      |                       |                   | pack to ymm1.                                
 Notes: 1. See note in Section 2.4, “Instruction Exception Specification” in
-the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume 2A
+the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume 2A
 and Section 22.25.3, “Exception Conditions of Legacy SIMD Instructions Operating
-on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer''s
+on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 3A.
 
 
@@ -31702,9 +31702,9 @@ PHSUBSW - Packed Horizontal Subtract and Saturate:
 | VEX.NDS.256.66.0F38.WIG 07 /r VPHSUBSW| RVM  | V/V                   | AVX2              | Subtract 16-bit signed integer horizontally,
 | ymm1, ymm2, ymm3/m256                 |      |                       |                   | pack saturated integers to ymm1.            
 Notes: 1. See note in Section 2.4, “Instruction Exception Specification” in
-the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume 2A
+the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume 2A
 and Section 22.25.3, “Exception Conditions of Legacy SIMD Instructions Operating
-on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer''s
+on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 3A.
 
 
@@ -31913,9 +31913,9 @@ PINSRW - Insert Word:
 | xmm1, xmm2, r32/m16, imm8            |      |                       |                   | and rest from xmm2 into xmm1 at the       
 |                                      |      |                       |                   | word offset in imm8.                      
 Notes: 1. See note in Section 2.4, “Instruction Exception Specification” in
-the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume 2A
+the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume 2A
 and Section 22.25.3, “Exception Conditions of Legacy SIMD Instructions Operating
-on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer''s
+on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 3A. 2. In 64-bit mode, VEX.W1 is ignored for VPINSRW (similar
 to legacy REX.W=1 prefix in PINSRW).
 
@@ -32007,9 +32007,9 @@ PMADDUBSW - Multiply and Add Packed Signed and Unsigned Bytes:
 | ymm1, ymm2, ymm3/m256                   |      |                       |                   | add horizontal pair of signed words,
 |                                         |      |                       |                   | pack saturated signed-words to ymm1.
 Notes: 1. See note in Section 2.4, “Instruction Exception Specification” in
-the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume 2A
+the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume 2A
 and Section 22.25.3, “Exception Conditions of Legacy SIMD Instructions Operating
-on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer''s
+on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 3A.
 
 
@@ -32099,9 +32099,9 @@ PMADDWD - Multiply and Add Packed Integers:
 |                                     |      |                       |                   | ymm3/m256, add adjacent doubleword results,
 |                                     |      |                       |                   | and store in ymm1.                         
 Notes: 1. See note in Section 2.4, “Instruction Exception Specification” in
-the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume 2A
+the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume 2A
 and Section 22.25.3, “Exception Conditions of Legacy SIMD Instructions Operating
-on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer''s
+on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 3A.
 
 
@@ -32426,9 +32426,9 @@ PMAXSW - Maximum of Packed Signed Word Integers:
 | ymm1, ymm2, ymm3/m256              |      |                       |                   | in ymm3/m128 and ymm2 and store packed   
 |                                    |      |                       |                   | maximum values in ymm1.                  
 Notes: 1. See note in Section 2.4, “Instruction Exception Specification” in
-the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume 2A
+the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume 2A
 and Section 22.25.3, “Exception Conditions of Legacy SIMD Instructions Operating
-on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer''s
+on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 3A.
 
 
@@ -32538,9 +32538,9 @@ PMAXUB - Maximum of Packed Unsigned Byte Integers:
 | ymm1, ymm2, ymm3/m256              |      |                       |                   | in ymm2 and ymm3/m256 and store packed     
 |                                    |      |                       |                   | maximum values in ymm1.                    
 Notes: 1. See note in Section 2.4, “Instruction Exception Specification” in
-the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume 2A
+the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume 2A
 and Section 22.25.3, “Exception Conditions of Legacy SIMD Instructions Operating
-on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer''s
+on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 3A.
 
 
@@ -33056,9 +33056,9 @@ PMINSW - Minimum of Packed Signed Word Integers:
 | ymm1, ymm2, ymm3/m256              |      |                       |                   | in ymm3/m256 and ymm2 and return packed  
 |                                    |      |                       |                   | minimum values in ymm1.                  
 Notes: 1. See note in Section 2.4, “Instruction Exception Specification” in
-the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume 2A
+the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume 2A
 and Section 22.25.3, “Exception Conditions of Legacy SIMD Instructions Operating
-on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer''s
+on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 3A.
 
 
@@ -33170,9 +33170,9 @@ PMINUB - Minimum of Packed Unsigned Byte Integers:
 | ymm1, ymm2, ymm3/m256              |      |                       |                   | in ymm2 and ymm3/m256 and store packed     
 |                                    |      |                       |                   | minimum values in ymm1.                    
 Notes: 1. See note in Section 2.4, “Instruction Exception Specification” in
-the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume 2A
+the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume 2A
 and Section 22.25.3, “Exception Conditions of Legacy SIMD Instructions Operating
-on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer''s
+on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 3A.
 
 
@@ -33477,9 +33477,9 @@ PMOVMSKB - Move Byte Mask:
 | VEX.256.66.0F.WIG D7 /r VPMOVMSKB reg,| RM   | V/V                   | AVX2              | Move a 32-bit mask of ymm1 to reg. The  
 | ymm1                                  |      |                       |                   | upper bits of r64 are filled with zeros.
 Notes: 1. See note in Section 2.4, “Instruction Exception Specification” in
-the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume 2A
+the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume 2A
 and Section 22.25.3, “Exception Conditions of Legacy SIMD Instructions Operating
-on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer''s
+on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 3A.
 
 
@@ -34050,9 +34050,9 @@ PMULHRSW - Packed Multiply High with Round and Scale:
 | ymm1, ymm2, ymm3/m256                  |      |                       |                   | and round signed doublewords, pack high
 |                                        |      |                       |                   | 16 bits to ymm1.                       
 Notes: 1. See note in Section 2.4, “Instruction Exception Specification” in
-the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume 2A
+the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume 2A
 and Section 22.25.3, “Exception Conditions of Legacy SIMD Instructions Operating
-on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer''s
+on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 3A.
 
 
@@ -34186,9 +34186,9 @@ PMULHUW - Multiply Packed Unsigned Integers and Store High Result:
 | ymm1, ymm2, ymm3/m256               |      |                       |                   | in ymm2 and ymm3/m256, and store the      
 |                                     |      |                       |                   | high 16 bits of the results in ymm1.      
 Notes: 1. See note in Section 2.4, “Instruction Exception Specification” in
-the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume 2A
+the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume 2A
 and Section 22.25.3, “Exception Conditions of Legacy SIMD Instructions Operating
-on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer''s
+on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 3A.
 
 
@@ -34342,9 +34342,9 @@ PMULHW - Multiply Packed Signed Integers and Store High Result:
 | ymm1, ymm2, ymm3/m256              |      |                       |                   | in ymm2 and ymm3/m256, and store the    
 |                                    |      |                       |                   | high 16 bits of the results in ymm1.    
 Notes: 1. See note in Section 2.4, “Instruction Exception Specification” in
-the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume 2A
+the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume 2A
 and Section 22.25.3, “Exception Conditions of Legacy SIMD Instructions Operating
-on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer''s
+on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 3A.
 
 
@@ -34577,9 +34577,9 @@ PMULLW - Multiply Packed Signed Integers and Store Low Result:
 | ymm1, ymm2, ymm3/m256              |      |                       |                   | in ymm2 and ymm3/m256, and store the     
 |                                    |      |                       |                   | low 16 bits of the results in ymm1.      
 Notes: 1. See note in Section 2.4, “Instruction Exception Specification” in
-the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume 2A
+the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume 2A
 and Section 22.25.3, “Exception Conditions of Legacy SIMD Instructions Operating
-on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer''s
+on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 3A.
 
 
@@ -34719,9 +34719,9 @@ PMULUDQ - Multiply Packed Unsigned Doubleword Integers:
 |                                     |      |                       |                   | doubleword integers in ymm3/m256, and    
 |                                     |      |                       |                   | store the quadword results in ymm1.      
 Notes: 1. See note in Section 2.4, “Instruction Exception Specification” in
-the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume 2A
+the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume 2A
 and Section 22.25.3, “Exception Conditions of Legacy SIMD Instructions Operating
-on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer''s
+on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 3A.
 
 
@@ -34986,7 +34986,7 @@ IF SS is loaded;
        THEN #GP(0);
      FI;
      IF segment selector index is outside descriptor table limits
-       or segment selector''s RPL != CPL
+       or segment selector's RPL != CPL
        or segment is not a writable data segment
        or DPL != CPL
           THEN #GP(selector);
@@ -35034,8 +35034,8 @@ Protected Mode Exceptions:
 |              | and it contains a NULL segment selector.      
 | #GP(selector)| If segment selector index is outside          
 |              | descriptor table limits. If the SS register   
-|              | is being loaded and the segment selector''s    
-|              | RPL and the segment descriptor''s DPL          
+|              | is being loaded and the segment selector's    
+|              | RPL and the segment descriptor's DPL          
 |              | are not equal to the CPL.                     
 If the SS register is being loaded and the segment pointed to is a non-writable
 data segment. If the DS, ES, FS, or GS register is being loaded and the segment
@@ -35128,7 +35128,7 @@ POPAD is used (using the operand-size override prefix [66H] if necessary). Other
 may treat these mnemonics as synonyms (POPA/POPAD) and use the current setting
 of the operand-size attribute to determine the size of values to be popped from
 the stack, regardless of the mnemonic used. (The D flag in the current code
-segment''s segment descriptor determines the operand-size attribute.)
+segment's segment descriptor determines the operand-size attribute.)
 
 This instruction executes as described in non-64-bit modes. It is not valid
 in 64-bit mode.
@@ -35335,7 +35335,7 @@ is POPFQ (note that the 32bit operand is not encodable). POPFQ pops 64 bits
 from the stack, loads the lower 32 bits into RFLAGS, and zero extends the upper
 bits of RFLAGS.
 
-See Chapter 3 of the Intel® 64 and IA-32 Architectures Software Developer''s
+See Chapter 3 of the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 1, for more information about the EFLAGS registers.
 
 Operation:
@@ -35466,9 +35466,9 @@ POR - Bitwise Logical OR:
 | VEX.NDS.256.66.0F.WIG EB /r VPOR ymm1,| RVM  | V/V                   | AVX2              | Bitwise OR of ymm2/m256 and ymm3.
 | ymm2, ymm3/m256                       |      |                       |                   |                                  
 Notes: 1. See note in Section 2.4, “Instruction Exception Specification” in
-the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume 2A
+the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume 2A
 and Section 22.25.3, “Exception Conditions of Legacy SIMD Instructions Operating
-on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer''s
+on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 3A.
 
 
@@ -35595,7 +35595,7 @@ unordered with respect to CLFLUSH instructions, other PREFETCHh instructions,
 or any other general instruction. It is ordered with respect to serializing
 instructions such as CPUID, WRMSR, OUT, and MOV CR.
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 Operation:
 
@@ -35651,7 +35651,7 @@ execution, a PREFETCHW instruction is not ordered with respect to the fence
 instructions (MFENCE, SFENCE, and LFENCE) or locked memory references. A PREFETCHW
 instruction is also unordered with respect to CLFLUSH instructions, other PREFETCHW
 instructions, or any other general instruction It is ordered with respect to
-serializing instructions such as CPUID, WRMSR, OUT, and MOV CR. This instruction''s
+serializing instructions such as CPUID, WRMSR, OUT, and MOV CR. This instruction's
 operation is the same in non-64-bit modes and 64-bit mode.
 
 Operation:
@@ -35708,9 +35708,9 @@ PSADBW - Compute Sum of Absolute Differences:
 |                                    |      |                       |                   | to produce four unsigned word integer     
 |                                    |      |                       |                   | results.                                  
 Notes: 1. See note in Section 2.4, “Instruction Exception Specification” in
-the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume 2A
+the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume 2A
 and Section 22.25.3, “Exception Conditions of Legacy SIMD Instructions Operating
-on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer''s
+on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 3A.
 
 
@@ -35829,9 +35829,9 @@ PSHUFB - Packed Shuffle Bytes:
 | VEX.NDS.256.66.0F38.WIG 00 /r VPSHUFB| RVM  | V/V                   | AVX2              | Shuffle bytes in ymm2 according to contents
 | ymm1, ymm2, ymm3/m256                |      |                       |                   | of ymm3/m256.                              
 Notes: 1. See note in Section 2.4, “Instruction Exception Specification” in
-the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume 2A
+the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume 2A
 and Section 22.25.3, “Exception Conditions of Legacy SIMD Instructions Operating
-on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer''s
+on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 3A.
 
 
@@ -36275,7 +36275,7 @@ None.
 
 Other Exceptions:
 See Table 22-7, “Exception Conditions for SIMD/MMX Instructions with Memory
-Reference,” in the Intel® 64 and IA-32 Architectures Software Developer''s Manual,
+Reference,” in the Intel® 64 and IA-32 Architectures Software Developer's Manual,
 Volume 3A.
 
 `,
@@ -36319,9 +36319,9 @@ PSIGNB/PSIGNW/PSIGND - Packed SIGN:
 | ymm1, ymm2, ymm3/m256                |      |                       |                   | ymm2 if the corresponding sign in ymm3/m256    
 |                                      |      |                       |                   | is less than zero.                             
 Notes: 1. See note in Section 2.4, “Instruction Exception Specification” in
-the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume 2A
+the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume 2A
 and Section 22.25.3, “Exception Conditions of Legacy SIMD Instructions Operating
-on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer''s
+on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 3A.
 
 
@@ -36615,9 +36615,9 @@ PSLLW/PSLLD/PSLLQ - Shift Packed Data Left Logical:
 | VEX.NDD.256.66.0F.WIG 73 /6 ib VPSLLQ   | VMI  | V/V                   | AVX2              | Shift quadwords in ymm2 left by imm8        
 | ymm1, ymm2, imm8                        |      |                       |                   | while shifting in 0s.                       
 Notes: 1. See note in Section 2.4, “Instruction Exception Specification” in
-the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume 2A
+the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume 2A
 and Section 22.25.3, “Exception Conditions of Legacy SIMD Instructions Operating
-on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer''s
+on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 3A.
 
 
@@ -36872,9 +36872,9 @@ PSRAW/PSRAD - Shift Packed Data Right Arithmetic:
 | VEX.NDD.256.66.0F.WIG 72 /4 ib VPSRAD   | VMI  | V/V                   | AVX2              | Shift doublewords in ymm2 right by imm8  
 | ymm1, ymm2, imm8                        |      |                       |                   | while shifting in sign bits.             
 Notes: 1. See note in Section 2.4, “Instruction Exception Specification” in
-the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume 2A
+the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume 2A
 and Section 22.25.3, “Exception Conditions of Legacy SIMD Instructions Operating
-on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer''s
+on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 3A.
 
 
@@ -37162,9 +37162,9 @@ PSRLW/PSRLD/PSRLQ - Shift Packed Data Right Logical:
 | VEX.NDD.256.66.0F.WIG 73 /2 ib VPSRLQ   | VMI  | V/V                   | AVX2              | Shift quadwords in ymm2 right by imm8      
 | ymm1, ymm2, imm8                        |      |                       |                   | while shifting in 0s.                      
 Notes: 1. See note in Section 2.4, “Instruction Exception Specification” in
-the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume 2A
+the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume 2A
 and Section 22.25.3, “Exception Conditions of Legacy SIMD Instructions Operating
-on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer''s
+on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 3A.
 
 
@@ -37395,9 +37395,9 @@ PSUBB/PSUBW/PSUBD - Subtract Packed Integers:
 | VEX.NDS.256.66.0F.WIG FA /r VPSUBD ymm1,| RVM  | V/V                   | AVX2              | Subtract packed doubleword integers       
 | ymm2, ymm3/m256                         |      |                       |                   | in ymm3/m256 from ymm2.                   
 Notes: 1. See note in Section 2.4, “Instruction Exception Specification” in
-the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume 2A
+the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume 2A
 and Section 22.25.3, “Exception Conditions of Legacy SIMD Instructions Operating
-on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer''s
+on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 3A.
 
 
@@ -37410,7 +37410,7 @@ Description:
 Performs a SIMD subtract of the packed integers of the source operand (second
 operand) from the packed integers of the destination operand (first operand),
 and stores the packed integer results in the destination operand. See Figure
-9-4 in the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume
+9-4 in the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume
 1, for an illustration of a SIMD operation. Overflow is handled with wraparound,
 as described in the following paragraphs.
 
@@ -37427,7 +37427,7 @@ result is too large or too small to be represented in a doubleword, the result
 is wrapped around and the low 32 bits are written to the destination element.
 
 Note that the (V)PSUBB, (V)PSUBW, and (V)PSUBD instructions can operate on either
-unsigned or signed (two''s complement notation) packed integers; however, it
+unsigned or signed (two's complement notation) packed integers; however, it
 does not set bits in the EFLAGS register to indicate overflow and/or a carry.
 To prevent undetected overflow conditions, software must control the ranges
 of values upon which it operates.
@@ -37615,9 +37615,9 @@ PSUBQ - Subtract Packed Quadword Integers:
 | VEX.NDS.256.66.0F.WIG FB /r VPSUBQ ymm1,| RVM  | V/V                   | AVX2              | Subtract packed quadword integers in 
 | ymm2, ymm3/m256                         |      |                       |                   | ymm3/m256 from ymm2.                 
 Notes: 1. See note in Section 2.4, “Instruction Exception Specification” in
-the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume 2A
+the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume 2A
 and Section 22.25.3, “Exception Conditions of Legacy SIMD Instructions Operating
-on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer''s
+on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 3A.
 
 
@@ -37635,7 +37635,7 @@ and the low 64 bits are written to the destination element (that is, the carry
 is ignored).
 
 Note that the (V)PSUBQ instruction can operate on either unsigned or signed
-(two''s complement notation) integers; however, it does not set bits in the EFLAGS
+(two's complement notation) integers; however, it does not set bits in the EFLAGS
 register to indicate overflow and/or a carry. To prevent undetected overflow
 conditions, software must control the ranges of the values upon which it operates.
 
@@ -37721,9 +37721,9 @@ PSUBSB/PSUBSW - Subtract Packed Signed Integers with Signed Saturation:
 | ymm1, ymm2, ymm3/m256              |      |                       |                   | in ymm3/m256 from packed signed word       
 |                                    |      |                       |                   | integers in ymm2 and saturate results.     
 Notes: 1. See note in Section 2.4, “Instruction Exception Specification” in
-the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume 2A
+the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume 2A
 and Section 22.25.3, “Exception Conditions of Legacy SIMD Instructions Operating
-on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer''s
+on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 3A.
 
 
@@ -37736,7 +37736,7 @@ Description:
 Performs a SIMD subtract of the packed signed integers of the source operand
 (second operand) from the packed signed integers of the destination operand
 (first operand), and stores the packed integer results in the destination operand.
-See Figure 9-4 in the Intel® 64 and IA-32 Architectures Software Developer''s
+See Figure 9-4 in the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 1, for an illustration of a SIMD operation. Overflow is handled
 with signed saturation, as described in the following paragraphs.
 
@@ -37861,9 +37861,9 @@ PSUBUSB/PSUBUSW - Subtract Packed Unsigned Integers with Unsigned Saturation:
 | ymm1, ymm2, ymm3/m256               |      |                       |                   | in ymm3/m256 from packed unsigned word  
 |                                     |      |                       |                   | integers in ymm2 and saturate result.   
 Notes: 1. See note in Section 2.4, “Instruction Exception Specification” in
-the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume 2A
+the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume 2A
 and Section 22.25.3, “Exception Conditions of Legacy SIMD Instructions Operating
-on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer''s
+on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 3A.
 
 
@@ -37876,7 +37876,7 @@ Description:
 Performs a SIMD subtract of the packed unsigned integers of the source operand
 (second operand) from the packed unsigned integers of the destination operand
 (first operand), and stores the packed unsigned integer results in the destination
-operand. See Figure 9-4 in the Intel® 64 and IA-32 Architectures Software Developer''s
+operand. See Figure 9-4 in the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 1, for an illustration of a SIMD operation. Overflow is handled
 with unsigned saturation, as described in the following paragraphs.
 
@@ -38092,9 +38092,9 @@ PUNPCKHBW/PUNPCKHWD/PUNPCKHDQ/PUNPCKHQDQ - Unpack High Data:
 | VEX.NDS.256.66.0F.WIG 6D /r VPUNPCKHQDQ| RVM  | V/V                   | AVX2              | Interleave high-order quadword from         
 | ymm1, ymm2, ymm3/m256                  |      |                       |                   | ymm2 and ymm3/m256 into ymm1 register.      
 Notes: 1. See note in Section 2.4, “Instruction Exception Specification” in
-the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume 2A
+the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume 2A
 and Section 22.25.3, “Exception Conditions of Legacy SIMD Instructions Operating
-on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer''s
+on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 3A.
 
 
@@ -38414,9 +38414,9 @@ PUNPCKLBW/PUNPCKLWD/PUNPCKLDQ/PUNPCKLQDQ - Unpack Low Data:
 | VEX.NDS.256.66.0F.WIG 6C /r VPUNPCKLQDQ| RVM  | V/V                   | AVX2              | Interleave low-order quadword from ymm2
 | ymm1, ymm2, ymm3/m256                  |      |                       |                   | and ymm3/m256 into ymm1 register.      
 Notes: 1. See note in Section 2.4, “Instruction Exception Specification” in
-the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume 2A
+the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume 2A
 and Section 22.25.3, “Exception Conditions of Legacy SIMD Instructions Operating
-on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer''s
+on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 3A.
 
 
@@ -38767,7 +38767,7 @@ segment is violated). Its delivery encounters a second stackfault exception
 (for the same reason), causing generation of a double-fault exception (#DF).
 Delivery of the double-fault exception encounters a third stack-fault exception,
 and the logical processor enters shutdown mode. See the discussion of the double-fault
-exception in Chapter 6 of the Intel® 64 and IA-32 Architectures Software Developer''s
+exception in Chapter 6 of the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 3A.
 
 
@@ -38782,7 +38782,7 @@ decremented by 2).
 Operation:
 
 (* See Description section for possible sign-extension or zero-extension of source operand and for *)
-(* a case in which the size of the memory store may be smaller than the instruction''s operand size *)
+(* a case in which the size of the memory store may be smaller than the instruction's operand size *)
 IF StackAddrSize = 64
   THEN
      IF OperandSize = 64
@@ -38912,7 +38912,7 @@ In the real-address mode, if the ESP or SP register is 1, 3, or 5 when PUSHA/PUS
 executes: an #SS exception is generated but not delivered (the stack error reported
 prevents #SS delivery). Next, the processor generates a #DF exception and enters
 a shutdown state as described in the #DF discussion in Chapter 6 of the Intel®
-64 and IA-32 Architectures Software Developer''s Manual, Volume 3A.
+64 and IA-32 Architectures Software Developer's Manual, Volume 3A.
 
 This instruction executes as described in compatibility mode and legacy mode.
 It is not valid in 64-bit mode.
@@ -39000,7 +39000,7 @@ onto the stack. These instructions reverse the operation of the POPF/POPFD instr
 When copying the entire EFLAGS register to the stack, the VM and RF flags (bits
 16 and 17) are not copied; instead, the values for these flags are cleared in
 the EFLAGS image stored on the stack. See Chapter 3 of the Intel® 64 and IA-32
-Architectures Software Developer''s Manual, Volume 1, for more information about
+Architectures Software Developer's Manual, Volume 1, for more information about
 the EFLAGS register.
 
 The PUSHF (push flags) and PUSHFD (push flags double) mnemonics reference the
@@ -39011,7 +39011,7 @@ to 32 when PUSHFD is used. Others may treat these mnemonics as synonyms (PUSHF/P
 and use the current setting of the operand-size attribute to determine the size
 of values to be pushed from the stack, regardless of the mnemonic used.
 
-In 64-bit mode, the instruction''s default operation is to decrement the stack
+In 64-bit mode, the instruction's default operation is to decrement the stack
 pointer (RSP) by 8 and pushes RFLAGS on the stack. 16-bit operation is supported
 using the operand size override prefix 66H. 32-bit operand size cannot be encoded
 in this mode. When copying RFLAGS to the stack, the VM and RF flags (bits 16
@@ -39025,7 +39025,7 @@ In the real-address mode, if the ESP or SP register is 1 when PUSHF/PUSHFD instr
 executes: an #SS exception is generated but not delivered (the stack error reported
 prevents #SS delivery). Next, the processor generates a #DF exception and enters
 a shutdown state as described in the #DF discussion in Chapter 6 of the Intel®
-64 and IA-32 Architectures Software Developer''s Manual, Volume 3A.
+64 and IA-32 Architectures Software Developer's Manual, Volume 3A.
 
 Operation:
 
@@ -39102,9 +39102,9 @@ PXOR - Logical Exclusive OR:
 | VEX.NDS.256.66.0F.WIG EF /r VPXOR ymm1,| RVM  | V/V                   | AVX2              | Bitwise XOR of ymm3/m256 and ymm2.
 | ymm2, ymm3/m256                        |      |                       |                   |                                   
 Notes: 1. See note in Section 2.4, “Instruction Exception Specification” in
-the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume 2A
+the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume 2A
 and Section 22.25.3, “Exception Conditions of Legacy SIMD Instructions Operating
-on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer''s
+on MMX Registers” in the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 3A.
 
 
@@ -39463,7 +39463,7 @@ single-precision floating-point values in the source operand (second operand)
 stores the packed single-precision floating-point results in the destination
 operand. The source operand can be an XMM register or a 128-bit memory location.
 The destination operand is an XMM register. See Figure 10-5 in the Intel® 64
-and IA-32 Architectures Software Developer''s Manual, Volume 1, for an illustration
+and IA-32 Architectures Software Developer's Manual, Volume 1, for an illustration
 of a SIMD single-precision floating-point operation.
 
 The relative error for this approximation is:
@@ -39558,7 +39558,7 @@ floating-point result in the destination operand. The source operand can be
 an XMM register or a 32-bit memory location. The destination operand is an XMM
 register. The three high-order doublewords of the destination operand remain
 unchanged. See Figure 10-6 in the Intel® 64 and IA-32 Architectures Software
-Developer''s Manual, Volume 1, for an illustration of a scalar single-precision
+Developer's Manual, Volume 1, for an illustration of a scalar single-precision
 floatingpoint operation.
 
 The relative error for this approximation is:
@@ -39697,7 +39697,7 @@ exception.
 
 The MSRs control functions for testability, execution tracing, performance-monitoring,
 and machine check errors. Chapter 35, “Model-Specific Registers (MSRs),” in
-the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume 3C,
+the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume 3C,
 lists all the MSRs that can be read with this instruction and their addresses.
 Note that each processor family has its own set of MSRs.
 
@@ -39712,7 +39712,7 @@ by an IA-32 processor earlier than the Pentium processor results in an invalid
 opcode exception #UD.
 
 See “Changes to Instruction Behavior in VMX Non-Root Operation” in Chapter 25
-of the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume
+of the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume
 3C, for more information about the behavior of this instruction in VMX non-root
 operation.
 
@@ -39772,13 +39772,13 @@ mode if supported. The two counter types are :
 
  - General-purpose or special-purpose performance counters: The number of general-purpose
 counters is model specific if the processor does not support architectural performance
-monitoring, see Chapter 30 of Intel® 64 and IA-32 Architectures Software Developer''s
+monitoring, see Chapter 30 of Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 3B. Special-purpose counters are available only in selected processor
 members, see Section 30.13, 30.14 of Intel® 64 and IA-32 Architectures Software
-Developer''s Manual, Volume 3B. This counter type is selected if ECX[30] is clear.
+Developer's Manual, Volume 3B. This counter type is selected if ECX[30] is clear.
  - Fixed-function performance counter. The number fixed-function performance counters
 is enumerated by CPUID 0AH leaf. See Chapter 30 of Intel® 64 and IA-32 Architectures
-Software Developer''s Manual, Volume 3B. This counter type is selected if ECX[30]
+Software Developer's Manual, Volume 3B. This counter type is selected if ECX[30]
 is set.
 
 ECX[29:0] specifies the index. The width of general-purpose performance counters
@@ -39791,7 +39791,7 @@ are reported by CPUID 0AH leaf.
 Table 4-12 lists valid indices of the general-purpose and special-purpose performance
 counters according to the derived DisplayFamily_DisplayModel values of CPUID
 encoding for each processor family (see CPUID instruction in Chapter 3, “Instruction
-Set Reference, A-M” in the Intel® 64 and IA-32 Architectures Software Developer''s
+Set Reference, A-M” in the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 2A).
 
 
@@ -39853,7 +39853,7 @@ when executing at privilege level 0.
 The performance-monitoring counters are event counters that can be programmed
 to count events such as the number of instructions decoded, number of interrupts
 received, or number of cache loads. Chapter 19, “Performance Monitoring Events,”
-in the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume
+in the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume
 3B, lists the events that can be counted for various processors in the Intel
 64 and IA-32 architecture families.
 
@@ -40007,8 +40007,8 @@ will be returned as zeros for the specified width. All other flags are forced
 to 0 in either situation. Software must check the state of CF=1 for determining
 if a valid random value has been returned, otherwise it is expected to loop
 and retry execution of RDRAND (see Intel® 64 and IA-32 Architectures Software
-Developer''s Manual, Volume 1, Section 7.3.17, “Random Number Generator Instruction”).
-This instruction is available at all privilege levels. In 64-bit mode, the instruction''s
+Developer's Manual, Volume 1, Section 7.3.17, “Random Number Generator Instruction”).
+This instruction is available at all privilege levels. In 64-bit mode, the instruction's
 default operation size is 32 bits. Using a REX prefix in the form of REX.B permits
 access to additional registers (R8-R15). Using a REX prefix in the form of REX.W
 promotes operation to 64 bit operands. See the summary chart at the beginning
@@ -40077,7 +40077,7 @@ Instruction Operand Encoding:
 | NP   | NA       | NA       | NA       | NA       
 
 Description:
-Loads the current value of the processor''s time-stamp counter (a 64-bit MSR)
+Loads the current value of the processor's time-stamp counter (a 64-bit MSR)
 into the EDX:EAX registers. The EDX register is loaded with the high-order 32
 bits of the MSR and the EAX register is loaded with the low-order 32 bits. (On
 processors that support the Intel 64 architecture, the high-order 32 bits of
@@ -40085,7 +40085,7 @@ each of RAX and RDX are cleared.)
 
 The processor monotonically increments the time-stamp counter MSR every clock
 cycle and resets it to 0 whenever the processor is reset. See “Time Stamp Counter”
-in Chapter 17 of the Intel® 64 and IA-32 Architectures Software Developer''s
+in Chapter 17 of the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 3B, for specific details of the time stamp counter behavior.
 
 When in protected or virtual 8086 mode, the time stamp disable (TSD) flag in
@@ -40107,7 +40107,7 @@ supports that instruction) or execute the sequence LFENCE;RDTSC.
 This instruction was introduced by the Pentium processor.
 
 See “Changes to Instruction Behavior in VMX Non-Root Operation” in Chapter 25
-of the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume
+of the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume
 3C, for more information about the behavior of this instruction in VMX non-root
 operation.
 
@@ -40155,7 +40155,7 @@ Instruction Operand Encoding:
 | NP   | NA       | NA       | NA       | NA       
 
 Description:
-Loads the current value of the processor''s time-stamp counter (a 64-bit MSR)
+Loads the current value of the processor's time-stamp counter (a 64-bit MSR)
 into the EDX:EAX registers and also loads the IA32_TSC_AUX MSR (address C000_0103H)
 into the ECX register. The EDX register is loaded with the high-order 32 bits
 of the IA32_TSC MSR; the EAX register is loaded with the low-order 32 bits of
@@ -40165,7 +40165,7 @@ high-order 32 bits of each of RAX, RDX, and RCX are cleared.
 
 The processor monotonically increments the time-stamp counter MSR every clock
 cycle and resets it to 0 whenever the processor is reset. See “Time Stamp Counter”
-in Chapter 17 of the Intel® 64 and IA-32 Architectures Software Developer''s
+in Chapter 17 of the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 3B, for specific details of the time stamp counter behavior.
 
 When in protected or virtual 8086 mode, the time stamp disable (TSD) flag in
@@ -40184,7 +40184,7 @@ before reading the counter.
 | processor. See “Changes to Instruction    |                                            
 | Behavior in VMX Non-Root Operation”       |                                            
 | in Chapter 25 of the Intel® 64 and IA-32  |                                            
-| Architectures Software Developer''s Manual,|                                            
+| Architectures Software Developer's Manual,|                                            
 | Volume 3C, for more information about     |                                            
 | the behavior of this instruction in       |                                            
 | VMX non-root operation.                   |                                            
@@ -40453,7 +40453,7 @@ than that of the currently executing program or procedure.
 
 The inter-privilege-level return type can only be executed in protected mode.
 See the section titled “Calling Procedures Using Call and RET” in Chapter 6
-of the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume
+of the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume
 1, for detailed information on near, far, and inter-privilege-level returns.
 
 When executing a near return, the processor pops the return instruction pointer
@@ -40477,7 +40477,7 @@ and SS registers are loaded from the stack.
 If parameters are passed to the called procedure during an inter-privilege level
 call, the optional source operand must be used with the RET instruction to release
 the parameters on the return. Here, the parameters are released both from the
-called procedure''s stack and the calling procedure''s stack (that is, the stack
+called procedure's stack and the calling procedure's stack (that is, the stack
 being returned to).
 
 In 64-bit mode, the default operation size of this instruction is the stack-address
@@ -40627,7 +40627,7 @@ RETURN-OUTER-PRIVILEGE-LEVEL:
        CS <- Pop(); (* 32-bit pop, high-order 16 bits discarded; segment descriptor loaded *)
        CS(RPL) <- CPL;
        IF instruction has immediate operand
-          THEN (* Release parameters from called procedure''s stack *)
+          THEN (* Release parameters from called procedure's stack *)
              IF StackAddressSize = 32
                THEN
                   ESP <- ESP + SRC;
@@ -40645,7 +40645,7 @@ RETURN-OUTER-PRIVILEGE-LEVEL:
        CS <- Pop(); (* 16-bit pop; segment descriptor loaded *)
        CS(RPL) <- CPL;
        IF instruction has immediate operand
-          THEN (* Release parameters from called procedure''s stack *)
+          THEN (* Release parameters from called procedure's stack *)
              IF StackAddressSize = 32
                THEN
                   ESP <- ESP + SRC;
@@ -40666,7 +40666,7 @@ RETURN-OUTER-PRIVILEGE-LEVEL:
        FI;
      OD;
   IF instruction has immediate operand
-     THEN (* Release parameters from calling procedure''s stack *)
+     THEN (* Release parameters from calling procedure's stack *)
        IF StackAddressSize = 32
           THEN
              ESP <- ESP + SRC;
@@ -40793,7 +40793,7 @@ IF OperandSize = 32
      CS <- Pop(); (* 32-bit pop, high-order 16 bits discarded, segment descriptor loaded *)
      CS(RPL) <- CPL;
      IF instruction has immediate operand
-       THEN (* Release parameters from called procedure''s stack *)
+       THEN (* Release parameters from called procedure's stack *)
           IF StackAddressSize = 32
              THEN
                ESP <- ESP + SRC;
@@ -40818,7 +40818,7 @@ IF OperandSize = 32
           CS <- Pop(); (* 16-bit pop; segment descriptor loaded *)
           CS(RPL) <- CPL;
           IF instruction has immediate operand
-             THEN (* Release parameters from called procedure''s stack *)
+             THEN (* Release parameters from called procedure's stack *)
                IF StackAddressSize = 32
                   THEN
                      ESP <- ESP + SRC;
@@ -40840,7 +40840,7 @@ IF OperandSize = 32
           CS <- Pop(); (* 64-bit pop; high-order 48 bits discarded; seg. descriptor loaded *)
           CS(RPL) <- CPL;
           IF instruction has immediate operand
-             THEN (* Release parameters from called procedure''s stack *)
+             THEN (* Release parameters from called procedure's stack *)
                RSP <- RSP + SRC;
           FI;
           tempESP <- Pop();
@@ -40857,7 +40857,7 @@ FOR each of segment register (ES, FS, GS, and DS)
      FI;
   OD;
 IF instruction has immediate operand
-  THEN (* Release parameters from calling procedure''s stack *)
+  THEN (* Release parameters from calling procedure's stack *)
      IF StackAddressSize = 32
        THEN
           ESP <- ESP + SRC;
@@ -40887,12 +40887,12 @@ Protected Mode Exceptions:
 |                | limits. If the return code segment descriptor
 |                | does not indicate a code segment. If         
 |                | the return code segment is non-conforming    
-|                | and the segment selector''s DPL is not        
-|                | equal to the RPL of the code segment''s       
+|                | and the segment selector's DPL is not        
+|                | equal to the RPL of the code segment's       
 |                | segment selector If the return code          
 |                | segment is conforming and the segment        
-|                | selector''s DPL greater than the RPL          
-|                | of the code segment''s segment selector       
+|                | selector's DPL greater than the RPL          
+|                | of the code segment's segment selector       
 |                | If the stack segment is not a writable       
 |                | data segment. If the stack segment selector  
 |                | RPL is not equal to the RPL of the return    
@@ -41415,7 +41415,7 @@ Instruction Operand Encoding:
 Description:
 Returns program control from system management mode (SMM) to the application
 program or operating-system procedure that was interrupted when the processor
-received an SMM interrupt. The processor''s state is restored from the dump created
+received an SMM interrupt. The processor's state is restored from the dump created
 upon entering SMM. If the processor detects invalid state information during
 state restoration, it enters the shutdown state. The following invalid information
 can cause a shutdown:
@@ -41433,7 +41433,7 @@ The SMM state map used by RSM supports resuming processor context for non-64-bit
 modes and 64-bit mode.
 
 See Chapter 34, “System Management Mode,” in the Intel® 64 and IA-32 Architectures
-Software Developer''s Manual, Volume 3C, for more information about SMM and the
+Software Developer's Manual, Volume 3C, for more information about SMM and the
 behavior of the RSM instruction.
 
 Operation:
@@ -41497,7 +41497,7 @@ of the four packed single-precision floating-point values in the source operand
 (second operand) and stores the packed single-precision floatingpoint results
 in the destination operand. The source operand can be an XMM register or a 128-bit
 memory location. The destination operand is an XMM register. See Figure 10-5
-in the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume
+in the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume
 1, for an illustration of a SIMD single-precision floating-point operation.
 
 The relative error for this approximation is:
@@ -41589,7 +41589,7 @@ floating-point result in the destination operand. The source operand can be
 an XMM register or a 32-bit memory location. The destination operand is an XMM
 register. The three high-order doublewords of the destination operand remain
 unchanged. See Figure 10-6 in the Intel® 64 and IA-32 Architectures Software
-Developer''s Manual, Volume 1, for an illustration of a scalar single-precision
+Developer's Manual, Volume 1, for an illustration of a scalar single-precision
 floating-point operation.
 
 The relative error for this approximation is:
@@ -41788,7 +41788,7 @@ the same operation; they shift the bits in the destination operand to the left
 (toward more significant bit locations). For each shift count, the most significant
 bit of the destination operand is shifted into the CF flag, and the least significant
 bit is cleared (see Figure 7-7 in the Intel® 64 and IA-32 Architectures Software
-Developer''s Manual, Volume 1).
+Developer's Manual, Volume 1).
 
 The shift arithmetic right (SAR) and shift logical right (SHR) instructions
 shift the bits of the destination operand to the right (toward less significant
@@ -41796,11 +41796,11 @@ bit locations). For each shift count, the least significant bit of the destinati
 operand is shifted into the CF flag, and the most significant bit is either
 set or cleared depending on the instruction type. The SHR instruction clears
 the most significant bit (see Figure 7-8 in the Intel® 64 and IA-32 Architectures
-Software Developer''s Manual, Volume 1); the SAR instruction sets or clears the
+Software Developer's Manual, Volume 1); the SAR instruction sets or clears the
 most significant bit to correspond to the sign (most significant bit) of the
 original value in the destination operand. In effect, the SAR instruction fills
-the empty bit position''s shifted value with the sign of the unshifted value
-(see Figure 7-9 in the Intel® 64 and IA-32 Architectures Software Developer''s
+the empty bit position's shifted value with the sign of the unshifted value
+(see Figure 7-9 in the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 1).
 
 The SAR and SHR instructions can be used to perform signed or unsigned division,
@@ -41824,7 +41824,7 @@ it is set to 1. For the SAR instruction, the OF flag is cleared for all 1-bit
 shifts. For the SHR instruction, the OF flag is set to the most-significant
 bit of the original operand.
 
-In 64-bit mode, the instruction''s default operation size is 32 bits and the
+In 64-bit mode, the instruction's default operation size is 32 bits and the
 mask width for CL is 5 bits. Using a REX prefix in the form of REX.R permits
 access to additional registers (R8-R15). Using a REX prefix in the form of REX.W
 promotes operation to 64-bits and sets the mask width for CL to 6 bits. See
@@ -42103,7 +42103,7 @@ subtraction in which a SUB instruction is followed by a SBB instruction.
 This instruction can be used with a LOCK prefix to allow the instruction to
 be executed atomically.
 
-In 64-bit mode, the instruction''s default operation size is 32 bits. Using a
+In 64-bit mode, the instruction's default operation size is 32 bits. Using a
 REX prefix in the form of REX.R permits access to additional registers (R8-R15).
 Using a REX prefix in the form of REX.W promotes operation to 64 bits. See the
 summary chart at the beginning of this section for encoding data and limits.
@@ -42251,7 +42251,7 @@ these instructions will be used in a LOOP construct that takes
 some action based on the setting of status flags. See “REP/REPE/REPZ /REPNE/REPNZ - Repeat
 String Operation Prefix” in this chapter for a description of the REP prefix.
 
-In 64-bit mode, the instruction''s default address size is 64-bits, 32-bit address
+In 64-bit mode, the instruction's default address size is 64-bits, 32-bit address
 size is supported using the prefix 67H. Using a REX prefix in the form of REX.W
 promotes operation on doubleword operand to 64 bits. The 64-bit nooperand mnemonic
 is SCASQ. Address of the memory operand is specified in either RDI or EDI, and
@@ -42478,7 +42478,7 @@ SETG (set byte if greater) and SETNLE (set if not less or equal) have the same
 opcode and test for the same condition: ZF equals 0 and SF equals OF. These
 alternate mnemonics are provided to make code more intelligible. Appendix B,
 “EFLAGS Condition Codes,” in the Intel® 64 and IA-32 Architectures Software
-Developer''s Manual, Volume 1, shows the alternate mnemonics for various test
+Developer's Manual, Volume 1, shows the alternate mnemonics for various test
 conditions.
 
 Some languages represent a logical one as an integer with all bits set. This
@@ -42487,7 +42487,7 @@ for the SETcc instruction, then decrementing the result. For example, to test
 for overflow, use the SETNO instruction, then decrement the result.
 
 In IA-64 mode, the operand size is fixed at 8 bits. Use of REX prefix enable
-uniform addressing to additional byte registers. Otherwise, this instruction''s
+uniform addressing to additional byte registers. Otherwise, this instruction's
 operation is the same as in legacy mode and compatibility mode.
 
 Operation:
@@ -42599,7 +42599,7 @@ of this data. The SFENCE instruction provides a performance-efficient way of
 ensuring store ordering between routines that produce weakly-ordered results
 and routines that consume this data.
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 Operation:
 
@@ -42641,7 +42641,7 @@ an 8-byte base and a 2-byte limit.
 SGDT is useful only by operating-system software. However, it can be used in
 application programs without causing an exception to be generated. See “LGDT/LIDT - Load
 Global/Interrupt Descriptor Table Register” in Chapter 3, Intel® 64 and IA-32
-Architectures Software Developer''s Manual, Volume 2A, for information on loading
+Architectures Software Developer's Manual, Volume 2A, for information on loading
 the GDTR and IDTR.
 
 
@@ -42771,7 +42771,7 @@ out of the destination operand. For a 1-bit shift, the OF flag is set if a sign
 change occurred; otherwise, it is cleared. If the count operand is 0, flags
 are not affected.
 
-In 64-bit mode, the instruction''s default operation size is 32 bits. Using a
+In 64-bit mode, the instruction's default operation size is 32 bits. Using a
 REX prefix in the form of REX.R permits access to additional registers (R8-R15).
 Using a REX prefix in the form of REX.W promotes operation to 64 bits (upgrading
 the count mask to 6 bits). See the summary chart at the beginning of this section
@@ -42909,7 +42909,7 @@ out of the destination operand. For a 1-bit shift, the OF flag is set if a sign
 change occurred; otherwise, it is cleared. If the count operand is 0, flags
 are not affected.
 
-In 64-bit mode, the instruction''s default operation size is 32 bits. Using a
+In 64-bit mode, the instruction's default operation size is 32 bits. Using a
 REX prefix in the form of REX.R permits access to additional registers (R8-R15).
 Using a REX prefix in the form of REX.W promotes operation to 64 bits (upgrading
 the count mask to 6 bits). See the summary chart at the beginning of this section
@@ -43246,7 +43246,7 @@ In 64-bit mode, the operand size fixed at 8+2 bytes. The instruction stores
 SIDT is only useful in operating-system software; however, it can be used in
 application programs without causing an exception to be generated. See “LGDT/LIDT - Load
 Global/Interrupt Descriptor Table Register” in Chapter 3, Intel® 64 and IA-32
-Architectures Software Developer''s Manual, Volume 2A, for information on loading
+Architectures Software Developer's Manual, Volume 2A, for information on loading
 the GDTR and IDTR.
 
 
@@ -43466,7 +43466,7 @@ should use the MOV (control registers) instruction to load the machine status
 word.
 
 See “Changes to Instruction Behavior in VMX Non-Root Operation” in Chapter 25
-of the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume
+of the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume
 3C, for more information about the behavior of this instruction in VMX non-root
 operation.
 
@@ -43557,7 +43557,7 @@ floating-point values in the source operand (second operand) stores the packed
 double-precision floating-point results in the destination operand. The source
 operand can be an XMM register or a 128-bit memory location. The destination
 operand is an XMM register. See Figure 11-3 in the Intel® 64 and IA-32 Architectures
-Software Developer''s Manual, Volume 1, for an illustration of a SIMD double-precision
+Software Developer's Manual, Volume 1, for an illustration of a SIMD double-precision
 floating-point operation.
 
 In 64-bit mode, using a REX prefix in the form of REX.R permits this instruction
@@ -43628,7 +43628,7 @@ floating-point values in the source operand (second operand) stores the packed
 single-precision floating-point results in the destination operand. The source
 operand can be an XMM register or a 128-bit memory location. The destination
 operand is an XMM register. See Figure 10-5 in the Intel® 64 and IA-32 Architectures
-Software Developer''s Manual, Volume 1, for an illustration of a SIMD single-precision
+Software Developer's Manual, Volume 1, for an illustration of a SIMD single-precision
 floating-point operation.
 
 In 64-bit mode, using a REX prefix in the form of REX.R permits this instruction
@@ -43705,7 +43705,7 @@ the source operand (second operand) and stores the double-precision floating-poi
 result in the destination operand. The source operand can be an XMM register
 or a 64-bit memory location. The destination operand is an XMM register. The
 high quadword of the destination operand remains unchanged. See Figure 11-4
-in the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume
+in the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume
 1, for an illustration of a scalar double-precision floating-point operation.
 
 In 64-bit mode, using a REX prefix in the form of REX.R permits this instruction
@@ -43761,7 +43761,7 @@ the source operand (second operand) and stores the single-precision floating-poi
 result in the destination operand. The source operand can be an XMM register
 or a 32-bit memory location. The destination operand is an XMM register. The
 three high-order doublewords of the destination operand remain unchanged. See
-Figure 10-6 in the Intel® 64 and IA-32 Architectures Software Developer''s Manual,
+Figure 10-6 in the Intel® 64 and IA-32 Architectures Software Developer's Manual,
 Volume 1, for an illustration of a scalar single-precision floating-point operation.
 
 In 64-bit mode, using a REX prefix in the form of REX.R permits this instruction
@@ -43804,7 +43804,7 @@ Instruction Operand Encoding:
 Description:
 Sets the CF flag in the EFLAGS register.
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 Operation:
 
@@ -43830,7 +43830,7 @@ Description:
 Sets the DF flag in the EFLAGS register. When the DF flag is set to 1, string
 operations decrement the index registers (ESI and/or EDI).
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 Operation:
 
@@ -43872,10 +43872,10 @@ one macroinstruction following an STI.
 When protected-mode virtual interrupts are enabled, CPL is 3, and IOPL is less
 than 3; STI sets the VIF flag in the EFLAGS register, leaving IF unaffected.
 
-Table 4-15 indicates the action of the STI instruction depending on the processor''s
+Table 4-15 indicates the action of the STI instruction depending on the processor's
 mode of operation and the CPL/IOPL settings of the running program or procedure.
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 
 Table 4-15. Decision Table for STI Results:
@@ -43976,7 +43976,7 @@ Stores the contents of the MXCSR control and status register to the destination
 operand. The destination operand is a 32-bit memory location. The reserved bits
 in the MXCSR register are stored as 0s.
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 VEX.L must be 0, otherwise instructions will #UD.
 
 Note: In VEX-encoded versions, VEX.vvvv is reserved and must be 1111b, otherwise
@@ -44067,9 +44067,9 @@ operations, by 4 for doubleword operations).
 
 NOTE:
 To improve performance, more recent processors support modifications to the
-processor''s operation during the string store operations initiated with STOS
+processor's operation during the string store operations initiated with STOS
 and STOSB. See Section 7.3.9.3 in the Intel® 64 and IA-32 Architectures Software
-Developer''s Manual, Volume 1 for additional information on fast-string operation.
+Developer's Manual, Volume 1 for additional information on fast-string operation.
 
 In 64-bit mode, the default address size is 64 bits, 32-bit address size is
 supported using the prefix 67H. Using a REX prefix in the form of REX.W promotes
@@ -44322,7 +44322,7 @@ both signed and unsigned integer operands and sets the OF and CF flags to indica
 an overflow in the signed or unsigned result, respectively. The SF flag indicates
 the sign of the signed result.
 
-In 64-bit mode, the instruction''s default operation size is 32 bits. Using a
+In 64-bit mode, the instruction's default operation size is 32 bits. Using a
 REX prefix in the form of REX.R permits access to additional registers (R8-R15).
 Using a REX prefix in the form of REX.W promotes operation to 64 bits. See the
 summary chart at the beginning of this section for encoding data and limits.
@@ -44417,7 +44417,7 @@ floating-point values in the destination operand (first operand), and stores
 the packed double-precision floating-point results in the destination operand.
 The source operand can be an XMM register or a 128-bit memory location. The
 destination operand is an XMM register. See Figure 11-3 in the Intel® 64 and
-IA-32 Architectures Software Developer''s Manual, Volume 1, for an illustration
+IA-32 Architectures Software Developer's Manual, Volume 1, for an illustration
 of a SIMD double-precision floating-point operation.
 
 In 64-bit mode, using a REX prefix in the form of REX.R permits this instruction
@@ -44487,7 +44487,7 @@ floating-point values in the destination operand (first operand), and stores
 the packed single-precision floating-point results in the destination operand.
 The source operand can be an XMM register or a 128-bit memory location. The
 destination operand is an XMM register. See Figure 10-5 in the Intel® 64 and
-IA-32 Architectures Software Developer''s Manual, Volume 1, for an illustration
+IA-32 Architectures Software Developer's Manual, Volume 1, for an illustration
 of a SIMD doubleprecision floating-point operation.
 
 In 64-bit mode, using a REX prefix in the form of REX.R permits this instruction
@@ -44562,7 +44562,7 @@ operand (first operand), and stores the double-precision floating-point result
 in the destination operand. The source operand can be an XMM register or a 64-bit
 memory location. The destination operand is an XMM register. The high quadword
 of the destination operand remains unchanged. See Figure 11-4 in the Intel®
-64 and IA-32 Architectures Software Developer''s Manual, Volume 1, for an illustration
+64 and IA-32 Architectures Software Developer's Manual, Volume 1, for an illustration
 of a scalar double-precision floating-point operation.
 
 In 64-bit mode, using a REX prefix in the form of REX.R permits this instruction
@@ -44617,7 +44617,7 @@ operand (first operand), and stores the single-precision floatingpoint result
 in the destination operand. The source operand can be an XMM register or a 32-bit
 memory location. The destination operand is an XMM register. The three high-order
 doublewords of the destination operand remain unchanged. See Figure 10-6 in
-the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume 1,
+the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume 1,
 for an illustration of a scalar single-precision floating-point operation.
 
 In 64-bit mode, using a REX prefix in the form of REX.R permits this instruction
@@ -45142,7 +45142,7 @@ by clearing EFLAGS.IF before loading the user stack pointer.
  - Nonmaskable interrupts (NMIs). The OS can ensure that the NMI handler is invoked
 with the correct stack by using the interrupt stack table (IST) mechanism for
 gate 2 (NMI) in the IDT (see Section 6.14.5, “Interrupt Stack Table,” in Intel®
-64 and IA-32 Architectures Software Developer''s Manual, Volume 3A).
+64 and IA-32 Architectures Software Developer's Manual, Volume 3A).
  - General-protection exceptions (#GP). The SYSRET instruction generates #GP(0)
 if the value of RCX is not canonical. The OS can address this possibility using
 one or more of the following approaches:  - Confirming that the value of RCX is
@@ -45600,7 +45600,7 @@ Even though it is the execution of the UD2 instruction that causes the invalid
 opcode exception, the instruction pointer saved by delivery of the exception
 references the UD2 instruction (and not the following instruction).
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 Operation:
 
@@ -45953,7 +45953,7 @@ Load floating point values from the source operand (second operand) and broadcas
 to all elements of the destination operand (first operand). VBROADCASTSD and
 VBROADCASTF128 are only supported as 256-bit wide versions. VBROADCASTSS is
 supported in both 128-bit and 256-bit wide versions. Memory and register source
-operand syntax support of 256-bit instructions depend on the processor''s enumeration
+operand syntax support of 256-bit instructions depend on the processor's enumeration
 of the following conditions with respect to CPUID.1:ECX.AVX[bit 28] and CPUID.(EAX=07H,
 ECX=0H):EBX.AVX2[bit 5]:
 
@@ -46235,16 +46235,16 @@ To set the ZF flag, the following conditions must be met:
 of a system segment or gate).
  - For the VERR instruction, the segment must be readable.
  - For the VERW instruction, the segment must be a writable data segment.
- - If the segment is not a conforming code segment, the segment''s DPL must be greater
+ - If the segment is not a conforming code segment, the segment's DPL must be greater
 than or equal to (have less or the same privilege as) both the CPL and the segment
-selector''s RPL.
+selector's RPL.
 
 The validation performed is the same as is performed when a segment selector
 is loaded into the DS, ES, FS, or GS register, and the indicated access (read
-or write) is performed. The segment selector''s value cannot result in a protection
+or write) is performed. The segment selector's value cannot result in a protection
 exception, enabling the software to anticipate possible segment access problems.
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 The operand size is fixed at 16 bits.
 
 Operation:
@@ -46476,7 +46476,7 @@ opcode/instruction column of the summary table. The behavior of the complementar
 mnemonic in situations involving NANs are governed by the definition of the
 instruction mnemonic defined in the opcode/instruction column. See also Section
 14.5.1, “FMA Instruction Operand Order and Arithmetic Behavior” in the Intel®
-64 and IA-32 Architectures Software Developer''s Manual, Volume 1.
+64 and IA-32 Architectures Software Developer's Manual, Volume 1.
 
 Operation:
 
@@ -46612,7 +46612,7 @@ opcode/instruction column of the summary table. The behavior of the complementar
 mnemonic in situations involving NANs are governed by the definition of the
 instruction mnemonic defined in the opcode/instruction column. See also Section
 14.5.1, “FMA Instruction Operand Order and Arithmetic Behavior” in the “Intel®
-64 and IA-32 Architectures Software Developer''s Manual, Volume 1”.
+64 and IA-32 Architectures Software Developer's Manual, Volume 1”.
 
 Operation:
 
@@ -46732,7 +46732,7 @@ column of the summary table. The behavior of the complementary mnemonic in situa
 involving NANs are governed by the definition of the instruction mnemonic defined
 in the opcode/instruction column. See also Section 14.5.1, “FMA Instruction
 Operand Order and Arithmetic Behavior” in the Intel® 64 and IA-32 Architectures
-Software Developer''s Manual, Volume 1.
+Software Developer's Manual, Volume 1.
 
 Operation:
 
@@ -46819,7 +46819,7 @@ column of the summary table. The behavior of the complementary mnemonic in situa
 involving NANs are governed by the definition of the instruction mnemonic defined
 in the opcode/instruction column. See also Section 14.5.1, “FMA Instruction
 Operand Order and Arithmetic Behavior” in the Intel® 64 and IA-32 Architectures
-Software Developer''s Manual, Volume 1.
+Software Developer's Manual, Volume 1.
 
 Operation:
 
@@ -46922,7 +46922,7 @@ mnemonic listed in the opcode/instruction column of the summary table. The behav
 of the complementary mnemonic in situations involving NANs are governed by the
 definition of the instruction mnemonic defined in the opcode/instruction column.
 See also Section 14.5.1, “FMA Instruction Operand Order and Arithmetic Behavior”
-in the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume
+in the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume
 1.
 
 Operation:
@@ -47053,7 +47053,7 @@ mnemonic listed in the opcode/instruction column of the summary table. The behav
 of the complementary mnemonic in situations involving NANs are governed by the
 definition of the instruction mnemonic defined in the opcode/instruction column.
 See also Section 14.5.1, “FMA Instruction Operand Order and Arithmetic Behavior”
-in the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume
+in the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume
 1.
 
 Operation:
@@ -47193,7 +47193,7 @@ mnemonic listed in the opcode/instruction column of the summary table. The behav
 of the complementary mnemonic in situations involving NANs are governed by the
 definition of the instruction mnemonic defined in the opcode/instruction column.
 See also Section 14.5.1, “FMA Instruction Operand Order and Arithmetic Behavior”
-in the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume
+in the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume
 1.
 
 Operation:
@@ -47324,7 +47324,7 @@ mnemonic listed in the opcode/instruction column of the summary table. The behav
 of the complementary mnemonic in situations involving NANs are governed by the
 definition of the instruction mnemonic defined in the opcode/instruction column.
 See also Section 14.5.1, “FMA Instruction Operand Order and Arithmetic Behavior”
-in the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume
+in the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume
 1.
 
 Operation:
@@ -47465,7 +47465,7 @@ opcode/instruction column of the summary table. The behavior of the complementar
 mnemonic in situations involving NANs are governed by the definition of the
 instruction mnemonic defined in the opcode/instruction column. See also Section
 14.5.1, “FMA Instruction Operand Order and Arithmetic Behavior” in the Intel®
-64 and IA-32 Architectures Software Developer''s Manual, Volume 1.
+64 and IA-32 Architectures Software Developer's Manual, Volume 1.
 
 Operation:
 
@@ -47601,7 +47601,7 @@ opcode/instruction column of the summary table. The behavior of the complementar
 mnemonic in situations involving NANs are governed by the definition of the
 instruction mnemonic defined in the opcode/instruction column. See also Section
 14.5.1, “FMA Instruction Operand Order and Arithmetic Behavior” in the Intel®
-64 and IA-32 Architectures Software Developer''s Manual, Volume 1.
+64 and IA-32 Architectures Software Developer's Manual, Volume 1.
 
 Operation:
 
@@ -47721,7 +47721,7 @@ each instruction mnemonic listed in the opcode/instruction column of the summary
 table. The behavior of the complementary mnemonic in situations involving NANs
 are governed by the definition of the instruction mnemonic defined in the opcode/instruction
 column. See also Section 14.5.1, “FMA Instruction Operand Order and Arithmetic
-Behavior” in the Intel® 64 and IA-32 Architectures Software Developer''s Manual,
+Behavior” in the Intel® 64 and IA-32 Architectures Software Developer's Manual,
 Volume 1.
 
 Operation:
@@ -47809,7 +47809,7 @@ each instruction mnemonic listed in the opcode/instruction column of the summary
 table. The behavior of the complementary mnemonic in situations involving NANs
 are governed by the definition of the instruction mnemonic defined in the opcode/instruction
 column. See also Section 14.5.1, “FMA Instruction Operand Order and Arithmetic
-Behavior” in the Intel® 64 and IA-32 Architectures Software Developer''s Manual,
+Behavior” in the Intel® 64 and IA-32 Architectures Software Developer's Manual,
 Volume 1.
 
 Operation:
@@ -47916,7 +47916,7 @@ opcode/instruction column of the summary table. The behavior of the complementar
 mnemonic in situations involving NANs are governed by the definition of the
 instruction mnemonic defined in the opcode/instruction column. See also Section
 14.5.1, “FMA Instruction Operand Order and Arithmetic Behavior” in the Intel®
-64 and IA-32 Architectures Software Developer''s Manual, Volume 1.
+64 and IA-32 Architectures Software Developer's Manual, Volume 1.
 
 Operation:
 
@@ -48053,7 +48053,7 @@ column of the summary table. The behavior of the complementary mnemonic in situa
 involving NANs are governed by the definition of the instruction mnemonic defined
 in the opcode/instruction column. See also Section 14.5.1, “FMA Instruction
 Operand Order and Arithmetic Behavior” in the Intel® 64 and IA-32 Architectures
-Software Developer''s Manual, Volume 1.
+Software Developer's Manual, Volume 1.
 
 Operation:
 
@@ -48171,7 +48171,7 @@ each instruction mnemonic listed in the opcode/instruction column of the summary
 table. The behavior of the complementary mnemonic in situations involving NANs
 are governed by the definition of the instruction mnemonic defined in the opcode/instruction
 column. See also Section 14.5.1, “FMA Instruction Operand Order and Arithmetic
-Behavior” in the Intel® 64 and IA-32 Architectures Software Developer''s Manual,
+Behavior” in the Intel® 64 and IA-32 Architectures Software Developer's Manual,
 Volume 1.
 
 Operation:
@@ -48258,7 +48258,7 @@ column of the summary table. The behavior of the complementary mnemonic in situa
 involving NANs are governed by the definition of the instruction mnemonic defined
 in the opcode/instruction column. See also Section 14.5.1, “FMA Instruction
 Operand Order and Arithmetic Behavior” in the Intel® 64 and IA-32 Architectures
-Software Developer''s Manual, Volume 1.
+Software Developer's Manual, Volume 1.
 
 Operation:
 
@@ -48365,7 +48365,7 @@ opcode/instruction column of the summary table. The behavior of the complementar
 mnemonic in situations involving NANs are governed by the definition of the
 instruction mnemonic defined in the opcode/instruction column. See also Section
 14.5.1, “FMA Instruction Operand Order and Arithmetic Behavior” in the Intel®
-64 and IA-32 Architectures Software Developer''s Manual, Volume 1.
+64 and IA-32 Architectures Software Developer's Manual, Volume 1.
 
 Operation:
 
@@ -48504,7 +48504,7 @@ opcode/instruction column of the summary table. The behavior of the complementar
 mnemonic in situations involving NANs are governed by the definition of the
 instruction mnemonic defined in the opcode/instruction column. See also Section
 14.5.1, “FMA Instruction Operand Order and Arithmetic Behavior” in the Intel®
-64 and IA-32 Architectures Software Developer''s Manual, Volume 1.
+64 and IA-32 Architectures Software Developer's Manual, Volume 1.
 
 Operation:
 
@@ -48622,7 +48622,7 @@ each instruction mnemonic listed in the opcode/instruction column of the summary
 table. The behavior of the complementary mnemonic in situations involving NANs
 are governed by the definition of the instruction mnemonic defined in the opcode/instruction
 column. See also Section 14.5.1, “FMA Instruction Operand Order and Arithmetic
-Behavior” in the Intel® 64 and IA-32 Architectures Software Developer''s Manual,
+Behavior” in the Intel® 64 and IA-32 Architectures Software Developer's Manual,
 Volume 1.
 
 Operation:
@@ -48708,7 +48708,7 @@ listed in the opcode/instruction column of the summary table. The behavior of
 the complementary mnemonic in situations involving NANs are governed by the
 definition of the instruction mnemonic defined in the opcode/instruction column.
 See also Section 14.5.1, “FMA Instruction Operand Order and Arithmetic Behavior”
-in the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume
+in the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume
 1.
 
 Operation:
@@ -48784,7 +48784,7 @@ for an array of indices relative to the base and a constant scale factor. The
 mask operand (the third operand) specifies the conditional load operation from
 each memory address and the corresponding update of each data element of the
 destination operand (the first operand). Conditionality is specified by the
-most significant bit of each data element of the mask register. If an element''s
+most significant bit of each data element of the mask register. If an element's
 mask bit is not set, the corresponding element of the destination register is
 left unchanged. The width of data element in the destination register and mask
 register are identical. The entire mask register will be set to zero by this
@@ -49013,7 +49013,7 @@ for an array of indices relative to the base and a constant scale factor. The
 mask operand (the third operand) specifies the conditional load operation from
 each memory address and the corresponding update of each data element of the
 destination operand (the first operand). Conditionality is specified by the
-most significant bit of each data element of the mask register. If an element''s
+most significant bit of each data element of the mask register. If an element's
 mask bit is not set, the corresponding element of the destination register is
 left unchanged. The width of data element in the destination register and mask
 register are identical. The entire mask register will be set to zero by this
@@ -49021,7 +49021,7 @@ instruction unless the instruction causes an exception. Using qword indices,
 the instruction conditionally loads up to 2 or 4 single-precision floating-point
 values from the VSIB addressing memory operand, and updates the lower half of
 the destination register. The upper 128 or 256 bits of the destination register
-are zero''ed with qword indices. This instruction can be suspended by an exception
+are zero'ed with qword indices. This instruction can be suspended by an exception
 if at least one element is already gathered (i.e., if the exception
 
 | is triggered by an element other than            | When this happens, the destination If 
@@ -49239,14 +49239,14 @@ relative to the base and a constant scale factor. The mask operand (the third
 operand) specifies the conditional load operation from each memory address and
 the corresponding update of each data element of the destination operand (the
 first operand). Conditionality is specified by the most significant bit of each
-data element of the mask register. If an element''s mask bit is not set, the
+data element of the mask register. If an element's mask bit is not set, the
 corresponding element of the destination register is left unchanged. The width
 of data element in the destination register and mask register are identical.
 The entire mask register will be set to zero by this instruction unless the
 instruction causes an exception. Using qword indices, the instruction conditionally
 loads up to 2 or 4 dword values from the VSIB addressing memory operand, and
 updates the lower half of the destination register. The upper 128 or 256 bits
-of the destination register are zero''ed with qword indices. This instruction
+of the destination register are zero'ed with qword indices. This instruction
 can be suspended by an exception if at least one element is already gathered
 (i.e., if the exception
 
@@ -49466,7 +49466,7 @@ relative to the base and a constant scale factor. The mask operand (the third
 operand) specifies the conditional load operation from each memory address and
 the corresponding update of each data element of the destination operand (the
 first operand). Conditionality is specified by the most significant bit of each
-data element of the mask register. If an element''s mask bit is not set, the
+data element of the mask register. If an element's mask bit is not set, the
 corresponding element of the destination register is left unchanged. The width
 of data element in the destination register and mask register are identical.
 The entire mask register will be set to zero by this instruction unless the
@@ -51304,12 +51304,12 @@ exceptions before proceeding. (FWAIT is an alternate mnemonic for WAIT.)
 This instruction is useful for synchronizing exceptions in critical sections
 of code. Coding a WAIT instruction after a floating-point instruction ensures
 that any unmasked floating-point exceptions the instruction may raise are handled
-before the processor can modify the instruction''s results. See the section titled
+before the processor can modify the instruction's results. See the section titled
 “Floating-Point Exception Synchronization” in Chapter 8 of the Intel® 64 and
-IA-32 Architectures Software Developer''s Manual, Volume 1, for more information
+IA-32 Architectures Software Developer's Manual, Volume 1, for more information
 on using the WAIT/FWAIT instruction.
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 Operation:
 
@@ -51357,7 +51357,7 @@ Instruction Operand Encoding:
 | NP   | NA       | NA       | NA       | NA       
 
 Description:
-Writes back all modified cache lines in the processor''s internal cache to main
+Writes back all modified cache lines in the processor's internal cache to main
 memory and invalidates (flushes) the internal caches. The instruction then issues
 a special-function bus cycle that directs external caches to also write back
 modified data and another bus cycle to indicate that the external caches should
@@ -51371,19 +51371,19 @@ WBINVD to complete will vary due to size and other factors of different cache
 hierarchies. As a consequence, the use of the WBINVD instruction can have an
 impact on logical processor interrupt/event response time. Additional information
 of WBINVD behavior in a cache hierarchy with hierarchical sharing topology can
-be found in Chapter 2 of the Intel® 64 and IA-32 Architectures Software Developer''s
+be found in Chapter 2 of the Intel® 64 and IA-32 Architectures Software Developer's
 Manual, Volume 3A.
 
 The WBINVD instruction is a privileged instruction. When the processor is running
 in protected mode, the CPL of a program or procedure must be 0 to execute this
 instruction. This instruction is also a serializing instruction (see “Serializing
 Instructions” in Chapter 8 of the Intel® 64 and IA-32 Architectures Software
-Developer''s Manual, Volume 3A).
+Developer's Manual, Volume 3A).
 
 In situations where cache coherency with main memory is not a concern, software
 can use the INVD instruction.
 
-This instruction''s operation is the same in non-64-bit modes and 64-bit mode.
+This instruction's operation is the same in non-64-bit modes and 64-bit mode.
 
 
 IA-32 Architecture Compatibility:
@@ -51518,17 +51518,17 @@ software attempts to write to bits in a reserved MSR.
 
 When the WRMSR instruction is used to write to an MTRR, the TLBs are invalidated.
 This includes global entries (see “Translation Lookaside Buffers (TLBs)” in
-Chapter 3 of the Intel® 64 and IA-32 Architectures Software Developer''s Manual,
+Chapter 3 of the Intel® 64 and IA-32 Architectures Software Developer's Manual,
 Volume 3A).
 
 MSRs control functions for testability, execution tracing, performance-monitoring
 and machine check errors. Chapter 35, “Model-Specific Registers (MSRs)”, in
-the Intel® 64 and IA-32 Architectures Software Developer''s Manual, Volume 3C,
+the Intel® 64 and IA-32 Architectures Software Developer's Manual, Volume 3C,
 lists all MSRs that can be written with this instruction and their addresses.
 Note that each processor family has its own set of MSRs.
 
 The WRMSR instruction is a serializing instruction (see “Serializing Instructions”
-in Chapter 8 of the Intel® 64 and IA-32 Architectures Software Developer''s Manual,
+in Chapter 8 of the Intel® 64 and IA-32 Architectures Software Developer's Manual,
 Volume 3A). Note that WRMSR to the IA32_TSC_DEADLINE MSR (MSR index 6E0H) and
 the X2APIC MSRs (MSR indices 802H to 83FH) are not serializing.
 
@@ -51625,7 +51625,7 @@ In these cases, the XRELEASE is recognized without the presence of the LOCK
 prefix.
 
 The lock variables must satisfy the guidelines described in Intel® 64 and IA-32
-Architectures Software Developer''s Manual, Volume 1, Section 15.3.3, for elision
+Architectures Software Developer's Manual, Volume 1, Section 15.3.3, for elision
 to be successful, otherwise an HLE abort may be signaled. If an encoded byte
 sequence that meets XACQUIRE/XRELEASE requirements includes both prefixes, then
 the HLE semantic is determined by the prefix byte that is placed closest to
@@ -51821,7 +51821,7 @@ operand), then loads the sum of the two values into the destination operand.
 The destination operand can be a register or a memory location; the source operand
 is a register.
 
-In 64-bit mode, the instruction''s default operation size is 32 bits. Using a
+In 64-bit mode, the instruction's default operation size is 32 bits. Using a
 REX prefix in the form of REX.R permits access to additional registers (R8-R15).
 Using a REX prefix in the form of REX.W promotes operation to 64 bits. See the
 summary chart at the beginning of this section for encoding data and limits.
@@ -52052,7 +52052,7 @@ Instruction Operand Encoding:
 Description:
 Exchanges the contents of the destination (first) and source (second) operands.
 The operands can be two generalpurpose registers or a register and a memory
-location. If a memory operand is referenced, the processor''s locking protocol
+location. If a memory operand is referenced, the processor's locking protocol
 is automatically implemented for the duration of the exchange operation, regardless
 of the presence or absence of the LOCK prefix or of the value of the IOPL. (See
 the LOCK prefix description in this chapter for more information on the locking
@@ -52060,13 +52060,13 @@ protocol.)
 
 This instruction is useful for implementing semaphores or similar data structures
 for process synchronization. (See “Bus Locking” in Chapter 8 of the Intel® 64
-and IA-32 Architectures Software Developer''s Manual, Volume 3A, for more information
+and IA-32 Architectures Software Developer's Manual, Volume 3A, for more information
 on bus locking.)
 
 The XCHG instruction can also be used instead of the BSWAP instruction for 16-bit
 operands.
 
-In 64-bit mode, the instruction''s default operation size is 32 bits. Using a
+In 64-bit mode, the instruction's default operation size is 32 bits. Using a
 REX prefix in the form of REX.R permits access to additional registers (R8-R15).
 Using a REX prefix in the form of REX.W promotes operation to 64 bits. See the
 summary chart at the beginning of this section for encoding data and limits.
@@ -52230,7 +52230,7 @@ CPUID.(EAX=0DH,ECX=1):EAX.XG1[bit 2] = 1, executing XGETBV with ECX = 1 returns
 in EDX:EAX the logicalAND of XCR0 and the current value of the XINUSE state-component
 bitmap. This allows software to discover the state of the init optimization
 used by XSAVEOPT and XSAVES. See Chapter 13, “Managing State Using the XSAVE
-Feature Set‚” in Intel® 64 and IA-32 Architectures Software Developer''s Manual,
+Feature Set‚” in Intel® 64 and IA-32 Architectures Software Developer's Manual,
 Volume 1.
 
 Use of any other value for ECX results in a general-protection (#GP) exception.
@@ -52314,7 +52314,7 @@ address of the table.
 
 In 64-bit mode, operation is similar to that in legacy or compatibility mode.
 AL is used to specify the table index (the operand size is fixed at 8 bits).
-RBX, however, is used to specify the table''s base address. See the summary chart
+RBX, however, is used to specify the table's base address. See the summary chart
 at the beginning of this section for encoding data and limits.
 
 Operation:
@@ -52651,10 +52651,10 @@ components restored correspond to the bits set in the requested-feature bitmap
 (RFBM), which is the logical-AND of EDX:EAX and XCR0.
 
 The format of the XSAVE area is detailed in Section 13.4, “XSAVE Area,” of Intel®
-64 and IA-32 Architectures Software Developer''s Manual, Volume 1.
+64 and IA-32 Architectures Software Developer's Manual, Volume 1.
 
 Section 13.7, “Operation of XRSTOR,” of Intel® 64 and IA-32 Architectures Software
-Developer''s Manual, Volume 1 provides a detailed description of the operation
+Developer's Manual, Volume 1 provides a detailed description of the operation
 of the XRSTOR instruction. The following items provide a highlevel outline:
 
  - Execution of XRSTOR may take one of two forms: standard and compacted. Bit 63
@@ -52914,10 +52914,10 @@ components restored correspond to the bits set in the requested-feature bitmap
 the IA32_XSS MSR. XRSTORS may be executed only if CPL = 0.
 
 The format of the XSAVE area is detailed in Section 13.4, “XSAVE Area,” of Intel®
-64 and IA-32 Architectures Software Developer''s Manual, Volume 1.
+64 and IA-32 Architectures Software Developer's Manual, Volume 1.
 
 Section 13.11, “Operation of XRSTORS,” of Intel® 64 and IA-32 Architectures
-Software Developer''s Manual, Volume 1 provides a detailed description of the
+Software Developer's Manual, Volume 1 provides a detailed description of the
 operation of the XRSTOR instruction. The following items provide a high-level
 outline:
 
@@ -53121,10 +53121,10 @@ components saved correspond to the bits set in the requested-feature bitmap
 (RFBM), which is the logical-AND of EDX:EAX and XCR0.
 
 The format of the XSAVE area is detailed in Section 13.4, “XSAVE Area,” of Intel®
-64 and IA-32 Architectures Software Developer''s Manual, Volume 1.
+64 and IA-32 Architectures Software Developer's Manual, Volume 1.
 
 Section 13.6, “Operation of XSAVE,” of Intel® 64 and IA-32 Architectures Software
-Developer''s Manual, Volume 1 provides a detailed description of the operation
+Developer's Manual, Volume 1 provides a detailed description of the operation
 of the XSAVE instruction. The following items provide a high-level outline:
 
  - XSAVE saves state component i if and only if RFBM[i] = 1.1
@@ -53281,10 +53281,10 @@ components saved correspond to the bits set in the requested-feature bitmap
 (RFBM), which is the logical-AND of EDX:EAX and XCR0.
 
 The format of the XSAVE area is detailed in Section 13.4, “XSAVE Area,” of Intel®
-64 and IA-32 Architectures Software Developer''s Manual, Volume 1.
+64 and IA-32 Architectures Software Developer's Manual, Volume 1.
 
 Section 13.9, “Operation of XSAVEC,” of Intel® 64 and IA-32 Architectures Software
-Developer''s Manual, Volume 1 provides a detailed description of the operation
+Developer's Manual, Volume 1 provides a detailed description of the operation
 of the XSAVEC instruction. The following items provide a highlevel outline:
 
  - Execution of XSAVEC is similar to that of XSAVE. XSAVEC differs from XSAVE in
@@ -53446,10 +53446,10 @@ components saved correspond to the bits set in the requested-feature bitmap
 (RFBM), which is the logical-AND of EDX:EAX and XCR0.
 
 The format of the XSAVE area is detailed in Section 13.4, “XSAVE Area,” of Intel®
-64 and IA-32 Architectures Software Developer''s Manual, Volume 1.
+64 and IA-32 Architectures Software Developer's Manual, Volume 1.
 
 Section 13.8, “Operation of XSAVEOPT,” of Intel® 64 and IA-32 Architectures
-Software Developer''s Manual, Volume 1 provides a detailed description of the
+Software Developer's Manual, Volume 1 provides a detailed description of the
 operation of the XSAVEOPT instruction. The following items provide a high-level
 outline:
 
@@ -53593,10 +53593,10 @@ components saved correspond to the bits set in the requested-feature bitmap
 MSR. XSAVES may be executed only if CPL = 0.
 
 The format of the XSAVE area is detailed in Section 13.4, “XSAVE Area,” of Intel®
-64 and IA-32 Architectures Software Developer''s Manual, Volume 1.
+64 and IA-32 Architectures Software Developer's Manual, Volume 1.
 
 Section 13.10, “Operation of XSAVES,” of Intel® 64 and IA-32 Architectures Software
-Developer''s Manual, Volume 1 provides a detailed description of the operation
+Developer's Manual, Volume 1 provides a detailed description of the operation
 of the XSAVES instruction. The following items provide a highlevel outline:
 
  - Execution of XSAVES is similar to that of XSAVEC. XSAVES differs from XSAVEC
@@ -53797,7 +53797,7 @@ to clear this bit. In addition, the instruction causes a #GP(0) if an attempt
 is made to set XCR0[2] (AVX state) while clearing XCR0[1] (SSE state); it is
 necessary to set both bits to use AVX instructions; Section 13.3, “Enabling
 the XSAVE Feature Set and XSAVE-Supported Features,” of Intel® 64 and IA-32
-Architectures Software Developer''s Manual, Volume 1.
+Architectures Software Developer's Manual, Volume 1.
 
 Operation:
 
